@@ -22,6 +22,8 @@ package programs;
 
 
 import biologic.FastaFile;
+import biologic.FastqFile;
+import biologic.GenomeFile;
 import biologic.Results;
 import biologic.SOLIDFile;
 import biologic.Text;
@@ -125,6 +127,20 @@ public class loadAllFile extends RunProgram {
                     text.setName(properties.get("inputname"));
                     text.saveToDatabase();
                     properties.put("output_text_id", text.getId());
+                    break;
+            // JG 2015
+            case 5: FastqFile fastqFile=new FastqFile();
+                    fastqFile.setFastqFile(properties.get("inputname"));
+                    fastqFile.setName(properties.get("inputname"));
+                    fastqFile.saveToDatabase();
+                    properties.put("output_text_id", fastqFile.getId());
+                    break;
+            // JG 2015
+            case 6: GenomeFile genomeFile=new GenomeFile();
+                    genomeFile.setGenomeFile(properties.get("inputname"));
+                    genomeFile.setName(properties.get("inputname"));
+                    genomeFile.saveToDatabase();
+                    properties.put("output_text_id", genomeFile.getId());
                     break;
        }
        
