@@ -99,6 +99,8 @@ public class loadAllFile extends RunProgram {
        // 2. FastaFile
        // 3. Results
        // 4. Text
+       // 5. FastqFile
+       // 6. GenomeFile
        switch(type) {
            case 0: TextFile txt=new TextFile();
                     txt.setFile(properties.get("inputname"));
@@ -133,14 +135,14 @@ public class loadAllFile extends RunProgram {
                     fastqFile.setFastqFile(properties.get("inputname"));
                     fastqFile.setName(properties.get("inputname"));
                     fastqFile.saveToDatabase();
-                    properties.put("output_text_id", fastqFile.getId());
+                    properties.put("output_fastqfile_id", fastqFile.getId());
                     break;
             // JG 2015
             case 6: GenomeFile genomeFile=new GenomeFile();
                     genomeFile.setGenomeFile(properties.get("inputname"));
                     genomeFile.setName(properties.get("inputname"));
                     genomeFile.saveToDatabase();
-                    properties.put("output_text_id", genomeFile.getId());
+                    properties.put("output_genomefile_id", genomeFile.getId());
                     break;
        }
        
