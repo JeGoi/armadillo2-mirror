@@ -516,11 +516,9 @@ public class workflow_properties extends Properties implements Comparable {
                 String key=(String)e.nextElement();
                 if (key.equalsIgnoreCase("OutputAll")) {
                     tmp.add("All");
-                } else
-                if (key.startsWith("Output")&&this.get(key).equalsIgnoreCase("TRUE")) {
+                } else if (key.startsWith("Output")&&this.get(key).startsWith("Connector")) {
                     tmp.add(key.substring(6));
-                } else
-                if (key.startsWith("Output")&&this.get(key).startsWith("Connector")) {
+                } else if (key.startsWith("Output")&&this.get(key).equalsIgnoreCase("TRUE")) {
                     tmp.add(key.substring(6));
                 } 
            }       

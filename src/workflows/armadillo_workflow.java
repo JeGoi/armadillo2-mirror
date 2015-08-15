@@ -494,12 +494,14 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             mi.addActionListener((ActionListener) this);
             popupObject.add(mi);
         }
+        
         //--Show Software's ouput log if found
-        if (selection!=null&&selection.getProperties().isSet("output_outputtext_id")&&selection.getProperties().getInt("output_outputtext_id")!=0) {
+        if (selection!=null&&selection.getProperties().isSet("output_outputtext_id") &&
+                selection.getProperties().getInt("output_outputtext_id")!=0
+            ) {
             mi = new MenuItem("Show software output");
             mi.addActionListener((ActionListener) this);
             popupObject.add(mi);
-            
         }
         
         //--DeveloperMode
@@ -536,10 +538,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             mi.addActionListener((ActionListener) this);
             popupObject.add(mi);
         }
-        
-        
         add(popupObject); // add popup menu to applet
-        
     }
     
     /**
@@ -569,17 +568,16 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 //--Not needed for now..
                 //category.equals("Begin")||
                 menu.add(newNode);
-            } else
-                if (rootNode==null) {
-                    workflow_properties newnode_properties=new workflow_properties();
-                    newnode_properties.put("Type",category);
-                    newnode_properties.setName(category);
-                    Menu newRootNode=new Menu(newnode_properties.get("Type"));
-                    newRootNode.add(newNode);
-                    ListCategoryNode.put(category, newRootNode);
-                } else {
-                    rootNode.add(newNode);
-                }
+            } else if (rootNode==null) {
+                workflow_properties newnode_properties=new workflow_properties();
+                newnode_properties.put("Type",category);
+                newnode_properties.setName(category);
+                Menu newRootNode=new Menu(newnode_properties.get("Type"));
+                newRootNode.add(newNode);
+                ListCategoryNode.put(category, newRootNode);
+            } else {
+                rootNode.add(newNode);
+            }
         }
         LinkedList<Menu> list=new LinkedList<Menu>();
         list.addAll(ListCategoryNode.values());
@@ -1469,8 +1467,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 tmp=new workflow_object_output_database(obj,(int)location.getX(), (int)location.getY());
             } else if (obj.get("ObjectType").equals("Variable")) {
                 tmp=new workflow_object_variable(obj,(int)location.getX(), (int)location.getY());
-            } else
-            {
+            } else {
                 //By default a Program...
                 tmp=new workflow_object(obj, (int)location.getX(), (int)location.getY());
             }
@@ -1588,7 +1585,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                         filename.endsWith("sa")||  // JG 2015
                                         filename.endsWith("fq")    // JG 2015
                                         
-                                    ) {
+                                        ) {
                                     StandardInputSequenceJDialog jd=new StandardInputSequenceJDialog(frame, filename,"Import file", "");
                                     jd.setVisible(true);
                                     if (jd.getStatus()==Config.status_done) {
@@ -2872,10 +2869,10 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                         //--Variable
                         //--This is wahat make it not reliable if we run only some object
                         if (obj instanceof workflow_object_variable ){
-                            System.out.println(obj.connection.toString());
+                            //System.out.println(obj.connection.toString());
                             
                             //workflow_object source_object = findInput(obj);
-                            //JG
+                            //JG 2015
                             //Vector<workflow_object> inputs=findInput(obj);
                             //--Array for the numbering of input
                             int connector_next_indice[]={0,0,0,0,0}; // ATTENTION DIRECTLY LINKED TO THE NUMBER OF INPUT
@@ -2915,8 +2912,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                             if (inputs.size()>0) {
                                 for (workflow_object o:inputs) {
                                     String type=o.getProperties().get("outputType").toLowerCase();
-                                    obj.getProperties().put("Output"+o.getProperties().get("outputType"), "True");
                                     obj.getProperties().put("outputType",o.getProperties().get("outputType"));
+                                    obj.getProperties().put("Output"+o.getProperties().get("outputType"), "True");
                                     
 //--Update the output connectors
 //                           obj.updateConnectorType(1,o.getProperties().get("outputType"));
@@ -3115,6 +3112,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
          * Add an object to the work Vector before any aggregator object
          * Note: normally called by createObject() in the main PApplet
          * @param a (workflow_object)
+         * @return
          */
         public boolean add(workflow_object a) {
             //--Create an ID for this objecte
@@ -3157,6 +3155,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
          * @param source
          * @param dest
          * @param desc
+         * @return
          */
         public boolean addConnection(workflow_connector source, workflow_connector dest, String desc) {
             
@@ -3188,7 +3187,10 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 
                 //1. Is it already a object_output or we have conditional object
                 // -> Then we create a connection and add it to the list
-                if ((source.conditional&&dest.conditional)||source.parent instanceof workflow_object_output||source.parent instanceof workflow_object_if) {
+                if ((source.conditional&&dest.conditional) ||
+                        source.parent instanceof workflow_object_output ||
+                        source.parent instanceof workflow_object_if
+                        ) {
                     workflow_connector_edge tmp=new workflow_connector_edge(source, dest,desc);
                     work_connection.add(tmp);
                     //--Test if we have and IfObject
@@ -3239,9 +3241,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
         /**
          * This is the method to limite have just one connector available if it's in propertie with SolelyConnectors = 2,5
-         * 
+         *
          * @by JG 2015
-         * 
+         *
          * @param dest
          * @return true if SolelyConnectors
          */
@@ -3310,9 +3312,11 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             workflow_object source_object=source.parent;
             String source_type=source_object.getProperties().get("outputType");
             if (debug) Config.log("(isCompatible) source_type:"+source_type);
+            
             String source_Object_id=source_object.getProperties().getID();
             int source_id=source_object.getProperties().getOutputID(source_type);
             if (debug) Config.log("(isCompatible) source_type_id:"+source_id);
+            
             for (workflow_object dest_input_object:dest_input_objects) {
                 String dest_type=dest_input_object.getProperties().get("outputType");
                 String dest_Object_id=dest_input_object.getProperties().getID();
@@ -3334,7 +3338,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             //--Test for if, special exception...
             // CASE 4.0 - Aggregator (new)
             if (source.parent.getProperties().get("ObjectType").equals("Output")&&
-                    dest.parent.getProperties().get("ObjectType").equals("OutputDatabase")) {
+                    dest.parent.getProperties().get("ObjectType").equals("OutputDatabase")
+                    ) {
                 for (String type:source.getOutput()) {
                     if (dest.input(type)) {
                         dest.parent.getProperties().put("AggregateObjectID",0);
@@ -3432,9 +3437,23 @@ public class armadillo_workflow extends PApplet implements ActionListener {
          * @return
          */
         public String getCompatibleType(workflow_connector source, workflow_connector dest) {
-            // CASE 1. Source outputALL
-            for (String input:source.getOutput()) {
-                if (dest.input(input)) return input;
+            // Connector with ConnectorX
+            for (String input2:source.getOutput()) {
+                if (dest.inputConnector(input2)){
+                    return input2;
+                }
+            }
+            // Connector with true
+            for (String input2:source.getOutput()) {
+                if (dest.inputTrue(input2)){
+                    return input2;
+                }
+            }
+            // All connector type
+            for (String input2:source.getOutput()) {
+                if (dest.input(input2)){
+                    return input2;
+                }
             }
             return "";
         }
@@ -4166,35 +4185,33 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 fill(200);
                 ellipse(this.x+5, this.y+3, 2,2);
                 
-            } else
-                if (selected&&!destination) {
-                    //displayImage=(PImage)filedata.get("black_dot.png");
-                    //image(displayImage,this.x, this.y);
-                    //BLACK
-                    strokeWeight(0.5f);
-                    stroke(0);
-                    fill(0);
-                    ellipse(x+5, y+5, 7,7);
-                    fill(128);
-                    ellipse(x+5, y+3, 2,2);
-                    
-                } else
-                    if (parent!=null && parent.inside()) {
-                        //RED
-                        strokeWeight(0.5f);
-                        //--shadow
+            } else if (selected&&!destination) {
+                //displayImage=(PImage)filedata.get("black_dot.png");
+                //image(displayImage,this.x, this.y);
+                //BLACK
+                strokeWeight(0.5f);
+                stroke(0);
+                fill(0);
+                ellipse(x+5, y+5, 7,7);
+                fill(128);
+                ellipse(x+5, y+3, 2,2);
+                
+            } else if (parent!=null && parent.inside()) {
+                //RED
+                strokeWeight(0.5f);
+                //--shadow
 //            stroke(170);
 //            fill(170);
 //            ellipse(this.x+4, this.y+4, 7,7);
-                        //--ball
-                        //stroke(color(150,46,44));
-                        stroke(color(210,82,72));
-                        fill(color(210,82,72));
-                        ellipse(this.x+5, this.y+5, 7,7);
-                        stroke(color(210,82,72));
-                        fill(200);
-                        ellipse(this.x+4, this.y+3, 2,2);
-                    }
+                //--ball
+                //stroke(color(150,46,44));
+                stroke(color(210,82,72));
+                fill(color(210,82,72));
+                ellipse(this.x+5, this.y+5, 7,7);
+                stroke(color(210,82,72));
+                fill(200);
+                ellipse(this.x+4, this.y+3, 2,2);
+            }
         }
         
         public boolean inside() {
@@ -4219,21 +4236,75 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             if (outputType!=null&&outputType.equals("Outgroup")&&type.equals("Sequence")) return true;
             if (outputType!=null&&outputType.equals("Matrix")&&type.equals("Phylip_Distance")) return true;
             
-            String keyConnector="Connector"+number;
-            //if (debug) Config.log("keyConnector:"+keyConnector);
             String value=parent.properties.get("Input"+type);
             if (debug) Config.log("value:"+value);
+
+            String keyConnector="Connector"+number;
+            //if (debug) Config.log("keyConnector:"+keyConnector);
+            
             //--Added true in lowercase - Septembre 2011
-            if (value.equalsIgnoreCase("True")||value.equalsIgnoreCase("true")) return true;
-            if (value.equals(keyConnector)) return true;
+            if (value.equalsIgnoreCase("TRUE")||value.equals(keyConnector)) {
+                return true;
+            }
             return false;
         }
         
+        public boolean inputTrue(String type) {
+            if (debug) Config.log("this.output:" + this.output);
+            if (this.output) return false;
+            if (debug) Config.log("isInputAll" + isInputAll());
+            if (isInputAll()) return true;
+            if (debug)System.out.println("outputType:"+outputType);
+            if (outputType!=null&&outputType.equals(type)) return true;
+            //--Exceptions
+            if (outputType!=null&&outputType.equals("Outgroup")&&type.equals("Sequence")) return true;
+            if (outputType!=null&&outputType.equals("Matrix")&&type.equals("Phylip_Distance")) return true;
+            
+            String value=parent.properties.get("Input"+type);
+            if (debug) Config.log("value:"+value);
+
+            String keyConnector="Connector"+number;
+            //if (debug) Config.log("keyConnector:"+keyConnector);
+            
+            //--Added true in lowercase - Septembre 2011
+            if (value.equalsIgnoreCase("True")) {
+                return true;
+            }
+            return false;
+        }
+        
+        public boolean inputConnector(String type) {
+            if (debug) Config.log("this.output:" + this.output);
+            if (this.output) return false;
+            if (debug) Config.log("isInputAll" + isInputAll());
+            if (isInputAll()) return true;
+            if (debug)System.out.println("outputType:"+outputType);
+            if (outputType!=null&&outputType.equals(type)) return true;
+            //--Exceptions
+            if (outputType!=null&&outputType.equals("Outgroup")&&type.equals("Sequence")) return true;
+            if (outputType!=null&&outputType.equals("Matrix")&&type.equals("Phylip_Distance")) return true;
+            
+            String value=parent.properties.get("Input"+type);
+            if (debug) Config.log("value:"+value);
+
+            String keyConnector="Connector"+number;
+            //if (debug) Config.log("keyConnector:"+keyConnector);
+            
+            if (value.equals(keyConnector)) {
+                System.out.println(value+" => "+keyConnector);
+                return true;
+            }
+            return false;
+        }
+
         public Vector<String> getOutput() {
+            
             Vector<String>tmp=new Vector<String>();
+            
             //--Case 1. Not an output... return empty array
             if (!isOutput()||isInputAll()) return tmp;
-            String keyConnector="Connector"+number;
+            
+            
             //--Case 2. OutputAll ->Return Everything
             if (isOutputAll()) {
                 for (String S:workflow_properties_dictionnary.InputOutputType) tmp.add("Output"+S);
@@ -4251,6 +4322,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             }
             
             //--DEprecated
+            //String keyConnector="Connector"+number;
+            
 //         for (String key:workflow_properties_dictionnary.InputOutputType) {
 //             String value=parent.properties.get("Output"+key);
 //             boolean valueb=parent.properties.getBoolean("Output"+key);
@@ -4264,9 +4337,10 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
         public Vector<String> getInput() {
             Vector<String>tmp=new Vector<String>();
+            
             //--Case 1. Not an output... return empty array
             if (isOutput()) return tmp;
-            String keyConnector="Connector"+number;
+            
             //--Case 2. OutputAll ->Return Everything
             if (isInputAll()) {
                 for (String S:workflow_properties_dictionnary.InputOutputType) tmp.add("Input"+S);
@@ -4278,13 +4352,14 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 return tmp;
             }
             
+            String keyConnector="Connector"+number;
             for (String key:workflow_properties_dictionnary.InputOutputType) {
                 String value=parent.properties.get("Input"+key);
-                if (value.equals(keyConnector)||value.equals("True")) {
+                if (value.equals(keyConnector)||value.equalsIgnoreCase("True")) {
                     tmp.add(key);
+                    return tmp;
                 }
             }
-            
             return tmp;
         }
         
@@ -4365,22 +4440,20 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                     case DOWNRIGHT:  displayImage=(PImage)filedata.get("arrow_down_red.png"); break;
                 }
                 image(displayImage,this.x, this.y);
-            } else
-                if (selected) {
-                    switch (mode) {
-                        case UPRIGHT   : displayImage=(PImage)filedata.get("arrow_left_red.png"); break;
-                        case DOWNRIGHT:  displayImage=(PImage)filedata.get("arrow_down_red.png"); break;
-                    }
-                    image(displayImage,this.x, this.y);
-                } else
-                    if (parent.inside()) {
-                        switch (mode) {
-                            case UPRIGHT   : displayImage=(PImage)filedata.get("arrow_left_blue.png"); break;
-                            case DOWNRIGHT:  displayImage=(PImage)filedata.get("arrow_down_blue.png"); break;
-                        }
-                        image(displayImage,this.x, this.y);
-                    }
-            
+            } else if (selected) {
+                switch (mode) {
+                    case UPRIGHT   : displayImage=(PImage)filedata.get("arrow_left_red.png"); break;
+                    case DOWNRIGHT:  displayImage=(PImage)filedata.get("arrow_down_red.png"); break;
+                }
+                image(displayImage,this.x, this.y);
+            } else if (parent.inside()) {
+                switch (mode) {
+                    case UPRIGHT   : displayImage=(PImage)filedata.get("arrow_left_blue.png"); break;
+                    case DOWNRIGHT:  displayImage=(PImage)filedata.get("arrow_down_blue.png"); break;
+                }
+                image(displayImage,this.x, this.y);
+            }
+
         }
         
         public boolean inside() {
@@ -5082,8 +5155,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
 ////////////////////////////////////////////////////////////////////////////////
 /// Draw feature
         
-        // JG
-        // ICI aussi !
+        // JG 2015
         public void drawFeature(){
             if (properties.get("outputType").equals("Workflows")) { //workflow in a workflow, Not Implemented
                 drawWorkflow();
@@ -5484,9 +5556,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
         /**
          * Special draw if we have a workflow object
-         * 
-         * NOT SET FOR more than 3 inputs
-         * 
+         *
+         * NOT SET FOR more than 3 inputs // JG 2015
+         *
          */
         public void drawWorkflow() {
             //--Detect if we are inside the object
