@@ -2597,6 +2597,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         // TODO add your handling code here:
         File dir = new File(IDG_r_text.getText());
         setIDGCombobox(dir);
+        IDG_selected_ComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_IDG_Update_buttonActionPerformed
 
     private void setIDGCombobox (File dir) {
@@ -2622,7 +2623,11 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
 
     private void IDG_selected_ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_selected_ComboBoxActionPerformed
         // TODO add your handling code here:
-        properties.put(IDG_selected_ComboBox.getName(),IDG_selected_ComboBox.getSelectedIndex());        
+        if (IDG_selected_ComboBox.getItemCount()>0) {
+            int i    = IDG_selected_ComboBox.getSelectedIndex();
+            String s = IDG_selected_ComboBox.getItemAt(i).toString();
+            properties.put(IDG_selected_ComboBox.getName(),s);
+        }
     }//GEN-LAST:event_IDG_selected_ComboBoxActionPerformed
 
     private void M_IDG_workflow_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_IDG_workflow_buttonActionPerformed
