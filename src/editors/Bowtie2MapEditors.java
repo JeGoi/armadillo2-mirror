@@ -1623,7 +1623,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
-        IDG_r_text.setText("./indexed_genomes/bowtie2/");
         IDG_r_text.setName("IDG_r_text"); // NOI18N
         IDG_r_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

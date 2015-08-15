@@ -9,12 +9,9 @@
 
 package programs;
 
-import biologic.Alignment;
-import biologic.FastaFile;
+import biologic.FastqFile;
 import biologic.GenomeFile;
 import biologic.Results;
-import biologic.Sequence;
-import biologic.Text;
 import biologic.SamFile;
 import configuration.Util;
 import java.io.File;
@@ -40,7 +37,7 @@ public class Bowtie2Map extends RunProgram {
     private String fastqFile1    ="";
     private String fastqFile2    ="";
     private String genomeFile    ="";
-    private String outfile       ="outfile";
+    private String outfile       ="";
     
     //private String[] optionsTab  = {"bowtie2IndexGenome_button","bowtie2Inspect_button","bowtie2Mapping_button"};
     private String[] mappingSorPTab = {"M_PE_I_value","M_PE_X_value","M_PE_dovetail_box","M_PE_ff_button","M_PE_fr_button","M_PE_noContain_box","M_PE_noDiscordant_box","M_PE_noMixed_box","M_PE_noOverlap_box","M_PE_rf_button","M_PE_un_box"};
@@ -68,17 +65,18 @@ public class Bowtie2Map extends RunProgram {
     @Override
     public boolean init_checkRequirements() {
         if (!properties.isSet("M_IDG_directory_button")) properties.put("M_IDG_workflow_button","true");
-        Vector<Integer>Fasta1    = properties.getInputID("FastqFile",PortInputUP);
-        Vector<Integer>Fasta2    = properties.getInputID("FastqFile",PortInputDOWN);
+        
+        Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
+        Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         boolean b1 = properties.isSet("M_IDG_workflow_button");
         boolean b2 = properties.isSet("M_IDG_directory_button");
         boolean b3 = properties.get("IDG_selected_ComboBox").equals("Choose_an_indexed_Genome");
         
-        if (Fasta1.isEmpty()) {
+        if (Fastq1.isEmpty()) {
             setStatus(status_BadRequirements,"No sequence found.");
             return false;
-        } else if (Fasta2.isEmpty() && properties.isSet("M_PE_button")) {
+        } else if (Fastq2.isEmpty() && properties.isSet("M_PE_button")) {
             setStatus(status_BadRequirements,"Need Fasts Paired-end.");
             return false;
         } else if ( GenomeRef.isEmpty() && b1) {
@@ -101,21 +99,22 @@ public class Bowtie2Map extends RunProgram {
     @Override
     public String[] init_createCommandLine() {
         
-        // In case program is started without edition
-        if (!properties.isSet("Options")) properties.put("Options","M_default_button");
-        
         // Inputs
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
+        // In case program is started without edition
+        if (!properties.isSet("Options")) properties.put("Options","M_default_button");
+        if (!properties.isSet("M_PE_button")) properties.put("M_SE_button","true");
         if (!Fastq2.isEmpty()){
             properties.put("M_PE_button","true");
             properties.remove("M_SE_button");
         }
-
+        
+        // Fastq1 and outfile
         for (int ids:Fastq1) {
-            FastaFile fas =new FastaFile(ids);
+            FastqFile fas =new FastqFile(ids);
             if (fastqFile1.equals("")) {
                 fastqFile1 = fas.getName();
                 int pos1 = fastqFile1.lastIndexOf("/");
@@ -130,8 +129,9 @@ public class Bowtie2Map extends RunProgram {
             }
         }
         
+        // Fastq2 File
         for (int ids:Fastq2) {
-            FastaFile fas =new FastaFile(ids);
+            FastqFile fas =new FastqFile(ids);
             if (fastqFile2.equals("")){
                 fastqFile2 = fas.getName();
             } else {
@@ -140,6 +140,7 @@ public class Bowtie2Map extends RunProgram {
             }
         }
         
+        // Genome File
         if (!GenomeRef.isEmpty()){
             for (int ids:GenomeRef) {
                 GenomeFile gen = new GenomeFile(ids);
@@ -148,7 +149,9 @@ public class Bowtie2Map extends RunProgram {
                 genomeFile = genomeFile.replaceAll("\\.rev$","");
             }
         } else {
-            genomeFile = properties.get("IDG_r_text")+File.separator+properties.get("IDG_selected_ComboBox");
+            String genomeChoosed = properties.get("IDG_selected_ComboBox");
+            String genomePath    = properties.get("IDG_r_text");
+            genomeFile = genomePath+File.separator+genomeChoosed;
         }
         
         // Programme et options
@@ -167,13 +170,21 @@ public class Bowtie2Map extends RunProgram {
         com[3]=preset;
         com[4]=options;
         if (!genomeFile.equals("")) com[5]="-x \""+genomeFile+"\"";
-        if (!fastqFile1.equals("")) com[6]="\""+fastqFile1+"\"";
-        if (!fastqFile2.equals("")) com[7]="\""+fastqFile2+"\"";
+        if (!fastqFile1.equals("") && fastqFile2.equals("")) {
+            com[6]="\""+fastqFile1+"\"";
+        }
+        if (!fastqFile1.equals("") && !fastqFile2.equals("")) {
+            com[6]="-1 \""+fastqFile1+"\"";
+            com[7]="-2 \""+fastqFile2+"\"";
+        }
         if (!outfile.equals(""))    com[8]="-S \""+outfile+"\"";
         
         return com;
     }
     
+    /*
+    * Function to return options choosed
+    */
     private String optionsChoosed(String optionsChoosed){
         String t  = optionsChoosed;
         
@@ -190,6 +201,9 @@ public class Bowtie2Map extends RunProgram {
         return s;
     }
     
+    /*
+    * Function to find options choosed use the propertie name to create the command
+    */
     private String findOptions(String[] tab) {
         String s = "";
         String t = "";
@@ -199,17 +213,14 @@ public class Bowtie2Map extends RunProgram {
                 t = t.replaceAll("_[a-z]*$","");
                 t = t.replaceAll("([A-Z]*_)*","");
                 t = t.replaceAll("([A-Z])","$1");
-                t = t.toLowerCase();
                 if (t.length()>1) {
+                    t = t.toLowerCase();
                     t = " --"+t;
                 } else {
                     t = " -"+t;
                 }
-                //System.out.println("t est "+t);
                 if (tab[i].contains("_value") || tab[i].contains("_text")) {
-                    //System.out.println("t2 est "+t);
                     t = t+" "+properties.get(tab[i]);
-                    //System.out.println("tab[i] est "+tab[i]);
                 }
                 s = s+" "+t;
             }
@@ -217,6 +228,9 @@ public class Bowtie2Map extends RunProgram {
         return s;
     }
     
+    /*
+    * Output Parsing
+    */
     public void post_parseOutput() {
         File f   = new File(outfile);
         String s = f.getAbsolutePath();

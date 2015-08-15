@@ -189,7 +189,7 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
 
         jLabel5.setText("Output type to generate");
 
-        type_jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TextFile", "SOLIDFile", "FastaFile", "Results", "Text", "FastqFile", "GenomeFile" }));
+        type_jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TextFile", "SOLIDFile", "FastaFile", "Results", "Text", "GenomeFile", "FastqFile" }));
         type_jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 type_jComboBox1ActionPerformed(evt);

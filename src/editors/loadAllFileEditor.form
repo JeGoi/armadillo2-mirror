@@ -274,8 +274,8 @@
                         <StringItem index="2" value="FastaFile"/>
                         <StringItem index="3" value="Results"/>
                         <StringItem index="4" value="Text"/>
-                        <StringItem index="5" value="FastqFile"/>
-                        <StringItem index="6" value="GenomeFile"/>
+                        <StringItem index="5" value="GenomeFile"/>
+                        <StringItem index="6" value="FastqFile"/>
                       </StringArray>
                     </Property>
                   </Properties>

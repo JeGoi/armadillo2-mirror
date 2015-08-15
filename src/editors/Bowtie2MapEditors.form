@@ -2169,7 +2169,6 @@
                         </Component>
                         <Component class="javax.swing.JTextField" name="IDG_r_text">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="./indexed_genomes/bowtie2/"/>
                             <Property name="name" type="java.lang.String" value="IDG_r_text" noResource="true"/>
                           </Properties>
                           <Events>
