@@ -4232,27 +4232,11 @@ public class armadillo_workflow extends PApplet implements ActionListener {
          * @return can this connector accept the specified input
          */
         public boolean input(String type) {
-            if (debug) Config.log("this.output:" + this.output);
-            if (this.output) return false;
-            if (debug) Config.log("isInputAll" + isInputAll());
-            if (isInputAll()) return true;
-            if (debug)System.out.println("outputType:"+outputType);
-            if (outputType!=null&&outputType.equals(type)) return true;
-            //--Exceptions
-            if (outputType!=null&&outputType.equals("Outgroup")&&type.equals("Sequence")) return true;
-            if (outputType!=null&&outputType.equals("Matrix")&&type.equals("Phylip_Distance")) return true;
-            
-            String value=parent.properties.get("Input"+type);
-            if (debug) Config.log("value:"+value);
-
-            String keyConnector="Connector"+number;
-            //if (debug) Config.log("keyConnector:"+keyConnector);
-            
-            //--Added true in lowercase - Septembre 2011
-            if (value.equalsIgnoreCase("TRUE")||value.equals(keyConnector)) {
-                return true;
-            }
-            return false;
+            boolean b = false;
+            if (inputSpecial(type)) b = true;
+            if (inputConnectorX(type)) b = true;
+            if (inputTrue(type)) b = true;
+            return b;
         }
         
         /**
