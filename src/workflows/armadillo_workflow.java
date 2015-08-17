@@ -3437,9 +3437,15 @@ public class armadillo_workflow extends PApplet implements ActionListener {
          * @return
          */
         public String getCompatibleType(workflow_connector source, workflow_connector dest) {
+            // Connector Specials
+            for (String input2:source.getOutput()) {
+                if (dest.inputSpecial(input2)){
+                    return input2;
+                }
+            }
             // Connector with ConnectorX
             for (String input2:source.getOutput()) {
-                if (dest.inputConnector(input2)){
+                if (dest.inputConnectorX(input2)){
                     return input2;
                 }
             }
@@ -3449,7 +3455,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                     return input2;
                 }
             }
-            // All connector type
+            // All connector types
             for (String input2:source.getOutput()) {
                 if (dest.input(input2)){
                     return input2;
@@ -4221,7 +4227,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
         
         /**
-         *
+         * Input with all type of input (true or connectorX)
          * @param type
          * @return can this connector accept the specified input
          */
@@ -4249,7 +4255,13 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             return false;
         }
         
-        public boolean inputTrue(String type) {
+        /**
+         * Input with specific type of input (special)
+         * @param type
+         * @return can this connector accept the specified input
+         */
+        // JG 2015 Input set with true
+        private boolean inputSpecial(String type) {
             if (debug) Config.log("this.output:" + this.output);
             if (this.output) return false;
             if (debug) Config.log("isInputAll" + isInputAll());
@@ -4259,39 +4271,38 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             //--Exceptions
             if (outputType!=null&&outputType.equals("Outgroup")&&type.equals("Sequence")) return true;
             if (outputType!=null&&outputType.equals("Matrix")&&type.equals("Phylip_Distance")) return true;
-            
+            return false;
+        }
+        
+        /**
+         * Input with specific type of input (connectorX)
+         * @param type
+         * @return can this connector accept the specified input
+         */
+        // JG 2015 Input set with connectorX
+        private boolean inputConnectorX(String type) {
             String value=parent.properties.get("Input"+type);
             if (debug) Config.log("value:"+value);
 
             String keyConnector="Connector"+number;
-            //if (debug) Config.log("keyConnector:"+keyConnector);
-            
-            //--Added true in lowercase - Septembre 2011
-            if (value.equalsIgnoreCase("True")) {
+            if (value.equals(keyConnector)) {
                 return true;
             }
             return false;
         }
-        
-        public boolean inputConnector(String type) {
-            if (debug) Config.log("this.output:" + this.output);
-            if (this.output) return false;
-            if (debug) Config.log("isInputAll" + isInputAll());
-            if (isInputAll()) return true;
-            if (debug)System.out.println("outputType:"+outputType);
-            if (outputType!=null&&outputType.equals(type)) return true;
-            //--Exceptions
-            if (outputType!=null&&outputType.equals("Outgroup")&&type.equals("Sequence")) return true;
-            if (outputType!=null&&outputType.equals("Matrix")&&type.equals("Phylip_Distance")) return true;
-            
+
+        /**
+         * Input with specific type of input (true)
+         * @param type
+         * @return can this connector accept the specified input
+         */
+        // JG 2015 Input set with true
+        private boolean inputTrue(String type) {
             String value=parent.properties.get("Input"+type);
             if (debug) Config.log("value:"+value);
 
-            String keyConnector="Connector"+number;
-            //if (debug) Config.log("keyConnector:"+keyConnector);
-            
-            if (value.equals(keyConnector)) {
-                System.out.println(value+" => "+keyConnector);
+            //--Added true in lowercase - Septembre 2011
+            if (value.equalsIgnoreCase("TRUE")) {
                 return true;
             }
             return false;
