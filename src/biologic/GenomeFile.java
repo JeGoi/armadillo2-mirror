@@ -15,9 +15,9 @@ import java.io.Serializable;
  */
 public class GenomeFile extends Text implements Serializable{
     
-    public GenomeFile() {super();}
-    public GenomeFile(int id) {super(id);}
-    public GenomeFile(String filename) {super(filename);}
+    public GenomeFile()                 {super();}
+    public GenomeFile(int id)           {super(id);}
+    public GenomeFile(String filename)  {super(filename);}
 
     public void setGenomeFile(String filename) {
         this.setFilename(filename);

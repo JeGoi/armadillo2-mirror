@@ -1904,20 +1904,20 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }; //End SwingWorker definition
         
         loadSwingWorker2.addPropertyChangeListener(
-                new PropertyChangeListener() {
-                    public  void propertyChange(PropertyChangeEvent evt) {
-                        if ("progress".equals(evt.getPropertyName())) {
-                            SwingWorker o = (SwingWorker)evt.getSource();
-                            if (!o.isDone()) {
-                                int progress=(Integer)evt.getNewValue();
-                                loading.setProgress(progress);
-                            }
-                            else if (o.isDone()&&!o.isCancelled()) {
-                                //Handled in done() fucntion in SwingWorker
-                            }
-                        }//End progress update
-                    } //End populateNetworkPropertyChange
-                });
+            new PropertyChangeListener() {
+                public  void propertyChange(PropertyChangeEvent evt) {
+                    if ("progress".equals(evt.getPropertyName())) {
+                        SwingWorker o = (SwingWorker)evt.getSource();
+                        if (!o.isDone()) {
+                            int progress=(Integer)evt.getNewValue();
+                            loading.setProgress(progress);
+                        }
+                        else if (o.isDone()&&!o.isCancelled()) {
+                            //Handled in done() fucntion in SwingWorker
+                        }
+                    }//End progress update
+                } //End populateNetworkPropertyChange
+            });
         //Finally. Show a load dialog :: Warning Work-In-Progress
         loading=new InformationJDialog(frame, false, loadSwingWorker2,"");
         loading.setProgress(0); //Put 0% as the start progress
@@ -4607,22 +4607,19 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 bezier(x1,y1,x1+50,y1,x2-50,y2,x2,y2);
                 px = bezierPoint(x1,x1+50, x2-50, x2, 0.90f);
                 py = bezierPoint(y1, y1, y2, y2, 0.90f);
-            } else
-                if (y2>y1) {
-                    bezier(x1,y1,x1,y1+50,x2,y2-50,x2,y2);
-                    px = bezierPoint(x1,x1, x2, x2, 0.90f);
-                    py = bezierPoint(y1, y1+50, y2-50, y2, 0.90f);
-                } else
-                    if (x1>x2) {
-                        bezier(x1,y1,x1-50,y1,x2+50,y2,x2,y2);
-                        px = bezierPoint(x1,x1-50, x2+50, x2, 0.90f);
-                        py = bezierPoint(y1, y1, y2, y2, 0.90f);
-                    } else
-                        if (y1>y2) {
-                            bezier(x1,y1,x1,y1-50,x2,y2+50,x2,y2);
-                            px = bezierPoint(x1,x1, x2, x2, 0.90f);
-                            py = bezierPoint(y1, y1-50, y2-50, y2, 0.90f);
-                        }
+            } else if (y2>y1) {
+                bezier(x1,y1,x1,y1+50,x2,y2-50,x2,y2);
+                px = bezierPoint(x1,x1, x2, x2, 0.90f);
+                py = bezierPoint(y1, y1+50, y2-50, y2, 0.90f);
+            } else if (x1>x2) {
+                bezier(x1,y1,x1-50,y1,x2+50,y2,x2,y2);
+                px = bezierPoint(x1,x1-50, x2+50, x2, 0.90f);
+                py = bezierPoint(y1, y1, y2, y2, 0.90f);
+            } else  if (y1>y2) {
+                bezier(x1,y1,x1,y1-50,x2,y2+50,x2,y2);
+                px = bezierPoint(x1,x1, x2, x2, 0.90f);
+                py = bezierPoint(y1, y1-50, y2-50, y2, 0.90f);
+            }
             if (!   isNotDeletabled()) {
                 float angle=atan2(y2-py,x2-px);
                 //--Debug draw control point and vector
@@ -4673,22 +4670,19 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 bufConnectorEdge.bezier(x1,y1,x1+50,y1,x2-50,y2,x2,y2);
                 px = bezierPoint(x1,x1+50, x2-50, x2, 0.90f);
                 py = bezierPoint(y1, y1, y2, y2, 0.90f);
-            } else
-                if (y2>y1) {
-                    bufConnectorEdge.bezier(x1,y1,x1,y1+50,x2,y2-50,x2,y2);
-                    px = bezierPoint(x1,x1, x2, x2, 0.90f);
-                    py = bezierPoint(y1, y1+50, y2-50, y2, 0.90f);
-                } else
-                    if (x1>x2) {
-                        bufConnectorEdge.bezier(x1,y1,x1-50,y1,x2+50,y2,x2,y2);
-                        px = bezierPoint(x1,x1-50, x2+50, x2, 0.90f);
-                        py = bezierPoint(y1, y1, y2, y2, 0.90f);
-                    } else
-                        if (y1>y2) {
-                            bufConnectorEdge.bezier(x1,y1,x1,y1-50,x2,y2+50,x2,y2);
-                            px = bezierPoint(x1,x1, x2, x2, 0.90f);
-                            py = bezierPoint(y1, y1-50, y2-50, y2, 0.90f);
-                        }
+            } else if (y2>y1) {
+                bufConnectorEdge.bezier(x1,y1,x1,y1+50,x2,y2-50,x2,y2);
+                px = bezierPoint(x1,x1, x2, x2, 0.90f);
+                py = bezierPoint(y1, y1+50, y2-50, y2, 0.90f);
+            } else if (x1>x2) {
+                bufConnectorEdge.bezier(x1,y1,x1-50,y1,x2+50,y2,x2,y2);
+                px = bezierPoint(x1,x1-50, x2+50, x2, 0.90f);
+                py = bezierPoint(y1, y1, y2, y2, 0.90f);
+            } else if (y1>y2) {
+                bufConnectorEdge.bezier(x1,y1,x1,y1-50,x2,y2+50,x2,y2);
+                px = bezierPoint(x1,x1, x2, x2, 0.90f);
+                py = bezierPoint(y1, y1-50, y2-50, y2, 0.90f);
+            }
             float angle=atan2(y2-py,x2-px);
             bufConnectorEdge.fill(hashcode);   //fill color
             bufConnectorEdge.strokeWeight(5.0f);
@@ -4719,22 +4713,19 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 bezier(x1,y1,x1+50,y1,x2-50,y2,x2,y2);
                 px = bezierPoint(x1,x1+50, x2-50, x2, 0.90f);
                 py = bezierPoint(y1, y1, y2, y2, 0.90f);
-            } else
-                if (y2>y1) {
-                    bezier(x1,y1,x1,y1+50,x2,y2-50,x2,y2);
-                    px = bezierPoint(x1,x1, x2, x2, 0.90f);
-                    py = bezierPoint(y1, y1+50, y2-50, y2, 0.90f);
-                } else
-                    if (x1>x2) {
-                        bezier(x1,y1,x1-50,y1,x2+50,y2,x2,y2);
-                        px = bezierPoint(x1,x1-50, x2+50, x2, 0.90f);
-                        py = bezierPoint(y1, y1, y2, y2, 0.90f);
-                    } else
-                        if (y1>y2) {
-                            bezier(x1,y1,x1,y1-50,x2,y2+50,x2,y2);
-                            px = bezierPoint(x1,x1, x2, x2, 0.90f);
-                            py = bezierPoint(y1, y1-50, y2-50, y2, 0.90f);
-                        }
+            } else if (y2>y1) {
+                bezier(x1,y1,x1,y1+50,x2,y2-50,x2,y2);
+                px = bezierPoint(x1,x1, x2, x2, 0.90f);
+                py = bezierPoint(y1, y1+50, y2-50, y2, 0.90f);
+            } else if (x1>x2) {
+                bezier(x1,y1,x1-50,y1,x2+50,y2,x2,y2);
+                px = bezierPoint(x1,x1-50, x2+50, x2, 0.90f);
+                py = bezierPoint(y1, y1, y2, y2, 0.90f);
+            } else if (y1>y2) {
+                bezier(x1,y1,x1,y1-50,x2,y2+50,x2,y2);
+                px = bezierPoint(x1,x1, x2, x2, 0.90f);
+                py = bezierPoint(y1, y1-50, y2-50, y2, 0.90f);
+            }
             float angle=atan2(y2-py,x2-px);
             fill(fillColor);   //fill color
             pushMatrix();
@@ -5495,7 +5486,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 }
                 textAlign(CENTER);
                 textFont(smallfont);
-                if (status.length()>0) text(status,this.x, this.y+79);
+                if (status.length()>0 && nbInput<=2) text(status,this.x, this.y+79);
+                if (status.length()>0 && nbInput>2) text(status,this.x, this.y+99);
                 
                 //if (test>100) test=0;
                 
