@@ -27,12 +27,12 @@ import workflows.workflow_properties;
  * @date Aout 2015
  *
  */
-public class Bowtie2Inspect extends RunProgram{
+public class Bowtie2Inspect extends RunProgram {
     
     private String genomeFile ="";
     private String outputFile ="";
     
-    private String[] inspectTab = {"I_a_box","I_n_box","I_s_box","I_v_box"};
+    private String[] inspectTab = {"BOWTIE2INSPECT_I_a_box","BOWTIE2INSPECT_I_n_box","BOWTIE2INSPECT_I_s_box","BOWTIE2INSPECT_I_v_box"};
     
     public Bowtie2Inspect(workflow_properties properties) {
         this.properties=properties;
@@ -41,7 +41,7 @@ public class Bowtie2Inspect extends RunProgram{
     
     @Override
     public boolean init_checkRequirements() {
-        Vector<Integer>Genome    = properties.getInputID("Genome",PortInputDOWN);
+        Vector<Integer>Genome    = properties.getInputID("GenomeFile",PortInputDOWN);
         
         if (Genome.isEmpty()) {
             setStatus(status_BadRequirements,"No Genome found.");
@@ -50,10 +50,11 @@ public class Bowtie2Inspect extends RunProgram{
         return true;
     }
     
+    @Override
     public String[] init_createCommandLine() {
         
         // Inputs
-        Vector<Integer>GenomeRef = properties.getInputID("Genome",PortInputDOWN);
+        Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
         for (int ids:GenomeRef) {
@@ -64,7 +65,7 @@ public class Bowtie2Inspect extends RunProgram{
         }
         
         // Programme et options
-        if (properties.get("I_AO_button").equals("true")) {
+        if (properties.get("BOWTIE2INSPECT_I_AO_button").equals("true")) {
             optionsChoosed = findOptions(inspectTab);
         }
         
@@ -80,57 +81,48 @@ public class Bowtie2Inspect extends RunProgram{
     }
     
     
-    private String findOptions(String[] tab) {
-        String s = ""; // Final string
-        String t = ""; // Box type or option
-        String v = ""; // Box value if set
-        for ( int i = 0 ; i < tab.length ; i++ ){
-            if (properties.isSet(tab[i]) &&
-                properties.get(tab[i]).equals("true")
-                ) {
-                t = tab[i];
-                t = t.replaceAll("_[a-z]*$","");
-                t = t.replaceAll("([A-Z]*_)*","");
-                t = t.replaceAll("([A-Z])","$1");
-                t = t.toLowerCase();
-                if (t.length()>1) {
-                    t = " --"+t;
-                } else {
-                    t = " -"+t;
+        private String findOptions(String[] tab) {
+            String s = ""; // Final string
+            String t = ""; // Box type or option
+            String v = ""; // Box value if set
+            for ( int i = 0 ; i < tab.length ; i++ ){
+                if (properties.isSet(tab[i]) &&
+                    properties.get(tab[i]).equals("true")
+                    ) {
+                    t = tab[i];
+                    t = t.replaceAll("_[a-z]*$","");
+                    t = t.replaceAll("([A-Z]*_)*","");
+                    t = t.replaceAll("([A-Z])","$1");
+                    t = t.toLowerCase();
+                    if (t.length()>1) {
+                        t = " --"+t;
+                    } else {
+                        t = " -"+t;
+                    }
+
+                    v = tab[i];
+                    v = v.replaceAll("_[a-z]*$","_value");
+                    if (properties.isSet(v)){
+                        t += " "+properties.get(v);
+                    }
+
+                    s += t;
                 }
-                
-                v = tab[i];
-                v = v.replaceAll("_[a-z]*$","_value");
-                if (properties.isSet(v)){
-                    t += " "+properties.get(v);
-                }
-                
-                s += t;
             }
+            return s;
         }
-        return s;
-    }
     
+    /*
+    * Output Parsing
+    */
+    @Override
     public void post_parseOutput() {
-        
-        Text output=new Text();
-        output.loadFromFile("outfile");
-        output.setName("Bowtie inspect ("+Util.returnCurrentDateAndTime()+")");
-        output.setNote("Created on "+Util.returnCurrentDateAndTime());
-        output.saveToDatabase();
-        properties.put("output_alignment_id", output.getId());
-        this.addOutput(output);
-        
-        Text lk=new Text(output+"_bowti2_lk.txt");
-        
-        Results text=new Results(output+"_bowti2_stats.txt");
-        text.setText(text.getText()+"\n"+lk.getText());
+        String txt = this.getPgrmOutput(this.getOutputText());
+        Results text=new Results("bowtie2_inspect_stats.txt");
+        text.setText(txt+"\n");
         text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
+        text.setName("Bowtie2_Inspect ("+Util.returnCurrentDateAndTime()+")");
         text.saveToDatabase();
-        addOutput(text);
         properties.put("output_results_id",text.getId());
     }
-    
-    
 }

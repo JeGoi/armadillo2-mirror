@@ -70,7 +70,7 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        IG_options_buttons = new javax.swing.ButtonGroup();
+        BOWTIE2INDEX_IG_options_buttons = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         Bowtie2Editor = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -78,38 +78,38 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
         jButton2 = new javax.swing.JButton();
         name_jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        BOWTIE2INDEX_IG_Panel = new javax.swing.JPanel();
+        BOWTIE2INDEX_IG_largeIndex_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_a_button = new javax.swing.JRadioButton();
+        BOWTIE2INDEX_IG_Non_Auto_Panel = new javax.swing.JPanel();
+        BOWTIE2INDEX_IG_dcv_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_p_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_bmax_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_bmaxdivn_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_bmaxdivn_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_bmax_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_dcv_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_nodc_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_o_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_t_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_seed_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_cutoff_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_q_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_cutoff_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_seed_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_t_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_o_value = new javax.swing.JSpinner();
+        BOWTIE2INDEX_IG_r_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_3_box = new javax.swing.JCheckBox();
+        BOWTIE2INDEX_IG_DO_button = new javax.swing.JRadioButton();
+        BOWTIE2INDEX_IG_AO_button = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        BOWTIE2INDEX_IDG_r_text = new javax.swing.JTextField();
+        BOWTIE2INDEX_IDG_change_button = new javax.swing.JButton();
         reset_jButton3 = new javax.swing.JButton();
         stop_jButton4 = new javax.swing.JButton();
         run_jButton5 = new javax.swing.JButton();
         ClosejButton6 = new javax.swing.JButton();
-        IG_Panel = new javax.swing.JPanel();
-        IG_largeIndex_box = new javax.swing.JCheckBox();
-        IG_a_button = new javax.swing.JRadioButton();
-        IG_Non_Auto_Panel = new javax.swing.JPanel();
-        IG_dcv_box = new javax.swing.JCheckBox();
-        IG_p_box = new javax.swing.JCheckBox();
-        IG_bmax_box = new javax.swing.JCheckBox();
-        IG_bmaxdivn_box = new javax.swing.JCheckBox();
-        IG_bmaxdivn_value = new javax.swing.JSpinner();
-        IG_bmax_value = new javax.swing.JSpinner();
-        IG_dcv_value = new javax.swing.JSpinner();
-        IG_nodc_box = new javax.swing.JCheckBox();
-        IG_o_box = new javax.swing.JCheckBox();
-        IG_t_box = new javax.swing.JCheckBox();
-        IG_seed_box = new javax.swing.JCheckBox();
-        IG_cutoff_box = new javax.swing.JCheckBox();
-        IG_q_box = new javax.swing.JCheckBox();
-        IG_cutoff_value = new javax.swing.JSpinner();
-        IG_seed_value = new javax.swing.JSpinner();
-        IG_t_value = new javax.swing.JSpinner();
-        IG_o_value = new javax.swing.JSpinner();
-        IG_r_box = new javax.swing.JCheckBox();
-        IG_3_box = new javax.swing.JCheckBox();
-        IG_DO_button = new javax.swing.JRadioButton();
-        IG_AO_button = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        IDG_r_text = new javax.swing.JTextField();
-        IDG_change_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -167,6 +167,358 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        BOWTIE2INDEX_IG_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Index Genome Options"));
+        BOWTIE2INDEX_IG_Panel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BOWTIE2INDEX_IG_Panel.setEnabled(false);
+        BOWTIE2INDEX_IG_Panel.setName("BOWTIE2INDEX_IG_Panel"); // NOI18N
+
+        BOWTIE2INDEX_IG_largeIndex_box.setText("--large-index");
+        BOWTIE2INDEX_IG_largeIndex_box.setName("BOWTIE2INDEX_IG_largeIndex_box"); // NOI18N
+        BOWTIE2INDEX_IG_largeIndex_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_largeIndex_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_a_button.setText("-a/--noauto");
+        BOWTIE2INDEX_IG_a_button.setName("BOWTIE2INDEX_IG_a_button"); // NOI18N
+        BOWTIE2INDEX_IG_a_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_a_buttonActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_Non_Auto_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Modify Automatic Options"));
+        BOWTIE2INDEX_IG_Non_Auto_Panel.setEnabled(false);
+        BOWTIE2INDEX_IG_Non_Auto_Panel.setName("BOWTIE2INDEX_IG_Non_Auto_Panel"); // NOI18N
+
+        BOWTIE2INDEX_IG_dcv_box.setText("--dcv");
+        BOWTIE2INDEX_IG_dcv_box.setName("BOWTIE2INDEX_IG_dcv_box"); // NOI18N
+        BOWTIE2INDEX_IG_dcv_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_dcv_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_p_box.setText("-p/--packed");
+        BOWTIE2INDEX_IG_p_box.setName("BOWTIE2INDEX_IG_p_box"); // NOI18N
+        BOWTIE2INDEX_IG_p_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_p_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_bmax_box.setText("--bmax");
+        BOWTIE2INDEX_IG_bmax_box.setName("BOWTIE2INDEX_IG_bmax_box"); // NOI18N
+        BOWTIE2INDEX_IG_bmax_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_bmax_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_bmaxdivn_box.setText("--bmaxdivn");
+        BOWTIE2INDEX_IG_bmaxdivn_box.setName("BOWTIE2INDEX_IG_bmaxdivn_box"); // NOI18N
+        BOWTIE2INDEX_IG_bmaxdivn_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_bmaxdivn_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_bmaxdivn_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
+        BOWTIE2INDEX_IG_bmaxdivn_value.setEnabled(false);
+        BOWTIE2INDEX_IG_bmaxdivn_value.setName("BOWTIE2INDEX_IG_bmaxdivn_value"); // NOI18N
+        BOWTIE2INDEX_IG_bmaxdivn_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_bmaxdivn_spinner_value(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_bmax_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
+        BOWTIE2INDEX_IG_bmax_value.setEnabled(false);
+        BOWTIE2INDEX_IG_bmax_value.setName("BOWTIE2INDEX_IG_bmax_value"); // NOI18N
+        BOWTIE2INDEX_IG_bmax_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_bmax_spinner_value(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_dcv_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1024), Integer.valueOf(0), null, Integer.valueOf(2)));
+        BOWTIE2INDEX_IG_dcv_value.setEnabled(false);
+        BOWTIE2INDEX_IG_dcv_value.setName("BOWTIE2INDEX_IG_dcv_value"); // NOI18N
+        BOWTIE2INDEX_IG_dcv_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_dcv_spinner_value(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BOWTIE2INDEX_IG_Non_Auto_PanelLayout = new javax.swing.GroupLayout(BOWTIE2INDEX_IG_Non_Auto_Panel);
+        BOWTIE2INDEX_IG_Non_Auto_Panel.setLayout(BOWTIE2INDEX_IG_Non_Auto_PanelLayout);
+        BOWTIE2INDEX_IG_Non_Auto_PanelLayout.setHorizontalGroup(
+            BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createSequentialGroup()
+                .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createSequentialGroup()
+                        .addComponent(BOWTIE2INDEX_IG_p_box)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createSequentialGroup()
+                        .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BOWTIE2INDEX_IG_bmax_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BOWTIE2INDEX_IG_bmaxdivn_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BOWTIE2INDEX_IG_dcv_box, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(BOWTIE2INDEX_IG_dcv_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(BOWTIE2INDEX_IG_bmax_value)
+                            .addComponent(BOWTIE2INDEX_IG_bmaxdivn_value))))
+                .addContainerGap())
+        );
+        BOWTIE2INDEX_IG_Non_Auto_PanelLayout.setVerticalGroup(
+            BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createSequentialGroup()
+                .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_bmaxdivn_box)
+                    .addComponent(BOWTIE2INDEX_IG_bmaxdivn_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BOWTIE2INDEX_IG_bmax_box)
+                    .addComponent(BOWTIE2INDEX_IG_bmax_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BOWTIE2INDEX_IG_p_box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BOWTIE2INDEX_IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_dcv_box)
+                    .addComponent(BOWTIE2INDEX_IG_dcv_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BOWTIE2INDEX_IG_dcv_box.getAccessibleContext().setAccessibleDescription("Use <int> as the period for the difference-cover sample. A larger period yields less memory overhead, but may make suffix sorting slower, especially if repeats are present. Must be a power of 2 no greater than 4096. Default: 1024. This is configured automatically by default; use -a/--noauto to configure manually.");
+        BOWTIE2INDEX_IG_bmax_box.getAccessibleContext().setAccessibleDescription("The maximum number of suffixes allowed in a block. Allowing more suffixes per block makes indexing faster, but increases peak memory usage. Setting this option overrides any previous setting for --bmax, or --bmaxdivn. Default (in terms of the --bmaxdivn parameter) is --bmaxdivn 4. This is configured automatically by default; use -a/--noauto to configure manually.");
+        BOWTIE2INDEX_IG_bmaxdivn_box.getAccessibleContext().setAccessibleDescription("The maximum number of suffixes allowed in a block, expressed as a fraction of the length of the reference. Setting this option overrides any previous setting for --bmax, or --bmaxdivn. Default: --bmaxdivn 4. This is configured automatically by default; use -a/--noauto to configure manually.");
+
+        BOWTIE2INDEX_IG_nodc_box.setText("--nodc");
+        BOWTIE2INDEX_IG_nodc_box.setName("BOWTIE2INDEX_IG_nodc_box"); // NOI18N
+        BOWTIE2INDEX_IG_nodc_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_nodc_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_o_box.setText("-o/--offrate");
+        BOWTIE2INDEX_IG_o_box.setName("BOWTIE2INDEX_IG_o_box"); // NOI18N
+        BOWTIE2INDEX_IG_o_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_o_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_t_box.setText("-t/--ftabchars");
+        BOWTIE2INDEX_IG_t_box.setName("BOWTIE2INDEX_IG_t_box"); // NOI18N
+        BOWTIE2INDEX_IG_t_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_t_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_seed_box.setText("--seed");
+        BOWTIE2INDEX_IG_seed_box.setName("BOWTIE2INDEX_IG_seed_box"); // NOI18N
+        BOWTIE2INDEX_IG_seed_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_seed_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_cutoff_box.setText("--cutoff");
+        BOWTIE2INDEX_IG_cutoff_box.setName("BOWTIE2INDEX_IG_cutoff_box"); // NOI18N
+        BOWTIE2INDEX_IG_cutoff_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_cutoff_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_q_box.setText("-q/--quiet");
+        BOWTIE2INDEX_IG_q_box.setName("BOWTIE2INDEX_IG_q_box"); // NOI18N
+        BOWTIE2INDEX_IG_q_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_q_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_cutoff_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        BOWTIE2INDEX_IG_cutoff_value.setEnabled(false);
+        BOWTIE2INDEX_IG_cutoff_value.setName("BOWTIE2INDEX_IG_cutoff_value"); // NOI18N
+        BOWTIE2INDEX_IG_cutoff_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_cutoff_spinner_value(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_seed_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        BOWTIE2INDEX_IG_seed_value.setEnabled(false);
+        BOWTIE2INDEX_IG_seed_value.setName("BOWTIE2INDEX_IG_seed_value"); // NOI18N
+        BOWTIE2INDEX_IG_seed_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_seed_spinner_value(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_t_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(10), Integer.valueOf(0), null, Integer.valueOf(1)));
+        BOWTIE2INDEX_IG_t_value.setEnabled(false);
+        BOWTIE2INDEX_IG_t_value.setName("BOWTIE2INDEX_IG_t_value"); // NOI18N
+        BOWTIE2INDEX_IG_t_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_t_spinner_value(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_o_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), Integer.valueOf(0), null, Integer.valueOf(1)));
+        BOWTIE2INDEX_IG_o_value.setEnabled(false);
+        BOWTIE2INDEX_IG_o_value.setName("BOWTIE2INDEX_IG_o_value"); // NOI18N
+        BOWTIE2INDEX_IG_o_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                IG_o_spinner_value(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_r_box.setText("-r/--noref");
+        BOWTIE2INDEX_IG_r_box.setName("BOWTIE2INDEX_IG_r_box"); // NOI18N
+        BOWTIE2INDEX_IG_r_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_r_boxActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_3_box.setText("-3/--justref");
+        BOWTIE2INDEX_IG_3_box.setName("BOWTIE2INDEX_IG_3_box"); // NOI18N
+        BOWTIE2INDEX_IG_3_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_3_boxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BOWTIE2INDEX_IG_PanelLayout = new javax.swing.GroupLayout(BOWTIE2INDEX_IG_Panel);
+        BOWTIE2INDEX_IG_Panel.setLayout(BOWTIE2INDEX_IG_PanelLayout);
+        BOWTIE2INDEX_IG_PanelLayout.setHorizontalGroup(
+            BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                        .addComponent(BOWTIE2INDEX_IG_a_button, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BOWTIE2INDEX_IG_Non_Auto_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(24, 24, 24))
+                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                        .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                                .addComponent(BOWTIE2INDEX_IG_largeIndex_box)
+                                .addGap(59, 59, 59)
+                                .addComponent(BOWTIE2INDEX_IG_q_box))
+                            .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BOWTIE2INDEX_IG_cutoff_box)
+                                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(BOWTIE2INDEX_IG_t_box, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(BOWTIE2INDEX_IG_seed_box))
+                                    .addComponent(BOWTIE2INDEX_IG_o_box))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(BOWTIE2INDEX_IG_cutoff_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                        .addComponent(BOWTIE2INDEX_IG_seed_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                        .addComponent(BOWTIE2INDEX_IG_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                                    .addComponent(BOWTIE2INDEX_IG_o_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(BOWTIE2INDEX_IG_nodc_box)
+                        .addGap(31, 31, 31))
+                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                        .addComponent(BOWTIE2INDEX_IG_r_box)
+                        .addGap(82, 82, 82)
+                        .addComponent(BOWTIE2INDEX_IG_3_box)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        BOWTIE2INDEX_IG_PanelLayout.setVerticalGroup(
+            BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_largeIndex_box)
+                    .addComponent(BOWTIE2INDEX_IG_q_box)
+                    .addComponent(BOWTIE2INDEX_IG_nodc_box))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_r_box)
+                    .addComponent(BOWTIE2INDEX_IG_3_box))
+                .addGap(18, 18, 18)
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_o_box)
+                    .addComponent(BOWTIE2INDEX_IG_o_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_t_box)
+                    .addComponent(BOWTIE2INDEX_IG_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_seed_box)
+                    .addComponent(BOWTIE2INDEX_IG_seed_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BOWTIE2INDEX_IG_cutoff_box)
+                    .addComponent(BOWTIE2INDEX_IG_cutoff_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BOWTIE2INDEX_IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BOWTIE2INDEX_IG_Non_Auto_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BOWTIE2INDEX_IG_PanelLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(BOWTIE2INDEX_IG_a_button)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BOWTIE2INDEX_IG_largeIndex_box.getAccessibleContext().setAccessibleDescription("Force bowtie2-build to build a large index, even if the reference is less than ~ 4 billion nucleotides inlong.");
+        BOWTIE2INDEX_IG_nodc_box.getAccessibleContext().setAccessibleDescription("Disable use of the difference-cover sample. Suffix sorting becomes quadratic-time in the worst case (where the worst case is an extremely repetitive reference). Default: off.");
+        BOWTIE2INDEX_IG_o_box.getAccessibleContext().setAccessibleDescription("To map alignments back to positions on the reference sequences, it's necessary to annotate (\"mark\") some or all of the Burrows-Wheeler rows with their corresponding location on the genome. -o/--offrate governs how many rows get marked: the indexer will mark every 2^<int> rows. Marking more rows makes reference-position lookups faster, but requires more memory to hold the annotations at runtime. The default is 5 (every 32nd row is marked; for human genome, annotations occupy about 340 megabytes).");
+        BOWTIE2INDEX_IG_t_box.getAccessibleContext().setAccessibleDescription("The ftab is the lookup table used to calculate an initial Burrows-Wheeler range with respect to the first <int> characters of the query. A larger <int> yields a larger lookup table but faster query times. The ftab has size 4^(<int>+1) bytes. The default setting is 10 (ftab is 4MB).");
+        BOWTIE2INDEX_IG_seed_box.getAccessibleContext().setAccessibleDescription("Use <int> as the seed for pseudo-random number generator.");
+        BOWTIE2INDEX_IG_cutoff_box.getAccessibleContext().setAccessibleDescription("Index only the first <int> bases of the reference sequences (cumulative across sequences) and ignore the rest.");
+        BOWTIE2INDEX_IG_q_box.getAccessibleContext().setAccessibleDescription("bowtie2-build is verbose by default. With this option bowtie2-build will print only error messages.");
+        BOWTIE2INDEX_IG_t_value.getAccessibleContext().setAccessibleName("IG_t_value");
+        BOWTIE2INDEX_IG_o_value.getAccessibleContext().setAccessibleName("IG_o_value");
+
+        BOWTIE2INDEX_IG_options_buttons.add(BOWTIE2INDEX_IG_DO_button);
+        BOWTIE2INDEX_IG_DO_button.setText("Default options");
+        BOWTIE2INDEX_IG_DO_button.setName("BOWTIE2INDEX_IG_DO_button"); // NOI18N
+        BOWTIE2INDEX_IG_DO_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_DO_buttonActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IG_options_buttons.add(BOWTIE2INDEX_IG_AO_button);
+        BOWTIE2INDEX_IG_AO_button.setText("Advanced options");
+        BOWTIE2INDEX_IG_AO_button.setName("BOWTIE2INDEX_IG_AO_button"); // NOI18N
+        BOWTIE2INDEX_IG_AO_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IG_AO_buttonActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Indexed Genome Repertory :");
+
+        BOWTIE2INDEX_IDG_r_text.setText("./indexed_genomes/bowtie2/");
+        BOWTIE2INDEX_IDG_r_text.setName("BOWTIE2INDEX_IDG_r_text"); // NOI18N
+        BOWTIE2INDEX_IDG_r_text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IDG_r_textActionPerformed(evt);
+            }
+        });
+
+        BOWTIE2INDEX_IDG_change_button.setText("Change");
+        BOWTIE2INDEX_IDG_change_button.setName("BOWTIE2INDEX_IDG_change_button"); // NOI18N
+        BOWTIE2INDEX_IDG_change_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BOWTIE2INDEX_IDG_change_buttonActionPerformed(evt);
+            }
+        });
+
         reset_jButton3.setText("Reset default value");
         reset_jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,358 +547,6 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
             }
         });
 
-        IG_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Index Genome Options"));
-        IG_Panel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        IG_Panel.setEnabled(false);
-        IG_Panel.setName("IG_Panel"); // NOI18N
-
-        IG_largeIndex_box.setText("--large-index");
-        IG_largeIndex_box.setName("IG_largeIndex_box"); // NOI18N
-        IG_largeIndex_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_largeIndex_boxActionPerformed(evt);
-            }
-        });
-
-        IG_a_button.setText("-a/--noauto");
-        IG_a_button.setName("IG_a_button"); // NOI18N
-        IG_a_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_a_buttonActionPerformed(evt);
-            }
-        });
-
-        IG_Non_Auto_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Modify Automatic Options"));
-        IG_Non_Auto_Panel.setEnabled(false);
-        IG_Non_Auto_Panel.setName("IG_Non_Auto_Panel"); // NOI18N
-
-        IG_dcv_box.setText("--dcv");
-        IG_dcv_box.setName("IG_dcv_box"); // NOI18N
-        IG_dcv_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_dcv_boxActionPerformed(evt);
-            }
-        });
-
-        IG_p_box.setText("-p/--packed");
-        IG_p_box.setName("IG_p_box"); // NOI18N
-        IG_p_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_p_boxActionPerformed(evt);
-            }
-        });
-
-        IG_bmax_box.setText("--bmax");
-        IG_bmax_box.setName("IG_bmax_box"); // NOI18N
-        IG_bmax_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_bmax_boxActionPerformed(evt);
-            }
-        });
-
-        IG_bmaxdivn_box.setText("--bmaxdivn");
-        IG_bmaxdivn_box.setName("IG_bmaxdivn_box"); // NOI18N
-        IG_bmaxdivn_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_bmaxdivn_boxActionPerformed(evt);
-            }
-        });
-
-        IG_bmaxdivn_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
-        IG_bmaxdivn_value.setEnabled(false);
-        IG_bmaxdivn_value.setName("IG_bmaxdivn_value"); // NOI18N
-        IG_bmaxdivn_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_bmaxdivn_spinner_value(evt);
-            }
-        });
-
-        IG_bmax_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
-        IG_bmax_value.setEnabled(false);
-        IG_bmax_value.setName("IG_bmax_value"); // NOI18N
-        IG_bmax_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_bmax_spinner_value(evt);
-            }
-        });
-
-        IG_dcv_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1024), Integer.valueOf(0), null, Integer.valueOf(2)));
-        IG_dcv_value.setEnabled(false);
-        IG_dcv_value.setName("IG_dcv_value"); // NOI18N
-        IG_dcv_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_dcv_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout IG_Non_Auto_PanelLayout = new javax.swing.GroupLayout(IG_Non_Auto_Panel);
-        IG_Non_Auto_Panel.setLayout(IG_Non_Auto_PanelLayout);
-        IG_Non_Auto_PanelLayout.setHorizontalGroup(
-            IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IG_Non_Auto_PanelLayout.createSequentialGroup()
-                .addGroup(IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(IG_Non_Auto_PanelLayout.createSequentialGroup()
-                        .addComponent(IG_p_box)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(IG_Non_Auto_PanelLayout.createSequentialGroup()
-                        .addGroup(IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IG_bmax_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IG_bmaxdivn_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IG_dcv_box, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(IG_dcv_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(IG_bmax_value)
-                            .addComponent(IG_bmaxdivn_value))))
-                .addContainerGap())
-        );
-        IG_Non_Auto_PanelLayout.setVerticalGroup(
-            IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IG_Non_Auto_PanelLayout.createSequentialGroup()
-                .addGroup(IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_bmaxdivn_box)
-                    .addComponent(IG_bmaxdivn_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IG_bmax_box)
-                    .addComponent(IG_bmax_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IG_p_box)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IG_Non_Auto_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_dcv_box)
-                    .addComponent(IG_dcv_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        IG_dcv_box.getAccessibleContext().setAccessibleDescription("Use <int> as the period for the difference-cover sample. A larger period yields less memory overhead, but may make suffix sorting slower, especially if repeats are present. Must be a power of 2 no greater than 4096. Default: 1024. This is configured automatically by default; use -a/--noauto to configure manually.");
-        IG_bmax_box.getAccessibleContext().setAccessibleDescription("The maximum number of suffixes allowed in a block. Allowing more suffixes per block makes indexing faster, but increases peak memory usage. Setting this option overrides any previous setting for --bmax, or --bmaxdivn. Default (in terms of the --bmaxdivn parameter) is --bmaxdivn 4. This is configured automatically by default; use -a/--noauto to configure manually.");
-        IG_bmaxdivn_box.getAccessibleContext().setAccessibleDescription("The maximum number of suffixes allowed in a block, expressed as a fraction of the length of the reference. Setting this option overrides any previous setting for --bmax, or --bmaxdivn. Default: --bmaxdivn 4. This is configured automatically by default; use -a/--noauto to configure manually.");
-
-        IG_nodc_box.setText("--nodc");
-        IG_nodc_box.setName("IG_nodc_box"); // NOI18N
-        IG_nodc_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_nodc_boxActionPerformed(evt);
-            }
-        });
-
-        IG_o_box.setText("-o/--offrate");
-        IG_o_box.setName("IG_o_box"); // NOI18N
-        IG_o_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_o_boxActionPerformed(evt);
-            }
-        });
-
-        IG_t_box.setText("-t/--ftabchars");
-        IG_t_box.setName("IG_t_box"); // NOI18N
-        IG_t_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_t_boxActionPerformed(evt);
-            }
-        });
-
-        IG_seed_box.setText("--seed");
-        IG_seed_box.setName("IG_seed_box"); // NOI18N
-        IG_seed_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_seed_boxActionPerformed(evt);
-            }
-        });
-
-        IG_cutoff_box.setText("--cutoff");
-        IG_cutoff_box.setName("IG_cutoff_box"); // NOI18N
-        IG_cutoff_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_cutoff_boxActionPerformed(evt);
-            }
-        });
-
-        IG_q_box.setText("-q/--quiet");
-        IG_q_box.setName("IG_q_box"); // NOI18N
-        IG_q_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_q_boxActionPerformed(evt);
-            }
-        });
-
-        IG_cutoff_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        IG_cutoff_value.setEnabled(false);
-        IG_cutoff_value.setName("IG_cutoff_value"); // NOI18N
-        IG_cutoff_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_cutoff_spinner_value(evt);
-            }
-        });
-
-        IG_seed_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        IG_seed_value.setEnabled(false);
-        IG_seed_value.setName("IG_seed_value"); // NOI18N
-        IG_seed_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_seed_spinner_value(evt);
-            }
-        });
-
-        IG_t_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(10), Integer.valueOf(0), null, Integer.valueOf(1)));
-        IG_t_value.setEnabled(false);
-        IG_t_value.setName("IG_t_value"); // NOI18N
-        IG_t_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_t_spinner_value(evt);
-            }
-        });
-
-        IG_o_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), Integer.valueOf(0), null, Integer.valueOf(1)));
-        IG_o_value.setEnabled(false);
-        IG_o_value.setName("IG_o_value"); // NOI18N
-        IG_o_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                IG_o_spinner_value(evt);
-            }
-        });
-
-        IG_r_box.setText("-r/--noref");
-        IG_r_box.setName("IG_r_box"); // NOI18N
-        IG_r_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_r_boxActionPerformed(evt);
-            }
-        });
-
-        IG_3_box.setText("-3/--justref");
-        IG_3_box.setName("IG_3_box"); // NOI18N
-        IG_3_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_3_boxActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout IG_PanelLayout = new javax.swing.GroupLayout(IG_Panel);
-        IG_Panel.setLayout(IG_PanelLayout);
-        IG_PanelLayout.setHorizontalGroup(
-            IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IG_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(IG_PanelLayout.createSequentialGroup()
-                        .addComponent(IG_a_button, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(IG_Non_Auto_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(24, 24, 24))
-                    .addGroup(IG_PanelLayout.createSequentialGroup()
-                        .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(IG_PanelLayout.createSequentialGroup()
-                                .addComponent(IG_largeIndex_box)
-                                .addGap(59, 59, 59)
-                                .addComponent(IG_q_box))
-                            .addGroup(IG_PanelLayout.createSequentialGroup()
-                                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(IG_cutoff_box)
-                                    .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(IG_t_box, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(IG_seed_box))
-                                    .addComponent(IG_o_box))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(IG_cutoff_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                        .addComponent(IG_seed_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                        .addComponent(IG_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                                    .addComponent(IG_o_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addComponent(IG_nodc_box)
-                        .addGap(31, 31, 31))
-                    .addGroup(IG_PanelLayout.createSequentialGroup()
-                        .addComponent(IG_r_box)
-                        .addGap(82, 82, 82)
-                        .addComponent(IG_3_box)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        IG_PanelLayout.setVerticalGroup(
-            IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(IG_PanelLayout.createSequentialGroup()
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_largeIndex_box)
-                    .addComponent(IG_q_box)
-                    .addComponent(IG_nodc_box))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_r_box)
-                    .addComponent(IG_3_box))
-                .addGap(18, 18, 18)
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_o_box)
-                    .addComponent(IG_o_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_t_box)
-                    .addComponent(IG_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_seed_box)
-                    .addComponent(IG_seed_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_cutoff_box)
-                    .addComponent(IG_cutoff_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(IG_PanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(IG_Non_Auto_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(IG_PanelLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(IG_a_button)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        IG_largeIndex_box.getAccessibleContext().setAccessibleDescription("Force bowtie2-build to build a large index, even if the reference is less than ~ 4 billion nucleotides inlong.");
-        IG_nodc_box.getAccessibleContext().setAccessibleDescription("Disable use of the difference-cover sample. Suffix sorting becomes quadratic-time in the worst case (where the worst case is an extremely repetitive reference). Default: off.");
-        IG_o_box.getAccessibleContext().setAccessibleDescription("To map alignments back to positions on the reference sequences, it's necessary to annotate (\"mark\") some or all of the Burrows-Wheeler rows with their corresponding location on the genome. -o/--offrate governs how many rows get marked: the indexer will mark every 2^<int> rows. Marking more rows makes reference-position lookups faster, but requires more memory to hold the annotations at runtime. The default is 5 (every 32nd row is marked; for human genome, annotations occupy about 340 megabytes).");
-        IG_t_box.getAccessibleContext().setAccessibleDescription("The ftab is the lookup table used to calculate an initial Burrows-Wheeler range with respect to the first <int> characters of the query. A larger <int> yields a larger lookup table but faster query times. The ftab has size 4^(<int>+1) bytes. The default setting is 10 (ftab is 4MB).");
-        IG_seed_box.getAccessibleContext().setAccessibleDescription("Use <int> as the seed for pseudo-random number generator.");
-        IG_cutoff_box.getAccessibleContext().setAccessibleDescription("Index only the first <int> bases of the reference sequences (cumulative across sequences) and ignore the rest.");
-        IG_q_box.getAccessibleContext().setAccessibleDescription("bowtie2-build is verbose by default. With this option bowtie2-build will print only error messages.");
-        IG_t_value.getAccessibleContext().setAccessibleName("IG_t_value");
-        IG_o_value.getAccessibleContext().setAccessibleName("IG_o_value");
-
-        IG_options_buttons.add(IG_DO_button);
-        IG_DO_button.setText("Default options");
-        IG_DO_button.setName("IG_DO_button"); // NOI18N
-        IG_DO_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_DO_buttonActionPerformed(evt);
-            }
-        });
-
-        IG_options_buttons.add(IG_AO_button);
-        IG_AO_button.setText("Advanced options");
-        IG_AO_button.setName("IG_AO_button"); // NOI18N
-        IG_AO_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_AO_buttonActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Indexed Genome Repertory :");
-
-        IDG_r_text.setText("./indexed_genomes/bowtie2/");
-        IDG_r_text.setName("IDG_r_text"); // NOI18N
-        IDG_r_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDG_r_textActionPerformed(evt);
-            }
-        });
-
-        IDG_change_button.setText("Change");
-        IDG_change_button.setName("IDG_change_button"); // NOI18N
-        IDG_change_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDG_change_buttonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -560,19 +560,14 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(IG_DO_button)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(IG_AO_button))
-                                    .addComponent(IG_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(IDG_r_text, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(IDG_change_button))))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(BOWTIE2INDEX_IG_DO_button)
+                                .addGap(18, 18, 18)
+                                .addComponent(BOWTIE2INDEX_IG_AO_button))
+                            .addComponent(BOWTIE2INDEX_IG_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(BOWTIE2INDEX_IDG_change_button))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(reset_jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -580,7 +575,8 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
                                 .addGap(18, 18, 18)
                                 .addComponent(run_jButton5)
                                 .addGap(18, 18, 18)
-                                .addComponent(ClosejButton6)))))
+                                .addComponent(ClosejButton6))))
+                    .addComponent(BOWTIE2INDEX_IDG_r_text, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -589,16 +585,16 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_DO_button)
-                    .addComponent(IG_AO_button))
+                    .addComponent(BOWTIE2INDEX_IG_DO_button)
+                    .addComponent(BOWTIE2INDEX_IG_AO_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IG_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BOWTIE2INDEX_IG_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(IDG_change_button))
+                    .addComponent(BOWTIE2INDEX_IDG_change_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IDG_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BOWTIE2INDEX_IDG_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reset_jButton3)
@@ -608,8 +604,8 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        IG_Panel.getAccessibleContext().setAccessibleName("");
-        IG_Panel.getAccessibleContext().setAccessibleDescription("");
+        BOWTIE2INDEX_IG_Panel.getAccessibleContext().setAccessibleName("");
+        BOWTIE2INDEX_IG_Panel.getAccessibleContext().setAccessibleDescription("");
 
         Bowtie2Editor.addTab("Bowtie2 Index Genome", jPanel1);
 
@@ -682,208 +678,209 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
         // TODO add your handling code here:
     }//GEN-LAST:event_name_jTextField1ActionPerformed
 
-    private void IG_3_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_3_boxActionPerformed
+    private void BOWTIE2INDEX_IG_3_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_3_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_3_box,null);
-        if (properties.isSet(IG_r_box.getName())) {
-            properties.remove(IG_r_box.getName());
-            IG_r_box.setSelected(false);
+        boxEvent(BOWTIE2INDEX_IG_3_box,null);
+        if (properties.isSet(BOWTIE2INDEX_IG_r_box.getName())) {
+            properties.remove(BOWTIE2INDEX_IG_r_box.getName());
+            BOWTIE2INDEX_IG_r_box.setSelected(false);
         }
-    }//GEN-LAST:event_IG_3_boxActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_3_boxActionPerformed
 
-    private void IG_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_r_boxActionPerformed
+    private void BOWTIE2INDEX_IG_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_r_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_r_box,null);
-        if (properties.isSet(IG_3_box.getName())) {
-            properties.remove(IG_3_box.getName());
-            IG_3_box.setSelected(false);
+        boxEvent(BOWTIE2INDEX_IG_r_box,null);
+        if (properties.isSet(BOWTIE2INDEX_IG_3_box.getName())) {
+            properties.remove(BOWTIE2INDEX_IG_3_box.getName());
+            BOWTIE2INDEX_IG_3_box.setSelected(false);
         }
-    }//GEN-LAST:event_IG_r_boxActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_r_boxActionPerformed
 
     private void IG_o_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_o_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_o_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_o_value);
     }//GEN-LAST:event_IG_o_spinner_value
 
     private void IG_t_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_t_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_t_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_t_value);
     }//GEN-LAST:event_IG_t_spinner_value
 
     private void IG_seed_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_seed_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_seed_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_seed_value);
     }//GEN-LAST:event_IG_seed_spinner_value
 
     private void IG_cutoff_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_cutoff_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_cutoff_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_cutoff_value);
     }//GEN-LAST:event_IG_cutoff_spinner_value
 
-    private void IG_q_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_q_boxActionPerformed
+    private void BOWTIE2INDEX_IG_q_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_q_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_q_box,null);
-    }//GEN-LAST:event_IG_q_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_q_box,null);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_q_boxActionPerformed
 
-    private void IG_cutoff_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_cutoff_boxActionPerformed
+    private void BOWTIE2INDEX_IG_cutoff_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_cutoff_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_cutoff_box,IG_cutoff_value);
-    }//GEN-LAST:event_IG_cutoff_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_cutoff_box,BOWTIE2INDEX_IG_cutoff_value);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_cutoff_boxActionPerformed
 
-    private void IG_seed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_seed_boxActionPerformed
+    private void BOWTIE2INDEX_IG_seed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_seed_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_seed_box,IG_seed_value);
-    }//GEN-LAST:event_IG_seed_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_seed_box,BOWTIE2INDEX_IG_seed_value);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_seed_boxActionPerformed
 
-    private void IG_t_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_t_boxActionPerformed
+    private void BOWTIE2INDEX_IG_t_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_t_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_t_box,IG_t_value);
-    }//GEN-LAST:event_IG_t_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_t_box,BOWTIE2INDEX_IG_t_value);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_t_boxActionPerformed
 
-    private void IG_o_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_o_boxActionPerformed
+    private void BOWTIE2INDEX_IG_o_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_o_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_o_box,IG_o_value);
-    }//GEN-LAST:event_IG_o_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_o_box,BOWTIE2INDEX_IG_o_value);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_o_boxActionPerformed
 
-    private void IG_nodc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_nodc_boxActionPerformed
+    private void BOWTIE2INDEX_IG_nodc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_nodc_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_nodc_box,null);
-    }//GEN-LAST:event_IG_nodc_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_nodc_box,null);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_nodc_boxActionPerformed
 
     private void IG_dcv_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_dcv_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_dcv_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_dcv_value);
     }//GEN-LAST:event_IG_dcv_spinner_value
 
     private void IG_bmax_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_bmax_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_bmax_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_bmax_value);
     }//GEN-LAST:event_IG_bmax_spinner_value
 
     private void IG_bmaxdivn_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_bmaxdivn_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(IG_bmaxdivn_value);
+        spinnerUpdate(BOWTIE2INDEX_IG_bmaxdivn_value);
     }//GEN-LAST:event_IG_bmaxdivn_spinner_value
 
-    private void IG_bmaxdivn_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_bmaxdivn_boxActionPerformed
+    private void BOWTIE2INDEX_IG_bmaxdivn_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_bmaxdivn_boxActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_bmax_box.getName())) {
-            properties.remove(IG_bmax_box.getName());
-            IG_bmax_value.setEnabled(false);
-            IG_bmax_box.setSelected(false);
+        if (properties.isSet(BOWTIE2INDEX_IG_bmax_box.getName())) {
+            properties.remove(BOWTIE2INDEX_IG_bmax_box.getName());
+            BOWTIE2INDEX_IG_bmax_value.setEnabled(false);
+            BOWTIE2INDEX_IG_bmax_box.setSelected(false);
             
         }
 
-        boxEvent(IG_bmaxdivn_box,IG_bmaxdivn_value);
+        boxEvent(BOWTIE2INDEX_IG_bmaxdivn_box,BOWTIE2INDEX_IG_bmaxdivn_value);
 
-        if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
-            !(properties.isSet(IG_dcv_value.getName())) &&
-            !(properties.isSet(IG_p_box.getName())) &&
-            !(properties.isSet(IG_bmax_value.getName()))
+        if (!(properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_dcv_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_p_box.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_bmax_value.getName()))
         ){
-            properties.remove(IG_a_button.getName());
+            properties.remove(BOWTIE2INDEX_IG_a_button.getName());
             nonAutoPanelfields(false);
         }
-    }//GEN-LAST:event_IG_bmaxdivn_boxActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_bmaxdivn_boxActionPerformed
 
-    private void IG_bmax_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_bmax_boxActionPerformed
+    private void BOWTIE2INDEX_IG_bmax_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_bmax_boxActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_bmaxdivn_box.getName())){
-            properties.remove(IG_bmaxdivn_box.getName());
-            IG_bmaxdivn_value.setEnabled(false);
-            IG_bmaxdivn_box.setSelected(false);
+        if (properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_box.getName())){
+            properties.remove(BOWTIE2INDEX_IG_bmaxdivn_box.getName());
+            BOWTIE2INDEX_IG_bmaxdivn_value.setEnabled(false);
+            BOWTIE2INDEX_IG_bmaxdivn_box.setSelected(false);
         }
 
-        boxEvent(IG_bmax_box,IG_bmax_value);
+        boxEvent(BOWTIE2INDEX_IG_bmax_box,BOWTIE2INDEX_IG_bmax_value);
 
-        if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
-            !(properties.isSet(IG_dcv_value.getName())) &&
-            !(properties.isSet(IG_p_box.getName())) &&
-            !(properties.isSet(IG_bmax_value.getName()))
+        if (!(properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_dcv_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_p_box.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_bmax_value.getName()))
         ){
-            properties.remove(IG_a_button.getName());
+            properties.remove(BOWTIE2INDEX_IG_a_button.getName());
             nonAutoPanelfields(false);
         }
-    }//GEN-LAST:event_IG_bmax_boxActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_bmax_boxActionPerformed
 
-    private void IG_p_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_boxActionPerformed
+    private void BOWTIE2INDEX_IG_p_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_p_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_p_box,null);
+        boxEvent(BOWTIE2INDEX_IG_p_box,null);
 
-        if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
-            !(properties.isSet(IG_dcv_value.getName())) &&
-            !(properties.isSet(IG_p_box.getName())) &&
-            !(properties.isSet(IG_bmax_value.getName()))
+        if (!(properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_dcv_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_p_box.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_bmax_value.getName()))
         ){
-            properties.remove(IG_a_button.getName());
+            properties.remove(BOWTIE2INDEX_IG_a_button.getName());
             nonAutoPanelfields(false);
         }
-    }//GEN-LAST:event_IG_p_boxActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_p_boxActionPerformed
 
-    private void IG_dcv_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_dcv_boxActionPerformed
+    private void BOWTIE2INDEX_IG_dcv_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_dcv_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_dcv_box,IG_dcv_value);
+        boxEvent(BOWTIE2INDEX_IG_dcv_box,BOWTIE2INDEX_IG_dcv_value);
 
-        if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
-            !(properties.isSet(IG_dcv_value.getName())) &&
-            !(properties.isSet(IG_p_box.getName())) &&
-            !(properties.isSet(IG_bmax_value.getName()))
+        if (!(properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_dcv_value.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_p_box.getName())) &&
+            !(properties.isSet(BOWTIE2INDEX_IG_bmax_value.getName()))
         ){
-            properties.remove(IG_a_button.getName());
+            properties.remove(BOWTIE2INDEX_IG_a_button.getName());
             nonAutoPanelfields(false);
         }
-    }//GEN-LAST:event_IG_dcv_boxActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_dcv_boxActionPerformed
 
-    private void IG_a_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_a_buttonActionPerformed
+    private void BOWTIE2INDEX_IG_a_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_a_buttonActionPerformed
         // TODO add your handling code here:
-        if (IG_a_button.isSelected()==true){
+        if (BOWTIE2INDEX_IG_a_button.isSelected()==true){
             nonAutoPanelfields(true);
-            properties.put(IG_a_button.getName(),IG_a_button.isSelected());
+            properties.put(BOWTIE2INDEX_IG_a_button.getName(),BOWTIE2INDEX_IG_a_button.isSelected());
         } else {
             nonAutoPanelfields(false);
-            properties.remove(IG_a_button.getName());
-            properties.remove(IG_p_box.getName());
-            properties.remove(IG_bmax_value.getName());
-            properties.remove(IG_bmaxdivn_value.getName());
-            properties.remove(IG_dcv_value.getName());
+            properties.remove(BOWTIE2INDEX_IG_a_button.getName());
+            properties.remove(BOWTIE2INDEX_IG_p_box.getName());
+            properties.remove(BOWTIE2INDEX_IG_bmax_value.getName());
+            properties.remove(BOWTIE2INDEX_IG_bmaxdivn_value.getName());
+            properties.remove(BOWTIE2INDEX_IG_dcv_value.getName());
         }
-    }//GEN-LAST:event_IG_a_buttonActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_a_buttonActionPerformed
 
-    private void IG_largeIndex_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_largeIndex_boxActionPerformed
+    private void BOWTIE2INDEX_IG_largeIndex_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_largeIndex_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_largeIndex_box,null);
-    }//GEN-LAST:event_IG_largeIndex_boxActionPerformed
+        boxEvent(BOWTIE2INDEX_IG_largeIndex_box,null);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_largeIndex_boxActionPerformed
 
-    private void IG_DO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_DO_buttonActionPerformed
+    private void BOWTIE2INDEX_IG_DO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_DO_buttonActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_AO_button.getName())){
-            properties.remove(IG_AO_button.getName());
+        if (properties.isSet(BOWTIE2INDEX_IG_AO_button.getName())){
+            properties.remove(BOWTIE2INDEX_IG_AO_button.getName());
         }
-        buttonEvent(IG_DO_button);        
-        IG_Panel.setVisible(false);
-    }//GEN-LAST:event_IG_DO_buttonActionPerformed
+        buttonEvent(BOWTIE2INDEX_IG_DO_button);        
+        BOWTIE2INDEX_IG_Panel.setVisible(false);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_DO_buttonActionPerformed
 
-    private void IG_AO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_AO_buttonActionPerformed
+    private void BOWTIE2INDEX_IG_AO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IG_AO_buttonActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_DO_button.getName())){
-            properties.remove(IG_DO_button.getName());
+        if (properties.isSet(BOWTIE2INDEX_IG_DO_button.getName())){
+            properties.remove(BOWTIE2INDEX_IG_DO_button.getName());
         }
-        buttonEvent(IG_AO_button);
-        IG_Panel.setVisible(true);
-    }//GEN-LAST:event_IG_AO_buttonActionPerformed
+        buttonEvent(BOWTIE2INDEX_IG_AO_button);
+        BOWTIE2INDEX_IG_Panel.setVisible(true);
+    }//GEN-LAST:event_BOWTIE2INDEX_IG_AO_buttonActionPerformed
 
-    private void IDG_r_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_r_textActionPerformed
+    private void BOWTIE2INDEX_IDG_r_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IDG_r_textActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IDG_r_textActionPerformed
+        eventText(BOWTIE2INDEX_IDG_r_text);
+    }//GEN-LAST:event_BOWTIE2INDEX_IDG_r_textActionPerformed
 
-    private void IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_change_buttonActionPerformed
+    private void BOWTIE2INDEX_IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INDEX_IDG_change_buttonActionPerformed
         // TODO add your handling code here:
         JFileChooser d;
         
-        if (this.IDG_r_text.getText().isEmpty()) {
+        if (this.BOWTIE2INDEX_IDG_r_text.getText().isEmpty()) {
             d=new JFileChooser(config.getExplorerPath());
         } else {
-            d=new JFileChooser(this.IDG_r_text.getText());
+            d=new JFileChooser(this.BOWTIE2INDEX_IDG_r_text.getText());
         }
         
         d.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -896,10 +893,11 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
             
             // Set the text
             String s = dir.getAbsolutePath();
-            IDG_r_text.setText(s);
-            properties.put(IDG_r_text.getName(),s);
+            BOWTIE2INDEX_IDG_r_text.setText(s);
+            properties.remove(BOWTIE2INDEX_IDG_r_text.getName());
+            eventText(BOWTIE2INDEX_IDG_r_text);
         }        
-    }//GEN-LAST:event_IDG_change_buttonActionPerformed
+    }//GEN-LAST:event_BOWTIE2INDEX_IDG_change_buttonActionPerformed
                                                                                                                                                                                                                                                                                                                                                                                                     
     /**
      * Save Values
@@ -912,7 +910,10 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
             properties.put(b.getName(),b.isSelected());
         //}
     }
-
+    //For Text only
+    private void eventText(javax.swing.JTextField t){
+        properties.put(t.getName(),t.getText());
+    }
     //For Box
     private void boxEvent(javax.swing.JCheckBox b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
@@ -944,15 +945,15 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
      * @param enabled
      */
     private void nonAutoPanelfields(boolean enabled){
-        IG_a_button.setSelected(enabled);
-        IG_Non_Auto_Panel.setEnabled(enabled);
-        IG_p_box.setEnabled(enabled);
-        IG_bmax_box.setEnabled(enabled);
-        IG_bmax_value.setEnabled(false);
-        IG_bmaxdivn_box.setEnabled(enabled);
-        IG_bmaxdivn_value.setEnabled(false);
-        IG_dcv_box.setEnabled(enabled);
-        IG_dcv_value.setEnabled(false);
+        BOWTIE2INDEX_IG_a_button.setSelected(enabled);
+        BOWTIE2INDEX_IG_Non_Auto_Panel.setEnabled(enabled);
+        BOWTIE2INDEX_IG_p_box.setEnabled(enabled);
+        BOWTIE2INDEX_IG_bmax_box.setEnabled(enabled);
+        BOWTIE2INDEX_IG_bmax_value.setEnabled(false);
+        BOWTIE2INDEX_IG_bmaxdivn_box.setEnabled(enabled);
+        BOWTIE2INDEX_IG_bmaxdivn_value.setEnabled(false);
+        BOWTIE2INDEX_IG_dcv_box.setEnabled(enabled);
+        BOWTIE2INDEX_IG_dcv_value.setEnabled(false);
     }
     
     /**
@@ -976,7 +977,7 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
     }
     
     private void defaultPgrmValues(workflow_properties properties) {
-        if (!properties.isSet(IG_DO_button.getName())){
+        if (!properties.isSet(BOWTIE2INDEX_IG_DO_button.getName())){
             String defaultEditorStatus = properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
             int z = 0;
@@ -985,7 +986,7 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
                 properties.put(arrayDefault[z],arrayDefault[z+1]);
             }
             nonAutoPanelfields(false);
-            IG_Panel.setVisible(false);
+            BOWTIE2INDEX_IG_Panel.setVisible(false);
         }
     }
 
@@ -997,102 +998,105 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
         // IG Properties saved
         // Utilisation d'une méthode ?
         
-        if (properties.isSet(IG_DO_button.getName())){
-            this.IG_DO_button.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_DO_button.getName())){
+            this.BOWTIE2INDEX_IG_DO_button.setSelected(true);
             nonAutoPanelfields(false);
-            IG_Panel.setVisible(false);
+            BOWTIE2INDEX_IG_Panel.setVisible(false);
         }
         
-        if (properties.isSet(IG_AO_button.getName())){
-            this.IG_AO_button.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_AO_button.getName())){
+            this.BOWTIE2INDEX_IG_AO_button.setSelected(true);
             nonAutoPanelfields(true);
-            IG_Panel.setVisible(true);
+            BOWTIE2INDEX_IG_Panel.setVisible(true);
         }
         
-        if (properties.isSet(IG_o_value.getName())) {
-            this.IG_o_value.setValue(Integer.parseInt(properties.get(IG_o_value.getName())));
+        if (properties.isSet(BOWTIE2INDEX_IG_o_value.getName())) {
+            this.BOWTIE2INDEX_IG_o_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_o_value.getName())));
         }
-        if (properties.isSet(IG_o_box.getName())) {
-            this.IG_o_value.setEnabled(true);
-            this.IG_o_box.setSelected(true);
-        }
-        
-        if (properties.isSet(IG_t_value.getName())) {
-            this.IG_t_value.setValue(Integer.parseInt(properties.get(IG_t_value.getName())));
-        }
-        if (properties.isSet(IG_t_box.getName())) {
-            this.IG_t_value.setEnabled(true);
-            this.IG_t_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_o_box.getName())) {
+            this.BOWTIE2INDEX_IG_o_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_o_box.setSelected(true);
         }
         
-        if (properties.isSet(IG_seed_value.getName())) {
-            this.IG_seed_value.setValue(Integer.parseInt(properties.get(IG_seed_value.getName())));
+        if (properties.isSet(BOWTIE2INDEX_IG_t_value.getName())) {
+            this.BOWTIE2INDEX_IG_t_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_t_value.getName())));
+        }
+        if (properties.isSet(BOWTIE2INDEX_IG_t_box.getName())) {
+            this.BOWTIE2INDEX_IG_t_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_t_box.setSelected(true);
         }
         
-        if (properties.isSet(IG_seed_box.getName())) {
-            this.IG_seed_value.setEnabled(true);
-            this.IG_seed_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_seed_value.getName())) {
+            this.BOWTIE2INDEX_IG_seed_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_seed_value.getName())));
         }
         
-        if (properties.isSet(IG_cutoff_value.getName())) {
-            this.IG_cutoff_value.setValue(Integer.parseInt(properties.get(IG_cutoff_value.getName())));
-        }
-        if (properties.isSet(IG_cutoff_box.getName())) {
-            this.IG_cutoff_value.setEnabled(true);
-            this.IG_cutoff_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_seed_box.getName())) {
+            this.BOWTIE2INDEX_IG_seed_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_seed_box.setSelected(true);
         }
         
-        if (properties.isSet(IG_largeIndex_box.getName())){
-            this.IG_largeIndex_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_cutoff_value.getName())) {
+            this.BOWTIE2INDEX_IG_cutoff_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_cutoff_value.getName())));
         }
-        if (properties.isSet(IG_q_box.getName())){
-            this.IG_q_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_cutoff_box.getName())) {
+            this.BOWTIE2INDEX_IG_cutoff_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_cutoff_box.setSelected(true);
         }
-        if (properties.isSet(IG_nodc_box.getName())){
-            this.IG_nodc_box.setSelected(true);
+        
+        if (properties.isSet(BOWTIE2INDEX_IG_largeIndex_box.getName())){
+            this.BOWTIE2INDEX_IG_largeIndex_box.setSelected(true);
         }
-        if (properties.isSet(IG_r_box.getName())){
-            this.IG_r_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_q_box.getName())){
+            this.BOWTIE2INDEX_IG_q_box.setSelected(true);
         }
-        if (properties.isSet(IG_3_box.getName())){
-            this.IG_3_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_nodc_box.getName())){
+            this.BOWTIE2INDEX_IG_nodc_box.setSelected(true);
         }
-        if (properties.isSet(IG_a_button.getName())){
-            if ( properties.isSet(IG_bmaxdivn_value.getName()) ||
-                 properties.isSet(IG_bmax_value.getName()) ||
-                 properties.isSet(IG_dcv_value.getName()) ||
-                 properties.isSet(IG_p_box.getName())
+        if (properties.isSet(BOWTIE2INDEX_IG_r_box.getName())){
+            this.BOWTIE2INDEX_IG_r_box.setSelected(true);
+        }
+        if (properties.isSet(BOWTIE2INDEX_IG_3_box.getName())){
+            this.BOWTIE2INDEX_IG_3_box.setSelected(true);
+        }
+        if (properties.isSet(BOWTIE2INDEX_IG_a_button.getName())){
+            if ( properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_value.getName()) ||
+                 properties.isSet(BOWTIE2INDEX_IG_bmax_value.getName()) ||
+                 properties.isSet(BOWTIE2INDEX_IG_dcv_value.getName()) ||
+                 properties.isSet(BOWTIE2INDEX_IG_p_box.getName())
             ){
                 this.nonAutoPanelfields(true);
-                this.IG_a_button.setSelected(true);
+                this.BOWTIE2INDEX_IG_a_button.setSelected(true);
             } else {
-                this.IG_a_button.setSelected(false);
+                this.BOWTIE2INDEX_IG_a_button.setSelected(false);
             }
             
         }
-        if (properties.isSet(IG_bmaxdivn_value.getName())){
-            this.IG_bmaxdivn_value.setValue(Integer.parseInt(properties.get(IG_bmaxdivn_value.getName())));
+        if (properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_value.getName())){
+            this.BOWTIE2INDEX_IG_bmaxdivn_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_bmaxdivn_value.getName())));
         }
-        if (properties.isSet(IG_bmaxdivn_box.getName())){
-            this.IG_bmaxdivn_value.setEnabled(true);
-            this.IG_bmaxdivn_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_bmaxdivn_box.getName())){
+            this.BOWTIE2INDEX_IG_bmaxdivn_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_bmaxdivn_box.setSelected(true);
         }
-        if (properties.isSet(IG_bmax_value.getName())){
-            this.IG_bmax_value.setValue(Integer.parseInt(properties.get(IG_bmax_value.getName())));
+        if (properties.isSet(BOWTIE2INDEX_IG_bmax_value.getName())){
+            this.BOWTIE2INDEX_IG_bmax_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_bmax_value.getName())));
         }
-        if (properties.isSet(IG_bmax_box.getName())){
-            this.IG_bmax_value.setEnabled(true);
-            this.IG_bmax_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_bmax_box.getName())){
+            this.BOWTIE2INDEX_IG_bmax_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_bmax_box.setSelected(true);
         }
-        if (properties.isSet(IG_dcv_value.getName())){
-            this.IG_dcv_value.setValue(Integer.parseInt(properties.get(IG_dcv_value.getName())));
+        if (properties.isSet(BOWTIE2INDEX_IG_dcv_value.getName())){
+            this.BOWTIE2INDEX_IG_dcv_value.setValue(Integer.parseInt(properties.get(BOWTIE2INDEX_IG_dcv_value.getName())));
         }
-        if (properties.isSet(IG_dcv_box.getName())){
-            this.IG_dcv_value.setEnabled(true);
-            this.IG_dcv_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_dcv_box.getName())){
+            this.BOWTIE2INDEX_IG_dcv_value.setEnabled(true);
+            this.BOWTIE2INDEX_IG_dcv_box.setSelected(true);
         }
-        if (properties.isSet(IG_p_box.getName())){
-            this.IG_p_box.setSelected(true);
+        if (properties.isSet(BOWTIE2INDEX_IG_p_box.getName())){
+            this.BOWTIE2INDEX_IG_p_box.setSelected(true);
+        }
+        if (properties.isSet(BOWTIE2INDEX_IDG_r_text.getName())){
+            this.BOWTIE2INDEX_IDG_r_text.setText(properties.get(BOWTIE2INDEX_IDG_r_text.getName()));
         }
         
     }
@@ -1133,36 +1137,36 @@ public class Bowtie2IndexEditors extends javax.swing.JDialog implements EditorIn
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BOWTIE2INDEX_IDG_change_button;
+    private javax.swing.JTextField BOWTIE2INDEX_IDG_r_text;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_3_box;
+    private javax.swing.JRadioButton BOWTIE2INDEX_IG_AO_button;
+    private javax.swing.JRadioButton BOWTIE2INDEX_IG_DO_button;
+    private javax.swing.JPanel BOWTIE2INDEX_IG_Non_Auto_Panel;
+    private javax.swing.JPanel BOWTIE2INDEX_IG_Panel;
+    private javax.swing.JRadioButton BOWTIE2INDEX_IG_a_button;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_bmax_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_bmax_value;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_bmaxdivn_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_bmaxdivn_value;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_cutoff_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_cutoff_value;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_dcv_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_dcv_value;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_largeIndex_box;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_nodc_box;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_o_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_o_value;
+    private javax.swing.ButtonGroup BOWTIE2INDEX_IG_options_buttons;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_p_box;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_q_box;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_r_box;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_seed_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_seed_value;
+    private javax.swing.JCheckBox BOWTIE2INDEX_IG_t_box;
+    private javax.swing.JSpinner BOWTIE2INDEX_IG_t_value;
     private javax.swing.JTabbedPane Bowtie2Editor;
     private javax.swing.JButton ClosejButton6;
-    private javax.swing.JButton IDG_change_button;
-    private javax.swing.JTextField IDG_r_text;
-    private javax.swing.JCheckBox IG_3_box;
-    private javax.swing.JRadioButton IG_AO_button;
-    private javax.swing.JRadioButton IG_DO_button;
-    private javax.swing.JPanel IG_Non_Auto_Panel;
-    private javax.swing.JPanel IG_Panel;
-    private javax.swing.JRadioButton IG_a_button;
-    private javax.swing.JCheckBox IG_bmax_box;
-    private javax.swing.JSpinner IG_bmax_value;
-    private javax.swing.JCheckBox IG_bmaxdivn_box;
-    private javax.swing.JSpinner IG_bmaxdivn_value;
-    private javax.swing.JCheckBox IG_cutoff_box;
-    private javax.swing.JSpinner IG_cutoff_value;
-    private javax.swing.JCheckBox IG_dcv_box;
-    private javax.swing.JSpinner IG_dcv_value;
-    private javax.swing.JCheckBox IG_largeIndex_box;
-    private javax.swing.JCheckBox IG_nodc_box;
-    private javax.swing.JCheckBox IG_o_box;
-    private javax.swing.JSpinner IG_o_value;
-    private javax.swing.ButtonGroup IG_options_buttons;
-    private javax.swing.JCheckBox IG_p_box;
-    private javax.swing.JCheckBox IG_q_box;
-    private javax.swing.JCheckBox IG_r_box;
-    private javax.swing.JCheckBox IG_seed_box;
-    private javax.swing.JSpinner IG_seed_value;
-    private javax.swing.JCheckBox IG_t_box;
-    private javax.swing.JSpinner IG_t_value;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

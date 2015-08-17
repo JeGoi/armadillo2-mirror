@@ -1159,7 +1159,7 @@ public class RunProgram implements runningThreadInterface {
     public void msg(String msg) {
         //System.out.println(msg);
         //TO DO: save that to a file...
-        //--Good for texst version...
+        //--Good for text version...
         outputText.add(msg+"\n");
         
         
@@ -1263,7 +1263,25 @@ public class RunProgram implements runningThreadInterface {
         } catch(Exception e) {}
         return s;
     }
-    
+        // JG 2015
+        // Added to find the exact stdout of the program
+        //
+        public String getPgrmOutput (String s){
+            String t = "";
+            String lines[] = s.split("\\r?\\n|\\r");
+            
+            int start = 0;
+            int end   = 0;
+            for (int i =0; i<lines.length;i++){
+                if (lines[i].contains("Running program")) start = i+1;
+                else if (lines[i].contains("Program Exit Value")) end =i;
+            }
+            for (int i =start; i<end;i++){
+                t += lines[i]+"\n";
+            }
+            return t;
+        }
+
     
     ////////////////////////////////////////////////////////////////////////////
     // HELPER FUNCTIONS

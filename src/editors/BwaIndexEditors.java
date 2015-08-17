@@ -83,15 +83,15 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         run_jButton5 = new javax.swing.JButton();
         ClosejButton6 = new javax.swing.JButton();
         IG_Panel = new javax.swing.JPanel();
-        IG_p_button = new javax.swing.JCheckBox();
-        IG_p_value = new javax.swing.JTextField();
+        BWAINDEX_IG_p_button = new javax.swing.JCheckBox();
+        BWAINDEX_IG_p_value = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        IG_notUsed_button = new javax.swing.JRadioButton();
-        IG_is_button = new javax.swing.JRadioButton();
-        IG_bwtsw_button = new javax.swing.JRadioButton();
+        BWAINDEX_IG_notUsed_button = new javax.swing.JRadioButton();
+        BWAINDEX_IG_is_button = new javax.swing.JRadioButton();
+        BWAINDEX_IG_bwtsw_button = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        IDG_r_text = new javax.swing.JTextField();
-        IDG_change_button = new javax.swing.JButton();
+        BWAINDEX_IDG_r_text = new javax.swing.JTextField();
+        BWAINDEX_IDG_change_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -182,52 +182,52 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         IG_Panel.setEnabled(false);
         IG_Panel.setName("IG_Panel"); // NOI18N
 
-        IG_p_button.setText("-p (prefix for output database)");
-        IG_p_button.setName("IG_p_button"); // NOI18N
-        IG_p_button.addActionListener(new java.awt.event.ActionListener() {
+        BWAINDEX_IG_p_button.setText("-p (prefix for output database)");
+        BWAINDEX_IG_p_button.setName("BWAINDEX_IG_p_button"); // NOI18N
+        BWAINDEX_IG_p_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_p_buttonActionPerformed(evt);
+                BWAINDEX_IG_p_buttonActionPerformed(evt);
             }
         });
 
-        IG_p_value.setName("IG_p_value"); // NOI18N
-        IG_p_value.addFocusListener(new java.awt.event.FocusAdapter() {
+        BWAINDEX_IG_p_value.setName("BWAINDEX_IG_p_value"); // NOI18N
+        BWAINDEX_IG_p_value.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                IG_p_valueFocusLost(evt);
+                BWAINDEX_IG_p_valueFocusLost(evt);
             }
         });
-        IG_p_value.addActionListener(new java.awt.event.ActionListener() {
+        BWAINDEX_IG_p_value.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_p_valueActionPerformed(evt);
+                BWAINDEX_IG_p_valueActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Algorithm for constructing BWT index");
 
-        IG_options_buttons.add(IG_notUsed_button);
-        IG_notUsed_button.setText("No used");
-        IG_notUsed_button.setName("IG_notUsed_button"); // NOI18N
-        IG_notUsed_button.addActionListener(new java.awt.event.ActionListener() {
+        IG_options_buttons.add(BWAINDEX_IG_notUsed_button);
+        BWAINDEX_IG_notUsed_button.setText("No used");
+        BWAINDEX_IG_notUsed_button.setName("BWAINDEX_IG_notUsed_button"); // NOI18N
+        BWAINDEX_IG_notUsed_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_notUsed_buttonActionPerformed(evt);
+                BWAINDEX_IG_notUsed_buttonActionPerformed(evt);
             }
         });
 
-        IG_options_buttons.add(IG_is_button);
-        IG_is_button.setText("is");
-        IG_is_button.setName("IG_is_button"); // NOI18N
-        IG_is_button.addActionListener(new java.awt.event.ActionListener() {
+        IG_options_buttons.add(BWAINDEX_IG_is_button);
+        BWAINDEX_IG_is_button.setText("is");
+        BWAINDEX_IG_is_button.setName("BWAINDEX_IG_is_button"); // NOI18N
+        BWAINDEX_IG_is_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_is_buttonActionPerformed(evt);
+                BWAINDEX_IG_is_buttonActionPerformed(evt);
             }
         });
 
-        IG_options_buttons.add(IG_bwtsw_button);
-        IG_bwtsw_button.setText("bwtsw");
-        IG_bwtsw_button.setName("IG_bwtsw_button"); // NOI18N
-        IG_bwtsw_button.addActionListener(new java.awt.event.ActionListener() {
+        IG_options_buttons.add(BWAINDEX_IG_bwtsw_button);
+        BWAINDEX_IG_bwtsw_button.setText("bwtsw");
+        BWAINDEX_IG_bwtsw_button.setName("BWAINDEX_IG_bwtsw_button"); // NOI18N
+        BWAINDEX_IG_bwtsw_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_bwtsw_buttonActionPerformed(evt);
+                BWAINDEX_IG_bwtsw_buttonActionPerformed(evt);
             }
         });
 
@@ -238,54 +238,54 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
             .addGroup(IG_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IG_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IG_p_button)
+                    .addComponent(BWAINDEX_IG_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BWAINDEX_IG_p_button)
                     .addComponent(jLabel3)
                     .addGroup(IG_PanelLayout.createSequentialGroup()
-                        .addComponent(IG_notUsed_button)
+                        .addComponent(BWAINDEX_IG_notUsed_button)
                         .addGap(18, 18, 18)
-                        .addComponent(IG_is_button)
+                        .addComponent(BWAINDEX_IG_is_button)
                         .addGap(18, 18, 18)
-                        .addComponent(IG_bwtsw_button)))
+                        .addComponent(BWAINDEX_IG_bwtsw_button)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         IG_PanelLayout.setVerticalGroup(
             IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IG_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(IG_p_button)
+                .addComponent(BWAINDEX_IG_p_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IG_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BWAINDEX_IG_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IG_notUsed_button)
-                    .addComponent(IG_is_button)
-                    .addComponent(IG_bwtsw_button))
+                    .addComponent(BWAINDEX_IG_notUsed_button)
+                    .addComponent(BWAINDEX_IG_is_button)
+                    .addComponent(BWAINDEX_IG_bwtsw_button))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Indexed Genome Repertory :");
 
-        IDG_r_text.setText("./indexed_genomes/bwa/");
-        IDG_r_text.setName("IDG_r_text"); // NOI18N
-        IDG_r_text.addFocusListener(new java.awt.event.FocusAdapter() {
+        BWAINDEX_IDG_r_text.setText("./indexed_genomes/bwa/");
+        BWAINDEX_IDG_r_text.setName("BWAINDEX_IDG_r_text"); // NOI18N
+        BWAINDEX_IDG_r_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                IDG_r_textFocusLost(evt);
+                BWAINDEX_IDG_r_textFocusLost(evt);
             }
         });
-        IDG_r_text.addActionListener(new java.awt.event.ActionListener() {
+        BWAINDEX_IDG_r_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDG_r_textActionPerformed(evt);
+                BWAINDEX_IDG_r_textActionPerformed(evt);
             }
         });
 
-        IDG_change_button.setText("Change");
-        IDG_change_button.setName("IDG_change_button"); // NOI18N
-        IDG_change_button.addActionListener(new java.awt.event.ActionListener() {
+        BWAINDEX_IDG_change_button.setText("Change");
+        BWAINDEX_IDG_change_button.setName("BWAINDEX_IDG_change_button"); // NOI18N
+        BWAINDEX_IDG_change_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDG_change_buttonActionPerformed(evt);
+                BWAINDEX_IDG_change_buttonActionPerformed(evt);
             }
         });
 
@@ -316,11 +316,11 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
                                         .addComponent(stop_jButton4)
                                         .addGap(18, 18, 18)
                                         .addComponent(run_jButton5))
-                                    .addComponent(IDG_change_button, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(BWAINDEX_IDG_change_button, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addComponent(IG_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(IDG_r_text)))))
+                                .addComponent(BWAINDEX_IDG_r_text)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -332,9 +332,9 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(IDG_change_button))
+                    .addComponent(BWAINDEX_IDG_change_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IDG_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BWAINDEX_IDG_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reset_jButton3)
@@ -418,19 +418,19 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_name_jTextField1ActionPerformed
 
-    private void IDG_r_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_r_textActionPerformed
+    private void BWAINDEX_IDG_r_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IDG_r_textActionPerformed
         // TODO add your handling code here:
-        eventText(IDG_r_text);
-    }//GEN-LAST:event_IDG_r_textActionPerformed
+        eventText(BWAINDEX_IDG_r_text);
+    }//GEN-LAST:event_BWAINDEX_IDG_r_textActionPerformed
 
-    private void IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_change_buttonActionPerformed
+    private void BWAINDEX_IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IDG_change_buttonActionPerformed
         // TODO add your handling code here:
         JFileChooser d;
         
-        if (this.IDG_r_text.getText().isEmpty()) {
+        if (this.BWAINDEX_IDG_r_text.getText().isEmpty()) {
             d=new JFileChooser(config.getExplorerPath());
         } else {
-            d=new JFileChooser(this.IDG_r_text.getText());
+            d=new JFileChooser(this.BWAINDEX_IDG_r_text.getText());
         }
         
         d.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -443,63 +443,64 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
             
             // Set the text
             String s = dir.getAbsolutePath();
-            IDG_r_text.setText(s);
-            eventText(IDG_r_text);
+            BWAINDEX_IDG_r_text.setText(s);
+            properties.remove(BWAINDEX_IDG_r_text.getName());
+            eventText(BWAINDEX_IDG_r_text);
         }        
-    }//GEN-LAST:event_IDG_change_buttonActionPerformed
+    }//GEN-LAST:event_BWAINDEX_IDG_change_buttonActionPerformed
 
-    private void IG_p_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_buttonActionPerformed
+    private void BWAINDEX_IG_p_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IG_p_buttonActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_p_button,IG_p_value);
-    }//GEN-LAST:event_IG_p_buttonActionPerformed
+        boxEvent(BWAINDEX_IG_p_button,BWAINDEX_IG_p_value);
+    }//GEN-LAST:event_BWAINDEX_IG_p_buttonActionPerformed
 
-    private void IG_p_valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_valueActionPerformed
+    private void BWAINDEX_IG_p_valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IG_p_valueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IG_p_valueActionPerformed
+    }//GEN-LAST:event_BWAINDEX_IG_p_valueActionPerformed
 
-    private void IG_notUsed_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_notUsed_buttonActionPerformed
+    private void BWAINDEX_IG_notUsed_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IG_notUsed_buttonActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_is_button.getName())) {
-            properties.remove(IG_is_button.getName());
-        } else if (properties.isSet(IG_bwtsw_button.getName())){
-            properties.remove(IG_bwtsw_button.getName());
+        if (properties.isSet(BWAINDEX_IG_is_button.getName())) {
+            properties.remove(BWAINDEX_IG_is_button.getName());
+        } else if (properties.isSet(BWAINDEX_IG_bwtsw_button.getName())){
+            properties.remove(BWAINDEX_IG_bwtsw_button.getName());
         }            
-        buttonEvent(IG_notUsed_button);
-    }//GEN-LAST:event_IG_notUsed_buttonActionPerformed
+        buttonEvent(BWAINDEX_IG_notUsed_button);
+    }//GEN-LAST:event_BWAINDEX_IG_notUsed_buttonActionPerformed
 
-    private void IG_is_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_is_buttonActionPerformed
+    private void BWAINDEX_IG_is_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IG_is_buttonActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_bwtsw_button.getName())) {
-            properties.remove(IG_bwtsw_button.getName());
-        } else if (properties.isSet(IG_notUsed_button.getName())){
-            properties.remove(IG_notUsed_button.getName());
+        if (properties.isSet(BWAINDEX_IG_bwtsw_button.getName())) {
+            properties.remove(BWAINDEX_IG_bwtsw_button.getName());
+        } else if (properties.isSet(BWAINDEX_IG_notUsed_button.getName())){
+            properties.remove(BWAINDEX_IG_notUsed_button.getName());
         }            
-        buttonEvent(IG_is_button);
-    }//GEN-LAST:event_IG_is_buttonActionPerformed
+        buttonEvent(BWAINDEX_IG_is_button);
+    }//GEN-LAST:event_BWAINDEX_IG_is_buttonActionPerformed
 
-    private void IG_bwtsw_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_bwtsw_buttonActionPerformed
+    private void BWAINDEX_IG_bwtsw_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BWAINDEX_IG_bwtsw_buttonActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(IG_is_button.getName())) {
-            properties.remove(IG_is_button.getName());
-        } else if (properties.isSet(IG_notUsed_button.getName())){
-            properties.remove(IG_notUsed_button.getName());
+        if (properties.isSet(BWAINDEX_IG_is_button.getName())) {
+            properties.remove(BWAINDEX_IG_is_button.getName());
+        } else if (properties.isSet(BWAINDEX_IG_notUsed_button.getName())){
+            properties.remove(BWAINDEX_IG_notUsed_button.getName());
         }            
-        buttonEvent(IG_bwtsw_button);
-    }//GEN-LAST:event_IG_bwtsw_buttonActionPerformed
+        buttonEvent(BWAINDEX_IG_bwtsw_button);
+    }//GEN-LAST:event_BWAINDEX_IG_bwtsw_buttonActionPerformed
 
-    private void IG_p_valueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IG_p_valueFocusLost
+    private void BWAINDEX_IG_p_valueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BWAINDEX_IG_p_valueFocusLost
         // TODO add your handling code here:
-        eventText(IG_p_value);
-        if (properties.get(IG_bwtsw_button.getName()).equals("")){
-            properties.remove(IG_p_button);
-            IG_p_button.setSelected(false);
+        eventText(BWAINDEX_IG_p_value);
+        if (properties.get(BWAINDEX_IG_bwtsw_button.getName()).equals("")){
+            properties.remove(BWAINDEX_IG_p_button);
+            BWAINDEX_IG_p_button.setSelected(false);
         }
-    }//GEN-LAST:event_IG_p_valueFocusLost
+    }//GEN-LAST:event_BWAINDEX_IG_p_valueFocusLost
 
-    private void IDG_r_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IDG_r_textFocusLost
+    private void BWAINDEX_IDG_r_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BWAINDEX_IDG_r_textFocusLost
         // TODO add your handling code here:
-        eventText(IDG_r_text);
-    }//GEN-LAST:event_IDG_r_textFocusLost
+        eventText(BWAINDEX_IDG_r_text);
+    }//GEN-LAST:event_BWAINDEX_IDG_r_textFocusLost
                                                                                                                                                                                                                                                                                                                                                                                                     
     /**
      * Save Values
@@ -525,12 +526,6 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
             properties.remove(b.getName());
         }
     }
-    
-    /**
-     * Update Values content
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Update_Values
-     */
     //For Text only
     private void eventText(javax.swing.JTextField t){
         properties.put(t.getName(),t.getText());
@@ -556,7 +551,7 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     }
     
     private void defaultPgrmValues(workflow_properties properties) {
-        if (!properties.isSet(IG_p_value.getName())){
+        if (!properties.isSet(BWAINDEX_IG_p_value.getName())){
             String defaultEditorStatus = properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
             int z = 0;
@@ -574,26 +569,27 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     private void updateSavedProperties(workflow_properties properties) {
         // IG Properties saved
         // Utilisation d'une méthode ?
-        if (properties.isSet(IG_p_value.getName())){
-            this.IG_p_value.setText(properties.get(IG_p_value.getName()));
+        if (properties.isSet(BWAINDEX_IG_p_value.getName())){
+            this.BWAINDEX_IG_p_value.setText(properties.get(BWAINDEX_IG_p_value.getName()));
         }
         
-        if (properties.isSet(IG_p_button.getName())) {
-            this.IG_p_value.setEnabled(true);
-            this.IG_p_button.setSelected(true);
+        if (properties.isSet(BWAINDEX_IG_p_button.getName())) {
+            this.BWAINDEX_IG_p_value.setEnabled(true);
+            this.BWAINDEX_IG_p_button.setSelected(true);
         }
         
-        if (properties.isSet(IG_notUsed_button.getName())) {
-            this.IG_notUsed_button.setSelected(true);
-        } else if (properties.isSet(IG_is_button.getName())) {
-            this.IG_is_button.setSelected(true);
-        } else if (properties.isSet(IG_bwtsw_button.getName())) {
-            this.IG_bwtsw_button.setSelected(true);
+        if (properties.isSet(BWAINDEX_IG_notUsed_button.getName())) {
+            this.BWAINDEX_IG_notUsed_button.setSelected(true);
+        } else if (properties.isSet(BWAINDEX_IG_is_button.getName())) {
+            this.BWAINDEX_IG_is_button.setSelected(true);
+        } else if (properties.isSet(BWAINDEX_IG_bwtsw_button.getName())) {
+            this.BWAINDEX_IG_bwtsw_button.setSelected(true);
         }
         
-        if (properties.isSet(IDG_r_text.getName())){
-            this.IDG_r_text.setText(properties.get(IDG_r_text.getName()));
+        if (properties.isSet(BWAINDEX_IDG_r_text.getName())){
+            this.BWAINDEX_IDG_r_text.setText(properties.get(BWAINDEX_IDG_r_text.getName()));
         }
+
     }
     
     /**
@@ -632,17 +628,17 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BWAINDEX_IDG_change_button;
+    private javax.swing.JTextField BWAINDEX_IDG_r_text;
+    private javax.swing.JRadioButton BWAINDEX_IG_bwtsw_button;
+    private javax.swing.JRadioButton BWAINDEX_IG_is_button;
+    private javax.swing.JRadioButton BWAINDEX_IG_notUsed_button;
+    private javax.swing.JCheckBox BWAINDEX_IG_p_button;
+    private javax.swing.JTextField BWAINDEX_IG_p_value;
     private javax.swing.JTabbedPane BwaIndexEditor;
     private javax.swing.JButton ClosejButton6;
-    private javax.swing.JButton IDG_change_button;
-    private javax.swing.JTextField IDG_r_text;
     private javax.swing.JPanel IG_Panel;
-    private javax.swing.JRadioButton IG_bwtsw_button;
-    private javax.swing.JRadioButton IG_is_button;
-    private javax.swing.JRadioButton IG_notUsed_button;
     private javax.swing.ButtonGroup IG_options_buttons;
-    private javax.swing.JCheckBox IG_p_button;
-    private javax.swing.JTextField IG_p_value;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

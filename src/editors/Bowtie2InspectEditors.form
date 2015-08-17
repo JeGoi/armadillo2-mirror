@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="Options_Buttons">
+    <Component class="javax.swing.ButtonGroup" name="BOWTIE2INSPECT_Options_Buttons">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -99,11 +99,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ClosejButton6" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="I_Panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="BOWTIE2INSPECT_I_Panel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="I_DO_button" min="-2" max="-2" attributes="0"/>
+                              <Component id="BOWTIE2INSPECT_I_DO_button" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="I_AO_button" min="-2" max="-2" attributes="0"/>
+                              <Component id="BOWTIE2INSPECT_I_AO_button" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -116,11 +116,11 @@
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="I_DO_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="I_AO_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BOWTIE2INSPECT_I_DO_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BOWTIE2INSPECT_I_AO_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="I_Panel" min="-2" max="-2" attributes="0"/>
+                      <Component id="BOWTIE2INSPECT_I_Panel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="reset_jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -187,19 +187,143 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JRadioButton" name="I_DO_button">
+            <Component class="javax.swing.JRadioButton" name="BOWTIE2INSPECT_I_DO_button">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="Options_Buttons"/>
+                  <ComponentRef name="BOWTIE2INSPECT_Options_Buttons"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Default Options"/>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;All sequences are compared &lt;br/&gt;&#xa;to each other&#xa;&lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="I_DO_button" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_DO_button" noResource="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_DO_buttonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BOWTIE2INSPECTBOWTIE2INSPECT_I_DO_buttonActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JRadioButton" name="BOWTIE2INSPECT_I_AO_button">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="BOWTIE2INSPECT_Options_Buttons"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Advanced Options"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;All sequences are compared &lt;br/&gt;&#xa;to each other&#xa;&lt;/html&gt;"/>
+                <Property name="name" type="java.lang.String" value="bowtie2Inspect_button" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BOWTIE2INSPECT_I_AO_buttonActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JPanel" name="BOWTIE2INSPECT_I_Panel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Inspect Options"/>
+                  </Border>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_Panel" noResource="true"/>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="BOWTIE2INSPECT_I_n_box" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BOWTIE2INSPECT_I_v_box" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BOWTIE2INSPECT_I_s_box" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="BOWTIE2INSPECT_I_a_box" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="BOWTIE2INSPECT_I_a_value" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="195" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="BOWTIE2INSPECT_I_a_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BOWTIE2INSPECT_I_a_value" alignment="3" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="BOWTIE2INSPECT_I_n_box" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="BOWTIE2INSPECT_I_v_box" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="BOWTIE2INSPECT_I_s_box" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JCheckBox" name="BOWTIE2INSPECT_I_v_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-v/--verbose"/>
+                    <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_v_box" noResource="true"/>
+                  </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Print verbose output (for debugging)."/>
+                  </AccessibilityProperties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BOWTIE2INSPECT_I_v_boxActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="BOWTIE2INSPECT_I_s_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-s/--summary"/>
+                    <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_s_box" noResource="true"/>
+                  </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Print a summary that includes information about index settings, as well as the names and lengths of the input sequences. The summary has this format:  Colorspace  &lt;0 or 1&gt; SA-Sample   1 in &lt;sample&gt; FTab-Chars  &lt;chars&gt; Sequence-1  &lt;name&gt;  &lt;len&gt; Sequence-2  &lt;name&gt;  &lt;len&gt; ... Sequence-N  &lt;name&gt;  &lt;len&gt;  Fields are separated by tabs. Colorspace is always set to 0 for Bowtie 2."/>
+                  </AccessibilityProperties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BOWTIE2INSPECT_I_s_boxActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="BOWTIE2INSPECT_I_n_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-n/--names"/>
+                    <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_n_box" noResource="true"/>
+                  </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Print reference sequence names, one per line, and quit."/>
+                  </AccessibilityProperties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BOWTIE2INSPECT_I_n_boxActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="BOWTIE2INSPECT_I_a_value">
+                  <Properties>
+                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                      <SpinnerModel initial="60" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_a_value" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="I_a_spinner_value"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="BOWTIE2INSPECT_I_a_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-a/--across"/>
+                    <Property name="name" type="java.lang.String" value="BOWTIE2INSPECT_I_a_box" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BOWTIE2INSPECT_I_a_boxActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
             <Component class="javax.swing.JButton" name="reset_jButton3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reset default value"/>
@@ -230,130 +354,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClosejButton6ActionPerformed"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JPanel" name="I_Panel">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Inspect Options"/>
-                  </Border>
-                </Property>
-                <Property name="enabled" type="boolean" value="false"/>
-                <Property name="name" type="java.lang.String" value="I_Panel" noResource="true"/>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="I_n_box" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="I_v_box" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="I_s_box" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="I_a_box" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="I_a_value" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="195" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="I_a_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="I_a_value" alignment="3" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="I_n_box" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="I_v_box" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="I_s_box" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JCheckBox" name="I_v_box">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="-v/--verbose"/>
-                    <Property name="name" type="java.lang.String" value="I_v_box" noResource="true"/>
-                  </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Print verbose output (for debugging)."/>
-                  </AccessibilityProperties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_v_boxActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="I_s_box">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="-s/--summary"/>
-                    <Property name="name" type="java.lang.String" value="I_s_box" noResource="true"/>
-                  </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Print a summary that includes information about index settings, as well as the names and lengths of the input sequences. The summary has this format:  Colorspace  &lt;0 or 1&gt; SA-Sample   1 in &lt;sample&gt; FTab-Chars  &lt;chars&gt; Sequence-1  &lt;name&gt;  &lt;len&gt; Sequence-2  &lt;name&gt;  &lt;len&gt; ... Sequence-N  &lt;name&gt;  &lt;len&gt;  Fields are separated by tabs. Colorspace is always set to 0 for Bowtie 2."/>
-                  </AccessibilityProperties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_s_boxActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="I_n_box">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="-n/--names"/>
-                    <Property name="name" type="java.lang.String" value="I_n_box" noResource="true"/>
-                  </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Print reference sequence names, one per line, and quit."/>
-                  </AccessibilityProperties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_n_boxActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JSpinner" name="I_a_value">
-                  <Properties>
-                    <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                      <SpinnerModel initial="60" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                    </Property>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                    <Property name="name" type="java.lang.String" value="I_a_value" noResource="true"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="I_a_spinner_value"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="I_a_box">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="-a/--across"/>
-                    <Property name="name" type="java.lang.String" value="I_a_box" noResource="true"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_a_boxActionPerformed"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JRadioButton" name="I_AO_button">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="Options_Buttons"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Advanced Options"/>
-                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;All sequences are compared &lt;br/&gt;&#xa;to each other&#xa;&lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="bowtie2Inspect_button" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_AO_buttonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

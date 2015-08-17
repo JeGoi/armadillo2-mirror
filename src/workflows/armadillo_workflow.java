@@ -5487,7 +5487,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 textAlign(CENTER);
                 textFont(smallfont);
                 if (status.length()>0 && nbInput<=2) text(status,this.x, this.y+79);
-                if (status.length()>0 && nbInput>2) text(status,this.x, this.y+99);
+                if (status.length()>0 && nbInput>2) text(status,this.x, this.y+99); // JG 2015
                 
                 //if (test>100) test=0;
                 
