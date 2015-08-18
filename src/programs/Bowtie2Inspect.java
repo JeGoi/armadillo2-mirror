@@ -32,7 +32,7 @@ public class Bowtie2Inspect extends RunProgram {
     private String genomeFile ="";
     private String outputFile ="";
     
-    private String[] inspectTab = {"BOWTIE2INSPECT_I_a_box","BOWTIE2INSPECT_I_n_box","BOWTIE2INSPECT_I_s_box","BOWTIE2INSPECT_I_v_box"};
+    private String[] inspectTab = {"I_a_box","I_n_box","I_s_box","I_v_box"};
     
     public Bowtie2Inspect(workflow_properties properties) {
         this.properties=properties;
@@ -65,7 +65,7 @@ public class Bowtie2Inspect extends RunProgram {
         }
         
         // Programme et options
-        if (properties.get("BOWTIE2INSPECT_I_AO_button").equals("true")) {
+        if (properties.get("I_AO_button").equals("true")) {
             optionsChoosed = findOptions(inspectTab);
         }
         

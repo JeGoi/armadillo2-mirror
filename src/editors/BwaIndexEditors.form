@@ -111,13 +111,13 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="run_jButton5" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="BWAINDEX_IDG_change_button" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="IDG_change_button" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="IG_Panel" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                      <Component id="BWAINDEX_IDG_r_text" max="32767" attributes="0"/>
+                                      <Component id="IDG_r_text" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -135,10 +135,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="BWAINDEX_IDG_change_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="IDG_change_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BWAINDEX_IDG_r_text" min="-2" max="-2" attributes="0"/>
+                      <Component id="IDG_r_text" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="reset_jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -264,15 +264,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="BWAINDEX_IG_p_value" min="-2" pref="404" max="-2" attributes="0"/>
-                              <Component id="BWAINDEX_IG_p_button" min="-2" max="-2" attributes="0"/>
+                              <Component id="IG_p_value" min="-2" pref="404" max="-2" attributes="0"/>
+                              <Component id="IG_p_button" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="BWAINDEX_IG_notUsed_button" min="-2" max="-2" attributes="0"/>
+                                  <Component id="IG_notUsed_button" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="BWAINDEX_IG_is_button" min="-2" max="-2" attributes="0"/>
+                                  <Component id="IG_is_button" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="BWAINDEX_IG_bwtsw_button" min="-2" max="-2" attributes="0"/>
+                                  <Component id="IG_bwtsw_button" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -283,16 +283,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BWAINDEX_IG_p_button" min="-2" max="-2" attributes="0"/>
+                          <Component id="IG_p_button" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BWAINDEX_IG_p_value" min="-2" max="-2" attributes="0"/>
+                          <Component id="IG_p_value" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BWAINDEX_IG_notUsed_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BWAINDEX_IG_is_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BWAINDEX_IG_bwtsw_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IG_notUsed_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IG_is_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IG_bwtsw_button" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -300,22 +300,22 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JCheckBox" name="BWAINDEX_IG_p_button">
+                <Component class="javax.swing.JCheckBox" name="IG_p_button">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="-p (prefix for output database)"/>
-                    <Property name="name" type="java.lang.String" value="BWAINDEX_IG_p_button" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="IG_p_button" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IG_p_buttonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_p_buttonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="BWAINDEX_IG_p_value">
+                <Component class="javax.swing.JTextField" name="IG_p_value">
                   <Properties>
-                    <Property name="name" type="java.lang.String" value="BWAINDEX_IG_p_value" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="IG_p_value" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="BWAINDEX_IG_p_valueFocusLost"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IG_p_valueActionPerformed"/>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="IG_p_valueFocusLost"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_p_valueActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
@@ -323,40 +323,40 @@
                     <Property name="text" type="java.lang.String" value="Algorithm for constructing BWT index"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="BWAINDEX_IG_notUsed_button">
+                <Component class="javax.swing.JRadioButton" name="IG_notUsed_button">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="IG_options_buttons"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="No used"/>
-                    <Property name="name" type="java.lang.String" value="BWAINDEX_IG_notUsed_button" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="IG_notUsed_button" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IG_notUsed_buttonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_notUsed_buttonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="BWAINDEX_IG_is_button">
+                <Component class="javax.swing.JRadioButton" name="IG_is_button">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="IG_options_buttons"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="is"/>
-                    <Property name="name" type="java.lang.String" value="BWAINDEX_IG_is_button" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="IG_is_button" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IG_is_buttonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_is_buttonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="BWAINDEX_IG_bwtsw_button">
+                <Component class="javax.swing.JRadioButton" name="IG_bwtsw_button">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="IG_options_buttons"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="bwtsw"/>
-                    <Property name="name" type="java.lang.String" value="BWAINDEX_IG_bwtsw_button" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="IG_bwtsw_button" noResource="true"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IG_bwtsw_buttonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_bwtsw_buttonActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -366,23 +366,23 @@
                 <Property name="text" type="java.lang.String" value="Indexed Genome Repertory :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="BWAINDEX_IDG_r_text">
+            <Component class="javax.swing.JTextField" name="IDG_r_text">
               <Properties>
                 <Property name="text" type="java.lang.String" value="./indexed_genomes/bwa/"/>
-                <Property name="name" type="java.lang.String" value="BWAINDEX_IDG_r_text" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="IDG_r_text" noResource="true"/>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="BWAINDEX_IDG_r_textFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IDG_r_textActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="IDG_r_textFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_r_textActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BWAINDEX_IDG_change_button">
+            <Component class="javax.swing.JButton" name="IDG_change_button">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Change"/>
-                <Property name="name" type="java.lang.String" value="BWAINDEX_IDG_change_button" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="IDG_change_button" noResource="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BWAINDEX_IDG_change_buttonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_change_buttonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

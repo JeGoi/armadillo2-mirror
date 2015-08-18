@@ -31,7 +31,7 @@ public class Bowtie2Index extends RunProgram{
     private String fastaFile1 ="";
     private String outputFile ="";
     
-    private String[] indexGenomeTab = {"BOWTIE2INDEX_IG_3_box","BOWTIE2INDEX_IG_a_button","BOWTIE2INDEX_IG_bmaxdivn_box","BOWTIE2INDEX_IG_bmax_box","BOWTIE2INDEX_IG_dcv_box","BOWTIE2INDEX_IG_largeIndex_box","BOWTIE2INDEX_IG_nodc_box","BOWTIE2INDEX_IG_o_box","BOWTIE2INDEX_IG_p_box","BOWTIE2INDEX_IG_q_box","BOWTIE2INDEX_IG_r_box","BOWTIE2INDEX_IG_seed_box","BOWTIE2INDEX_IG_t_box"}; // ,"BOWTIE2INDEX_IG_cutoff_box" No set yet. It's in options help webpage but doesn't work in the program
+    private String[] indexGenomeTab = {"IG_3_box","IG_a_button","IG_bmaxdivn_box","IG_bmax_box","IG_dcv_box","IG_largeIndex_box","IG_nodc_box","IG_o_box","IG_p_box","IG_q_box","IG_r_box","IG_seed_box","IG_t_box"}; // ,"IG_cutoff_box" No set yet. It's in options help webpage but doesn't work in the program
     
     public Bowtie2Index(workflow_properties properties) {
         this.properties=properties;
@@ -41,9 +41,9 @@ public class Bowtie2Index extends RunProgram{
     @Override
     public boolean init_checkRequirements() {
         // File output directory
-        if (properties.get("BOWTIE2INDEX_IDG_r_text").equals("") || !properties.isSet("BOWTIE2INDEX_IDG_r_text")) {
+        if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
             String s = "."+File.separator+"indexed_genomes"+File.separator+"bowtie2";
-            properties.put("BOWTIE2INDEX_IDG_r_text",s);
+            properties.put("IDG_r_text",s);
             File f = new File(s);
             f.canExecute();
             f.canRead();
@@ -76,9 +76,9 @@ public class Bowtie2Index extends RunProgram{
         
         fastaFile1 = getFastaPath(Fasta1);
         outputFile = getFileName(fastaFile1);
-        outputFile = properties.get("BOWTIE2INDEX_IDG_r_text")+File.separator+outputFile;
+        outputFile = properties.get("IDG_r_text")+File.separator+outputFile;
         
-        if (properties.get("BOWTIE2INDEX_IG_AO_button").equals("true")){
+        if (properties.get("IG_AO_button").equals("true")){
             optionsChoosed = findOptions(indexGenomeTab);
         }
         

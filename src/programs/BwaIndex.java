@@ -31,7 +31,7 @@ public class BwaIndex extends RunProgram{
     private String fastaFile1 ="";
     private String outputFile ="";
     
-    private String[] indexGenomeTab = {"BWAINDEX_IDG_r_text","BWAINDEX_IG_bwtsw_button","BWAINDEX_IG_is_button","BWAINDEX_IG_notUsed_button","BWAINDEX_IG_p_button"};
+    private String[] indexGenomeTab = {"IDG_r_text","IG_bwtsw_button","IG_is_button","IG_notUsed_button","IG_p_button"};
     
     public BwaIndex(workflow_properties properties) {
         this.properties=properties;
@@ -41,9 +41,9 @@ public class BwaIndex extends RunProgram{
     @Override
     public boolean init_checkRequirements() {
         // File output directory
-        if (properties.get("BWAINDEX_IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
+        if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
             String s = "."+File.separator+"indexed_genomes"+File.separator+"bwa";
-            properties.put("BWAINDEX_IDG_r_text",s);
+            properties.put("IDG_r_text",s);
             File f = new File(s);
             if (!f.exists()){
                 f.mkdir();
@@ -73,12 +73,12 @@ public class BwaIndex extends RunProgram{
         fastaFile1 = getFastaPath(Fasta1);
         outputFile = getFileName(fastaFile1);
         
-        if (properties.get("BWAINDEX_IDG_r_text").startsWith(".")) {
-            File outfile = new File(properties.get("BWAINDEX_IDG_r_text"));
+        if (properties.get("IDG_r_text").startsWith(".")) {
+            File outfile = new File(properties.get("IDG_r_text"));
             String abs = outfile.getAbsolutePath();
             abs = abs.replaceAll(File.separator+"\\."+File.separator,File.separator);
             outputFile = abs+File.separator+outputFile+".fasta";
-        } else outputFile = properties.get("BWAINDEX_IDG_r_text")+File.separator+outputFile+".fasta";
+        } else outputFile = properties.get("IDG_r_text")+File.separator+outputFile+".fasta";
         
         if (!outputFile.equals(fastaFile1)) {
             try {
@@ -89,7 +89,7 @@ public class BwaIndex extends RunProgram{
                 }
         }
         
-        if (properties.get("BWAINDEX_IG_AO_button").equals("true")){
+        if (properties.get("IG_AO_button").equals("true")){
             optionsChoosed = findOptions(indexGenomeTab);
         }
         
@@ -160,7 +160,7 @@ public class BwaIndex extends RunProgram{
         GenomeFile genome=new GenomeFile();
         genome.setGenomeFile(outputFile);
         genome.setName(outputFile);
-        genome.setNote("BWA builder. Created on "+Util.returnCurrentDateAndTime());
+        genome.setNote("Bwa Indexer. Created on "+Util.returnCurrentDateAndTime());
         genome.saveToDatabase();
         properties.put("output_genomefile_id", genome.getId());
         this.addOutput(genome);

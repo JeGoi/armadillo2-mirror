@@ -75,7 +75,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BOWTIE2INSPECT_Options_Buttons = new javax.swing.ButtonGroup();
+        Options_Buttons = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         Bowtie2InspectEditor = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -83,14 +83,14 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         jButton2 = new javax.swing.JButton();
         name_jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        BOWTIE2INSPECT_I_DO_button = new javax.swing.JRadioButton();
-        BOWTIE2INSPECT_I_AO_button = new javax.swing.JRadioButton();
-        BOWTIE2INSPECT_I_Panel = new javax.swing.JPanel();
-        BOWTIE2INSPECT_I_v_box = new javax.swing.JCheckBox();
-        BOWTIE2INSPECT_I_s_box = new javax.swing.JCheckBox();
-        BOWTIE2INSPECT_I_n_box = new javax.swing.JCheckBox();
-        BOWTIE2INSPECT_I_a_value = new javax.swing.JSpinner();
-        BOWTIE2INSPECT_I_a_box = new javax.swing.JCheckBox();
+        I_DO_button = new javax.swing.JRadioButton();
+        I_AO_button = new javax.swing.JRadioButton();
+        I_Panel = new javax.swing.JPanel();
+        I_v_box = new javax.swing.JCheckBox();
+        I_s_box = new javax.swing.JCheckBox();
+        I_n_box = new javax.swing.JCheckBox();
+        I_a_value = new javax.swing.JSpinner();
+        I_a_box = new javax.swing.JCheckBox();
         reset_jButton3 = new javax.swing.JButton();
         stop_jButton4 = new javax.swing.JButton();
         run_jButton5 = new javax.swing.JButton();
@@ -152,107 +152,107 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        BOWTIE2INSPECT_Options_Buttons.add(BOWTIE2INSPECT_I_DO_button);
-        BOWTIE2INSPECT_I_DO_button.setText("Default Options");
-        BOWTIE2INSPECT_I_DO_button.setToolTipText("<html>\nAll sequences are compared <br/>\nto each other\n</html>");
-        BOWTIE2INSPECT_I_DO_button.setName("BOWTIE2INSPECT_I_DO_button"); // NOI18N
-        BOWTIE2INSPECT_I_DO_button.addActionListener(new java.awt.event.ActionListener() {
+        Options_Buttons.add(I_DO_button);
+        I_DO_button.setText("Default Options");
+        I_DO_button.setToolTipText("<html>\nAll sequences are compared <br/>\nto each other\n</html>");
+        I_DO_button.setName("I_DO_button"); // NOI18N
+        I_DO_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOWTIE2INSPECTBOWTIE2INSPECT_I_DO_buttonActionPerformed(evt);
+                I_DO_buttonActionPerformed(evt);
             }
         });
 
-        BOWTIE2INSPECT_Options_Buttons.add(BOWTIE2INSPECT_I_AO_button);
-        BOWTIE2INSPECT_I_AO_button.setText("Advanced Options");
-        BOWTIE2INSPECT_I_AO_button.setToolTipText("<html>\nAll sequences are compared <br/>\nto each other\n</html>");
-        BOWTIE2INSPECT_I_AO_button.setName("bowtie2Inspect_button"); // NOI18N
-        BOWTIE2INSPECT_I_AO_button.addActionListener(new java.awt.event.ActionListener() {
+        Options_Buttons.add(I_AO_button);
+        I_AO_button.setText("Advanced Options");
+        I_AO_button.setToolTipText("<html>\nAll sequences are compared <br/>\nto each other\n</html>");
+        I_AO_button.setName("bowtie2Inspect_button"); // NOI18N
+        I_AO_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOWTIE2INSPECT_I_AO_buttonActionPerformed(evt);
+                I_AO_buttonActionPerformed(evt);
             }
         });
 
-        BOWTIE2INSPECT_I_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Inspect Options"));
-        BOWTIE2INSPECT_I_Panel.setEnabled(false);
-        BOWTIE2INSPECT_I_Panel.setName("BOWTIE2INSPECT_I_Panel"); // NOI18N
+        I_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Inspect Options"));
+        I_Panel.setEnabled(false);
+        I_Panel.setName("I_Panel"); // NOI18N
 
-        BOWTIE2INSPECT_I_v_box.setText("-v/--verbose");
-        BOWTIE2INSPECT_I_v_box.setName("BOWTIE2INSPECT_I_v_box"); // NOI18N
-        BOWTIE2INSPECT_I_v_box.addActionListener(new java.awt.event.ActionListener() {
+        I_v_box.setText("-v/--verbose");
+        I_v_box.setName("I_v_box"); // NOI18N
+        I_v_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOWTIE2INSPECT_I_v_boxActionPerformed(evt);
+                I_v_boxActionPerformed(evt);
             }
         });
 
-        BOWTIE2INSPECT_I_s_box.setText("-s/--summary");
-        BOWTIE2INSPECT_I_s_box.setName("BOWTIE2INSPECT_I_s_box"); // NOI18N
-        BOWTIE2INSPECT_I_s_box.addActionListener(new java.awt.event.ActionListener() {
+        I_s_box.setText("-s/--summary");
+        I_s_box.setName("I_s_box"); // NOI18N
+        I_s_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOWTIE2INSPECT_I_s_boxActionPerformed(evt);
+                I_s_boxActionPerformed(evt);
             }
         });
 
-        BOWTIE2INSPECT_I_n_box.setText("-n/--names");
-        BOWTIE2INSPECT_I_n_box.setName("BOWTIE2INSPECT_I_n_box"); // NOI18N
-        BOWTIE2INSPECT_I_n_box.addActionListener(new java.awt.event.ActionListener() {
+        I_n_box.setText("-n/--names");
+        I_n_box.setName("I_n_box"); // NOI18N
+        I_n_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOWTIE2INSPECT_I_n_boxActionPerformed(evt);
+                I_n_boxActionPerformed(evt);
             }
         });
 
-        BOWTIE2INSPECT_I_a_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(60), Integer.valueOf(0), null, Integer.valueOf(1)));
-        BOWTIE2INSPECT_I_a_value.setToolTipText("");
-        BOWTIE2INSPECT_I_a_value.setName("BOWTIE2INSPECT_I_a_value"); // NOI18N
-        BOWTIE2INSPECT_I_a_value.addChangeListener(new javax.swing.event.ChangeListener() {
+        I_a_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(60), Integer.valueOf(0), null, Integer.valueOf(1)));
+        I_a_value.setToolTipText("");
+        I_a_value.setName("I_a_value"); // NOI18N
+        I_a_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 I_a_spinner_value(evt);
             }
         });
 
-        BOWTIE2INSPECT_I_a_box.setText("-a/--across");
-        BOWTIE2INSPECT_I_a_box.setName("BOWTIE2INSPECT_I_a_box"); // NOI18N
-        BOWTIE2INSPECT_I_a_box.addActionListener(new java.awt.event.ActionListener() {
+        I_a_box.setText("-a/--across");
+        I_a_box.setName("I_a_box"); // NOI18N
+        I_a_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BOWTIE2INSPECT_I_a_boxActionPerformed(evt);
+                I_a_boxActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout BOWTIE2INSPECT_I_PanelLayout = new javax.swing.GroupLayout(BOWTIE2INSPECT_I_Panel);
-        BOWTIE2INSPECT_I_Panel.setLayout(BOWTIE2INSPECT_I_PanelLayout);
-        BOWTIE2INSPECT_I_PanelLayout.setHorizontalGroup(
-            BOWTIE2INSPECT_I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BOWTIE2INSPECT_I_PanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout I_PanelLayout = new javax.swing.GroupLayout(I_Panel);
+        I_Panel.setLayout(I_PanelLayout);
+        I_PanelLayout.setHorizontalGroup(
+            I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(I_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BOWTIE2INSPECT_I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BOWTIE2INSPECT_I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BOWTIE2INSPECT_I_n_box, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BOWTIE2INSPECT_I_v_box, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BOWTIE2INSPECT_I_s_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(BOWTIE2INSPECT_I_PanelLayout.createSequentialGroup()
-                        .addComponent(BOWTIE2INSPECT_I_a_box)
+                .addGroup(I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(I_n_box, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(I_v_box, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(I_s_box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(I_PanelLayout.createSequentialGroup()
+                        .addComponent(I_a_box)
                         .addGap(18, 18, 18)
-                        .addComponent(BOWTIE2INSPECT_I_a_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(I_a_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(195, Short.MAX_VALUE))
         );
-        BOWTIE2INSPECT_I_PanelLayout.setVerticalGroup(
-            BOWTIE2INSPECT_I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BOWTIE2INSPECT_I_PanelLayout.createSequentialGroup()
+        I_PanelLayout.setVerticalGroup(
+            I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(I_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BOWTIE2INSPECT_I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BOWTIE2INSPECT_I_a_box)
-                    .addComponent(BOWTIE2INSPECT_I_a_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(I_a_box)
+                    .addComponent(I_a_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BOWTIE2INSPECT_I_n_box)
+                .addComponent(I_n_box)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BOWTIE2INSPECT_I_v_box)
+                .addComponent(I_v_box)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BOWTIE2INSPECT_I_s_box)
+                .addComponent(I_s_box)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        BOWTIE2INSPECT_I_v_box.getAccessibleContext().setAccessibleDescription("Print verbose output (for debugging).");
-        BOWTIE2INSPECT_I_s_box.getAccessibleContext().setAccessibleDescription("Print a summary that includes information about index settings, as well as the names and lengths of the input sequences. The summary has this format:  Colorspace  <0 or 1> SA-Sample   1 in <sample> FTab-Chars  <chars> Sequence-1  <name>  <len> Sequence-2  <name>  <len> ... Sequence-N  <name>  <len>  Fields are separated by tabs. Colorspace is always set to 0 for Bowtie 2.");
-        BOWTIE2INSPECT_I_n_box.getAccessibleContext().setAccessibleDescription("Print reference sequence names, one per line, and quit.");
+        I_v_box.getAccessibleContext().setAccessibleDescription("Print verbose output (for debugging).");
+        I_s_box.getAccessibleContext().setAccessibleDescription("Print a summary that includes information about index settings, as well as the names and lengths of the input sequences. The summary has this format:  Colorspace  <0 or 1> SA-Sample   1 in <sample> FTab-Chars  <chars> Sequence-1  <name>  <len> Sequence-2  <name>  <len> ... Sequence-N  <name>  <len>  Fields are separated by tabs. Colorspace is always set to 0 for Bowtie 2.");
+        I_n_box.getAccessibleContext().setAccessibleDescription("Print reference sequence names, one per line, and quit.");
 
         reset_jButton3.setText("Reset default value");
         reset_jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -300,11 +300,11 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                         .addComponent(run_jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ClosejButton6))
-                    .addComponent(BOWTIE2INSPECT_I_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(I_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BOWTIE2INSPECT_I_DO_button)
+                        .addComponent(I_DO_button)
                         .addGap(18, 18, 18)
-                        .addComponent(BOWTIE2INSPECT_I_AO_button)))
+                        .addComponent(I_AO_button)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -313,10 +313,10 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BOWTIE2INSPECT_I_DO_button)
-                    .addComponent(BOWTIE2INSPECT_I_AO_button))
+                    .addComponent(I_DO_button)
+                    .addComponent(I_AO_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BOWTIE2INSPECT_I_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(I_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reset_jButton3)
@@ -393,20 +393,20 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         properties.put("Name", this.name_jTextField1.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
                                                         
-    private void BOWTIE2INSPECT_I_v_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INSPECT_I_v_boxActionPerformed
+    private void I_v_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_v_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(BOWTIE2INSPECT_I_v_box,null);
-    }//GEN-LAST:event_BOWTIE2INSPECT_I_v_boxActionPerformed
+        boxEvent(I_v_box,null);
+    }//GEN-LAST:event_I_v_boxActionPerformed
     
-    private void BOWTIE2INSPECT_I_s_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INSPECT_I_s_boxActionPerformed
+    private void I_s_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_s_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(BOWTIE2INSPECT_I_s_box,null);
-    }//GEN-LAST:event_BOWTIE2INSPECT_I_s_boxActionPerformed
+        boxEvent(I_s_box,null);
+    }//GEN-LAST:event_I_s_boxActionPerformed
     
-    private void BOWTIE2INSPECT_I_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INSPECT_I_n_boxActionPerformed
+    private void I_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_n_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(BOWTIE2INSPECT_I_n_box,null);
-    }//GEN-LAST:event_BOWTIE2INSPECT_I_n_boxActionPerformed
+        boxEvent(I_n_box,null);
+    }//GEN-LAST:event_I_n_boxActionPerformed
         
     private void name_jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -414,31 +414,31 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                                                                                                         
     private void I_a_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_I_a_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(BOWTIE2INSPECT_I_a_value);
+        spinnerUpdate(I_a_value);
     }//GEN-LAST:event_I_a_spinner_value
         
-    private void BOWTIE2INSPECT_I_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INSPECT_I_a_boxActionPerformed
+    private void I_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_a_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(BOWTIE2INSPECT_I_a_box,BOWTIE2INSPECT_I_a_value);
-    }//GEN-LAST:event_BOWTIE2INSPECT_I_a_boxActionPerformed
+        boxEvent(I_a_box,I_a_value);
+    }//GEN-LAST:event_I_a_boxActionPerformed
                                                                                                                                                                                                                                                                                     
-    private void BOWTIE2INSPECTBOWTIE2INSPECT_I_DO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INSPECTBOWTIE2INSPECT_I_DO_buttonActionPerformed
+    private void I_DO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_DO_buttonActionPerformed
         // TODO add your handling code here:
-        if (!properties.isSet(BOWTIE2INSPECT_I_AO_button.getName())) {
-            properties.remove(BOWTIE2INSPECT_I_AO_button.getName());
+        if (!properties.isSet(I_AO_button.getName())) {
+            properties.remove(I_AO_button.getName());
         }
         inspectFields(false);
-        buttonEvent(BOWTIE2INSPECT_I_DO_button);
-    }//GEN-LAST:event_BOWTIE2INSPECTBOWTIE2INSPECT_I_DO_buttonActionPerformed
+        buttonEvent(I_DO_button);
+    }//GEN-LAST:event_I_DO_buttonActionPerformed
 
-    private void BOWTIE2INSPECT_I_AO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BOWTIE2INSPECT_I_AO_buttonActionPerformed
+    private void I_AO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_AO_buttonActionPerformed
         // TODO add your handling code here:
-        if (!properties.isSet(BOWTIE2INSPECT_I_DO_button.getName())) {
-            properties.remove(BOWTIE2INSPECT_I_DO_button.getName());
+        if (!properties.isSet(I_DO_button.getName())) {
+            properties.remove(I_DO_button.getName());
         }
         inspectFields(true);
-        buttonEvent(BOWTIE2INSPECT_I_AO_button);
-    }//GEN-LAST:event_BOWTIE2INSPECT_I_AO_buttonActionPerformed
+        buttonEvent(I_AO_button);
+    }//GEN-LAST:event_I_AO_buttonActionPerformed
     
     
     /**
@@ -485,12 +485,12 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
      */
     
     private void inspectFields(boolean enabled){
-        this.BOWTIE2INSPECT_I_Panel.setVisible(enabled);
-        this.BOWTIE2INSPECT_I_v_box.setEnabled(enabled);
-        this.BOWTIE2INSPECT_I_s_box.setEnabled(enabled);
-        this.BOWTIE2INSPECT_I_n_box.setEnabled(enabled);
-        this.BOWTIE2INSPECT_I_a_box.setEnabled(enabled);
-        this.BOWTIE2INSPECT_I_a_value.setEnabled(false);
+        this.I_Panel.setVisible(enabled);
+        this.I_v_box.setEnabled(enabled);
+        this.I_s_box.setEnabled(enabled);
+        this.I_n_box.setEnabled(enabled);
+        this.I_a_box.setEnabled(enabled);
+        this.I_a_value.setEnabled(false);
     }
     
     
@@ -515,7 +515,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     }
     
     private void defaultPgrmValues(workflow_properties properties) {
-        if (!properties.isSet(BOWTIE2INSPECT_I_DO_button.getName())) {
+        if (!properties.isSet(I_DO_button.getName())) {
             String defaultEditorStatus = properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
             int z = 0;
@@ -532,27 +532,27 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     
     private void updateSavedProperties(workflow_properties properties) {
         // Inspect properties saved
-        if (properties.isSet(BOWTIE2INSPECT_I_DO_button.getName())) {
-            this.BOWTIE2INSPECT_I_DO_button.setSelected(true);
+        if (properties.isSet(I_DO_button.getName())) {
+            this.I_DO_button.setSelected(true);
             inspectFields(false);
-        } else if (properties.isSet(BOWTIE2INSPECT_I_AO_button.getName())) {
-            this.BOWTIE2INSPECT_I_AO_button.setSelected(true);
+        } else if (properties.isSet(I_AO_button.getName())) {
+            this.I_AO_button.setSelected(true);
             inspectFields(true);
         }
         
-        if (properties.isSet(BOWTIE2INSPECT_I_a_value.getName())){
-            this.BOWTIE2INSPECT_I_a_value.setValue(Integer.parseInt(properties.get(BOWTIE2INSPECT_I_a_value.getName())));
-            this.BOWTIE2INSPECT_I_a_value.setEnabled(true);
-            this.BOWTIE2INSPECT_I_a_box.setSelected(true);
+        if (properties.isSet(I_a_value.getName())){
+            this.I_a_value.setValue(Integer.parseInt(properties.get(I_a_value.getName())));
+            this.I_a_value.setEnabled(true);
+            this.I_a_box.setSelected(true);
         }
-        if (properties.isSet(BOWTIE2INSPECT_I_n_box.getName())){
-            this.BOWTIE2INSPECT_I_n_box.setSelected(true);
+        if (properties.isSet(I_n_box.getName())){
+            this.I_n_box.setSelected(true);
         }
-        if (properties.isSet(BOWTIE2INSPECT_I_v_box.getName())){
-            this.BOWTIE2INSPECT_I_v_box.setSelected(true);
+        if (properties.isSet(I_v_box.getName())){
+            this.I_v_box.setSelected(true);
         }
-        if (properties.isSet(BOWTIE2INSPECT_I_s_box.getName())){
-            this.BOWTIE2INSPECT_I_s_box.setSelected(true);
+        if (properties.isSet(I_s_box.getName())){
+            this.I_s_box.setSelected(true);
         }
     }
     
@@ -592,17 +592,17 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton BOWTIE2INSPECT_I_AO_button;
-    private javax.swing.JRadioButton BOWTIE2INSPECT_I_DO_button;
-    private javax.swing.JPanel BOWTIE2INSPECT_I_Panel;
-    private javax.swing.JCheckBox BOWTIE2INSPECT_I_a_box;
-    private javax.swing.JSpinner BOWTIE2INSPECT_I_a_value;
-    private javax.swing.JCheckBox BOWTIE2INSPECT_I_n_box;
-    private javax.swing.JCheckBox BOWTIE2INSPECT_I_s_box;
-    private javax.swing.JCheckBox BOWTIE2INSPECT_I_v_box;
-    private javax.swing.ButtonGroup BOWTIE2INSPECT_Options_Buttons;
     private javax.swing.JTabbedPane Bowtie2InspectEditor;
     private javax.swing.JButton ClosejButton6;
+    private javax.swing.JRadioButton I_AO_button;
+    private javax.swing.JRadioButton I_DO_button;
+    private javax.swing.JPanel I_Panel;
+    private javax.swing.JCheckBox I_a_box;
+    private javax.swing.JSpinner I_a_value;
+    private javax.swing.JCheckBox I_n_box;
+    private javax.swing.JCheckBox I_s_box;
+    private javax.swing.JCheckBox I_v_box;
+    private javax.swing.ButtonGroup Options_Buttons;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
