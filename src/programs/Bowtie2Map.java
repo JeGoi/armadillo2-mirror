@@ -84,10 +84,15 @@ public class Bowtie2Map extends RunProgram {
         boolean b3 = properties.get("IDG_selected_ComboBox").equals("Choose_an_indexed_Genome");
         boolean b4 = properties.get("M_PE_button").equals("true");
         
-        if (Fastq1.isEmpty()) {
+        String s1 = getFileName(getFastqPath(Fastq1));
+        String s2 = getFileName(getFastqPath(Fastq2));
+            
+        
+        if (Fastq1.isEmpty() || s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
             return false;
-        } else if (Fastq2.isEmpty() && properties.isSet("M_PE_button")) {
+        } else if ((Fastq2.isEmpty() || s1.equals("")) &&
+                properties.isSet("M_PE_button")) {
             properties.remove("M_PE_button");
             properties.put("M_SE_button","true");
             setStatus(status_BadRequirements,"The program will work on single end.");
@@ -99,17 +104,21 @@ public class Bowtie2Map extends RunProgram {
             setStatus(status_BadRequirements,"Choose a Genome Reference");
             return false;
         } else if (!Fastq2.isEmpty() && b4) {
-            String s1 = getFileName(getFastqPath(Fastq1));
-            String s2 = getFileName(getFastqPath(Fastq2));
-            int sn = fastqSameName(s1,s2);
+            s1 = getFileName(getFastqPath(Fastq1));
+            s2 = getFileName(getFastqPath(Fastq2));
+            if (!s1.contains("<>") && !s2.contains("<>")) {
             int gn = fastqGoodNumber(s1,s2);
-            if (sn==0 && gn==0) {
-                
-                setStatus(status_BadRequirements,"Fastq paired are not compatible.\n"
-                        + "Check your files they need to have the same name and finish by _1 and _2,\n"
-                        + "or it's due to Armadillo process, and let it go !");
-                return false;
-            }
+            int sn = fastqSameName(s1,s2);
+                if (sn==0 && gn==0) {
+                    setStatus(status_BadRequirements,"Fastq paired are not compatible.\n"
+                            + "Check your files they need to have the same name and finish by _1 and _2,\n"
+                            + "or it's due to Armadillo process, and let it go !");
+                    return false;
+                }
+            } else {
+                // Do something if all in one shot.
+                // At least contain the same number of files
+            } 
         }
         return true;
         
@@ -242,17 +251,25 @@ public class Bowtie2Map extends RunProgram {
                 FastqFile fas =new FastqFile(ids);
                 s = fas.getName();
             }
+            System.out.println("before"+s);
+            if (s.contains("<>")) s = s.replaceAll("<>", ",");
+            System.out.println("After"+s);
             return s;
         }
 
         private String getFileName(String s){
             String name = "";
-            int pos1 = s.lastIndexOf("/");
-            int pos2 = s.lastIndexOf(".");
+            String sFirstName = s;
+            if (s.contains(",")) {
+                String[] tab = s.split(",");
+                sFirstName = tab[0];
+            }
+            int pos1 = sFirstName.lastIndexOf(File.separator);
+            int pos2 = sFirstName.lastIndexOf(".");
             if (pos1 > 0 && pos2>pos1) {
-                name = s.substring(pos1+1,pos2);
+                name = sFirstName.substring(pos1+1,pos2);
             } else {
-                name = s.substring(pos1+1,s.length());
+                name = sFirstName.substring(pos1+1,s.length());
             }
             return name;
         }

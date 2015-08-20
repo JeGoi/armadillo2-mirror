@@ -1579,11 +1579,12 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                         filename.endsWith("fa")||
                                         filename.endsWith("phy")||
                                         filename.endsWith("phylip")||
-                                        filename.endsWith("bt2")|| // JG 2015
-                                        filename.endsWith("bwt")|| // JG 2015
-                                        filename.endsWith("pac")|| // JG 2015
-                                        filename.endsWith("sa")||  // JG 2015
-                                        filename.endsWith("fq")    // JG 2015
+                                        filename.endsWith("bt2")||    // JG 2015
+                                        filename.endsWith("bwt")||    // JG 2015
+                                        filename.endsWith("pac")||    // JG 2015
+                                        filename.endsWith("sam")||    // JG 2015
+                                        filename.endsWith("fastq")||  // JG 2015
+                                        filename.endsWith("fq")       // JG 2015
                                         
                                         ) {
                                     StandardInputSequenceJDialog jd=new StandardInputSequenceJDialog(frame, filename,"Import file", "");
