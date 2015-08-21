@@ -60,9 +60,13 @@ public class loadFiles2 extends RunProgram {
                 TextID==0) {
             setStatus(status_BadRequirements,"No filename specified.");
             return false;
-        } else if (properties.isSet("LAF_AllInOne_Button") && type!=6 ) {
+        } else if (properties.isSet("LAF2_AllInOne_Button") && type!=6 ) {
             setStatus(status_BadRequirements,"Only available for Bowtie2, Bowtie\n"
-                    + "Need also FastqFiles Only");
+                    + "Need also >>>> FastqFiles <<<< Only");
+            return false;
+        } else if (!properties.isSet("LAF_Repeat_button") &&
+                !properties.isSet("LAF2_AllInOne_Button")) {
+            setStatus(status_BadRequirements,"Need to choose a file and type of send files");
             return false;
         }
         
@@ -100,15 +104,17 @@ public class loadFiles2 extends RunProgram {
             text.Output("outfile");
             properties.put("inputname","outfile");
         }
+        
         int type=properties.getInt("type");
         
-        if (properties.isSet("LAF_AllInOne_Button") && type==6 ) {
+        if (properties.isSet("LAF2_AFIOS_Button") && type==6 ) {
             FastqFile fastqFile=new FastqFile();
-            fastqFile.setFastqFile(properties.get("DescriptionAll"));
-            fastqFile.setName(properties.get("DescriptionAll"));
+            fastqFile.setFastqFile(properties.get("inputAllNames"));
+            fastqFile.setName(properties.get("inputAllNames"));
             fastqFile.saveToDatabase();
             properties.put("output_fastqfile_id", fastqFile.getId());
-        }else if (properties.isSet("LAF_Repeat_button")) {
+        }
+        else if (properties.isSet("LAF_Repeat_button")) {
             switch(type) {
                 case 0: TextFile txt=new TextFile();
                     txt.setFile(properties.get("inputname"));
@@ -132,8 +138,8 @@ public class loadFiles2 extends RunProgram {
                     results.setName(properties.get("inputname"));
                     results.saveToDatabase();
                     properties.put("output_results_id", results.getId());
-                break;
-                    case 4: Text text=new Text(properties.get("inputname"));
+                    break;
+                case 4: Text text=new Text(properties.get("inputname"));
                     text.setName(properties.get("inputname"));
                     text.saveToDatabase();
                     properties.put("output_text_id", text.getId());
@@ -153,7 +159,7 @@ public class loadFiles2 extends RunProgram {
                     properties.put("output_fastqfile_id", fastqFile.getId());
                     break;
             }
-        }
+        } else System.out.println("else");
     }
     
 }

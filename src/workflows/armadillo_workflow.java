@@ -6993,23 +6993,22 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 textFont(font);
                 fill(0);
                 
-            } else
-                if (properties.isSet("ForObjectID")) {
-                    //description="For each for "+count+" "+type;
-                    //--Add paralel information here
-                    noFill();
-                    strokeWeight(2.0f);
-                    stroke(128);
-                    strokeCap(ROUND);
-                    rect(this.x-100, this.y-25, 200, 75);
-                    strokeWeight(0.1f);
-                    fill(0);
-                    textAlign(CENTER);
-                    textFont(boldfont);
-                    text("Parallel section (Repetition)",this.x,this.y-10);
-                    textFont(font);
-                    fill(0);
-                }
+            } else if (properties.isSet("ForObjectID")) {
+                //description="For each for "+count+" "+type;
+                //--Add paralel information here
+                noFill();
+                strokeWeight(2.0f);
+                stroke(128);
+                strokeCap(ROUND);
+                rect(this.x-100, this.y-25, 200, 75);
+                strokeWeight(0.1f);
+                fill(0);
+                textAlign(CENTER);
+                textFont(boldfont);
+                text("Parallel section (Repetition)",this.x,this.y-10);
+                textFont(font);
+                fill(0);
+            }
             
             // - draw text
             fill(0);

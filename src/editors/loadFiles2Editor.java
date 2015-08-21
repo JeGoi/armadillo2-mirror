@@ -68,7 +68,8 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
     InformationJDialog loading;                        //Loading sequence JDialog
     Vector<InfoSequence>MultipleInfoSequence=new Vector<InfoSequence>();
     databaseFunction df=new databaseFunction();
-    String old_filename="";
+    String old_filename  = "";
+    String directoryContent = "";
     ////////////////////////////////////////////////////////////////////////////
     /// CONSTANT
     
@@ -101,7 +102,7 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         jPanel3 = new javax.swing.JPanel();
         Filename_jTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        LAF2_Repeat_FilesSearch_Button = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         NamejTextField = new javax.swing.JTextField();
@@ -112,15 +113,19 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         OkjButton = new javax.swing.JButton();
         CanceljButton = new javax.swing.JButton();
         LAF_Repeat_Label = new javax.swing.JLabel();
-        LAF2_Repeat_button = new javax.swing.JRadioButton();
-        LAF2_AllInOne_Button = new javax.swing.JRadioButton();
-        LAF_AllInOne_Label = new javax.swing.JLabel();
-        LAF2_AllInOne_Files_Panel = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        LAF2_AFIOS_Files_List = new javax.swing.JList();
+        LAF_Repeat_button = new javax.swing.JRadioButton();
+        LAF2_AFIOS_Button = new javax.swing.JRadioButton();
+        LAF2_AFIOS_Label = new javax.swing.JLabel();
+        LAF2_AFIOS_Files_Panel = new javax.swing.JPanel();
         LAF2_AFIOS_update_button = new javax.swing.JButton();
         LAF2_AFIOS_ANF_button = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        LAF2_AFIOS_Files_List = new javax.swing.JList();
         LAF_ChooseOption_Label = new javax.swing.JLabel();
+        LAF2_AFIOS_Filename_Panel = new javax.swing.JPanel();
+        LAF2_AFIOS_Filename_jTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        LAF2_AFIOS_FilesSearch_Button = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
@@ -140,10 +145,10 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
 
         jLabel3.setText("Directory or file(s)");
 
-        jButton6.setText("...");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        LAF2_Repeat_FilesSearch_Button.setText("...");
+        LAF2_Repeat_FilesSearch_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                LAF2_Repeat_FilesSearch_ButtonActionPerformed(evt);
             }
         });
 
@@ -155,7 +160,7 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(Filename_jTextField)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(LAF2_Repeat_FilesSearch_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +169,7 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Filename_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6)))
+                    .addComponent(LAF2_Repeat_FilesSearch_Button)))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -242,29 +247,27 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         LAF_Repeat_Label.setForeground(new java.awt.Color(255, 0, 0));
         LAF_Repeat_Label.setText("Note: This will be converted to a \"Repeat\" workflow");
 
-        LAF_SendType_ButtonGroup.add(LAF2_Repeat_button);
-        LAF2_Repeat_button.setText("Repeat Worflows");
-        LAF2_Repeat_button.setName("LAF2_Repeat_button"); // NOI18N
-        LAF2_Repeat_button.addActionListener(new java.awt.event.ActionListener() {
+        LAF_SendType_ButtonGroup.add(LAF_Repeat_button);
+        LAF_Repeat_button.setText("Repeat Worflows");
+        LAF_Repeat_button.setName("LAF_Repeat_button"); // NOI18N
+        LAF_Repeat_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LAF2_Repeat_buttonActionPerformed(evt);
+                LAF_Repeat_buttonActionPerformed(evt);
             }
         });
 
-        LAF_SendType_ButtonGroup.add(LAF2_AllInOne_Button);
-        LAF2_AllInOne_Button.setText("All Files In One Shot (ONLY supported by : Bowtie2,Bowtie)");
-        LAF2_AllInOne_Button.setName("LAF2_AllInOne_Button"); // NOI18N
-        LAF2_AllInOne_Button.addActionListener(new java.awt.event.ActionListener() {
+        LAF_SendType_ButtonGroup.add(LAF2_AFIOS_Button);
+        LAF2_AFIOS_Button.setText("All Files In One Shot (ONLY supported by : Bowtie2,Bowtie)");
+        LAF2_AFIOS_Button.setName("LAF2_AFIOS_Button"); // NOI18N
+        LAF2_AFIOS_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LAF2_AllInOne_ButtonActionPerformed(evt);
+                LAF2_AFIOS_ButtonActionPerformed(evt);
             }
         });
 
-        LAF_AllInOne_Label.setForeground(new java.awt.Color(255, 0, 0));
-        LAF_AllInOne_Label.setText("Note: This will send all files in one shot. Please choose Files or directory wisely.");
-        LAF_AllInOne_Label.setName("LAF_AllInOne_Label"); // NOI18N
-
-        jScrollPane3.setViewportView(LAF2_AFIOS_Files_List);
+        LAF2_AFIOS_Label.setForeground(new java.awt.Color(255, 0, 0));
+        LAF2_AFIOS_Label.setText("Note: This will send all files in one shot. Please choose Files or directory wisely.");
+        LAF2_AFIOS_Label.setName("LAF2_AFIOS_Label"); // NOI18N
 
         LAF2_AFIOS_update_button.setText("Update Selected Files");
         LAF2_AFIOS_update_button.setName("LAF2_AFIOS_update_button"); // NOI18N
@@ -281,35 +284,68 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
             }
         });
 
-        javax.swing.GroupLayout LAF2_AllInOne_Files_PanelLayout = new javax.swing.GroupLayout(LAF2_AllInOne_Files_Panel);
-        LAF2_AllInOne_Files_Panel.setLayout(LAF2_AllInOne_Files_PanelLayout);
-        LAF2_AllInOne_Files_PanelLayout.setHorizontalGroup(
-            LAF2_AllInOne_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LAF2_AllInOne_Files_PanelLayout.createSequentialGroup()
+        jScrollPane1.setViewportView(LAF2_AFIOS_Files_List);
+
+        javax.swing.GroupLayout LAF2_AFIOS_Files_PanelLayout = new javax.swing.GroupLayout(LAF2_AFIOS_Files_Panel);
+        LAF2_AFIOS_Files_Panel.setLayout(LAF2_AFIOS_Files_PanelLayout);
+        LAF2_AFIOS_Files_PanelLayout.setHorizontalGroup(
+            LAF2_AFIOS_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LAF2_AFIOS_Files_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LAF2_AFIOS_update_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LAF2_AFIOS_ANF_button)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LAF2_AllInOne_Files_PanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(LAF2_AFIOS_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(LAF2_AFIOS_Files_PanelLayout.createSequentialGroup()
+                        .addComponent(LAF2_AFIOS_update_button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LAF2_AFIOS_ANF_button)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        LAF2_AllInOne_Files_PanelLayout.setVerticalGroup(
-            LAF2_AllInOne_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LAF2_AllInOne_Files_PanelLayout.createSequentialGroup()
+        LAF2_AFIOS_Files_PanelLayout.setVerticalGroup(
+            LAF2_AFIOS_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LAF2_AFIOS_Files_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(LAF2_AllInOne_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(LAF2_AFIOS_Files_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LAF2_AFIOS_update_button)
                     .addComponent(LAF2_AFIOS_ANF_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         LAF_ChooseOption_Label.setForeground(new java.awt.Color(255, 0, 0));
         LAF_ChooseOption_Label.setText("Select an option. Anytime, a doubt => cancel and reopen");
+
+        LAF2_AFIOS_Filename_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel4.setText("Directory or file(s)");
+
+        LAF2_AFIOS_FilesSearch_Button.setText("...");
+        LAF2_AFIOS_FilesSearch_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LAF2_AFIOS_FilesSearch_ButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout LAF2_AFIOS_Filename_PanelLayout = new javax.swing.GroupLayout(LAF2_AFIOS_Filename_Panel);
+        LAF2_AFIOS_Filename_Panel.setLayout(LAF2_AFIOS_Filename_PanelLayout);
+        LAF2_AFIOS_Filename_PanelLayout.setHorizontalGroup(
+            LAF2_AFIOS_Filename_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LAF2_AFIOS_Filename_PanelLayout.createSequentialGroup()
+                .addComponent(LAF2_AFIOS_Filename_jTextField)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LAF2_AFIOS_FilesSearch_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        LAF2_AFIOS_Filename_PanelLayout.setVerticalGroup(
+            LAF2_AFIOS_Filename_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LAF2_AFIOS_Filename_PanelLayout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LAF2_AFIOS_Filename_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LAF2_AFIOS_Filename_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LAF2_AFIOS_FilesSearch_Button)))
+        );
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -317,24 +353,6 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LAF2_AllInOne_Files_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(CanceljButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(OkjButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LAF2_Repeat_button)
-                                    .addComponent(LAF_AllInOne_Label)
-                                    .addComponent(LAF2_AllInOne_Button))
-                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -343,7 +361,26 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(LAF_Repeat_Label)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LAF2_AFIOS_Files_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(CanceljButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(OkjButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LAF_Repeat_button)
+                                    .addComponent(LAF2_AFIOS_Label)
+                                    .addComponent(LAF2_AFIOS_Button))
+                                .addGap(0, 24, Short.MAX_VALUE))
+                            .addComponent(LAF2_AFIOS_Filename_Panel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -354,19 +391,21 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LAF_ChooseOption_Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LAF2_Repeat_button)
+                .addComponent(LAF_Repeat_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LAF_Repeat_Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LAF2_AllInOne_Button)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(LAF2_AFIOS_Button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LAF_AllInOne_Label)
+                .addComponent(LAF2_AFIOS_Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LAF2_AFIOS_Filename_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LAF2_AFIOS_Files_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LAF2_AllInOne_Files_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(OkjButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,8 +443,8 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
                 .addContainerGap()
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
@@ -415,39 +454,9 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         
 }//GEN-LAST:event_jTabbedPane1ComponentShown
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        JFileChooser jf;
-        if (this.Filename_jTextField.getText().isEmpty()) {
-            jf=new JFileChooser(config.getExplorerPath());
-        } else {
-            jf=new JFileChooser(this.Filename_jTextField.getText());
-        }
-        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        jf.setAcceptAllFileFilterUsed(false);
-        jf.setMultiSelectionEnabled(true);
-        int result=jf.showOpenDialog(this);
-        //CAS 1: On reussi a choisir un fichier
-        if (result==JFileChooser.APPROVE_OPTION) {
-            //--Remove previous files in object
-            cleanRepeatProperties();
-            
-            //--Save new filepath
-            File[] files=jf.getSelectedFiles();
-            String filesList = allFilesNames(files);
-            
-            // Automaticaly update jComboBox type of file(s) if it's possible
-            updateTypeOfFile(filesList);
-            
-            if (properties.isSet(LAF2_Repeat_button.getName())) {
-                addfilesInTheList(false);
-            }
-            if (properties.isSet(LAF2_AllInOne_Button.getName())) {
-                cleanRepeatProperties();
-                addfilesInTheList(true);
-            }
-
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void LAF2_Repeat_FilesSearch_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_Repeat_FilesSearch_ButtonActionPerformed
+        filesSearchFunction();
+    }//GEN-LAST:event_LAF2_Repeat_FilesSearch_ButtonActionPerformed
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         HelpEditor help = new HelpEditor(this.frame, false, properties);
@@ -460,13 +469,18 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
     }//GEN-LAST:event_OkjButtonActionPerformed
 
     private void CanceljButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CanceljButtonActionPerformed
-        if (properties.isSet(LAF2_AllInOne_Button.getName())) {
-            properties.remove(LAF2_AllInOne_Button.getName());
-            properties.remove("inputAllNames");
+        if (properties.isSet(LAF2_AFIOS_Button.getName())) {
+            cleanAFIOSDatas();
+            properties.remove(LAF2_AFIOS_Button.getName());
         }
-        if (properties.isSet(LAF2_Repeat_button.getName())) {
-            cleanRepeatProperties();
+        if (properties.isSet(LAF_Repeat_button.getName())) {
+            cleanRepeatDatas();
+            properties.remove(LAF_Repeat_button.getName());
+            
         }
+        properties.remove("type");
+        properties.remove("Description");
+        properties.remove("ForObjectID");
         this.setVisible(false);
     }//GEN-LAST:event_CanceljButtonActionPerformed
     
@@ -483,27 +497,39 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         properties.put("type", this.type_jComboBox1.getSelectedIndex());
 }//GEN-LAST:event_type_jComboBox1ActionPerformed
 
-    private void LAF2_Repeat_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_Repeat_buttonActionPerformed
+    private void LAF_Repeat_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF_Repeat_buttonActionPerformed
         // TODO add your handling code here:
         LAF_ChooseOption_Label.setVisible(false);
-        if (properties.isSet(LAF2_AllInOne_Button.getName())) {
-            addfilesInTheList(false);
+        if (properties.isSet(LAF2_AFIOS_Button.getName())) {
+            properties.remove(LAF2_AFIOS_Button.getName());
+            cleanAFIOSDatas();
+            this.Filename_jTextField.setText("");
         }
-        properties.put(LAF2_Repeat_button.getName(),LAF2_Repeat_button.isSelected());
+        properties.remove("type");
+        properties.remove("Description");
+        properties.remove("ForObjectID");
+        properties.put(LAF_Repeat_button.getName(),LAF_Repeat_button.isSelected());
         optionLabelRepeatVisibility(true);
-        directoryEnabled(true);
-    }//GEN-LAST:event_LAF2_Repeat_buttonActionPerformed
+        directoryRepeatEnabled(true);
+        directoryAFIOSEnabled(false);
+    }//GEN-LAST:event_LAF_Repeat_buttonActionPerformed
 
-    private void LAF2_AllInOne_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_AllInOne_ButtonActionPerformed
+    private void LAF2_AFIOS_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_AFIOS_ButtonActionPerformed
         // TODO add your handling code here:
         LAF_ChooseOption_Label.setVisible(false);
-        if (properties.isSet(LAF2_Repeat_button.getName())) {
-            cleanRepeatProperties();
+        if (properties.isSet(LAF_Repeat_button.getName())) {
+            cleanRepeatDatas();
+            properties.remove(LAF_Repeat_button.getName());
+            this.Filename_jTextField.setText("");
         }
-        properties.put(LAF2_AllInOne_Button.getName(),LAF2_AllInOne_Button.isSelected());
+        properties.remove("type");
+        properties.remove("Description");
+        properties.remove("ForObjectID");
+        properties.put(LAF2_AFIOS_Button.getName(),LAF2_AFIOS_Button.isSelected());
         optionLabelRepeatVisibility(false);
-        directoryEnabled(true);
-    }//GEN-LAST:event_LAF2_AllInOne_ButtonActionPerformed
+        directoryRepeatEnabled(false);
+        directoryAFIOSEnabled(true);
+    }//GEN-LAST:event_LAF2_AFIOS_ButtonActionPerformed
 
     private void LAF2_AFIOS_ANF_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_AFIOS_ANF_buttonActionPerformed
         // TODO add your handling code here:
@@ -517,21 +543,15 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         jf.setAcceptAllFileFilterUsed(false);
         jf.setMultiSelectionEnabled(true);
         int result=jf.showOpenDialog(this);
-        //CAS 1: On reussi a choisir un fichier
         if (result==JFileChooser.APPROVE_OPTION) {
-            //--Remove previous files in object
-            cleanRepeatProperties();
-            
-            //--Save new filepath
             File[] files=jf.getSelectedFiles();
             String filesList = properties.get("inputAllNames");
             String tmpFilesList = allFilesNames(files);
             if (!tmpFilesList.equals("")) filesList=filesList+"<>"+tmpFilesList;
-            
+            cleanRepeatDatas();
             // Automaticaly update jComboBox type of file(s) if it's possible
             updateTypeOfFile(filesList);
-            addfilesInTheList(true);
-            cleanRepeatProperties();
+            addFilesInTheList();
         }
     }//GEN-LAST:event_LAF2_AFIOS_ANF_buttonActionPerformed
 
@@ -539,192 +559,262 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         // TODO add your handling code here:
         updateList();
     }//GEN-LAST:event_LAF2_AFIOS_update_buttonActionPerformed
+
+    private void LAF2_AFIOS_FilesSearch_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_AFIOS_FilesSearch_ButtonActionPerformed
+        // TODO add your handling code here:
+        filesSearchFunction();
+    }//GEN-LAST:event_LAF2_AFIOS_FilesSearch_ButtonActionPerformed
     
     ////////////////////////////////////////////////////////////////////////////
     /// FILES FUNCTIONS
+    ////////////////////////////////////////////////////////////////////////////
     
-    // Function to add file(s) in a list of files reprensented by a String
-    private String addToFilesList (String list,String file) {
-        String s = list;
-        if (s.equals("")) s = file;
-        else s = s+"<>"+file;
-        return s;
-    }
+    ///                          ///
+    // Main files search function //
+    ///                          ///
     
-    // Function to found what kind of files are present in the files list
-    private int whatFilesInFilesList (String list) {
-        String[] listFiles = list.split("<>");
-        int [] nbType = new int [this.type_jComboBox1.getItemCount()];
-        for (int t : nbType) t = 0; 
-        int y = 0;
-        for (String listFile : listFiles) {
-            y = typeOfFile(listFile);
-            nbType[y]=nbType[y]+1;
+    private void filesSearchFunction () {
+        JFileChooser jf;
+        if (this.LAF2_AFIOS_Filename_jTextField.getText().isEmpty() ||
+               this.Filename_jTextField.getText().isEmpty()
+            ) {
+            jf=new JFileChooser(config.getExplorerPath());
+        } else if (properties.isSet(LAF_Repeat_button.getName())) {
+            jf=new JFileChooser(this.Filename_jTextField.getText());
+        } else if (properties.isSet(LAF2_AFIOS_Button.getName())) {
+            jf=new JFileChooser(this.LAF2_AFIOS_Filename_jTextField.getText());
+        } else {
+            jf=new JFileChooser("");
         }
-        return maxIntTable(nbType);
+        
+        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        jf.setAcceptAllFileFilterUsed(false);
+        jf.setMultiSelectionEnabled(true);
+        int result=jf.showOpenDialog(this);
+        
+        if (result==JFileChooser.APPROVE_OPTION) {
+            if (properties.isSet(LAF_Repeat_button.getName())) {
+                //--Remove previous files in object
+                cleanRepeatDatas();
+                properties.put("ForObjectID",properties.getID());
+            }
+            
+            //--Save new filepath and files
+            File[] files=jf.getSelectedFiles();
+            String filesList = allFilesNames(files);
+            //Remove extra data
+            if (properties.isSet(LAF_Repeat_button.getName())) {
+                cleanAFIOSDatas();
+            } else if (properties.isSet(LAF2_AFIOS_Button.getName())) {
+                properties.remove("ForObjectID");
+                cleanRepeatDatas();
+                addFilesInTheList();
+            }
+            
+            // Automaticaly update jComboBox type of file(s) if it's possible
+            updateTypeOfFile(filesList);
+            
+            // Set directory content
+            directorySet(directoryContent);
+        }
     }
-        // Sub function of whatFilesInFilesList
-        private int typeOfFile (String list) {
-            int typeVal = 0;
+    
+    
+    ///                   ///
+    // FILES SUB FUNCTIONS //
+    ///                   ///
+    
+        // Function to add file(s) in a list of files reprensented by a String
+        private String addToFilesList (String list,String file) {
             String s = list;
-            String type = "";
-
-            int pos1 = s.lastIndexOf(".");
-            type = s.substring(pos1+1,s.length());
-
-            if (!type.equals("")) typeVal=findTypeInt(type);
-
-            return typeVal;
-        }
-            // Sub function of typeOfFile
-            private int findTypeInt(String s){
-                int type = 0;
-                if (s.equals("fasta")||s.equals("fa")) type = 2;
-                else if (s.equals("txt")) type = 3;
-                else if (s.equals("bt2")||s.equals("ebwt")) type = 5;
-                else if (s.equals("fastq")||s.equals("fq")) type = 6;
-                return type;
-            }
-        
-        // Sub function of whatFilesInFilesList
-        private int maxIntTable(int [] tab){
-            int max = tab[0];
-            int pos = 0;
-            for (int i = 1; i < tab.length; i++) {
-                if (tab[i] > max) {
-                    max = tab[i];
-                    pos = i;
-                }
-            }
-            return pos;
-        }
-        
-        // obtain all files names and path in properties and string with <>
-        private String allFilesNames(File[] files) {
-            String s = "";
-            properties.put("ForObjectID",properties.getID());
-            if (files.length>1) {
-                properties.put("Description", "Multiple files...");
-                this.Filename_jTextField.setText("Multiple files...");
-                //--Note we handle recursive directory
-                for (File f:files) {
-                    if (f.isDirectory()) {
-                        s = extracFilesFromDir(f);
-                    } else {
-                        properties.put("For_"+f.getAbsolutePath(), "inputname");
-                        s = addToFilesList(s,f.getAbsolutePath());
-                    }
-                }
-            } else if (files.length==1&&!files[0].isDirectory()) {
-                this.Filename_jTextField.setText(files[0].getAbsolutePath());
-                properties.put("Description", files[0].getAbsolutePath());
-                properties.put("inputname", files[0].getAbsolutePath());
-                s = addToFilesList(s,files[0].getAbsolutePath());
-            } else if (files.length==1&&files[0].isDirectory()) {
-                this.Filename_jTextField.setText(files[0].getAbsolutePath());
-                properties.put("Description", "Multiple files in "+files[0].getAbsolutePath());
-                s = extracFilesFromDir(files[0]);
-            } else {
-                this.Filename_jTextField.setText("");
-                properties.remove("ForObjectID",properties.getID());
-            }
+            if (s.equals("")) s = file;
+            else s = s+"<>"+file;
             return s;
         }
-            // Sub function of allFilesNames
-            // @parameter : File
-            // @return : String List of file(s) separated with a <>
-            private String extracFilesFromDir (File f) {
+
+        // Function to found what kind of files are present in the files list
+        private int whatFilesInFilesList (String list) {
+            String[] listFiles = list.split("<>");
+            int [] nbType = new int [this.type_jComboBox1.getItemCount()];
+            for (int t : nbType) t = 0; 
+            int y = 0;
+            for (String listFile : listFiles) {
+                y = typeOfFile(listFile);
+                nbType[y]=nbType[y]+1;
+            }
+            return maxIntTable(nbType);
+        }
+
+            // Sub function of whatFilesInFilesList
+            private int typeOfFile (String list) {
+                int typeVal = 0;
+                String s = list;
+                String type = "";
+
+                int pos1 = s.lastIndexOf(".");
+                type = s.substring(pos1+1,s.length());
+
+                if (!type.equals("")) typeVal=findTypeInt(type);
+
+                return typeVal;
+            }
+                // Sub function of typeOfFile
+                private int findTypeInt(String s){
+                    int type = 0;
+                    if (s.equals("fasta")||s.equals("fa")) type = 2;
+                    else if (s.equals("txt")) type = 3;
+                    else if (s.equals("bt2")||s.equals("ebwt")) type = 5;
+                    else if (s.equals("fastq")||s.equals("fq")) type = 6;
+                    return type;
+                }
+
+            // Sub function of whatFilesInFilesList
+            private int maxIntTable(int [] tab){
+                int max = tab[0];
+                int pos = 0;
+                for (int i = 1; i < tab.length; i++) {
+                    if (tab[i] > max) {
+                        max = tab[i];
+                        pos = i;
+                    }
+                }
+                return pos;
+            }
+
+            // obtain all files names and path in properties and string with <>
+            private String allFilesNames(File[] files) {
                 String s = "";
-                for (File f1:this.listDir(f)) {
-                    properties.put("For_"+f1.getAbsolutePath(), "inputname");
-                    s = addToFilesList(s,f1.getAbsolutePath());    
+                if (files.length>1) {
+                    directoryContent = "Multiple files...";
+                    //--Note we handle recursive directory
+                    for (File f:files) {
+                        if (f.isDirectory()) {
+                            s = extractFilesFromDir(f);
+                        } else {
+                            properties.put("For_"+f.getAbsolutePath(), "inputname");
+                            s = addToFilesList(s,f.getAbsolutePath());
+                        }
+                    }
+                } else if (files.length==1&&!files[0].isDirectory()) {
+                    directoryContent = files[0].getAbsolutePath();
+                    properties.remove("ForObjectID");
+                    properties.put("inputname", files[0].getAbsolutePath());
+                    s = addToFilesList(s,files[0].getAbsolutePath());
+                } else if (files.length==1&&files[0].isDirectory()) {
+                    directoryContent = "Multiple files in "+files[0].getAbsolutePath();
+                    s = extractFilesFromDir(files[0]);
+                } else {
+                    directoryContent = "";
+                    properties.remove("ForObjectID");
                 }
                 return s;
             }
-                // Sub fonction of extracFilesFromDir
-                // Function that return files from a directory
-                public Vector<File> listDir(File f) {
-                    Vector<File> toReturn=new Vector<File>();
-                    for (File f2:f.listFiles()) {
-                        if (f2.isDirectory()) {
-                            toReturn.addAll(listDir(f2));
-                        } else {
-                            toReturn.add(f2);
-                        }
+                // Sub function of allFilesNames
+                // @parameter : File
+                // @return : String List of file(s) separated with a <>
+                private String extractFilesFromDir (File f) {
+                    String s = "";
+                    for (File f1:this.listDir(f)) {
+                        properties.put("For_"+f1.getAbsolutePath(), "inputname");
+                        s = addToFilesList(s,f1.getAbsolutePath());    
                     }
-                    return toReturn;
+                    return s;
                 }
-                
-        // Update the type of file(s)
-        private void updateTypeOfFile (String s) {
-            int typeOfFiles = 0;
-            if (!s.equals("") && s.contains("<>")) {
-                s = sortList(s);
-                typeOfFiles = whatFilesInFilesList(s);
-                properties.put("inputAllNames",s);
-                addfilesInTheList(true);
-            } else if (!s.equals("") && !s.contains("<>")) {
-                typeOfFiles = findTypeInt(s);
-                properties.put("inputAllNames",s);
-            }
-            this.type_jComboBox1.setSelectedIndex(typeOfFiles);
-            properties.put("type", this.type_jComboBox1.getSelectedIndex());
-        }
-            //sub function of updateTypeOfFile
-            private String sortList (String list) {
-                String sIn = list;
-                String sOut = "";
-                String[] tab = sIn.split("<>");
-                Arrays.sort(tab);
-                for (int i = 0; i < tab.length; i++) {
-                    sOut = addToFilesList(sOut,tab[i]);
-                }
-                return sOut;
-            }
+                    // Sub fonction of extracFilesFromDir
+                    // Function that return files from a directory
+                    public Vector<File> listDir(File f) {
+                        Vector<File> toReturn=new Vector<File>();
+                        for (File f2:f.listFiles()) {
+                            if (f2.isDirectory()) {
+                                toReturn.addAll(listDir(f2));
+                            } else {
+                                toReturn.add(f2);
+                            }
+                        }
+                        return toReturn;
+                    }
 
+            // Update the type of file(s)
+            private void updateTypeOfFile (String s) {
+                int typeOfFiles = 0;
+                if (!s.equals("") && s.contains("<>")) {
+                    s = sortList(s);
+                    typeOfFiles = whatFilesInFilesList(s);
+                    properties.put("inputAllNames",s);
+                    addFilesInTheList();
+                } else if (!s.equals("") && !s.contains("<>")) {
+                    typeOfFiles = findTypeInt(s);
+                    properties.put("inputAllNames",s);
+                }
+                this.type_jComboBox1.setSelectedIndex(typeOfFiles);
+                properties.put("type", this.type_jComboBox1.getSelectedIndex());
+            }
+                //sub function of updateTypeOfFile
+                private String sortList (String list) {
+                    String sIn = list;
+                    String sOut = "";
+                    String[] tab = sIn.split("<>");
+                    Arrays.sort(tab);
+                    for (int i = 0; i < tab.length; i++) {
+                        sOut = addToFilesList(sOut,tab[i]);
+                    }
+                    return sOut;
+                }
+
+            // Directory field and content Setting
+            private void directorySet(String s){
+                properties.put("Description", s); // 
+                if (properties.isSet(LAF_Repeat_button.getName())) {
+                    this.Filename_jTextField.setText(s);
+                } else if (properties.isSet(LAF2_AFIOS_Button.getName())) {
+                    this.LAF2_AFIOS_Filename_jTextField.setText(s);
+                }
+            }
+    
     ///////////////////////////////////////////////////////////////////////////
-    /// SUB FUNCTIONS Visibility
+    /// FUNCTIONS Visibility
+    ///////////////////////////////////////////////////////////////////////////
+        
+    
     private void optionLabelRepeatVisibility (boolean enabled){
         boolean disabled = !enabled;
         this.LAF_Repeat_Label.setVisible(enabled);
-        this.LAF_AllInOne_Label.setVisible(disabled);
-        this.LAF2_AFIOS_Files_List.setVisible(disabled);
-        this.LAF2_AllInOne_Files_Panel.setVisible(disabled);
+        this.LAF2_AFIOS_Label.setVisible(disabled);
+        this.LAF2_AFIOS_Files_Panel.setVisible(disabled);
+        this.LAF2_AFIOS_Filename_Panel.setVisible(disabled);
     }
     
-    private void directoryEnabled (boolean enabled){
-        jPanel3.setVisible(enabled);
-        Filename_jTextField.setEnabled(enabled);
-        jButton6.setEnabled(enabled);
+    private void directoryRepeatEnabled (boolean enabled){
+        this.jPanel3.setVisible(enabled);
+        this.Filename_jTextField.setEnabled(enabled);
+        this.LAF2_Repeat_FilesSearch_Button.setEnabled(enabled);
     }
 
+    private void directoryAFIOSEnabled (boolean enabled){
+        this.LAF2_AFIOS_Filename_Panel.setVisible(enabled);
+        this.LAF2_AFIOS_Filename_jTextField.setEnabled(enabled);
+        this.LAF2_AFIOS_FilesSearch_Button.setEnabled(enabled);
+    }
     ///////////////////////////////////////////////////////////////////////////
-    /// SUB FUNCTIONS Cleanning
-    private void cleanRepeatProperties(){
-        properties.remove(LAF2_Repeat_button.getName());
+    /// FUNCTIONS Cleanning and updating
+    private void cleanRepeatDatas(){
         Vector<String>keys=new Vector<String>();
         for (Object k:properties.keySet()) keys.add((String)k);
         for(String key:keys) {
             if (key.startsWith("For_")) properties.remove(key);
         }
         properties.remove("inputname");
-        properties.remove("Description");
-        properties.remove("ForObjectID");
-        properties.remove("type");
+    }
+    
+    private void cleanAFIOSDatas(){
+        LAF2_AFIOS_Files_List.removeAll();
+        properties.remove("inputAllNames");
     }
 
-    private void addfilesInTheList (boolean enabled){
-        if (enabled == true) {
-            String[] tab = (properties.get("inputAllNames")).split("<>");
-            LAF2_AFIOS_Files_List.setListData(tab);
-            //LAF2_AFIOS_Files_List.setSelectionInterval(0,tab.length);
-        } else {
-            LAF2_AFIOS_Files_List.removeAll();
-            properties.remove("inputAllNames");
-            properties.remove("Description");
-            properties.remove("ForObjectID");
-            properties.remove("type");
-        }
+
+    private void addFilesInTheList (){
+        String[] tab = (properties.get("inputAllNames")).split("<>");
+        LAF2_AFIOS_Files_List.setListData(tab);
     }
     
     private void updateList () {
@@ -733,13 +823,16 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         int[] tabInt = this.LAF2_AFIOS_Files_List.getSelectedIndices();
         
         if (tabInt.length>0) {
+            // Clean from the previous data
+            cleanAFIOSDatas();
+            
             for (int i = 0; i < tabInt.length; i++) {
                 t = LAF2_AFIOS_Files_List.getModel().getElementAt(tabInt[i]).toString();
                 s = addToFilesList(s,t);
             }
-            addfilesInTheList(false);
             properties.put("inputAllNames",s);
-            addfilesInTheList(true);
+            addFilesInTheList();
+            updateTypeOfFile(s);
         }
     }
     
@@ -771,27 +864,36 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         this.NamejTextField.setText(properties.getName());
         
         LAF_ChooseOption_Label.setVisible(false);
-        if (!properties.isSet(LAF2_Repeat_button.getName()) &&
-                !properties.isSet(LAF2_AllInOne_Button.getName())) {
-            directoryEnabled(false);
-            this.LAF2_AllInOne_Files_Panel.setVisible(false);
+        if (!properties.isSet(LAF_Repeat_button.getName()) &&
+                !properties.isSet(LAF2_AFIOS_Button.getName())) {
+            directoryRepeatEnabled(false);
+            directoryAFIOSEnabled(false);
+            this.LAF2_AFIOS_Files_Panel.setVisible(false);
             LAF_ChooseOption_Label.setVisible(true);
         }
-        if (properties.isSet(LAF2_Repeat_button.getName())) {
-            this.LAF2_Repeat_button.setSelected(true);
-            this.properties.remove("inputAllNames");
+        if (properties.isSet(LAF_Repeat_button.getName())) {
+            cleanAFIOSDatas();
             optionLabelRepeatVisibility(true);
+            directoryRepeatEnabled(true);
+            directoryAFIOSEnabled(false);
+            
+            this.LAF_Repeat_button.setSelected(true);
             if (properties.isSet("inputname")) {
                 this.Filename_jTextField.setText(properties.get("inputname"));
             }
-            directoryEnabled(true);
         }
-        if (properties.isSet(LAF2_AllInOne_Button.getName())) {
-            this.Filename_jTextField.setText(properties.get("Description"));
-            this.LAF2_AllInOne_Button.setSelected(true);
+        if (properties.isSet(LAF2_AFIOS_Button.getName())) {
             optionLabelRepeatVisibility(false);
-            directoryEnabled(true);
-            if (properties.isSet("inputAllNames")) addfilesInTheList(true);
+            directoryAFIOSEnabled(true);
+            directoryRepeatEnabled(false);
+            
+            this.LAF2_AFIOS_Button.setSelected(true);
+            if (properties.isSet("Description")) {
+                this.LAF2_AFIOS_Filename_jTextField.setText(properties.get("Description"));
+            } else {
+                this.LAF2_AFIOS_Filename_jTextField.setText("");
+            }
+            if (properties.isSet("inputAllNames")) addFilesInTheList();
         }
         
         if (properties.isSet("type")) {
@@ -816,30 +918,34 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
     private javax.swing.JButton CanceljButton;
     private javax.swing.JTextField Filename_jTextField;
     private javax.swing.JButton LAF2_AFIOS_ANF_button;
+    private javax.swing.JRadioButton LAF2_AFIOS_Button;
+    private javax.swing.JPanel LAF2_AFIOS_Filename_Panel;
+    private javax.swing.JTextField LAF2_AFIOS_Filename_jTextField;
+    private javax.swing.JButton LAF2_AFIOS_FilesSearch_Button;
     private javax.swing.JList LAF2_AFIOS_Files_List;
+    private javax.swing.JPanel LAF2_AFIOS_Files_Panel;
+    private javax.swing.JLabel LAF2_AFIOS_Label;
     private javax.swing.JButton LAF2_AFIOS_update_button;
-    private javax.swing.JRadioButton LAF2_AllInOne_Button;
-    private javax.swing.JPanel LAF2_AllInOne_Files_Panel;
-    private javax.swing.JRadioButton LAF2_Repeat_button;
-    private javax.swing.JLabel LAF_AllInOne_Label;
+    private javax.swing.JButton LAF2_Repeat_FilesSearch_Button;
     private javax.swing.JLabel LAF_ChooseOption_Label;
     private javax.swing.JLabel LAF_Repeat_Label;
+    private javax.swing.JRadioButton LAF_Repeat_button;
     private javax.swing.ButtonGroup LAF_SendType_ButtonGroup;
     private javax.swing.JTextField NamejTextField;
     private javax.swing.JButton OkjButton;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox type_jComboBox1;
     // End of variables declaration//GEN-END:variables
