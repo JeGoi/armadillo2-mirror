@@ -1,22 +1,22 @@
 /*
-*  Armadillo Workflow Platform v1.0
-*  A simple pipeline system for phylogenetic analysis
-*
-*  Copyright (C) 2009-2011  Etienne Lord, Mickael Leclercq
-*
-*  This program is free software: you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation, either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  This program is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  You should have received a copy of the GNU General Public License
-*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ *  Armadillo Workflow Platform v1.0
+ *  A simple pipeline system for phylogenetic analysis
+ *  
+ *  Copyright (C) 2009-2011  Etienne Lord, Mickael Leclercq
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 package editors;
 
@@ -49,10 +49,10 @@ import workflows.workflow_properties_dictionnary;
  * @since July 2009
  */
 public class loadAllFileEditor extends javax.swing.JDialog implements EditorInterface {
-    
+
     ////////////////////////////////////////////////////////////////////////////
     /// VARIABLES
-    
+
     Config config=new Config();
     //ConnectorInfoBox connectorinfobox;
     workflow_properties_dictionnary dict=new workflow_properties_dictionnary();
@@ -68,9 +68,9 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
     String old_filename="";
     ////////////////////////////////////////////////////////////////////////////
     /// CONSTANT
-    
+
     public final String defaultNameString="Name";
-    
+
     /** Creates new form propertiesJDialog */
     public loadAllFileEditor(java.awt.Frame parent, armadillo_workflow parent_workflow) {
         super(parent, false);
@@ -79,9 +79,9 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
         frame=parent;
         //connectorinfobox=new ConnectorInfoBox(parent); //--Used to display Connector info
         //--Initialize component
-        
+       
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -189,7 +189,7 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
 
         jLabel5.setText("Output type to generate");
 
-        type_jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TextFile", "SOLIDFile", "FastaFile", "Results", "Text", "GenomeFile", "FastqFile" }));
+        type_jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TextFile", "SOLIDFile", "FastaFile", "Results", "Text" }));
         type_jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 type_jComboBox1ActionPerformed(evt);
@@ -257,12 +257,13 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addContainerGap(40, Short.MAX_VALUE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(OkjButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CanceljButton))
@@ -306,7 +307,7 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTabbedPane1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTabbedPane1ComponentShown
-        
+      
 }//GEN-LAST:event_jTabbedPane1ComponentShown
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -321,49 +322,49 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
         jf.setMultiSelectionEnabled(true);
         int result=jf.showOpenDialog(this);
         //CAS 1: On reussi a choisir un fichier
-        if (result==JFileChooser.APPROVE_OPTION) {
-            //--Remove previous files in object
-            Vector<String>keys=new Vector<String>();
-            for (Object k:properties.keySet()) keys.add((String)k);
-            for(String key:keys) {
-                if (key.startsWith("For_")) properties.remove(key);
-            }
-            properties.remove("ForObjectID");
-            
-            //--Save new filepath
-            File[] files=jf.getSelectedFiles();
-            if (files.length>1) {
-                properties.put("Description", "Multiple files...");
-                this.Filename_jTextField.setText("Multiple files...");
-                //--This is a new for object
-                properties.put("ForObjectID",properties.getID());
-                //--Note we handle recursive directory
-                for (File f:files) {
-                    if (f.isDirectory()) {
+        if (result==JFileChooser.APPROVE_OPTION) {           
+              //--Remove previous files in object
+              Vector<String>keys=new Vector<String>();
+              for (Object k:properties.keySet()) keys.add((String)k);
+               for(String key:keys) {
+                   if (key.startsWith("For_")) properties.remove(key);
+               }        
+               properties.remove("ForObjectID");
+
+              //--Save new filepath
+              File[] files=jf.getSelectedFiles();
+              if (files.length>1) {
+                  properties.put("Description", "Multiple files...");
+                  this.Filename_jTextField.setText("Multiple files...");
+                  //--This is a new for object
+                  properties.put("ForObjectID",properties.getID());
+                  //--Note we handle recursive directory
+                  for (File f:files) {
+                      if (f.isDirectory()) {
                         for (File f1:this.listDir(f)) {
                             properties.put("For_"+f1.getAbsolutePath(), "inputname");
                         }
-                    } else {
+                      } else {
                         properties.put("For_"+f.getAbsolutePath(), "inputname");
-                    }
-                }
-            } else if (files.length==1&&!files[0].isDirectory()) {
-                this.Filename_jTextField.setText(files[0].getAbsolutePath());
-                properties.put("Description", files[0].getAbsolutePath());
-                properties.put("inputname", files[0].getAbsolutePath());
-            } else if (files.length==1&&files[0].isDirectory()) {
-                this.Filename_jTextField.setText(files[0].getAbsolutePath());
-                properties.put("Description", "Multiple files in "+files[0].getAbsolutePath());
-                properties.put("ForObjectID",properties.getID());
-                for (File f:this.listDir(files[0])) {
-                    properties.put("For_"+f.getAbsolutePath(), "inputname");
-                }
-            } else {
-                this.Filename_jTextField.setText("");
-            }
+                      }
+                  }
+              } else if (files.length==1&&!files[0].isDirectory()) {
+                  this.Filename_jTextField.setText(files[0].getAbsolutePath());
+                  properties.put("Description", files[0].getAbsolutePath());
+                  properties.put("inputname", files[0].getAbsolutePath());
+              } else if (files.length==1&&files[0].isDirectory()) {
+                  this.Filename_jTextField.setText(files[0].getAbsolutePath());
+                   properties.put("Description", "Multiple files in "+files[0].getAbsolutePath());
+                   properties.put("ForObjectID",properties.getID());
+                   for (File f:this.listDir(files[0])) {
+                      properties.put("For_"+f.getAbsolutePath(), "inputname");
+                  }
+              } else {
+                  this.Filename_jTextField.setText("");
+              }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
-    
+
     public Vector<File> listDir(File f) {
         Vector<File> toReturn=new Vector<File>();
         for (File f2:f.listFiles()) {
@@ -377,7 +378,7 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        HelpEditor help = new HelpEditor(this.frame, false, properties);
+       HelpEditor help = new HelpEditor(this.frame, false, properties);
         help.setVisible(true);
 }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -402,17 +403,17 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
         // 2. Alignment
         properties.put("type", this.type_jComboBox1.getSelectedIndex());
 }//GEN-LAST:event_type_jComboBox1ActionPerformed
-    
+
     /**
      * This set the different setting corresponding to the current properties
      */
     public void setSettingForProperties() {
-        this.NamejTextField.setText(properties.getName());
-    }
-    
+           this.NamejTextField.setText(properties.getName());
+     }
+
     ///////////////////////////////////////////////////////////////////////////
     /// DISPLAY MAIN FUNCTION
-    
+
     public void display(workflow_properties properties) {
         this.properties=properties;
         initComponents();
@@ -423,33 +424,33 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
         //this.Message("Select some sequences files or directories...", "");
         //  if (properties.isSet("Description")) this.Notice.setText(properties.get("Description"));
         if (properties.isSet("inputname")) {
-            this.Filename_jTextField.setText(properties.get("inputname"));
+           this.Filename_jTextField.setText(properties.get("inputname"));
         }
         
-        if (properties.isSet("type")) {
+         if (properties.isSet("type")) {
             this.type_jComboBox1.setSelectedIndex(properties.getInt("type"));
         }
-        
-        // Set position
+
+        // Set position 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension d = getSize();
         setLocation((screenSize.width-d.width)/2,
-                (screenSize.height-d.height)/2);
-        this.setAlwaysOnTop(true);
+					(screenSize.height-d.height)/2);
+         this.setAlwaysOnTop(true);
         this.setVisible(true);
     }
     
-    public void saveImage(String filename) {
+     public void saveImage(String filename) {
         BufferedImage bi;
         try {
-            bi = new Robot().createScreenCapture(this.getBounds());
+            bi = new Robot().createScreenCapture(this.getBounds()); 
             ImageIO.write(bi, "png", new File(filename));
             this.setVisible(false);
         } catch (Exception ex) {
-            Config.log("Unable to save "+filename+" dialog image");
-        }
+           Config.log("Unable to save "+filename+" dialog image");
+        }            
     }
-    
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CanceljButton;
@@ -472,7 +473,7 @@ public class loadAllFileEditor extends javax.swing.JDialog implements EditorInte
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox type_jComboBox1;
     // End of variables declaration//GEN-END:variables
-    
-    
-    
+
+
+
 }

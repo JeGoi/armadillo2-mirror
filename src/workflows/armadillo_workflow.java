@@ -2913,8 +2913,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                             if (inputs.size()>0) {
                                 for (workflow_object o:inputs) {
                                     String type=o.getProperties().get("outputType").toLowerCase();
-                                    obj.getProperties().put("outputType",o.getProperties().get("outputType"));
                                     obj.getProperties().put("Output"+o.getProperties().get("outputType"), "True");
+                                    obj.getProperties().put("outputType",o.getProperties().get("outputType"));
                                     
 //--Update the output connectors
 //                           obj.updateConnectorType(1,o.getProperties().get("outputType"));
@@ -4287,7 +4287,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             if (debug) Config.log("value:"+value);
 
             //--Added true in lowercase - Septembre 2011
-            if (value.equalsIgnoreCase("TRUE")) {
+            if (value.equalsIgnoreCase("True")||value.equalsIgnoreCase("true")) {
                 return true;
             }
             return false;
@@ -6796,6 +6796,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 if (type_id==0) {
                     description="Undefined";
                     if (properties.isSet("ForObjectID")) {
+                        System.out.println("yes");
                         int count=0;
                         Object[] o=properties.keySet().toArray();
                         for (int i=0; i<o.length; i++) {
@@ -7041,6 +7042,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 
                 if (type_id==0) {
                     description="Undefined";
+                    // JG 2015 Doubt
                     if (properties.isSet("ForObjectID")) {
                         int count=0;
                         Object[] o=properties.keySet().toArray();

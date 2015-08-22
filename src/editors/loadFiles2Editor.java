@@ -23,12 +23,9 @@ package editors;
 
 import biologic.seqclasses.InformationJDialog;
 import biologic.*;
-import configuration.BlastDBFilter;
 import javax.swing.SwingWorker;
 import workflows.workflow_properties;
 import configuration.Config;
-import database.databaseFunction;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
@@ -36,14 +33,11 @@ import editor.EditorInterface;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import workflows.armadillo_workflow;
-import workflows.workflow_properties_dictionnary;
 
 /**
  * Editor of the object properties in the Main Workflow
@@ -58,16 +52,12 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
     
     Config config=new Config();
     //ConnectorInfoBox connectorinfobox;
-    workflow_properties_dictionnary dict=new workflow_properties_dictionnary();
     String selected="";             // Selected properties
     Frame frame;
     workflow_properties properties;
     armadillo_workflow parent_workflow;
     SwingWorker<Integer, InfoSequence>  loadSwingWorker; //SwingWorker to import sequence
     SwingWorker<Integer, Object>  loadSwingWorker2;     //SwingWorker to import sequence
-    InformationJDialog loading;                        //Loading sequence JDialog
-    Vector<InfoSequence>MultipleInfoSequence=new Vector<InfoSequence>();
-    databaseFunction df=new databaseFunction();
     String old_filename  = "";
     String directoryContent = "";
     ////////////////////////////////////////////////////////////////////////////
@@ -472,14 +462,15 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         if (properties.isSet(LAF2_AFIOS_Button.getName())) {
             cleanAFIOSDatas();
             properties.remove(LAF2_AFIOS_Button.getName());
+            properties.remove("Description");
         }
         if (properties.isSet(LAF_Repeat_button.getName())) {
             cleanRepeatDatas();
             properties.remove(LAF_Repeat_button.getName());
+            properties.remove("DescriptionAFIOS");
             
         }
         properties.remove("type");
-        properties.remove("Description");
         properties.remove("ForObjectID");
         this.setVisible(false);
     }//GEN-LAST:event_CanceljButtonActionPerformed
@@ -506,7 +497,7 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
             this.Filename_jTextField.setText("");
         }
         properties.remove("type");
-        properties.remove("Description");
+        properties.remove("DescriptionAFIOS");
         properties.remove("ForObjectID");
         properties.put(LAF_Repeat_button.getName(),LAF_Repeat_button.isSelected());
         optionLabelRepeatVisibility(true);
@@ -534,10 +525,10 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
     private void LAF2_AFIOS_ANF_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LAF2_AFIOS_ANF_buttonActionPerformed
         // TODO add your handling code here:
         JFileChooser jf;
-        if (this.Filename_jTextField.getText().isEmpty()) {
+        if (this.LAF2_AFIOS_Filename_jTextField.getText().isEmpty()) {
             jf=new JFileChooser(config.getExplorerPath());
         } else {
-            jf=new JFileChooser(this.Filename_jTextField.getText());
+            jf=new JFileChooser(this.LAF2_AFIOS_Filename_jTextField.getText());
         }
         jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         jf.setAcceptAllFileFilterUsed(false);
@@ -763,10 +754,11 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
 
             // Directory field and content Setting
             private void directorySet(String s){
-                properties.put("Description", s); // 
                 if (properties.isSet(LAF_Repeat_button.getName())) {
+                    properties.put("Description", s);
                     this.Filename_jTextField.setText(s);
                 } else if (properties.isSet(LAF2_AFIOS_Button.getName())) {
+                    properties.put("DescriptionAFIOS", s);
                     this.LAF2_AFIOS_Filename_jTextField.setText(s);
                 }
             }
@@ -888,8 +880,8 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
             directoryRepeatEnabled(false);
             
             this.LAF2_AFIOS_Button.setSelected(true);
-            if (properties.isSet("Description")) {
-                this.LAF2_AFIOS_Filename_jTextField.setText(properties.get("Description"));
+            if (properties.isSet("DescriptionAFIOS")) {
+                this.LAF2_AFIOS_Filename_jTextField.setText(properties.get("DescriptionAFIOS"));
             } else {
                 this.LAF2_AFIOS_Filename_jTextField.setText("");
             }

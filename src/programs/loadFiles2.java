@@ -60,12 +60,12 @@ public class loadFiles2 extends RunProgram {
                 TextID==0) {
             setStatus(status_BadRequirements,"No filename specified.");
             return false;
-        } else if (properties.isSet("LAF2_AllInOne_Button") && type!=6 ) {
+        } else if (properties.isSet("LAF2_AFIOS_Button") && type!=6 ) {
             setStatus(status_BadRequirements,"Only available for Bowtie2, Bowtie\n"
                     + "Need also >>>> FastqFiles <<<< Only");
             return false;
         } else if (!properties.isSet("LAF_Repeat_button") &&
-                !properties.isSet("LAF2_AllInOne_Button")) {
+                !properties.isSet("LAF2_AFIOS_Button")) {
             setStatus(status_BadRequirements,"Need to choose a file and type of send files");
             return false;
         }
@@ -106,6 +106,8 @@ public class loadFiles2 extends RunProgram {
         }
         
         int type=properties.getInt("type");
+        
+        //System.out.println(properties.getPropertiesToString());
         
         if (properties.isSet("LAF2_AFIOS_Button") && type==6 ) {
             FastqFile fastqFile=new FastqFile();
