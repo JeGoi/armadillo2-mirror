@@ -60,7 +60,7 @@ public class TextFile extends Text implements Serializable {
 
     @Override
     public String toString() {
-        if (Util.FileExists(getFilename())) {            
+        if (Util.FileExists(getFilename())) {
             //--We need to keep the line...
             String[] str=Util.InputFile(this.getFilename());
             String rtn="";

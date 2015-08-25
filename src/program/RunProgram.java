@@ -308,12 +308,20 @@ public class RunProgram implements runningThreadInterface {
                     //--pre run initialization
                     setStatus(status_running,"Initialization...");
                     if (init_run()&&!isInterrupted()) {
-                        //--actual run
+                        // JG 2015 Start
+                        setStatus(status_running, "\tRunning program...");
+                        
+                        // Print the command line
+                        //String s = Util.toString(commandline);
+                        //if (!s.contains("Not Set")) System.out.println(s);
+                        
                         setStatus(status_running,"<-Program Output->");
+                        // JG 2015 End
                         if (do_run()&&!isInterrupted()) {
-                            //--Post run
+                            // JG 2015 Start
                             setStatus(status_running,"<-End Program Output ->");
-                            post_run();
+                            msg("\tProgram Exit Value: "+getExitVal());
+                            // JG 2015 End
                         }
                     }
                     //--Note: work Even if not set because We return 0...
@@ -321,7 +329,16 @@ public class RunProgram implements runningThreadInterface {
                     if (properties.getBoolean("VerifyExitValue")&&getExitVal()!=properties.getInt("NormalExitValue")) {
                         setStatus(status_error,"***Error with at "+getRunningTime()+" ms ExitValue: "+properties.get("ExitValue")+"\n");
                     }  else {
-                        if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) setStatus(status_done,"");
+                        if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) {
+                            // JG 2015 Start
+                            // Cool closed to status done !
+                            saveOutput(getStatus());
+                            // We can make the post run
+                            post_run();
+                            // We can change the status to status_done
+                            setStatus(status_done,"");
+                            // JG 2015 End
+                        }
                     }
                     
                 } catch (Exception ex) {
@@ -368,12 +385,16 @@ public class RunProgram implements runningThreadInterface {
                     setStatus(status_running,"Initialization...");
                     if (init_run()&&!isInterrupted()) {
                         //--actual run
-                        //--actual run
+                        setStatus(status_running, "\tRunning program...");
+                        // Print the command line
+                        //String s = Util.toString(commandline);
+                        //if (!s.contains("Not Set")) System.out.println(s);
+                        
                         setStatus(status_running,"<-Program Output->");
+
                         if (do_run_withoutWait()&&!isInterrupted()) {
-                            //--Post run
                             setStatus(status_running,"<-End Program Output ->");
-                            post_run();
+                            msg("\tProgram Exit Value: "+getExitVal());
                         }
                     }
                     //--Note: work Even if not set because We return 0...
@@ -381,7 +402,13 @@ public class RunProgram implements runningThreadInterface {
                     if (properties.getBoolean("VerifyExitValue")&&getExitVal()!=properties.getInt("NormalExitValue")) {
                         setStatus(status_error,"***Error with at "+getRunningTime()+" ms ExitValue: "+properties.get("ExitValue")+"\n");
                     } else {
-                        if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) setStatus(status_done,"");
+                        if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound)
+                            // Cool closed to status done !
+                            saveOutput(getStatus());
+                            // We can make the post run
+                            post_run();
+                            // We can change the status to status_done
+                            setStatus(status_done,"");
                     }
                     
                 } catch (Exception ex) {
@@ -589,8 +616,6 @@ public class RunProgram implements runningThreadInterface {
      */
     public boolean do_run() throws Exception {
         //--Run the thread and catch stdout and stderr
-        setStatus(status_running, "\tRunning program...");
-        System.out.println(Util.toString(commandline));
         ProcessBuilder pb=new ProcessBuilder(commandline);
         if (properties.isSet("RunningDirectory")) {
             pb.directory(new File(properties.get("RunningDirectory")));
@@ -599,20 +624,86 @@ public class RunProgram implements runningThreadInterface {
         r = Runtime.getRuntime();
         //--Test August 2011 - For Mac OS X
         if ((config.getBoolean("MacOSX")||SystemUtils.IS_OS_MAC_OSX)) {
-            //System.out.println("MacOSX");
             if (properties.isSet("RuntimeMacOSX")) {
-                
                 String execution_type=properties.get("RuntimeMacOSX");
-                
                 //--Default
                 if (execution_type.startsWith("default")) {
                     //? Not suppose to exists...
                     p = pb.start();
                 }
-                
                 //--Runtime (r.exec)
                 if (execution_type.startsWith("runtime")) {
-                    System.out.println("Running by runtime...");
+                    //--IF MAC_OSX, group option if UseRuntimeMacOSX
+                    String cmdm="";
+                    for (int i=0; i<commandline.length;i++) {
+                        cmdm+=commandline[i]+" ";
+                    }
+                    commandline=new String[1];
+                    commandline[0]=cmdm;
+                    p = r.exec(Util.toString(commandline));
+                }
+                //--Bash...
+                if (execution_type.startsWith("bash (.sh)")) {
+                    //--Create a new bash file
+                    Util u = new Util("RunProgram.sh");
+                    u.println("#!/bin/sh");
+                    u.println("echo \"Executing by bash command: "+properties.getName()+"\"");
+                    u.println(Util.toString(commandline));
+                    //--Return the application error code
+                    u.println("exit $?");
+                    u.close();
+                    p=r.exec("sh RunProgram.sh");
+                }
+            } //--End RuntimeMacOSX
+            //--Run time
+        } else  if ((config.getBoolean("Linux")||SystemUtils.IS_OS_LINUX)) {
+//                 Util u = new Util("RunProgram"+Util.returnTimeCode()+".sh");
+//                 u.println("#!/bin/sh");
+//                 u.println("echo \"Executing by bash command: "+properties.getName()+"\"");
+//                 u.println(Util.toString(commandline));
+//                 //--Return the application error code
+//                 u.println("exit $?");
+//                 u.close();
+//                 p=r.exec("sh "+u.log_filename);
+//                 Util.deleteFile(u.log_filename);
+            p=r.exec(Util.toString(commandline)); // JG 2015
+            
+        }
+        else {
+            p = pb.start();
+        }
+        
+        //pb.redirectErrorStream(true)
+        InputStreamThread stderr = new InputStreamThread(p.getErrorStream());
+        InputStreamThread stdout = new InputStreamThread(p.getInputStream());
+        
+        int exitvalue=p.waitFor();
+        
+        properties.put("ExitValue", exitvalue);
+        
+        return true;
+    }
+    
+    /**
+     * This is the the actual run of the program
+     * 1-Execute in the thread the commandline
+     * 2-Catch both stderr and stdout
+     * 3-Put the program exitValue in properties->exitValue
+     * 4-Put  both stderr and stdout in the output vector and in the "output"properties
+     * @throws Exception
+     */
+    public boolean do_run_withoutWait() throws Exception {
+        //--Run the thread and catch stdout and stderr
+        //--Use alternative?
+        
+        r = Runtime.getRuntime();
+        if (config.getBoolean("MacOSX")||SystemUtils.IS_OS_MAC_OSX) {
+            //--Test August 2011 - For Mac OS X
+            if (properties.isSet("RuntimeMacOSX")) {
+                String execution_type=properties.get("RuntimeMacOSX");
+                //--Runtime (r.exec)
+                if (execution_type.startsWith("runtime")) {
+                    //System.out.println("Running by runtime...");
                     //--IF MAC_OSX, group option if UseRuntimeMacOSX
                     String cmdm="";
                     for (int i=0; i<commandline.length;i++) {
@@ -636,99 +727,16 @@ public class RunProgram implements runningThreadInterface {
                     u.close();
                     p=r.exec("sh RunProgram.sh");
                 }
-                
-                
-                
-            } //--End RuntimeMacOSX
-            //--Run time
-        } else  if ((config.getBoolean("Linux")||SystemUtils.IS_OS_LINUX)) {
-//                 Util u = new Util("RunProgram"+Util.returnTimeCode()+".sh");
-//                 u.println("#!/bin/sh");
-//                 u.println("echo \"Executing by bash command: "+properties.getName()+"\"");
-//                 u.println(Util.toString(commandline));
-//                 //--Return the application error code
-//                 u.println("exit $?");
-//                 u.close();
-//                 p=r.exec("sh "+u.log_filename);
-//                 Util.deleteFile(u.log_filename);
-            p=r.exec(Util.toString(commandline));
-            
-        }
-        else {
-            p = pb.start();
-        }
-        
-        //pb.redirectErrorStream(true)
-        InputStreamThread stderr = new InputStreamThread(p.getErrorStream());
-        InputStreamThread stdout = new InputStreamThread(p.getInputStream());
-        int exitvalue=p.waitFor();
-        
-        properties.put("ExitValue", exitvalue);
-        msg("\tProgram Exit Value: "+getExitVal());
-        
-        return true;
-    }
-    
-    /**
-     * This is the the actual run of the program
-     * 1-Execute in the thread the commandline
-     * 2-Catch both stderr and stdout
-     * 3-Put the program exitValue in properties->exitValue
-     * 4-Put  both stderr and stdout in the output vector and in the "output"properties
-     * @throws Exception
-     */
-    public boolean do_run_withoutWait() throws Exception {
-        //--Run the thread and catch stdout and stderr
-        setStatus(status_running, "\tRunning program...");
-        //--Use alternative?
-        
-        r = Runtime.getRuntime();
-        if (config.getBoolean("MacOSX")||SystemUtils.IS_OS_MAC_OSX) {
-            //--Test August 2011 - For Mac OS X
-            System.out.println("MacOSX");
-            if (properties.isSet("RuntimeMacOSX")) {
-                
-                String execution_type=properties.get("RuntimeMacOSX");
-                
-                //--Runtime (r.exec)
-                if (execution_type.startsWith("runtime")) {
-                    System.out.println("Running by runtime...");
-                    //--IF MAC_OSX, group option if UseRuntimeMacOSX
-                    String cmdm="";
-                    for (int i=0; i<commandline.length;i++) {
-                        cmdm+=commandline[i]+" ";
-                    }
-                    commandline=new String[1];
-                    commandline[0]=cmdm;
-                    p = r.exec(Util.toString(commandline));
-                }
-                
-                //--Bash...
-                if (execution_type.startsWith("bash (.sh)")) {
-                    System.out.println("Running from bash...");
-                    //--Create a new bash file
-                    Util u = new Util("RunProgram.sh");
-                    u.println("#!/bin/sh");
-                    u.println("echo \"Executing by bash command: "+properties.getName()+"\"");
-                    u.println(Util.toString(commandline));
-                    //--Return the application error code
-                    u.println("exit $?");
-                    u.close();
-                    p=r.exec("sh RunProgram.sh");
-                }
-                
-                
-                
             } //--End RuntimeMacOSX
         } else {
             p = r.exec(commandline);
         }
+        
         InputStreamThread stderr = new InputStreamThread(p.getErrorStream());
         InputStreamThread  stdout = new InputStreamThread(p.getInputStream());
-        //--Wait for the exitValue
         
         properties.put("ExitValue", 0);
-        msg("\tProgram Exit Value: "+getExitVal());
+        
         return true;
     }
     
@@ -749,7 +757,7 @@ public class RunProgram implements runningThreadInterface {
             Util.deleteFile("RunProgram.sh");
         }
         post_parseOutput();
-        //setStatus(status_idle,"");
+        setStatus(status_running,"\n******************************\n");
     }
     
     
@@ -792,6 +800,7 @@ public class RunProgram implements runningThreadInterface {
     
     //////////////////////////////////////////////////////////////////////////
     /// Experimental command building
+    
     public Vector<String> getCommands(String commandline) {
         Vector<String>commands=new Vector<String>();
         String current="";
@@ -827,6 +836,7 @@ public class RunProgram implements runningThreadInterface {
     
     //////////////////////////////////////////////////////////////////////////
     /// Part of experimental command building
+    
     public String match(String current) {
         //CASE 1. Match filename
         for (String key:this.inputFilenames.keySet()) {
@@ -924,71 +934,7 @@ public class RunProgram implements runningThreadInterface {
      * this is the function called after we run the program
      */
     public void post_parseOutput() {
-        
-//        //Pattern and Matcher, and inverted HashMap
-//        Pattern  pa;
-//        Matcher m;
-//        HashMap <String,String> invertedSet=new HashMap<String,String>();
-//        for (Object key:properties.keySet()) {
-//            invertedSet.put((String)properties.get(key), (String)key);
-//        }
-//        //1. --Find the new file and Index
-//        for (String filename:Config.listDir(config.temporaryDir())) {
-//
-//            if (!cleanfilelist.contains(filename)) {
-//                filename=config.temporaryDir()+File.separator+filename;
-//                Config.log(filename);
-//                Unknown unknowntmp=new Unknown(filename);
-//                unknowntmp.setRunProgram_id(this.id);
-//                unknowntmp.setName(this.getName());
-//                unknowntmp.saveToDatabase();
-//        //2. If description found, create output...
-//
-//              //CASE 2. Match properties
-//
-//              for (Object keys:invertedSet.keySet()) {
-//                 try {
-//                     pa = Pattern.compile((String)keys, Pattern.CASE_INSENSITIVE);
-//                     m = pa.matcher(filename);
-//                      if (m.find()) {
-//
-//                          String key=(String)properties.get(keys);
-//                          if (key.startsWith("output_sequence_id")) {
-//                                MultipleSequences multi=new MultipleSequences(filename);
-//                                multi.saveToDatabase();
-//                                int index=0;
-//                                for (Sequence s:multi.getSequences()) properties.put("output_sequence_id"+(index++), s.getSequence());
-//                            }
-//                            if (key.startsWith("output_multiplesequences_id")) {
-//                                MultipleSequences multi=new MultipleSequences(filename);
-//                                multi.saveToDatabase();
-//                                properties.put("output_multiplesequences_id", multi.getId());
-//                            }
-//                            if (key.startsWith("output_alignment_id")) {
-//                                 Alignment multi=new Alignment();
-//                                 multi.loadFromFile(filename);
-//                                 multi.setName(""+Util.returnCurrentDateAndTime());
-//                                 multi.saveToDatabase();
-//                                 properties.put("output_alignment_id",multi.getId());
-//                            }
-//                            if (key.startsWith("output_tree_id")) {
-//                                 MultipleTrees multi=new MultipleTrees();
-//                                 multi.readNewick(filename);
-//                                 multi.setAlignment_id(properties.getInputID("input_alignment_id"));
-//                                 multi.replaceSequenceIDwithNames();
-//                                 multi.saveToDatabase();
-//                                 int index=0;
-//                                 for(Tree t:multi.getTree()) properties.put("output_tree_id"+(index++), t.getId());
-//                            }
-//                      }
-//                 } catch(Exception e) {}
-//              } //--End for key
-//              // 3. Delete the file
-//              Util.deleteFile(filename);
-//            } //--End contains
-//
-//            }
-        //Config.changeDir(config.currentPath);
+        // Need to be overrided in the ./src/programs/program.java
     }
     
     public boolean init_checkRequirements() {
@@ -1206,15 +1152,9 @@ public class RunProgram implements runningThreadInterface {
             }
             try {
                 if (!msg.isEmpty()) msg(msg);
-                //--Save output
-                
-                if (statusCode==status_done||statusCode==status_error||statusCode==status_BadRequirements||statusCode==status_programnotfound||statusCode==status_runningclassnotfound) {
-                    OutputText out=new OutputText();
-                    out.setText(outputText); //--Note, this also set a note
-                    out.setName(properties.getName()+" -software output ("+Util.returnCurrentDateAndTime()+")");
-                    out.saveToDatabase();
-                    if (out.getId()==0) Config.log("Unable to save software ouput with program status "+statusCode);
-                    properties.put("output_outputtext_id",out.getId());
+                //--Save output if not status_done // JG 2015
+                if (statusCode==status_error||statusCode==status_BadRequirements||statusCode==status_programnotfound||statusCode==status_runningclassnotfound) {
+                    saveOutput(statusCode);// JG 2015
                 }
                 properties.setStatus(statusCode, msg);
             } catch(Exception e) {
@@ -1222,6 +1162,18 @@ public class RunProgram implements runningThreadInterface {
             }
         }
     }
+    
+    // Save the programme output in an Output Text
+    // JG 2015 just extract the saving function
+    protected void saveOutput (int statusCode){
+        OutputText out=new OutputText();
+        out.setText(outputText); //--Note, this also set a note
+        out.setName(properties.getName()+" -software output ("+Util.returnCurrentDateAndTime()+")");
+        out.saveToDatabase();
+        if (out.getId()==0) Config.log("Unable to save software ouput with program status "+statusCode);
+        properties.put("output_outputtext_id",out.getId());
+    }
+
     
     /**
      * @return the status
@@ -1266,22 +1218,42 @@ public class RunProgram implements runningThreadInterface {
         // JG 2015
         // Added to find the exact stdout of the program
         //
-        public String getPgrmOutput (String s){
+        public String getPgrmOutput (){
+            String s = getOutputText();
             String t = "";
             String lines[] = s.split("\\r?\\n|\\r");
             
             int start = 0;
             int end   = 0;
-            for (int i =0; i<lines.length;i++){
-                if (lines[i].contains("Running program")) start = i+1;
-                else if (lines[i].contains("Program Exit Value")) end =i;
+            int out   = 0;
+            
+            boolean b = false;
+            int i = 0;
+            for (i =0; i<lines.length && b==false ;i++){
+                if (lines[i].contains("<-Program Output->")) start = i+1; b=true;
             }
-            for (int i =start; i<end;i++){
-                t += lines[i]+"\n";
+            String seq = "";
+            if (out>end+1) {
+                end = out;
             }
+            for (i = start; i< lines.length;i++){
+                String l = lines[i];
+                if ( !(
+                    l.contains("<-End Program Output ->")||
+                    l.contains("Program Exit Value")||
+                    l.contains("Parsing outputs...")||
+                    l.matches("^>.*")||
+                    l.matches("^[A-Z]*$")
+                    )) {
+                    t = t+lines[i]+System.lineSeparator();
+                }
+                
+                if (l.matches("^>.*"))seq = l+System.lineSeparator();
+                if (l.matches("^[A-Z]*$"))seq=seq+l+System.lineSeparator();
+            }
+            t+=seq;
             return t;
         }
-
     
     ////////////////////////////////////////////////////////////////////////////
     // HELPER FUNCTIONS

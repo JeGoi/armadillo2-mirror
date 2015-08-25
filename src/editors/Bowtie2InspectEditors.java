@@ -165,7 +165,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         Options_Buttons.add(I_AO_button);
         I_AO_button.setText("Advanced Options");
         I_AO_button.setToolTipText("<html>\nAll sequences are compared <br/>\nto each other\n</html>");
-        I_AO_button.setName("bowtie2Inspect_button"); // NOI18N
+        I_AO_button.setName("I_AO_button"); // NOI18N
         I_AO_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 I_AO_buttonActionPerformed(evt);
@@ -395,16 +395,37 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                                                         
     private void I_v_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_v_boxActionPerformed
         // TODO add your handling code here:
+        if (properties.isSet(I_s_box.getName())) {
+            properties.remove(I_s_box.getName());
+            I_s_box.setSelected(false);
+        } else if (properties.isSet(I_n_box.getName())) {
+            properties.remove(I_n_box.getName());
+            I_n_box.setSelected(false);
+        }
         boxEvent(I_v_box,null);
     }//GEN-LAST:event_I_v_boxActionPerformed
     
     private void I_s_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_s_boxActionPerformed
         // TODO add your handling code here:
+        if (properties.isSet(I_v_box.getName())) {
+            properties.remove(I_v_box.getName());
+            I_v_box.setSelected(false);
+        } else if (properties.isSet(I_n_box.getName())) {
+            properties.remove(I_n_box.getName());
+            I_n_box.setSelected(false);
+        }
         boxEvent(I_s_box,null);
     }//GEN-LAST:event_I_s_boxActionPerformed
     
     private void I_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_n_boxActionPerformed
         // TODO add your handling code here:
+        if (properties.isSet(I_v_box.getName())) {
+            properties.remove(I_v_box.getName());
+            I_v_box.setSelected(false);
+        } else if (properties.isSet(I_s_box.getName())) {
+            properties.remove(I_s_box.getName());
+            I_s_box.setSelected(false);
+        }
         boxEvent(I_n_box,null);
     }//GEN-LAST:event_I_n_boxActionPerformed
         
@@ -490,7 +511,8 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         this.I_s_box.setEnabled(enabled);
         this.I_n_box.setEnabled(enabled);
         this.I_a_box.setEnabled(enabled);
-        this.I_a_value.setEnabled(false);
+        if (properties.isSet(I_a_box.getName())) this.I_a_value.setEnabled(true);
+        else this.I_a_value.setEnabled(false);
     }
     
     
@@ -535,13 +557,16 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         if (properties.isSet(I_DO_button.getName())) {
             this.I_DO_button.setSelected(true);
             inspectFields(false);
-        } else if (properties.isSet(I_AO_button.getName())) {
+        }
+        if (properties.isSet(I_AO_button.getName())) {
             this.I_AO_button.setSelected(true);
             inspectFields(true);
         }
         
         if (properties.isSet(I_a_value.getName())){
             this.I_a_value.setValue(Integer.parseInt(properties.get(I_a_value.getName())));
+        }
+        if (properties.isSet(I_a_box.getName())){
             this.I_a_value.setEnabled(true);
             this.I_a_box.setSelected(true);
         }

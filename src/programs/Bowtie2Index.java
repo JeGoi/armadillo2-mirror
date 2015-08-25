@@ -56,8 +56,10 @@ public class Bowtie2Index extends RunProgram{
         
         // Input
         Vector<Integer>Fasta1    = properties.getInputID("FastaFile",PortInputDOWN);
+        String s = getFileName(getFastaPath(Fasta1));
         
-        if (Fasta1.isEmpty()) {
+        int fastaFile=properties.getInputID("FastaFile");
+        if (fastaFile==0) {
             setStatus(status_BadRequirements,"No sequence found.");
             return false;
         }
@@ -136,14 +138,14 @@ public class Bowtie2Index extends RunProgram{
 
         private String getFileName(String s){
             String name = "";
-            int pos1 = s.lastIndexOf("/");
+            int pos1 = s.lastIndexOf(File.separator);
             int pos2 = s.lastIndexOf(".");
-            if (pos1 > 0) {
-                name = s.substring(pos1+1,pos2);
-            }
+            if (pos1 > 0 && pos2>pos1) name = s.substring(pos1+1,pos2);
+            else return s;
             return name;
         }
     
+    @Override
     public void post_parseOutput() {
         GenomeFile genome=new GenomeFile();
         genome.setGenomeFile(outputFile);
@@ -153,7 +155,7 @@ public class Bowtie2Index extends RunProgram{
         properties.put("output_genomefile_id", genome.getId());
         this.addOutput(genome);
         
-        String txt = this.getPgrmOutput(this.getOutputText());
+        String txt = this.getPgrmOutput();
         Results text=new Results("bowtie2_index_stats.txt");
         text.setText(txt+"\n");
         text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");

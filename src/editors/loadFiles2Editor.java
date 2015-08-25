@@ -652,7 +652,9 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
                 // Sub function of typeOfFile
                 private int findTypeInt(String s){
                     int type = 0;
-                    if (s.equals("fasta")||s.equals("fa")) type = 2;
+                    if (s.equals("fasta")||s.equals("fa")||s.equals("fna")
+                            ||s.equals("ffn")||s.equals("faa")||s.equals("frn")
+                        ) type = 2;
                     else if (s.equals("txt")) type = 3;
                     else if (s.equals("bt2")||s.equals("ebwt")) type = 5;
                     else if (s.equals("fastq")||s.equals("fq")) type = 6;

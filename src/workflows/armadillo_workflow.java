@@ -6796,7 +6796,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 if (type_id==0) {
                     description="Undefined";
                     if (properties.isSet("ForObjectID")) {
-                        System.out.println("yes");
                         int count=0;
                         Object[] o=properties.keySet().toArray();
                         for (int i=0; i<o.length; i++) {

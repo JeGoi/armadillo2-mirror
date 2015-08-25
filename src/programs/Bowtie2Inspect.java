@@ -6,12 +6,18 @@
 
 package programs;
 
-import biologic.Genome;
+import biologic.GenomeFile;
 import biologic.Results;
 import biologic.Text;
+import biologic.TextFile;
 import configuration.Util;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import program.RunProgram;
 import static program.RunProgram.PortInputDOWN;
 import static program.RunProgram.PortInputUP;
@@ -41,12 +47,14 @@ public class Bowtie2Inspect extends RunProgram {
     
     @Override
     public boolean init_checkRequirements() {
-        Vector<Integer>Genome    = properties.getInputID("GenomeFile",PortInputDOWN);
+        Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         
-        if (Genome.isEmpty()) {
+        String s  = getFileName(getGenomePath(GenomeRef));
+        if (GenomeRef.isEmpty()||s.equals("")) {
             setStatus(status_BadRequirements,"No Genome found.");
             return false;
         }
+        // TO BE COMPLETELY IDIOT PROOF NEED TO EST EXITENCE OF BOWTIE2 FILES
         return true;
     }
     
@@ -54,13 +62,13 @@ public class Bowtie2Inspect extends RunProgram {
     public String[] init_createCommandLine() {
         
         // Inputs
-        Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
+        Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
-        for (int ids:GenomeRef) {
-            Genome gen =new Genome(ids);
-            genomeFile = gen.getName();
-            genomeFile = genomeFile.replaceAll("\\.\\d.bt2$","");
+        genomeFile = getGenomePath(GenomeRef);
+        if (genomeFile.matches("\\.\\d.bt2l?$")) {
+            genomeFile = getFileName(genomeFile);
+            genomeFile = genomeFile.replaceAll("\\.\\d.bt2l?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         }
         
@@ -68,6 +76,8 @@ public class Bowtie2Inspect extends RunProgram {
         if (properties.get("I_AO_button").equals("true")) {
             optionsChoosed = findOptions(inspectTab);
         }
+        
+        if (properties.isSet("I_v_box")) outputFile = "./test.info";
         
         String[] com = new String[30];
         for (int i=0; i<com.length;i++) com[i]="";
@@ -77,6 +87,7 @@ public class Bowtie2Inspect extends RunProgram {
         com[2]=properties.getExecutable();
         com[3]=optionsChoosed;
         com[4]=genomeFile;
+        if (properties.isSet("I_v_box")) com[5]="&>"+outputFile;
         return com;
     }
     
@@ -111,13 +122,31 @@ public class Bowtie2Inspect extends RunProgram {
             }
             return s;
         }
-    
+        
+        private String getGenomePath(Vector<Integer> f){
+            String s = "";
+            for (int ids:f) {
+                GenomeFile gen =new GenomeFile(ids);
+                s = gen.getName();
+            }
+            return s;
+        }
+        
+        private String getFileName(String s){
+            String name = "";
+            int pos1 = s.lastIndexOf(File.separator);
+            int pos2 = s.lastIndexOf(".");
+            if (pos1 > 0 && pos2>pos1) name = s.substring(pos1+1,pos2);
+            else return s;
+            return name;
+        }
+        
     /*
     * Output Parsing
     */
     @Override
     public void post_parseOutput() {
-        String txt = this.getPgrmOutput(this.getOutputText());
+        String txt = this.getPgrmOutput();
         Results text=new Results("bowtie2_inspect_stats.txt");
         text.setText(txt+"\n");
         text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");

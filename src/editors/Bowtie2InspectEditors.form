@@ -207,7 +207,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Advanced Options"/>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;All sequences are compared &lt;br/&gt;&#xa;to each other&#xa;&lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="bowtie2Inspect_button" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="I_AO_button" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_AO_buttonActionPerformed"/>

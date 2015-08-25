@@ -40,6 +40,15 @@ public class BwaIndex extends RunProgram{
     
     @Override
     public boolean init_checkRequirements() {
+        // Inputs
+        Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
+        String s1 = getFileName(getFastaPath(Fasta1));
+        
+        if (Fasta1.isEmpty() || s1.equals("")) {
+            setStatus(status_BadRequirements,"No sequence found.");
+            return false;
+        } 
+        
         // File output directory
         if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
             String s = "."+File.separator+"indexed_genomes"+File.separator+"bwa";
@@ -53,13 +62,6 @@ public class BwaIndex extends RunProgram{
             }
         }
 
-        // Inputs
-        Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
-        
-        if (Fasta1.isEmpty()) {
-            setStatus(status_BadRequirements,"No sequence found.");
-            return false;
-        }
         return true;
     }
     
@@ -146,11 +148,10 @@ public class BwaIndex extends RunProgram{
 
         private String getFileName(String s){
             String name = "";
-            int pos1 = s.lastIndexOf("/");
+            int pos1 = s.lastIndexOf(File.separator);
             int pos2 = s.lastIndexOf(".");
-            if (pos1 > 0) {
-                name = s.substring(pos1+1,pos2);
-            }
+            if (pos1 > 0 && pos2>pos1) name = s.substring(pos1+1,pos2);
+            else return s;
             return name;
         }
     
@@ -165,7 +166,7 @@ public class BwaIndex extends RunProgram{
         properties.put("output_genomefile_id", genome.getId());
         this.addOutput(genome);
         
-        String txt = this.getPgrmOutput(this.getOutputText());
+        String txt = this.getPgrmOutput();
         Results text=new Results("bwa_index_stats.txt");
         text.setText(txt+"\n");
         text.setNote("Bwa_stats ("+Util.returnCurrentDateAndTime()+")");

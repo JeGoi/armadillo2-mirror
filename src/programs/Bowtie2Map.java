@@ -87,8 +87,7 @@ public class Bowtie2Map extends RunProgram {
         String s1 = getFileName(getFastqPath(Fastq1));
         String s2 = getFileName(getFastqPath(Fastq2));
             
-        
-        if (Fastq1.isEmpty() || s1.equals("")) {
+        if (Fastq1.size()==0 || s1.equals("Unknown")) {
             setStatus(status_BadRequirements,"No sequence found.");
             return false;
         } else if ((Fastq2.isEmpty() || s1.equals("")) &&
@@ -251,26 +250,27 @@ public class Bowtie2Map extends RunProgram {
                 FastqFile fas =new FastqFile(ids);
                 s = fas.getName();
             }
-            System.out.println("before"+s);
             if (s.contains("<>")) s = s.replaceAll("<>", ",");
-            System.out.println("After"+s);
             return s;
         }
 
         private String getFileName(String s){
-            String name = "";
-            String sFirstName = s;
+            String name = s;
+            
+            // Test for several input name
+            String sFirstName = name;
             if (s.contains(",")) {
                 String[] tab = s.split(",");
                 sFirstName = tab[0];
             }
-            int pos1 = sFirstName.lastIndexOf(File.separator);
-            int pos2 = sFirstName.lastIndexOf(".");
-            if (pos1 > 0 && pos2>pos1) {
-                name = sFirstName.substring(pos1+1,pos2);
-            } else {
-                name = sFirstName.substring(pos1+1,s.length());
-            }
+            if (!name.equals(sFirstName)) name = sFirstName;
+            
+            // Find the name
+            int pos1 = name.lastIndexOf(File.separator);
+            int pos2 = name.lastIndexOf(".");
+            if (pos1 > 0 && pos2>pos1) name = name.substring(pos1+1,pos2);
+            else return s;
+
             return name;
         }
 
@@ -288,8 +288,7 @@ public class Bowtie2Map extends RunProgram {
         sam.saveToDatabase();
         properties.put("output_samfile_id", sam.getId());
 
-        String txt = this.getPgrmOutput(this.getOutputText());
-        
+        String txt = this.getPgrmOutput();
         Results text=new Results(outfile+"_bowtie2_stats.txt");
         text.setText(txt+"\nThe output file is saved here "+s+"\n");
         text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
