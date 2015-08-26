@@ -6,23 +6,17 @@
 
 package programs;
 
+import biologic.FastaFile;
 import biologic.GenomeFile;
 import biologic.Results;
 import biologic.Text;
-import biologic.TextFile;
 import configuration.Util;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import program.RunProgram;
-import static program.RunProgram.PortInputDOWN;
 import static program.RunProgram.PortInputUP;
 import static program.RunProgram.df;
-import static program.RunProgram.status_BadRequirements;
 import static program.RunProgram.status_error;
 import workflows.workflow_properties;
 
@@ -33,50 +27,61 @@ import workflows.workflow_properties;
  * @date Aout 2015
  *
  */
-public class Bowtie2Inspect extends RunProgram {
+public class BowtieIndex extends RunProgram{
     
-    private String genomeFile ="";
+    private String fastaFile1 ="";
     private String outputFile ="";
     
-    private String[] inspectTab = {"I_a_box","I_n_box","I_s_box","I_v_box"};
+    private String[] indexGenomeTab = {"IG_3_box","IG_a_button","IG_bmaxdivn_box","IG_bmax_box","IG_dcv_box","IG_ntoa_box","IG_nodc_box","IG_o_box","IG_p_box","IG_q_box","IG_r_box","IG_seed_box","IG_t_box","IG_little_box","IG_big_box"};
     
-    public Bowtie2Inspect(workflow_properties properties) {
+    public BowtieIndex(workflow_properties properties) {
         this.properties=properties;
         execute();
     }
     
     @Override
     public boolean init_checkRequirements() {
-        Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
-        String s  = getFileName(getGenomePath(GenomeRef));
-        if (GenomeRef.isEmpty()||s.equals("")) {
-            setStatus(status_BadRequirements,"No Genome found.");
+        // File output directory
+        if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
+            String s = "."+File.separator+"indexed_genomes"+File.separator+"bowtie";
+            properties.put("IDG_r_text",s);
+            File f = new File(s);
+            f.canExecute();
+            f.canRead();
+            f.canWrite();
+        
+            if (!f.exists()){
+                f.mkdir();
+            }
+        }
+        
+        // Input
+        Vector<Integer>Fasta1    = properties.getInputID("FastaFile",PortInputDOWN);
+        String s = getFileName(getFastaPath(Fasta1));
+        if (Fasta1.isEmpty()||s.equals("")) {
+            setStatus(status_BadRequirements,"No sequence found.");
             return false;
         }
-        // TO BE COMPLETELY IDIOT PROOF NEED TO TEST EXISTENCE OF BOWTIE2's FILES
         return true;
     }
     
+    //@Override
+    //public void init_createInput() {
+    //}
+    
     @Override
     public String[] init_createCommandLine() {
-        
         // Inputs
-        Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
-        String optionsChoosed    = "";
+        Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
+        String optionsChoosed = "";
         
-        genomeFile = getGenomePath(GenomeRef);
-        if (genomeFile.matches("\\.\\d.bt2l?$")) {
-            genomeFile = getFileName(genomeFile);
-            genomeFile = genomeFile.replaceAll("\\.\\d.bt2l?$","");
-            genomeFile = genomeFile.replaceAll("\\.rev$","");
+        fastaFile1 = getFastaPath(Fasta1);
+        outputFile = getFileName(fastaFile1);
+        outputFile = properties.get("IDG_r_text")+File.separator+outputFile;
+        
+        if (properties.get("IG_AO_button").equals("true")){
+            optionsChoosed = findOptions(indexGenomeTab);
         }
-        
-        // Programme et options
-        if (properties.get("I_AO_button").equals("true")) {
-            optionsChoosed = findOptions(inspectTab);
-        }
-        
-        if (properties.isSet("I_v_box")) outputFile = "./test.info";
         
         String[] com = new String[30];
         for (int i=0; i<com.length;i++) com[i]="";
@@ -85,11 +90,10 @@ public class Bowtie2Inspect extends RunProgram {
         com[1]="/C";
         com[2]=properties.getExecutable();
         com[3]=optionsChoosed;
-        com[4]=genomeFile;
-        if (properties.isSet("I_v_box")) com[5]="&>"+outputFile;
+        com[4]=fastaFile1;
+        com[5]=outputFile;
         return com;
     }
-    
     
         private String findOptions(String[] tab) {
             String s = ""; // Final string
@@ -121,16 +125,16 @@ public class Bowtie2Inspect extends RunProgram {
             }
             return s;
         }
-        
-        private String getGenomePath(Vector<Integer> f){
+
+        private String getFastaPath(Vector<Integer> f){
             String s = "";
             for (int ids:f) {
-                GenomeFile gen =new GenomeFile(ids);
-                s = gen.getName();
+                FastaFile fas =new FastaFile(ids);
+                s = fas.getName();
             }
             return s;
         }
-        
+
         private String getFileName(String s){
             String name = "";
             int pos1 = s.lastIndexOf(File.separator);
@@ -139,18 +143,25 @@ public class Bowtie2Inspect extends RunProgram {
             else return s;
             return name;
         }
-        
-    /*
-    * Output Parsing
-    */
+
+    
     @Override
     public void post_parseOutput() {
+        GenomeFile genome=new GenomeFile();
+        genome.setGenomeFile(outputFile);
+        genome.setName(outputFile);
+        genome.setNote("Bowtie builder. Created on "+Util.returnCurrentDateAndTime());
+        genome.saveToDatabase();
+        properties.put("output_genomefile_id", genome.getId());
+        this.addOutput(genome);
+        
         String txt = this.getPgrmOutput();
-        Results text=new Results("bowtie2_inspect_stats.txt");
+        Results text=new Results("bowtie_index_stats.txt");
         text.setText(txt+"\n");
-        text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_Inspect ("+Util.returnCurrentDateAndTime()+")");
+        text.setNote("Bowtie_stats ("+Util.returnCurrentDateAndTime()+")");
+        text.setName("Bowtie_builder ("+Util.returnCurrentDateAndTime()+")");
         text.saveToDatabase();
         properties.put("output_results_id",text.getId());
     }
+    
 }
