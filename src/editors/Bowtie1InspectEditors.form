@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="Options_Buttons">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="InspectOptions_Boxes">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -74,8 +76,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Bowtie2 Inspect">
-                <Property name="tabTitle" type="java.lang.String" value="Bowtie2 Inspect"/>
+              <JTabbedPaneConstraints tabName="Bowtie1 Inspect">
+                <Property name="tabTitle" type="java.lang.String" value="Bowtie1 Inspect"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -174,7 +176,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="name_jTextField1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Bowtie2 Inspect"/>
+                    <Property name="text" type="java.lang.String" value="Bowtie1 Inspect"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_jTextField1ActionPerformed"/>
@@ -207,7 +209,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Advanced Options"/>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;All sequences are compared &lt;br/&gt;&#xa;to each other&#xa;&lt;/html&gt;"/>
-                <Property name="name" type="java.lang.String" value="I_AO_button" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="bowtie2Inspect_button" noResource="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_AO_buttonActionPerformed"/>
@@ -230,16 +232,22 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="I_n_box" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="I_n_box" alignment="0" max="-2" attributes="0"/>
+                                      <Component id="I_v_box" alignment="0" max="-2" attributes="0"/>
+                                      <Component id="I_s_box" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="I_ebwtRef_box" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="I_a_box" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="I_a_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="I_a_value" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="I_s_box" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="I_v_box" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="195" max="32767" attributes="0"/>
+                          <EmptySpace pref="133" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -254,9 +262,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="I_n_box" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="I_s_box" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="I_v_box" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="I_s_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="I_ebwtRef_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -265,6 +276,9 @@
               <SubComponents>
                 <Component class="javax.swing.JCheckBox" name="I_v_box">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="InspectOptions_Boxes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="-v/--verbose"/>
                     <Property name="name" type="java.lang.String" value="I_v_box" noResource="true"/>
                   </Properties>
@@ -277,6 +291,9 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="I_s_box">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="InspectOptions_Boxes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="-s/--summary"/>
                     <Property name="name" type="java.lang.String" value="I_s_box" noResource="true"/>
                   </Properties>
@@ -289,6 +306,9 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="I_n_box">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="InspectOptions_Boxes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="-n/--names"/>
                     <Property name="name" type="java.lang.String" value="I_n_box" noResource="true"/>
                   </Properties>
@@ -306,6 +326,9 @@
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="name" type="java.lang.String" value="I_a_value" noResource="true"/>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 28]"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="I_a_spinner_value"/>
@@ -313,11 +336,26 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="I_a_box">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="InspectOptions_Boxes"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="-a/--across"/>
                     <Property name="name" type="java.lang.String" value="I_a_box" noResource="true"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_a_boxActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="I_ebwtRef_box">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="InspectOptions_Boxes"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="--ebwt-ref"/>
+                    <Property name="name" type="java.lang.String" value="I_ebwtRef_box" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="I_ebwtRef_boxActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

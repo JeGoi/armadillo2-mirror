@@ -21,6 +21,7 @@ import static program.RunProgram.PortInputUP;
 import static program.RunProgram.df;
 import static program.RunProgram.status_error;
 import workflows.workflow_properties;
+import editors.Bowtie1MapEditors;
 
 
 /**
@@ -29,7 +30,7 @@ import workflows.workflow_properties;
  * @date Aout 2015
  *
  */
-public class Bowtie2Map extends RunProgram {
+public class Bowtie1Map extends RunProgram {
     
     private String fastqFile1    ="";
     private String fastqFile1Name="";
@@ -43,90 +44,91 @@ public class Bowtie2Map extends RunProgram {
     private static final String[] pairedEndTab = {
         "M_PE_I_value",
         "M_PE_X_value",
-        "M_PE_dovetail_box",
         "M_PE_ff_button",
         "M_PE_fr_button",
-        "M_PE_noContain_box",
-        "M_PE_noDiscordant_box",
-        "M_PE_noMixed_box",
-        "M_PE_noOverlap_box",
-        "M_PE_rf_button"
+        "M_PE_pairtries_box",
+        //"M_PE_pairtries_value",
+        "M_PE_rf_button",
+        "M_PE_tryhard_box"
     };
     
     private static final String[] optionsOutputTab = {
-        "O_alANDalConc_box",
+        "O_alPATH_box",
+        "O_fullref_box",
+        "O_offbase_box",
+        //"O_offbase_value",
         "O_quiet_box",
-        "O_unANDunConc_box"
+        "O_refidx_box",
+        "O_suppress_box",
+        //"O_suppress_value",
+        "O_time_box",
+        "O_unPATH_box"
+    };
+    
+    private static final String[] optionsSam = {
+        "O_SAM_mapq_box",
+        //"O_SAM_mapq_value",
+        "O_SAM_samNosq_box",
+        "O_SAM_samNohead_box",
+        "O_SAM_samRG_box",
+        //"O_SAM_samRG_text"
     };
     
     private static final String[] customMapTab   = {
-        "CM_A_L_value",
-        "CM_A_N_value",
-        "CM_A_dpad_value",
-        "CM_A_endToEnd_text",
-        "CM_A_gbar_value",
-        "CM_A_i_text",
-        "CM_A_ignoreQuals_box",
-        "CM_A_local_button",
-        "CM_A_local_text",
-        "CM_A_nCeil_text",
-        "CM_A_no1mmUpfront_box",
-        "CM_A_nofw_box",
-        "CM_A_norc_box",
-        "CM_E_D_value",
-        "CM_E_R_value",
-        "CM_I_3_value",
-        "CM_I_5_value",
-        "CM_I_c_box",
-        "CM_I_f_box",
-        "CM_I_intQuals_box",
-        "CM_I_phred33_box",
-        "CM_I_phred64_box",
-        "CM_I_q_box",
-        "CM_I_qseq_box",
-        "CM_I_r_box",
-        "CM_I_s_value",
-        "CM_I_solexaQuals_box",
-        "CM_I_u_value",
-        "CM_OO_nonDeterminist_box",
-        "CM_OO_qcFilter_box",
-        "CM_OO_seed_value",
-        "CM_P_mm_box",
-        "CM_P_o_text",
-        "CM_P_p_value",
-        "CM_P_reorder_box",
-        "CM_R_a_button",
-        "CM_R_k_value",
-        "CM_R_noset_button",
-        "CM_SAM_noHd_box",
-        "CM_SAM_noSq_box",
-        "CM_SAM_noUnal_box",
-        "CM_SAM_omitSecSeq_box",
-        "CM_SAM_rgId_text",
-        "CM_SAM_rg_text",
-        "CM_S_ma_value",
-        "CM_S_mp_value",
-        "CM_S_np_value",
-        "CM_S_rdg1_value",
-        "CM_S_rdg2_value",
-        "CM_S_rfg1_value",
-        "CM_S_rfg2_value"
+	"CM_A_chunkmbs_box",
+	//"CM_A_chunkmbs_value",
+	"CM_A_maqerr_box",
+	//"CM_A_maqerr_value",
+	"CM_A_maxbts_box",
+	"CM_A_nofw_box",
+	"CM_A_nomaqround_box",
+	"CM_A_norc_box",
+	"CM_A_seedlen_box",
+	//"CM_A_seedlen_value",
+	"CM_A_seedmms_box",
+	//"CM_A_seedmms_value",
+	"CM_A_v_box",
+	//"CM_A_v_value",
+	"CM_C_colCqual_box",
+	"CM_C_colCseq_box",
+	"CM_C_colKeepends_box",
+	"CM_C_snpfrac_box",
+	//"CM_C_snpfrac_value",
+	"CM_C_snpphred_box",
+	//"CM_C_snpphred_value",
+	"CM_I_3_value",
+	"CM_I_5_value",
+	//"CM_I_c_box", // Not Set
+	//"CM_I_f_box", // Not Set
+	"CM_I_intQuals_box",
+	"CM_I_phred33Quals_box",
+	"CM_I_phred64Quals_box",
+	//"CM_I_q_box", // Not Set
+	//"CM_I_qseq_box", // Not Set
+	//"CM_I_r_box", // Not Set
+	"CM_I_s_value",
+	"CM_I_solexa1DOT3Quals_box",
+	"CM_I_solexaQuals_box",
+	"CM_I_u_value",
+	"CM_OO_seed_value",
+	"CM_P_mm_box",
+	"CM_P_o_text",
+	"CM_P_p_box",
+	//"CM_P_p_value",
+	"CM_P_shmem_box",
+	"CM_R_MMAJ_box",
+	//"CM_R_MMAJ_value",
+	"CM_R_all_box",
+	"CM_R_best_box",
+	"CM_R_k_box",
+	//"CM_R_k_value",
+	"CM_R_m_box",
+	//"CM_R_m_value",
+	"CM_R_maxPATH_box",
+	"CM_R_strata_box"
     };
     
-    private static final Hashtable<String,String> optionsHash = new Hashtable<String,String>() {{
-        put("M_ETE_F_button","--fast");
-        put("M_ETE_S_button","--sensitive");
-        put("M_ETE_VF_button","--very-fast");
-        put("M_ETE_VS_button","--very-sensitive");
-        put("M_L_F_button","--fast-local");
-        put("M_L_S_button","--sensitive-local");
-        put("M_L_VF_button","--very-fast-local");
-        put("M_L_VS_button","--very-sensitive-local");
-        put("M_default_button","");
-        put("M_CM_button","");
-    }};
-    
-    public Bowtie2Map(workflow_properties properties) {
+    public Bowtie1Map(workflow_properties properties) {
         this.properties=properties;
         execute();
     }
@@ -138,25 +140,26 @@ public class Bowtie2Map extends RunProgram {
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         String s1 = getFileName(getFastqPath(Fastq1));
         String s2 = getFileName(getFastqPath(Fastq2));
-        
+
         // In case program is started without edition
         pgrmStartWithoutEdition(Fastq2);
         
-        //Boolean Setting
+        // Boolean setting
         boolean b1 = properties.isSet("M_IDG_workflow_button");
         boolean b2 = properties.isSet("M_IDG_directory_button");
         boolean b3 = properties.get("IDG_selected_ComboBox").equals("Choose_an_indexed_Genome");
         boolean b4 = properties.get("M_PE_button").equals("true"); // Stupid ?
-        
-        if (Fastq1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
+            
+        if (Fastq1.size()==0||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
             return false;
         } else if ((Fastq2.isEmpty()||s2.equals("Unknown")||s2.equals("")) &&
                 properties.isSet("M_PE_button")) {
             properties.remove("M_PE_button");
             properties.put("M_SE_button","true");
-            setStatus(status_BadRequirements,"The program will work with single end option.");
-        } else if ( GenomeRef.isEmpty() && b1) {
+            setStatus(status_BadRequirements,"The program will work on single end.");
+            return true;
+        } else if (GenomeRef.isEmpty() && b1) {
             setStatus(status_BadRequirements,"Need a Genome Reference");
             return false;
         } else if ( b2 && b3) {
@@ -166,9 +169,7 @@ public class Bowtie2Map extends RunProgram {
             s1 = getFileName(getFastqPath(Fastq1));
             s2 = getFileName(getFastqPath(Fastq2));
             if (!s1.contains("<>") && !s2.contains("<>")) {
-            int gn = fastqGoodNumber(s1,s2);
-            int sn = fastqSameName(s1,s2);
-                if (sn==0 && gn==0) {
+            if (fastqGoodNumber(s1,s2) && fastqSameName(s1,s2)) {
                     setStatus(status_BadRequirements,"It looks that Fastq paired are not compatible.\n"
                             + "Check your files they need to have the same name and finish by _1 and _2,\n"
                             + "or it's due to Armadillo process, and let it go !");
@@ -187,7 +188,7 @@ public class Bowtie2Map extends RunProgram {
         private void pgrmStartWithoutEdition (Vector<Integer> Fastq2) {
             // In case program is started without edition
             if (!properties.isSet("M_IDG_directory_button")) properties.put("M_IDG_workflow_button","true");
-            if (!properties.isSet("Options")) properties.put("Options","M_default_button");
+            if (!properties.isSet("M_CM_button")||!properties.isSet("M_default_button")) properties.put("M_default_button","true");
             if (!properties.isSet("M_PE_button")) properties.put("M_SE_button","true");
             if (!Fastq2.isEmpty() && properties.isSet("M_SE_button")){
                 properties.put("M_PE_button","true");
@@ -195,19 +196,19 @@ public class Bowtie2Map extends RunProgram {
             }
         }
         
-        private int fastqSameName (String s1,String s2) {
-            int b = 0;
+        private boolean fastqSameName (String s1,String s2) {
+            boolean b = false;
             s1 = s1.replaceAll("_\\d$","");
             s2 = s2.replaceAll("_\\d$","");
-            if (s2.equals(s1)) b=1;
+            if (s2.equals(s1)) b=true;
             return b;
         }
 
-        private int fastqGoodNumber (String s1,String s2) {
-            int b = 0;
+        private boolean fastqGoodNumber (String s1,String s2) {
+            boolean b = false;
             int val1 = Integer.parseInt(s1.replaceAll(".*_(\\d)$","$1"));
             int val2 = Integer.parseInt(s2.replaceAll(".*_(\\d)$","$1"));
-            if (val1==1 && val2==2) b=1;
+            if (val1==1 && val2==2) b=true;
             return b;
         }
 
@@ -225,7 +226,7 @@ public class Bowtie2Map extends RunProgram {
         // Genome File source
         if (!GenomeRef.isEmpty()){
             genomeFile = getGenomePath(GenomeRef);
-            genomeFile = genomeFile.replaceAll("\\.\\d\\.bt2l?$","");
+            genomeFile = genomeFile.replaceAll("\\.\\d\\.ebwtl?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         } else {
             String genomeChoosed = properties.get("IDG_selected_ComboBox");
@@ -234,15 +235,13 @@ public class Bowtie2Map extends RunProgram {
             genomeFile = genomePath+File.separator+genomeChoosed;
         }
         
-        // Get Name to create ouput
         fastqFile1Name = getFileName(fastqFile1);
         genomeFileName = getFileName(genomeFile);
-        outfile = outPutPath+File.separator+fastqFile1Name+"_"+genomeFileName+".sam";
+        outfile = outPutPath+File.separator+fastqFile1Name+"_"+genomeFileName;
+        if (properties.isSet("O_SAM_sam_box"))
+            outfile = outfile+".sam";
         
         // Programme et options
-        String preset  = "";
-        String opH     = optionsHash.get(properties.get("Options"));
-        if (!opH.equals("")) preset = ""+opH+" ";
         String options = optionsChoosed(properties.get("Options"));
         
         String[] com = new String[30];
@@ -251,17 +250,21 @@ public class Bowtie2Map extends RunProgram {
         com[0]="cmd.exe";
         com[1]="/C";
         com[2]=properties.getExecutable();
-        com[3]=preset;
-        com[4]=options;
-        if (!genomeFile.equals("")) com[5]="-x \""+genomeFile+"\"";
+        com[3]=options;
+        if (!genomeFile.equals("")) com[4]="-x \""+genomeFile+"\"";
         if (!fastqFile1.equals("") && fastqFile2.equals("")) {
-            com[6]="\""+fastqFile1+"\"";
+            com[5]="\""+fastqFile1+"\"";
         }
         if (!fastqFile1.equals("") && !fastqFile2.equals("")) {
-            com[6]="-1 \""+fastqFile1+"\"";
-            com[7]="-2 \""+fastqFile2+"\"";
+            com[5]="-1 \""+fastqFile1+"\"";
+            com[6]="-2 \""+fastqFile2+"\"";
         }
-        if (!outfile.equals(""))    com[8]="-S "+outfile+"";
+        if (!outfile.equals("")) {
+            String samOp = "";
+            if (properties.isSet("O_SAM_sam_box")) samOp = "-S ";
+            else samOp = ">";
+            com[7]= samOp+outfile+"";
+        }
         
         return com;
     }
@@ -280,7 +283,10 @@ public class Bowtie2Map extends RunProgram {
             String pe = "";
             if (properties.isSet("M_PE_button")) pe = findOptions(pairedEndTab);
             
-            String outputOp = findOutputOptions(optionsOutputTab);
+            String outputOp = findOptions(optionsOutputTab);
+            
+            if (properties.isSet("O_SAM_sam_box"))
+                outputOp += findOptions(optionsSam);
             
             s = outputOp+" "+pe+" "+s;
 
@@ -296,56 +302,42 @@ public class Bowtie2Map extends RunProgram {
             for (String op:tab) {
                 if (properties.isSet(op)) {
                     String t = op;
-                    t = t.replaceAll("_[a-z]*$","");
-                    t = t.replaceAll("([A-Z]*_)*","");
-                    t = t.replaceAll("([A-Z])","-$1");
+                    boolean path = false;
                     // Extract the command line operator
+                    if (op.contains("PATH")){
+                        path = true;
+                    } else {
+                        t = t.replaceAll("_[a-z]*$","");
+                        t = t.replaceAll("([A-Z]*_)*","");
+                        t = t.replaceFirst("([A-Z])","-$1");
+                    }
+                    
                     if (t.length()>1) {
-                        t = t.toLowerCase();
-                        t = t.replaceAll("([a-z]+)([0-9])([a-z]+)","$1-$2$3");
+                        if (t.contains("DOT")) t = t.replaceAll("DOT",".");
+                        if (!t.matches(".*-[A-Z]{2}")) t = t.toLowerCase();
+                        if (t.matches("[a-z]+[0-9][a-z]+"))
+                            t = t.replaceAll("([a-z]+)([0-9])([a-z]+)","$1-$2$3");
                         t = " --"+t;
                     } else {
                         t = " -"+t;
                     }
                     // Add the value if needed
-                    if (op.contains("_value") || op.contains("_text")) {
+                    if (!properties.get(op).matches("[true]?[false]")) {
                         t = t+" " + properties.get(op);
                     }
+                    if (path) {
+                        t = t+" "+outPutPath;
+                        if (op.equals("CM_R_maxPATH_box")) {
+                            t = t+File.separator+fastqFile1Name+"_"+genomeFileName+"_maxFile.fq";
+                        }
+                    }
+
                     s = s+" "+t;
                 }
             }
             return s;
         }
         
-        private String findOutputOptions(String[] tab) {
-            String s = "";
-            for (String op:tab) {
-                if (properties.isSet(op)){
-                    String t = "";
-                    if (op.contains("AND")){
-                        t = op;
-                        t = t.replaceAll("_[a-z]*$","");
-                        t = t.replaceAll("([A-Z]*_)*","");
-                        String[] stab = t.split("AND");
-                        String sa = "";
-                        for (String st:stab) {
-                            st = st.replaceAll("([A-Z])","-$1");
-                            st = st.toLowerCase();
-                            sa += " --"+st+" "+outPutPath;
-                        }
-                        t = sa;
-                    } else {
-                        t = op;
-                        t = t.replaceAll("_[a-z]*$","");
-                        t = t.replaceAll("([A-Z]*_)*","");
-                        t = " --"+t;
-                    }
-                    s = s+" "+t;
-                } 
-            }
-            return s;
-        }
-
         private String getFastqPath(Vector<Integer> f){
             String s = "";
             for (int ids:f) {

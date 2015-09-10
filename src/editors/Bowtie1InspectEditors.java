@@ -40,7 +40,7 @@ import workflows.workflow_properties_dictionnary;
  * 
  */
 
-public class Bowtie2InspectEditors extends javax.swing.JDialog implements EditorInterface  {
+public class Bowtie1InspectEditors extends javax.swing.JDialog implements EditorInterface  {
     
     /**
      * Creates new form MaqEditors
@@ -59,7 +59,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     /////////////////////////////////////////////////////////////////////////
     /// Default Options
     
-    public Bowtie2InspectEditors(java.awt.Frame parent, armadillo_workflow parent_workflow) {
+    public Bowtie1InspectEditors(java.awt.Frame parent, armadillo_workflow parent_workflow) {
         super(parent, false);
         this.parent_workflow=parent_workflow;
         //--Set variables and init
@@ -76,6 +76,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     private void initComponents() {
 
         Options_Buttons = new javax.swing.ButtonGroup();
+        InspectOptions_Boxes = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         Bowtie2InspectEditor = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -91,6 +92,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         I_n_box = new javax.swing.JCheckBox();
         I_a_value = new javax.swing.JSpinner();
         I_a_box = new javax.swing.JCheckBox();
+        I_ebwtRef_box = new javax.swing.JCheckBox();
         reset_jButton3 = new javax.swing.JButton();
         stop_jButton4 = new javax.swing.JButton();
         run_jButton5 = new javax.swing.JButton();
@@ -120,7 +122,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             }
         });
 
-        name_jTextField1.setText("Bowtie2 Inspect");
+        name_jTextField1.setText("Bowtie1 Inspect");
         name_jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_jTextField1ActionPerformed(evt);
@@ -165,7 +167,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         Options_Buttons.add(I_AO_button);
         I_AO_button.setText("Advanced Options");
         I_AO_button.setToolTipText("<html>\nAll sequences are compared <br/>\nto each other\n</html>");
-        I_AO_button.setName("I_AO_button"); // NOI18N
+        I_AO_button.setName("bowtie2Inspect_button"); // NOI18N
         I_AO_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 I_AO_buttonActionPerformed(evt);
@@ -176,6 +178,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         I_Panel.setEnabled(false);
         I_Panel.setName("I_Panel"); // NOI18N
 
+        InspectOptions_Boxes.add(I_v_box);
         I_v_box.setText("-v/--verbose");
         I_v_box.setName("I_v_box"); // NOI18N
         I_v_box.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +187,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             }
         });
 
+        InspectOptions_Boxes.add(I_s_box);
         I_s_box.setText("-s/--summary");
         I_s_box.setName("I_s_box"); // NOI18N
         I_s_box.addActionListener(new java.awt.event.ActionListener() {
@@ -192,6 +196,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             }
         });
 
+        InspectOptions_Boxes.add(I_n_box);
         I_n_box.setText("-n/--names");
         I_n_box.setName("I_n_box"); // NOI18N
         I_n_box.addActionListener(new java.awt.event.ActionListener() {
@@ -203,17 +208,28 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         I_a_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(60), Integer.valueOf(0), null, Integer.valueOf(1)));
         I_a_value.setToolTipText("");
         I_a_value.setName("I_a_value"); // NOI18N
+        I_a_value.setPreferredSize(new java.awt.Dimension(100, 28));
         I_a_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 I_a_spinner_value(evt);
             }
         });
 
+        InspectOptions_Boxes.add(I_a_box);
         I_a_box.setText("-a/--across");
         I_a_box.setName("I_a_box"); // NOI18N
         I_a_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 I_a_boxActionPerformed(evt);
+            }
+        });
+
+        InspectOptions_Boxes.add(I_ebwtRef_box);
+        I_ebwtRef_box.setText("--ebwt-ref");
+        I_ebwtRef_box.setName("I_ebwtRef_box"); // NOI18N
+        I_ebwtRef_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                I_ebwtRef_boxActionPerformed(evt);
             }
         });
 
@@ -224,14 +240,18 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             .addGroup(I_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(I_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(I_PanelLayout.createSequentialGroup()
+                        .addGroup(I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(I_n_box, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(I_v_box, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(I_s_box))
+                        .addGap(55, 55, 55)
+                        .addComponent(I_ebwtRef_box))
                     .addGroup(I_PanelLayout.createSequentialGroup()
                         .addComponent(I_a_box)
                         .addGap(18, 18, 18)
-                        .addComponent(I_a_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(I_s_box)
-                    .addComponent(I_v_box, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(195, Short.MAX_VALUE))
+                        .addComponent(I_a_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         I_PanelLayout.setVerticalGroup(
             I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,9 +263,11 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(I_n_box)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(I_s_box)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(I_v_box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(I_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(I_s_box)
+                    .addComponent(I_ebwtRef_box))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -325,7 +347,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                 .addContainerGap())
         );
 
-        Bowtie2InspectEditor.addTab("Bowtie2 Inspect", jPanel1);
+        Bowtie2InspectEditor.addTab("Bowtie1 Inspect", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -394,38 +416,20 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                                                         
     private void I_v_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_v_boxActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(I_s_box.getName())) {
-            properties.remove(I_s_box.getName());
-            I_s_box.setSelected(false);
-        } else if (properties.isSet(I_n_box.getName())) {
-            properties.remove(I_n_box.getName());
-            I_n_box.setSelected(false);
-        }
-        boxEvent(I_v_box,null);
+        boxEventSpinner(I_v_box,null);
+        cleanInspectFields(I_v_box.getName());
     }//GEN-LAST:event_I_v_boxActionPerformed
     
     private void I_s_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_s_boxActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(I_v_box.getName())) {
-            properties.remove(I_v_box.getName());
-            I_v_box.setSelected(false);
-        } else if (properties.isSet(I_n_box.getName())) {
-            properties.remove(I_n_box.getName());
-            I_n_box.setSelected(false);
-        }
-        boxEvent(I_s_box,null);
+        boxEventSpinner(I_s_box,null);
+        cleanInspectFields(I_s_box.getName());
     }//GEN-LAST:event_I_s_boxActionPerformed
     
     private void I_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_n_boxActionPerformed
         // TODO add your handling code here:
-        if (properties.isSet(I_v_box.getName())) {
-            properties.remove(I_v_box.getName());
-            I_v_box.setSelected(false);
-        } else if (properties.isSet(I_s_box.getName())) {
-            properties.remove(I_s_box.getName());
-            I_s_box.setSelected(false);
-        }
-        boxEvent(I_n_box,null);
+        boxEventSpinner(I_n_box,null);
+        cleanInspectFields(I_n_box.getName());
     }//GEN-LAST:event_I_n_boxActionPerformed
         
     private void name_jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_jTextField1ActionPerformed
@@ -434,12 +438,12 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                                                                                                         
     private void I_a_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_I_a_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(I_a_value);
+        boxEventSpinner(I_a_box,I_a_value);
     }//GEN-LAST:event_I_a_spinner_value
         
     private void I_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_a_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(I_a_box,I_a_value);
+        boxEventSpinner(I_a_box,I_a_value);
     }//GEN-LAST:event_I_a_boxActionPerformed
                                                                                                                                                                                                                                                                                     
     private void I_DO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_DO_buttonActionPerformed
@@ -459,6 +463,11 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         inspectFields(true);
         buttonEvent(I_AO_button);
     }//GEN-LAST:event_I_AO_buttonActionPerformed
+
+    private void I_ebwtRef_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_ebwtRef_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(I_ebwtRef_box,null);
+    }//GEN-LAST:event_I_ebwtRef_boxActionPerformed
     
     
     /**
@@ -467,13 +476,13 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
      * @param Save_Values
      */
     //For Box
-    private void boxEvent(javax.swing.JCheckBox b,javax.swing.JSpinner s){
+    private void boxEventSpinner (javax.swing.JCheckBox b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
             if (s != null) {
                 s.setEnabled(true);
+                properties.put(b.getName(),s.getValue());
                 properties.put(s.getName(),s.getValue());
-            }
-            properties.put(b.getName(),b.isSelected());
+            } else properties.put(b.getName(),b.isSelected());
         } else {
             if (s != null){
                 s.setEnabled(false);
@@ -490,16 +499,6 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     
     
     /**
-     * Update Values content
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Update_Values
-     */
-    //Spinner update
-    private void spinnerUpdate(javax.swing.JSpinner s){
-        properties.put(s.getName(),s.getValue());
-    }
-    
-    /**
      * Enable or disable fields of Options
      * @param enabled
      */
@@ -512,6 +511,22 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         this.I_a_box.setEnabled(enabled);
         if (properties.isSet(I_a_box.getName())) this.I_a_value.setEnabled(true);
         else this.I_a_value.setEnabled(false);
+        this.I_ebwtRef_box.setEnabled(enabled);
+    }
+    
+    /**
+     * Clean Inspect fields
+     */
+    private void cleanInspectFields(String enabled){
+        String[] sTab = {
+            I_v_box.getName(),
+            I_s_box.getName(),
+            I_n_box.getName(),
+            I_ebwtRef_box.getName()
+        };
+        for (String s:sTab) {
+            if (!s.equals(enabled)) properties.remove(s);
+        }
     }
     
     
@@ -556,18 +571,17 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         if (properties.isSet(I_DO_button.getName())) {
             this.I_DO_button.setSelected(true);
             inspectFields(false);
-        }
-        if (properties.isSet(I_AO_button.getName())) {
+        } else if (properties.isSet(I_AO_button.getName())) {
             this.I_AO_button.setSelected(true);
             inspectFields(true);
         }
         
-        if (properties.isSet(I_a_value.getName())){
-            this.I_a_value.setValue(Integer.parseInt(properties.get(I_a_value.getName())));
-        }
         if (properties.isSet(I_a_box.getName())){
             this.I_a_value.setEnabled(true);
             this.I_a_box.setSelected(true);
+        }
+        if (properties.isSet(I_a_value.getName())){
+            this.I_a_value.setValue(Integer.parseInt(properties.get(I_a_value.getName())));
         }
         if (properties.isSet(I_n_box.getName())){
             this.I_n_box.setSelected(true);
@@ -577,6 +591,9 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         }
         if (properties.isSet(I_s_box.getName())){
             this.I_s_box.setSelected(true);
+        }
+        if (properties.isSet(I_ebwtRef_box.getName())){
+            this.I_ebwtRef_box.setSelected(true);
         }
     }
     
@@ -623,9 +640,11 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
     private javax.swing.JPanel I_Panel;
     private javax.swing.JCheckBox I_a_box;
     private javax.swing.JSpinner I_a_value;
+    private javax.swing.JCheckBox I_ebwtRef_box;
     private javax.swing.JCheckBox I_n_box;
     private javax.swing.JCheckBox I_s_box;
     private javax.swing.JCheckBox I_v_box;
+    private javax.swing.ButtonGroup InspectOptions_Boxes;
     private javax.swing.ButtonGroup Options_Buttons;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

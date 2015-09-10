@@ -33,10 +33,12 @@ import workflows.workflow_properties_dictionnary;
 /**
  *
  * @author Jérémy Goimard
- * @date Aout 2015
+ * @date Sept 2015
  * 
  * If a button, box is used with spinner or text field,
  * the choice was made to use the value name because of the updated content function
+ * 
+ * QUESTIONS STILL OPEN WITH -b // FIXED IN CHECK Requierments
  * 
  */
 
@@ -75,14 +77,9 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bowtie2ChoicesButtons = new javax.swing.ButtonGroup();
-        M_Buttons = new javax.swing.ButtonGroup();
-        M_IDG_source_buttons = new javax.swing.ButtonGroup();
-        CM_O_phred_Buttons = new javax.swing.ButtonGroup();
-        CM_R_buttons = new javax.swing.ButtonGroup();
-        CM_PE_type_buttons = new javax.swing.ButtonGroup();
-        CM_PE_stream_buttons = new javax.swing.ButtonGroup();
-        CM_A_Type = new javax.swing.ButtonGroup();
+        BWA_options_Buttons = new javax.swing.ButtonGroup();
+        BWA_IDG_source_buttons = new javax.swing.ButtonGroup();
+        BWA_ALN_PostTreatment_buttons = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         BwaMapEditor = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -90,123 +87,119 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
         jButton2 = new javax.swing.JButton();
         name_jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        O_bwasw_button = new javax.swing.JRadioButton();
+        O_mem_button = new javax.swing.JRadioButton();
+        O_aln_button = new javax.swing.JRadioButton();
+        Options = new javax.swing.JTabbedPane();
+        MEM_Panel = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        MEM_k_box = new javax.swing.JCheckBox();
+        MEM_k_value = new javax.swing.JSpinner();
+        MEM_r_box = new javax.swing.JCheckBox();
+        MEM_r_value = new javax.swing.JSpinner();
+        MEM_w_box = new javax.swing.JCheckBox();
+        MEM_w_value = new javax.swing.JSpinner();
+        MEM_d_box = new javax.swing.JCheckBox();
+        MEM_d_value = new javax.swing.JSpinner();
+        MEM_P_box = new javax.swing.JCheckBox();
+        MEM_c_box = new javax.swing.JCheckBox();
+        MEM_c_value = new javax.swing.JSpinner();
+        jPanel7 = new javax.swing.JPanel();
+        MEM_A_box = new javax.swing.JCheckBox();
+        MEM_A_value = new javax.swing.JSpinner();
+        MEM_B_value = new javax.swing.JSpinner();
+        MEM_B_box = new javax.swing.JCheckBox();
+        MEM_O_box = new javax.swing.JCheckBox();
+        MEM_O_value = new javax.swing.JSpinner();
+        MEM_L_box = new javax.swing.JCheckBox();
+        MEM_E_box = new javax.swing.JCheckBox();
+        MEM_E_value = new javax.swing.JSpinner();
+        MEM_L_value = new javax.swing.JSpinner();
+        MEM_U_value = new javax.swing.JSpinner();
+        MEM_U_box = new javax.swing.JCheckBox();
+        jPanel6 = new javax.swing.JPanel();
+        MEM_INPUT_panel = new javax.swing.JPanel();
+        MEM_R_box = new javax.swing.JCheckBox();
+        MEM_p_box = new javax.swing.JCheckBox();
+        MEM_R_text = new javax.swing.JTextField();
+        MEM_OUTPUT_panel = new javax.swing.JPanel();
+        MEM_T_box = new javax.swing.JCheckBox();
+        MEM_T_value = new javax.swing.JSpinner();
+        MEM_v_box = new javax.swing.JCheckBox();
+        MEM_v_value = new javax.swing.JSpinner();
+        MEM_C_box = new javax.swing.JCheckBox();
+        MEM_a_box = new javax.swing.JCheckBox();
+        MEM_M_box = new javax.swing.JCheckBox();
+        MEM_H_box = new javax.swing.JCheckBox();
+        jLabel7 = new javax.swing.JLabel();
+        MEM_t_box = new javax.swing.JCheckBox();
+        MEM_t_value = new javax.swing.JSpinner();
+        ALN_Panel = new javax.swing.JPanel();
+        ALN_n_value = new javax.swing.JSpinner();
+        ALN_n_box = new javax.swing.JCheckBox();
+        ALN_o_box = new javax.swing.JCheckBox();
+        ALN_o_value = new javax.swing.JSpinner();
+        ALN_e_box = new javax.swing.JCheckBox();
+        ALN_e_value = new javax.swing.JSpinner();
+        ALN_d_box = new javax.swing.JCheckBox();
+        ALN_d_value = new javax.swing.JSpinner();
+        ALN_M_box = new javax.swing.JCheckBox();
+        ALN_M_value = new javax.swing.JSpinner();
+        ALN_O_value = new javax.swing.JSpinner();
+        ALN_O_box = new javax.swing.JCheckBox();
+        ALN_E_box = new javax.swing.JCheckBox();
+        ALN_E_value = new javax.swing.JSpinner();
+        ALN_R_box = new javax.swing.JCheckBox();
+        ALN_B_value = new javax.swing.JSpinner();
+        ALN_q_value = new javax.swing.JSpinner();
+        ALN_q_box = new javax.swing.JCheckBox();
+        ALN_R_value = new javax.swing.JSpinner();
+        ALN_B_box = new javax.swing.JCheckBox();
+        ALN_i_value = new javax.swing.JSpinner();
+        ALN_i_box = new javax.swing.JCheckBox();
+        ALN_l_box = new javax.swing.JCheckBox();
+        ALN_l_value = new javax.swing.JSpinner();
+        ALN_k_value = new javax.swing.JSpinner();
+        ALN_k_box = new javax.swing.JCheckBox();
+        ALN_t_value = new javax.swing.JSpinner();
+        ALN_t_box = new javax.swing.JCheckBox();
+        ALN_c_box = new javax.swing.JCheckBox();
+        ALN_N_box = new javax.swing.JCheckBox();
+        ALN_I_box = new javax.swing.JCheckBox();
+        jPanel4 = new javax.swing.JPanel();
+        ALN_b_box = new javax.swing.JCheckBox();
+        ALN_b1_box = new javax.swing.JCheckBox();
+        ALN_b2_box = new javax.swing.JCheckBox();
+        jPanel8 = new javax.swing.JPanel();
+        ALN_PT_samse_button = new javax.swing.JRadioButton();
+        ALN_PT_sampe_button = new javax.swing.JRadioButton();
+        ALN_PT_NOTUSED_button = new javax.swing.JRadioButton();
         reset_jButton3 = new javax.swing.JButton();
         stop_jButton4 = new javax.swing.JButton();
         run_jButton5 = new javax.swing.JButton();
         ClosejButton6 = new javax.swing.JButton();
-        Options = new javax.swing.JTabbedPane();
-        M_Panel = new javax.swing.JPanel();
-        M_Local_Label = new javax.swing.JLabel();
-        M_L_F_button = new javax.swing.JRadioButton();
-        M_L_VF_button = new javax.swing.JRadioButton();
-        M_L_S_button = new javax.swing.JRadioButton();
-        M_L_VS_button = new javax.swing.JRadioButton();
-        M_ETE_VS_button = new javax.swing.JRadioButton();
-        M_ETE_S_button = new javax.swing.JRadioButton();
-        M_ETE_VF_button = new javax.swing.JRadioButton();
-        M_ETE_F_button = new javax.swing.JRadioButton();
-        M_ETE_Label = new javax.swing.JLabel();
-        CM_Panel = new javax.swing.JPanel();
-        CM_TabPanel = new javax.swing.JTabbedPane();
-        CM_Input_Panel = new javax.swing.JPanel();
-        CM_I_q_box = new javax.swing.JCheckBox();
-        CM_I_qseq_box = new javax.swing.JCheckBox();
-        CM_I_f_box = new javax.swing.JCheckBox();
-        CM_I_r_box = new javax.swing.JCheckBox();
-        CM_I_c_box = new javax.swing.JCheckBox();
-        CM_I_phred64_box = new javax.swing.JCheckBox();
-        CM_I_phred33_box = new javax.swing.JCheckBox();
-        CM_I_solexa_box = new javax.swing.JCheckBox();
-        CM_I_quals_box = new javax.swing.JCheckBox();
-        CM_I_s_label = new javax.swing.JLabel();
-        CM_I_u_label = new javax.swing.JLabel();
-        CM_I_5_label = new javax.swing.JLabel();
-        CM_I_3_label = new javax.swing.JLabel();
-        CM_I_s_value = new javax.swing.JSpinner();
-        CM_I_u_value = new javax.swing.JSpinner();
-        CM_I_5_value = new javax.swing.JSpinner();
-        CM_I_3_value = new javax.swing.JSpinner();
-        CM_Align_Panel = new javax.swing.JPanel();
-        CM_A_ignoreQuals_box = new javax.swing.JCheckBox();
-        CM_A_norc_box = new javax.swing.JCheckBox();
-        CM_A_no1mm_box = new javax.swing.JCheckBox();
-        CM_A_N_label = new javax.swing.JLabel();
-        CM_A_L_label = new javax.swing.JLabel();
-        CM_A_dpad_label = new javax.swing.JLabel();
-        CM_A_gbar_label = new javax.swing.JLabel();
-        CM_A_i_label = new javax.swing.JLabel();
-        CM_A_nceil_label = new javax.swing.JLabel();
-        CM_A_i_text = new javax.swing.JTextField();
-        CM_A_nceil_text = new javax.swing.JTextField();
-        CM_A_ete_button = new javax.swing.JRadioButton();
-        CM_A_local_button = new javax.swing.JRadioButton();
-        CM_A_ete_text = new javax.swing.JTextField();
-        CM_A_N_value = new javax.swing.JSpinner();
-        CM_A_L_value = new javax.swing.JSpinner();
-        CM_A_dpad_value = new javax.swing.JSpinner();
-        CM_A_gbar_value = new javax.swing.JSpinner();
-        CM_A_local_text = new javax.swing.JTextField();
-        CM_Scoring_Panel = new javax.swing.JPanel();
-        CM_S_ma_label = new javax.swing.JLabel();
-        CM_S_mp_label = new javax.swing.JLabel();
-        CM_S_np_label = new javax.swing.JLabel();
-        CM_S_rdg_label = new javax.swing.JLabel();
-        CM_S_rfg_label = new javax.swing.JLabel();
-        CM_S_first_label = new javax.swing.JLabel();
-        CM_S_second_label = new javax.swing.JLabel();
-        CM_S_ma_value = new javax.swing.JSpinner();
-        CM_S_np_value = new javax.swing.JSpinner();
-        CM_S_rdg1_value = new javax.swing.JSpinner();
-        CM_S_rfg1_value = new javax.swing.JSpinner();
-        CM_S_rdg2_value = new javax.swing.JSpinner();
-        CM_S_rfg2_value = new javax.swing.JSpinner();
-        CM_S_mp_value = new javax.swing.JTextField();
-        CM_Repor_Panel = new javax.swing.JPanel();
-        CM_R_noset_button = new javax.swing.JRadioButton();
-        CM_R_a_button = new javax.swing.JRadioButton();
-        CM_R_k_button = new javax.swing.JRadioButton();
-        CM_R_k_value = new javax.swing.JSpinner();
-        CM_Effort_Panel = new javax.swing.JPanel();
-        CM_E_D_label = new javax.swing.JLabel();
-        CM_E_R_label = new javax.swing.JLabel();
-        CM_E_D_value = new javax.swing.JSpinner();
-        CM_E_R_value = new javax.swing.JSpinner();
-        CM_Output_Panel = new javax.swing.JPanel();
-        CM_O_un_box = new javax.swing.JCheckBox();
-        CM_O_al_box = new javax.swing.JCheckBox();
-        CM_O_quiet_box = new javax.swing.JCheckBox();
-        CM_O_metfile_box = new javax.swing.JCheckBox();
-        CM_O_metstderr_box = new javax.swing.JCheckBox();
-        CM_O_met_label = new javax.swing.JLabel();
-        CM_O_met_value = new javax.swing.JSpinner();
-        CM_SAM_Panel = new javax.swing.JPanel();
-        CM_SAM_noUnal_box = new javax.swing.JCheckBox();
-        CM_SAM_omitSecSeq_box = new javax.swing.JCheckBox();
-        CM_SAM_noHd_box = new javax.swing.JCheckBox();
-        CM_SAM_noSq_box = new javax.swing.JCheckBox();
-        CM_SAM_rgId_label = new javax.swing.JLabel();
-        CM_SAM_rg_label = new javax.swing.JLabel();
-        CM_SAM_rgId_text = new javax.swing.JTextField();
-        CM_SAM_rg_text = new javax.swing.JTextField();
-        CM_Performance_Panel = new javax.swing.JPanel();
-        CM_P_o_label = new javax.swing.JLabel();
-        CM_P_p_label = new javax.swing.JLabel();
-        CM_P_o_text = new javax.swing.JTextField();
-        CM_P_reorder_box = new javax.swing.JCheckBox();
-        CM_P_mm_box = new javax.swing.JCheckBox();
-        CM_P_p_value = new javax.swing.JSpinner();
-        CM_Other_Panel = new javax.swing.JPanel();
-        CM_OO_qcFilter_box = new javax.swing.JCheckBox();
-        CM_OO_seed_label = new javax.swing.JLabel();
-        CM_OO_nonDeterminist_box = new javax.swing.JCheckBox();
-        CM_OO_seed_value = new javax.swing.JSpinner();
-        M_default_button = new javax.swing.JRadioButton();
-        M_CM_button = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        M_IDG_workflow_button = new javax.swing.JRadioButton();
-        M_IDG_directory_button = new javax.swing.JRadioButton();
+        jPanel10 = new javax.swing.JPanel();
+        SAMPE_Panel = new javax.swing.JPanel();
+        SAMPE_n_value = new javax.swing.JSpinner();
+        SAMPE_n_box = new javax.swing.JCheckBox();
+        SAMPE_o_box = new javax.swing.JCheckBox();
+        SAMPE_N_box = new javax.swing.JCheckBox();
+        SAMPE_N_value = new javax.swing.JSpinner();
+        SAMPE_o_value = new javax.swing.JSpinner();
+        SAMPE_a_box = new javax.swing.JCheckBox();
+        SAMPE_a_value = new javax.swing.JSpinner();
+        SAMPE_P_box = new javax.swing.JCheckBox();
+        SAMPE_r_text = new javax.swing.JTextField();
+        SAMPE_r_box = new javax.swing.JCheckBox();
+        SAMSE_Panel = new javax.swing.JPanel();
+        SAMSE_n_value = new javax.swing.JSpinner();
+        SAMSE_n_box = new javax.swing.JCheckBox();
+        SAMSE_r_box = new javax.swing.JCheckBox();
+        SAMSE_r_text = new javax.swing.JTextField();
+        jPanel11 = new javax.swing.JPanel();
         M_IDG_main_panel = new javax.swing.JPanel();
         IDG_selected_ComboBox = new javax.swing.JComboBox();
         IDG_r_text = new javax.swing.JTextField();
@@ -214,23 +207,9 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
         jLabel3 = new javax.swing.JLabel();
         IDG_Update_button = new javax.swing.JButton();
         IDG_change_button = new javax.swing.JButton();
-        M_SE_button = new javax.swing.JRadioButton();
-        M_PE_button = new javax.swing.JRadioButton();
-        M_PE_Panel = new javax.swing.JPanel();
-        M_PE_I_label = new javax.swing.JLabel();
-        M_PE_X_label = new javax.swing.JLabel();
-        M_PE_un_box = new javax.swing.JCheckBox();
-        M_PE_fr_button = new javax.swing.JRadioButton();
-        M_PE_rf_button = new javax.swing.JRadioButton();
-        M_PE_ff_button = new javax.swing.JRadioButton();
-        M_PE_noMixed_box = new javax.swing.JCheckBox();
-        M_PE_noDiscordant_box = new javax.swing.JCheckBox();
-        M_PE_dovetail_box = new javax.swing.JCheckBox();
-        M_PE_noContain_box = new javax.swing.JCheckBox();
-        M_PE_noOverlap_box = new javax.swing.JCheckBox();
-        M_PE_I_value = new javax.swing.JSpinner();
-        M_PE_X_value = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        M_IDG_workflow_button = new javax.swing.JRadioButton();
+        M_IDG_directory_button = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -241,12 +220,14 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
             }
         });
 
+        BwaMapEditor.setPreferredSize(new java.awt.Dimension(661, 676));
         BwaMapEditor.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 BwaMapEditorComponentShown(evt);
             }
         });
 
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setPreferredSize(new java.awt.Dimension(521, 521));
 
         jButton2.setText("Rename");
@@ -265,27 +246,1191 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
 
         jLabel1.setText("Name");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Alignment"));
+
+        BWA_options_Buttons.add(O_bwasw_button);
+        O_bwasw_button.setText("bwasw");
+        O_bwasw_button.setToolTipText("In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (\"soft clipped\") from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.");
+        O_bwasw_button.setName("O_bwasw_button"); // NOI18N
+        O_bwasw_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_bwasw_buttonActionPerformed(evt);
+            }
+        });
+
+        BWA_options_Buttons.add(O_mem_button);
+        O_mem_button.setText("mem");
+        O_mem_button.setName("O_mem_button"); // NOI18N
+        O_mem_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_mem_buttonActionPerformed(evt);
+            }
+        });
+
+        BWA_options_Buttons.add(O_aln_button);
+        O_aln_button.setText("aln");
+        O_aln_button.setName("O_aln_button"); // NOI18N
+        O_aln_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_aln_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(O_mem_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(name_jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(O_bwasw_button)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(O_aln_button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(name_jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(O_aln_button)
+                .addComponent(O_mem_button)
+                .addComponent(O_bwasw_button))
+        );
+
+        O_bwasw_button.getAccessibleContext().setAccessibleDescription("");
+
+        Options.setBorder(javax.swing.BorderFactory.createTitledBorder("Alignment options"));
+        Options.setName("Options"); // NOI18N
+        Options.setPreferredSize(new java.awt.Dimension(366, 337));
+
+        MEM_Panel.setName("MEM_Panel"); // NOI18N
+
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(350, 282));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Algo"));
+
+        MEM_k_box.setText("-k");
+        MEM_k_box.setName("MEM_k_box"); // NOI18N
+        MEM_k_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_k_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_k_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_k_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(19), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_k_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_k_value.setName("MEM_k_value"); // NOI18N
+        MEM_k_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_k_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_k_spinner_value(evt);
+            }
+        });
+
+        MEM_r_box.setText("-r");
+        MEM_r_box.setName("MEM_r_box"); // NOI18N
+        MEM_r_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_r_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_r_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_r_value.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.5f), Float.valueOf(0.0f), null, Float.valueOf(1.0f)));
+        MEM_r_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_r_value.setName("MEM_r_value"); // NOI18N
+        MEM_r_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_r_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_r_spinner_value(evt);
+            }
+        });
+
+        MEM_w_box.setText("-w");
+        MEM_w_box.setName("MEM_w_box"); // NOI18N
+        MEM_w_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_w_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_w_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(100), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_w_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_w_value.setName("MEM_w_value"); // NOI18N
+        MEM_w_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_w_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_w_spinner_value(evt);
+            }
+        });
+
+        MEM_d_box.setText("-d");
+        MEM_d_box.setName("MEM_d_box"); // NOI18N
+        MEM_d_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_d_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_d_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_d_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(100), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_d_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_d_value.setName("MEM_d_value"); // NOI18N
+        MEM_d_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_d_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_d_spinner_value(evt);
+            }
+        });
+
+        MEM_P_box.setText("-P");
+        MEM_P_box.setName("MEM_P_box"); // NOI18N
+        MEM_P_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_P_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_P_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_c_box.setText("-c");
+        MEM_c_box.setName("MEM_c_box"); // NOI18N
+        MEM_c_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_c_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_c_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_c_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_c_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_c_value.setName("MEM_c_value"); // NOI18N
+        MEM_c_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_c_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_c_spinner_value(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(MEM_d_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_d_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(MEM_k_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_k_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(MEM_w_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_w_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MEM_P_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(MEM_r_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_r_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(MEM_c_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_c_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MEM_k_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MEM_k_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MEM_w_box)
+                            .addComponent(MEM_w_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MEM_r_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MEM_r_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MEM_c_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MEM_c_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_d_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_d_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_P_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Scoring"));
+
+        MEM_A_box.setText("-A");
+        MEM_A_box.setName("MEM_A_box"); // NOI18N
+        MEM_A_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_A_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_A_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_A_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_A_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_A_value.setName("MEM_A_value"); // NOI18N
+        MEM_A_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_A_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_A_spinner_value(evt);
+            }
+        });
+
+        MEM_B_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_B_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_B_value.setName("MEM_B_value"); // NOI18N
+        MEM_B_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_B_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_B_spinner_value(evt);
+            }
+        });
+
+        MEM_B_box.setText("-B");
+        MEM_B_box.setName("MEM_B_box"); // NOI18N
+        MEM_B_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_B_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_B_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_O_box.setText("-O");
+        MEM_O_box.setName("MEM_O_box"); // NOI18N
+        MEM_O_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_O_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_O_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_O_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(6), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_O_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_O_value.setName("MEM_O_value"); // NOI18N
+        MEM_O_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_O_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_O_spinner_value(evt);
+            }
+        });
+
+        MEM_L_box.setText("-L");
+        MEM_L_box.setName("MEM_L_box"); // NOI18N
+        MEM_L_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_L_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_L_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_E_box.setText("-E");
+        MEM_E_box.setName("MEM_E_box"); // NOI18N
+        MEM_E_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_E_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_E_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_E_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_E_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_E_value.setName("MEM_E_value"); // NOI18N
+        MEM_E_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_E_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_E_spinner_value(evt);
+            }
+        });
+
+        MEM_L_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_L_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_L_value.setName("MEM_L_value"); // NOI18N
+        MEM_L_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_L_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_L_spinner_value(evt);
+            }
+        });
+
+        MEM_U_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(17), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_U_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_U_value.setName("MEM_U_value"); // NOI18N
+        MEM_U_value.setPreferredSize(new java.awt.Dimension(100, 28));
+        MEM_U_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_U_spinner_value(evt);
+            }
+        });
+
+        MEM_U_box.setText("-U");
+        MEM_U_box.setName("MEM_U_box"); // NOI18N
+        MEM_U_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_U_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_U_boxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(MEM_O_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_O_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(MEM_A_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_A_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(MEM_B_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_B_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(MEM_L_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_L_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(MEM_U_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_U_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(MEM_E_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_E_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_E_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_E_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_L_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_L_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_U_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_U_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_A_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_A_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_B_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_B_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_O_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_O_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+
+        jTabbedPane1.addTab("Algo/Scoring", jPanel3);
+
+        MEM_INPUT_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Input"));
+        MEM_INPUT_panel.setPreferredSize(new java.awt.Dimension(325, 80));
+
+        MEM_R_box.setText("-R");
+        MEM_R_box.setName("MEM_R_box"); // NOI18N
+        MEM_R_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_R_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_R_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_p_box.setText("-p");
+        MEM_p_box.setName("MEM_p_box"); // NOI18N
+        MEM_p_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_p_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_p_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_R_text.setName("MEM_R_text"); // NOI18N
+        MEM_R_text.setPreferredSize(new java.awt.Dimension(262, 27));
+        MEM_R_text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MEM_R_textFocusLost(evt);
+            }
+        });
+        MEM_R_text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_R_textActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MEM_INPUT_panelLayout = new javax.swing.GroupLayout(MEM_INPUT_panel);
+        MEM_INPUT_panel.setLayout(MEM_INPUT_panelLayout);
+        MEM_INPUT_panelLayout.setHorizontalGroup(
+            MEM_INPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MEM_p_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(MEM_INPUT_panelLayout.createSequentialGroup()
+                .addComponent(MEM_R_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MEM_R_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        MEM_INPUT_panelLayout.setVerticalGroup(
+            MEM_INPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MEM_INPUT_panelLayout.createSequentialGroup()
+                .addComponent(MEM_p_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MEM_INPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_R_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_R_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        MEM_OUTPUT_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Output"));
+
+        MEM_T_box.setText("-T");
+        MEM_T_box.setName("MEM_T_box"); // NOI18N
+        MEM_T_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_T_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_T_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_T_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(30), Integer.valueOf(0), null, Integer.valueOf(1)));
+        MEM_T_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_T_value.setName("MEM_T_value"); // NOI18N
+        MEM_T_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_T_spinner_value(evt);
+            }
+        });
+
+        MEM_v_box.setText("-v");
+        MEM_v_box.setName("MEM_v_box"); // NOI18N
+        MEM_v_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_v_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_v_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_v_value.setModel(new javax.swing.SpinnerNumberModel(3, 1, 4, 1));
+        MEM_v_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_v_value.setName("MEM_v_value"); // NOI18N
+        MEM_v_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_v_spinner_value(evt);
+            }
+        });
+
+        MEM_C_box.setText("-C");
+        MEM_C_box.setName("MEM_C_box"); // NOI18N
+        MEM_C_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_C_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_C_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_a_box.setText("-a");
+        MEM_a_box.setName("MEM_a_box"); // NOI18N
+        MEM_a_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_a_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_a_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_M_box.setText("-M");
+        MEM_M_box.setName("MEM_M_box"); // NOI18N
+        MEM_M_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_M_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_H_box.setText("-H");
+        MEM_H_box.setName("MEM_H_box"); // NOI18N
+        MEM_H_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_H_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_H_boxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MEM_OUTPUT_panelLayout = new javax.swing.GroupLayout(MEM_OUTPUT_panel);
+        MEM_OUTPUT_panel.setLayout(MEM_OUTPUT_panelLayout);
+        MEM_OUTPUT_panelLayout.setHorizontalGroup(
+            MEM_OUTPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MEM_OUTPUT_panelLayout.createSequentialGroup()
+                .addGroup(MEM_OUTPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MEM_OUTPUT_panelLayout.createSequentialGroup()
+                        .addComponent(MEM_T_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_T_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_v_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_v_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MEM_OUTPUT_panelLayout.createSequentialGroup()
+                        .addComponent(MEM_M_box)
+                        .addGap(18, 18, 18)
+                        .addComponent(MEM_a_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MEM_C_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_H_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+        MEM_OUTPUT_panelLayout.setVerticalGroup(
+            MEM_OUTPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MEM_OUTPUT_panelLayout.createSequentialGroup()
+                .addGroup(MEM_OUTPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_T_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_T_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_v_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_v_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MEM_OUTPUT_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MEM_M_box)
+                    .addComponent(MEM_a_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_C_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_H_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jLabel7.setText("Performances : ");
+
+        MEM_t_box.setText("-t");
+        MEM_t_box.setName("MEM_t_box"); // NOI18N
+        MEM_t_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        MEM_t_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MEM_t_boxActionPerformed(evt);
+            }
+        });
+
+        MEM_t_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        MEM_t_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        MEM_t_value.setName("MEM_t_value"); // NOI18N
+        MEM_t_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MEM_t_spinner_value(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MEM_INPUT_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_OUTPUT_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_t_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MEM_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MEM_INPUT_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MEM_OUTPUT_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(MEM_t_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MEM_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Input/Output/Perf", jPanel6);
+
+        javax.swing.GroupLayout MEM_PanelLayout = new javax.swing.GroupLayout(MEM_Panel);
+        MEM_Panel.setLayout(MEM_PanelLayout);
+        MEM_PanelLayout.setHorizontalGroup(
+            MEM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MEM_PanelLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        MEM_PanelLayout.setVerticalGroup(
+            MEM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MEM_PanelLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        Options.addTab("mem", MEM_Panel);
+
+        ALN_Panel.setName("ALN_Panel"); // NOI18N
+
+        ALN_n_value.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.04f), Float.valueOf(0.0f), Float.valueOf(1.0f), Float.valueOf(0.01f)));
+        ALN_n_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_n_value.setName("ALN_n_value"); // NOI18N
+        ALN_n_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_n_spinner_value(evt);
+            }
+        });
+
+        ALN_n_box.setText("-n");
+        ALN_n_box.setName("ALN_n_box"); // NOI18N
+        ALN_n_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_n_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_n_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_o_box.setText("-o");
+        ALN_o_box.setName("ALN_o_box"); // NOI18N
+        ALN_o_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_o_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_o_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_o_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        ALN_o_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_o_value.setName("ALN_o_value"); // NOI18N
+        ALN_o_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_o_spinner_value(evt);
+            }
+        });
+
+        ALN_e_box.setText("-e");
+        ALN_e_box.setName("ALN_e_box"); // NOI18N
+        ALN_e_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_e_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_e_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_e_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        ALN_e_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_e_value.setName("ALN_e_value"); // NOI18N
+        ALN_e_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_e_spinner_value(evt);
+            }
+        });
+
+        ALN_d_box.setText("-d");
+        ALN_d_box.setName("CM_OO_qcFilter_box"); // NOI18N
+        ALN_d_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_d_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_d_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_d_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(16), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_d_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_d_value.setName("ALN_d_value"); // NOI18N
+        ALN_d_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_d_spinner_value(evt);
+            }
+        });
+
+        ALN_M_box.setText("-M");
+        ALN_M_box.setName("ALN_M_box"); // NOI18N
+        ALN_M_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_M_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_M_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(3), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_M_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_M_value.setName("ALN_M_value"); // NOI18N
+        ALN_M_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_M_spinner_value(evt);
+            }
+        });
+
+        ALN_O_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(11), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_O_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_O_value.setName("ALN_O_value"); // NOI18N
+        ALN_O_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_O_spinner_value(evt);
+            }
+        });
+
+        ALN_O_box.setText("-O");
+        ALN_O_box.setName("ALN_O_box"); // NOI18N
+        ALN_O_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_O_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_O_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_E_box.setText("-E");
+        ALN_E_box.setName("ALN_E_box"); // NOI18N
+        ALN_E_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_E_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_E_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_E_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_E_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_E_value.setName("ALN_E_value"); // NOI18N
+        ALN_E_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_E_spinner_value(evt);
+            }
+        });
+
+        ALN_R_box.setText("-R");
+        ALN_R_box.setName("ALN_R_box"); // NOI18N
+        ALN_R_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_R_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_R_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_B_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_B_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_B_value.setName("ALN_B_value"); // NOI18N
+        ALN_B_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_B_spinner_value(evt);
+            }
+        });
+
+        ALN_q_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_q_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_q_value.setName("ALN_q_value"); // NOI18N
+        ALN_q_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_q_spinner_value(evt);
+            }
+        });
+
+        ALN_q_box.setText("-q");
+        ALN_q_box.setName("ALN_q_box"); // NOI18N
+        ALN_q_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_q_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_q_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_R_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(30), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_R_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_R_value.setName("ALN_R_value"); // NOI18N
+        ALN_R_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_R_spinner_value(evt);
+            }
+        });
+
+        ALN_B_box.setText("-B");
+        ALN_B_box.setName("ALN_B_box"); // NOI18N
+        ALN_B_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_B_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_B_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_i_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_i_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_i_value.setName("ALN_i_value"); // NOI18N
+        ALN_i_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_i_spinner_value(evt);
+            }
+        });
+
+        ALN_i_box.setText("-i");
+        ALN_i_box.setName("ALN_i_box"); // NOI18N
+        ALN_i_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_i_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_i_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_l_box.setText("-l");
+        ALN_l_box.setName("ALN_l_box"); // NOI18N
+        ALN_l_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_l_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_l_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_l_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(2147483647), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_l_value.setMinimumSize(new java.awt.Dimension(120, 28));
+        ALN_l_value.setName("ALN_l_value"); // NOI18N
+        ALN_l_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_l_spinner_value(evt);
+            }
+        });
+
+        ALN_k_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(2), Integer.valueOf(0), null, Integer.valueOf(1)));
+        ALN_k_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_k_value.setName("ALN_k_value"); // NOI18N
+        ALN_k_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_k_spinner_value(evt);
+            }
+        });
+
+        ALN_k_box.setText("-k");
+        ALN_k_box.setName("CM_OO_qcFilter_box"); // NOI18N
+        ALN_k_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_k_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_k_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_t_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        ALN_t_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        ALN_t_value.setName("ALN_t_value"); // NOI18N
+        ALN_t_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ALN_t_spinner_value(evt);
+            }
+        });
+
+        ALN_t_box.setText("-t");
+        ALN_t_box.setName("ALN_t_box"); // NOI18N
+        ALN_t_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_t_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_t_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_c_box.setText("-c");
+        ALN_c_box.setEnabled(false);
+        ALN_c_box.setName("CM_OO_qcFilter_box"); // NOI18N
+        ALN_c_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_c_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_c_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_N_box.setText("-N");
+        ALN_N_box.setName("ALN_N_box"); // NOI18N
+        ALN_N_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_N_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_N_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_I_box.setText("-I");
+        ALN_I_box.setName("ALN_I_box"); // NOI18N
+        ALN_I_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        ALN_I_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_I_boxActionPerformed(evt);
+            }
+        });
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("if BAM inputs"));
+
+        ALN_b_box.setText("-b");
+        ALN_b_box.setName("ALN_b_box"); // NOI18N
+        ALN_b_box.setPreferredSize(new java.awt.Dimension(49, 24));
+        ALN_b_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_b_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_b1_box.setText("-b1");
+        ALN_b1_box.setName("ALN_b1_box"); // NOI18N
+        ALN_b1_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_b1_boxActionPerformed(evt);
+            }
+        });
+
+        ALN_b2_box.setText("-b2");
+        ALN_b2_box.setName("ALN_b2_box"); // NOI18N
+        ALN_b2_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_b2_boxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(ALN_b_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ALN_b1_box, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ALN_b2_box)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(ALN_b_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ALN_b1_box)
+                .addComponent(ALN_b2_box))
+        );
+
+        javax.swing.GroupLayout ALN_PanelLayout = new javax.swing.GroupLayout(ALN_Panel);
+        ALN_Panel.setLayout(ALN_PanelLayout);
+        ALN_PanelLayout.setHorizontalGroup(
+            ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addComponent(ALN_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_n_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_t_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_o_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_o_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_e_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_e_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_d_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_d_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_M_box)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_M_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_O_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_O_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_E_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_E_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_i_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_i_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_k_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_k_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_R_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_R_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                                .addComponent(ALN_B_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ALN_B_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addComponent(ALN_c_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_N_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_I_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addComponent(ALN_l_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_l_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_q_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ALN_q_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        ALN_PanelLayout.setVerticalGroup(
+            ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ALN_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ALN_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ALN_n_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ALN_t_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ALN_t_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ALN_o_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ALN_o_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ALN_e_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ALN_e_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ALN_d_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ALN_d_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(ALN_PanelLayout.createSequentialGroup()
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ALN_M_box)
+                            .addComponent(ALN_M_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ALN_O_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ALN_O_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ALN_E_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ALN_E_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_i_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_i_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_R_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_R_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_l_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_l_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_q_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_q_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_k_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_k_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_B_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_B_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALN_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ALN_c_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_N_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ALN_I_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Options.addTab("aln and bwasw", ALN_Panel);
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("ALN Post treatment"));
+        jPanel8.setPreferredSize(new java.awt.Dimension(240, 47));
+
+        BWA_ALN_PostTreatment_buttons.add(ALN_PT_samse_button);
+        ALN_PT_samse_button.setText("samse");
+        ALN_PT_samse_button.setName("ALN_PT_samse_button"); // NOI18N
+        ALN_PT_samse_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_PT_samse_buttonActionPerformed(evt);
+            }
+        });
+
+        BWA_ALN_PostTreatment_buttons.add(ALN_PT_sampe_button);
+        ALN_PT_sampe_button.setText("sampe");
+        ALN_PT_sampe_button.setName("ALN_PT_sampe_button"); // NOI18N
+        ALN_PT_sampe_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_PT_sampe_buttonActionPerformed(evt);
+            }
+        });
+
+        BWA_ALN_PostTreatment_buttons.add(ALN_PT_NOTUSED_button);
+        ALN_PT_NOTUSED_button.setText("NotUsed");
+        ALN_PT_NOTUSED_button.setName("ALN_PT_NOTUSED_button"); // NOI18N
+        ALN_PT_NOTUSED_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ALN_PT_NOTUSED_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(ALN_PT_NOTUSED_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ALN_PT_samse_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ALN_PT_sampe_button))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(ALN_PT_samse_button)
+                .addComponent(ALN_PT_sampe_button)
+                .addComponent(ALN_PT_NOTUSED_button))
         );
 
         reset_jButton3.setText("Reset default value");
@@ -316,1315 +1461,261 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
             }
         });
 
-        Options.setName("Options"); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Post Treatment options"));
 
-        M_Panel.setName("M_Panel"); // NOI18N
+        SAMPE_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("SAMPE Options"));
+        SAMPE_Panel.setName("SAMPE_Panel"); // NOI18N
+        SAMPE_Panel.setPreferredSize(new java.awt.Dimension(253, 172));
 
-        M_Local_Label.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        M_Local_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        M_Local_Label.setText("Local");
-
-        M_Buttons.add(M_L_F_button);
-        M_L_F_button.setText("--fast-local");
-        M_L_F_button.setToolTipText("In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (\"soft clipped\") from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.");
-        M_L_F_button.setName("M_L_F_button"); // NOI18N
-        M_L_F_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_L_F_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_L_VF_button);
-        M_L_VF_button.setText("--fast-local");
-        M_L_VF_button.setToolTipText("In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (\"soft clipped\") from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.");
-        M_L_VF_button.setName("M_L_VF_button"); // NOI18N
-        M_L_VF_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_L_VF_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_L_S_button);
-        M_L_S_button.setText("--sensitive-local");
-        M_L_S_button.setToolTipText("In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (\"soft clipped\") from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.");
-        M_L_S_button.setName("M_L_S_button"); // NOI18N
-        M_L_S_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_L_S_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_L_VS_button);
-        M_L_VS_button.setText("--very-sensitive-local");
-        M_L_VS_button.setToolTipText("In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (\"soft clipped\") from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.");
-        M_L_VS_button.setName("M_L_VS_button"); // NOI18N
-        M_L_VS_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_L_VS_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_ETE_VS_button);
-        M_ETE_VS_button.setText("--very-sensitive");
-        M_ETE_VS_button.setName("M_ETE_VS_button"); // NOI18N
-        M_ETE_VS_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_ETE_VS_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_ETE_S_button);
-        M_ETE_S_button.setText("--sensitive");
-        M_ETE_S_button.setName("M_ETE_S_button"); // NOI18N
-        M_ETE_S_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_ETE_S_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_ETE_VF_button);
-        M_ETE_VF_button.setText("--very-fast");
-        M_ETE_VF_button.setName("M_ETE_VF_button"); // NOI18N
-        M_ETE_VF_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_ETE_VF_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_ETE_F_button);
-        M_ETE_F_button.setText("--fast");
-        M_ETE_F_button.setName("M_ETE_F_button"); // NOI18N
-        M_ETE_F_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_ETE_F_buttonActionPerformed(evt);
-            }
-        });
-
-        M_ETE_Label.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        M_ETE_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        M_ETE_Label.setText("End To End");
-
-        javax.swing.GroupLayout M_PanelLayout = new javax.swing.GroupLayout(M_Panel);
-        M_Panel.setLayout(M_PanelLayout);
-        M_PanelLayout.setHorizontalGroup(
-            M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(M_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(M_ETE_F_button)
-                    .addComponent(M_ETE_VF_button)
-                    .addComponent(M_ETE_S_button)
-                    .addComponent(M_ETE_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(M_ETE_VS_button))
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(M_PanelLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(M_L_S_button)
-                            .addComponent(M_L_VF_button)
-                            .addComponent(M_L_F_button)
-                            .addComponent(M_L_VS_button)))
-                    .addGroup(M_PanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(M_Local_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(29, 29, 29))
-        );
-        M_PanelLayout.setVerticalGroup(
-            M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(M_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_Local_Label)
-                    .addComponent(M_ETE_Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_L_F_button)
-                    .addComponent(M_ETE_F_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_L_VF_button)
-                    .addComponent(M_ETE_VF_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_L_S_button)
-                    .addComponent(M_ETE_S_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_L_VS_button)
-                    .addComponent(M_ETE_VS_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        Options.addTab("Preset Mapping", M_Panel);
-
-        CM_Panel.setName("CM_Panel"); // NOI18N
-
-        CM_TabPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Advanced Mapping Options"));
-        CM_TabPanel.setEnabled(false);
-        CM_TabPanel.setName("CM_TabPanel"); // NOI18N
-
-        CM_Input_Panel.setName("CM_Input_Panel"); // NOI18N
-
-        CM_I_q_box.setText("-q");
-        CM_I_q_box.setName("CM_I_q_box"); // NOI18N
-        CM_I_q_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_q_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_qseq_box.setText("--qseq");
-        CM_I_qseq_box.setName("CM_I_qseq_box"); // NOI18N
-        CM_I_qseq_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_qseq_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_f_box.setText("-f");
-        CM_I_f_box.setName("CM_I_f_box"); // NOI18N
-        CM_I_f_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_f_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_r_box.setText("-r");
-        CM_I_r_box.setName("CM_I_r_box"); // NOI18N
-        CM_I_r_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_r_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_c_box.setText("-c");
-        CM_I_c_box.setName("CM_I_c_box"); // NOI18N
-        CM_I_c_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_c_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_phred_Buttons.add(CM_I_phred64_box);
-        CM_I_phred64_box.setText("--phred64");
-        CM_I_phred64_box.setName("CM_I_phred64_box"); // NOI18N
-        CM_I_phred64_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_phred64_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_phred_Buttons.add(CM_I_phred33_box);
-        CM_I_phred33_box.setText("--phred33");
-        CM_I_phred33_box.setName("CM_I_phred33_box"); // NOI18N
-        CM_I_phred33_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_phred33_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_solexa_box.setText("--solexa-quals");
-        CM_I_solexa_box.setName("CM_I_solexa_box"); // NOI18N
-        CM_I_solexa_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_solexa_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_quals_box.setText("--int-quals");
-        CM_I_quals_box.setName("CM_I_quals_box"); // NOI18N
-        CM_I_quals_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_I_quals_boxActionPerformed(evt);
-            }
-        });
-
-        CM_I_s_label.setText("-s/--skip");
-        CM_I_s_label.setName("CM_I_s_label"); // NOI18N
-
-        CM_I_u_label.setText("-u/--qupto");
-        CM_I_u_label.setName("CM_I_u_label"); // NOI18N
-
-        CM_I_5_label.setText("-5/--trim5");
-        CM_I_5_label.setName("CM_I_5_label"); // NOI18N
-
-        CM_I_3_label.setText("-3/--trim3");
-        CM_I_3_label.setName("CM_I_3_label"); // NOI18N
-
-        CM_I_s_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_I_s_value.setName("CM_I_s_value"); // NOI18N
-        CM_I_s_value.addChangeListener(new javax.swing.event.ChangeListener() {
+        SAMPE_n_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(3), Integer.valueOf(0), null, Integer.valueOf(1)));
+        SAMPE_n_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        SAMPE_n_value.setName("SAMPE_n_value"); // NOI18N
+        SAMPE_n_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_I_s_spinner_value(evt);
+                SAMPE_n_spinner_value(evt);
             }
         });
 
-        CM_I_u_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(100000000), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_I_u_value.setName("CM_I_u_value"); // NOI18N
-        CM_I_u_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_I_u_spinner_value(evt);
-            }
-        });
-
-        CM_I_5_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_I_5_value.setName("CM_I_5_value"); // NOI18N
-        CM_I_5_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_I_5_spinner_value(evt);
-            }
-        });
-
-        CM_I_3_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_I_3_value.setName("CM_I_3_value"); // NOI18N
-        CM_I_3_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_I_3_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Input_PanelLayout = new javax.swing.GroupLayout(CM_Input_Panel);
-        CM_Input_Panel.setLayout(CM_Input_PanelLayout);
-        CM_Input_PanelLayout.setHorizontalGroup(
-            CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_I_phred33_box)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_I_phred64_box))
-                            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_I_q_box)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_I_qseq_box)
-                                .addGap(24, 24, 24)
-                                .addComponent(CM_I_solexa_box)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_I_quals_box))
-                            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_I_f_box)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_I_r_box)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_I_c_box)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CM_Input_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CM_I_s_label)
-                                    .addComponent(CM_I_u_label))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CM_I_u_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                    .addComponent(CM_I_s_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CM_I_3_label))
-                            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(CM_I_5_label)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_I_5_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CM_I_3_value, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-        CM_Input_PanelLayout.setVerticalGroup(
-            CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_q_box)
-                    .addComponent(CM_I_qseq_box)
-                    .addComponent(CM_I_solexa_box)
-                    .addComponent(CM_I_quals_box))
-                .addGap(18, 18, 18)
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_f_box)
-                    .addComponent(CM_I_c_box)
-                    .addComponent(CM_I_r_box))
-                .addGap(18, 18, 18)
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_s_label)
-                    .addComponent(CM_I_s_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_I_5_label)
-                    .addComponent(CM_I_5_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_u_label)
-                    .addComponent(CM_I_u_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_I_3_label)
-                    .addComponent(CM_I_3_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_phred33_box)
-                    .addComponent(CM_I_phred64_box))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        CM_I_q_box.getAccessibleContext().setAccessibleDescription("Reads (specified with <m1>, <m2>, <s>) are FASTQ files. FASTQ files usually have extension .fq or .fastq. FASTQ is the default format. See also: --solexa-quals and --int-quals.");
-        CM_I_qseq_box.getAccessibleContext().setAccessibleDescription("Reads (specified with <m1>, <m2>, <s>) are QSEQ files. QSEQ files usually end in _qseq.txt. See also: --solexa-quals and --int-quals.");
-        CM_I_f_box.getAccessibleContext().setAccessibleName("");
-        CM_I_f_box.getAccessibleContext().setAccessibleDescription("Reads (specified with <m1>, <m2>, <s>) are FASTA files. FASTA files usually have extension .fa, .fasta, .mfa, .fna or similar. FASTA files do not have a way of specifying quality values, so when -f is set, the result is as if --ignore-quals is also set.");
-        CM_I_r_box.getAccessibleContext().setAccessibleDescription("Reads (specified with <m1>, <m2>, <s>) are files with one input sequence per line, without any other information (no read names, no qualities). When -r is set, the result is as if --ignore-quals is also set.");
-        CM_I_c_box.getAccessibleContext().setAccessibleDescription("The read sequences are given on command line. I.e. <m1>, <m2> and <singles> are comma-separated lists of reads rather than lists of read files. There is no way to specify read names or qualities, so -c also implies --ignore-quals.");
-        CM_I_phred64_box.getAccessibleContext().setAccessibleDescription("Input qualities are ASCII chars equal to the Phred quality plus 64. This is also called the \"Phred+64\" encoding.");
-        CM_I_phred33_box.getAccessibleContext().setAccessibleDescription("Input qualities are ASCII chars equal to the Phred quality plus 33. This is also called the \"Phred+33\" encoding, which is used by the very latest Illumina pipelines.");
-        CM_I_solexa_box.getAccessibleContext().setAccessibleDescription("Convert input qualities from Solexa (which can be negative) to Phred (which can't). This scheme was used in older Illumina GA Pipeline versions (prior to 1.3). Default: off.");
-        CM_I_quals_box.getAccessibleContext().setAccessibleDescription("Quality values are represented in the read input file as space-separated ASCII integers, e.g., 40 40 30 40..., rather than ASCII characters, e.g., II?I.... Integers are treated as being on the Phred quality scale unless --solexa-quals is also specified. Default: off.");
-
-        CM_TabPanel.addTab("Input", CM_Input_Panel);
-
-        CM_Align_Panel.setName("CM_Align_Panel"); // NOI18N
-
-        CM_A_ignoreQuals_box.setText("--ignore-quals");
-        CM_A_ignoreQuals_box.setName("CM_A_ignoreQuals_box"); // NOI18N
-        CM_A_ignoreQuals_box.addActionListener(new java.awt.event.ActionListener() {
+        SAMPE_n_box.setText("-n");
+        SAMPE_n_box.setName("SAMPE_n_box"); // NOI18N
+        SAMPE_n_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMPE_n_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_ignoreQuals_boxActionPerformed(evt);
+                SAMPE_n_boxActionPerformed(evt);
             }
         });
 
-        CM_A_norc_box.setText("--nofw/--norc");
-        CM_A_norc_box.setName("CM_A_norc_box"); // NOI18N
-        CM_A_norc_box.addActionListener(new java.awt.event.ActionListener() {
+        SAMPE_o_box.setText("-o");
+        SAMPE_o_box.setName("SAMPE_o_box"); // NOI18N
+        SAMPE_o_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMPE_o_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_norc_boxActionPerformed(evt);
+                SAMPE_o_boxActionPerformed(evt);
             }
         });
 
-        CM_A_no1mm_box.setText("--no-1mm-upfront");
-        CM_A_no1mm_box.setName("CM_A_no1mm_box"); // NOI18N
-        CM_A_no1mm_box.addActionListener(new java.awt.event.ActionListener() {
+        SAMPE_N_box.setText("-N");
+        SAMPE_N_box.setName("SAMPE_N_box"); // NOI18N
+        SAMPE_N_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMPE_N_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_no1mm_boxActionPerformed(evt);
+                SAMPE_N_boxActionPerformed(evt);
             }
         });
 
-        CM_A_N_label.setText("-N");
-        CM_A_N_label.setName("CM_A_N_label"); // NOI18N
+        SAMPE_N_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(10), Integer.valueOf(0), null, Integer.valueOf(1)));
+        SAMPE_N_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        SAMPE_N_value.setName("SAMPE_N_value"); // NOI18N
+        SAMPE_N_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SAMPE_N_spinner_value(evt);
+            }
+        });
 
-        CM_A_L_label.setText("-L");
-        CM_A_L_label.setName("CM_A_L_label"); // NOI18N
+        SAMPE_o_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(100000), Integer.valueOf(1), null, Integer.valueOf(1)));
+        SAMPE_o_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        SAMPE_o_value.setName("SAMPE_o_value"); // NOI18N
+        SAMPE_o_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SAMPE_o_spinner_value(evt);
+            }
+        });
 
-        CM_A_dpad_label.setText("--dpad");
-        CM_A_dpad_label.setName("CM_A_dpad_label"); // NOI18N
+        SAMPE_a_box.setText("-a");
+        SAMPE_a_box.setName("SAMPE_a_box"); // NOI18N
+        SAMPE_a_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMPE_a_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SAMPE_a_boxActionPerformed(evt);
+            }
+        });
 
-        CM_A_gbar_label.setText("--gbar");
-        CM_A_gbar_label.setName("CM_A_gbar_label"); // NOI18N
+        SAMPE_a_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(500), Integer.valueOf(1), null, Integer.valueOf(1)));
+        SAMPE_a_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        SAMPE_a_value.setName("SAMPE_a_value"); // NOI18N
+        SAMPE_a_value.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SAMPE_a_spinner_value(evt);
+            }
+        });
 
-        CM_A_i_label.setText("-i");
-        CM_A_i_label.setName("CM_A_i_label"); // NOI18N
+        SAMPE_P_box.setText("-P");
+        SAMPE_P_box.setName("SAMPE_P_box"); // NOI18N
+        SAMPE_P_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMPE_P_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SAMPE_P_boxActionPerformed(evt);
+            }
+        });
 
-        CM_A_nceil_label.setText("--n-ceil");
-        CM_A_nceil_label.setName("CM_A_nceil_label"); // NOI18N
-
-        CM_A_i_text.setName("CM_A_i_text"); // NOI18N
-        CM_A_i_text.addFocusListener(new java.awt.event.FocusAdapter() {
+        SAMPE_r_text.setName("SAMPE_r_text"); // NOI18N
+        SAMPE_r_text.setPreferredSize(new java.awt.Dimension(190, 27));
+        SAMPE_r_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_A_i_textFocusLost(evt);
+                SAMPE_r_textFocusLost(evt);
             }
         });
-        CM_A_i_text.addActionListener(new java.awt.event.ActionListener() {
+
+        SAMPE_r_box.setText("-r");
+        SAMPE_r_box.setName("SAMPE_r_box"); // NOI18N
+        SAMPE_r_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMPE_r_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_i_textActionPerformed(evt);
+                SAMPE_r_boxActionPerformed(evt);
             }
         });
 
-        CM_A_nceil_text.setName("CM_A_nceil_text"); // NOI18N
-        CM_A_nceil_text.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_A_nceil_textFocusLost(evt);
-            }
-        });
-        CM_A_nceil_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_nceil_textActionPerformed(evt);
-            }
-        });
-
-        CM_A_Type.add(CM_A_ete_button);
-        CM_A_ete_button.setSelected(true);
-        CM_A_ete_button.setText("--end-to-end");
-        CM_A_ete_button.setName("CM_A_ete_button"); // NOI18N
-        CM_A_ete_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_ete_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_A_Type.add(CM_A_local_button);
-        CM_A_local_button.setText("--local");
-        CM_A_local_button.setToolTipText("In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (\"soft clipped\") from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode.");
-        CM_A_local_button.setName("CM_A_local_button"); // NOI18N
-        CM_A_local_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_local_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_A_ete_text.setName("CM_A_ete_text"); // NOI18N
-        CM_A_ete_text.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_A_ete_textFocusLost(evt);
-            }
-        });
-        CM_A_ete_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_ete_textActionPerformed(evt);
-            }
-        });
-
-        CM_A_N_value.setModel(new javax.swing.SpinnerNumberModel(0, 0, 1, 1));
-        CM_A_N_value.setName("CM_A_N_value"); // NOI18N
-        CM_A_N_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_A_N_spinner_value(evt);
-            }
-        });
-
-        CM_A_L_value.setModel(new javax.swing.SpinnerNumberModel(22, 0, 33, 1));
-        CM_A_L_value.setName("CM_A_L_value"); // NOI18N
-        CM_A_L_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_A_L_spinner_value(evt);
-            }
-        });
-
-        CM_A_dpad_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(15), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_A_dpad_value.setName("CM_A_dpad_value"); // NOI18N
-        CM_A_dpad_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_A_dpad_spinner_value(evt);
-            }
-        });
-
-        CM_A_gbar_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_A_gbar_value.setName("CM_A_gbar_value"); // NOI18N
-        CM_A_gbar_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_A_gbar_spinner_value(evt);
-            }
-        });
-
-        CM_A_local_text.setName("CM_A_local_text"); // NOI18N
-        CM_A_local_text.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_A_local_textFocusLost(evt);
-            }
-        });
-        CM_A_local_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_A_local_textActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Align_PanelLayout = new javax.swing.GroupLayout(CM_Align_Panel);
-        CM_Align_Panel.setLayout(CM_Align_PanelLayout);
-        CM_Align_PanelLayout.setHorizontalGroup(
-            CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_gbar_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_A_gbar_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_A_N_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CM_A_L_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
-                        .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_A_no1mm_box)
-                            .addComponent(CM_A_ignoreQuals_box)
-                            .addComponent(CM_A_norc_box)
-                            .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_A_i_label)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_A_i_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_dpad_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_A_dpad_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CM_A_L_label)
-                    .addComponent(CM_A_N_label)
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_nceil_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CM_A_nceil_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_ete_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CM_A_ete_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CM_A_local_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CM_A_local_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        CM_Align_PanelLayout.setVerticalGroup(
-            CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_N_label)
-                    .addComponent(CM_A_N_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_ignoreQuals_box))
+        javax.swing.GroupLayout SAMPE_PanelLayout = new javax.swing.GroupLayout(SAMPE_Panel);
+        SAMPE_Panel.setLayout(SAMPE_PanelLayout);
+        SAMPE_PanelLayout.setHorizontalGroup(
+            SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SAMPE_PanelLayout.createSequentialGroup()
+                .addComponent(SAMPE_r_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_L_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_L_label)
-                    .addComponent(CM_A_no1mm_box))
+                .addComponent(SAMPE_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SAMPE_PanelLayout.createSequentialGroup()
+                .addComponent(SAMPE_a_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_dpad_label)
-                    .addComponent(CM_A_dpad_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_norc_box))
+                .addComponent(SAMPE_a_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SAMPE_P_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SAMPE_PanelLayout.createSequentialGroup()
+                .addComponent(SAMPE_o_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_gbar_label)
-                    .addComponent(CM_A_gbar_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_i_label)
-                    .addComponent(CM_A_i_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SAMPE_o_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(SAMPE_PanelLayout.createSequentialGroup()
+                    .addComponent(SAMPE_N_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(SAMPE_N_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(SAMPE_PanelLayout.createSequentialGroup()
+                    .addComponent(SAMPE_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(SAMPE_n_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        SAMPE_PanelLayout.setVerticalGroup(
+            SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SAMPE_PanelLayout.createSequentialGroup()
+                .addGroup(SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMPE_a_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMPE_a_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMPE_P_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_nceil_label)
-                    .addComponent(CM_A_nceil_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMPE_o_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMPE_o_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_ete_button)
-                    .addComponent(CM_A_ete_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_local_button)
-                    .addComponent(CM_A_local_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMPE_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMPE_n_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMPE_N_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMPE_N_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SAMPE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMPE_r_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMPE_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        CM_A_ignoreQuals_box.getAccessibleContext().setAccessibleDescription("When calculating a mismatch penalty, always consider the quality value at the mismatched position to be the highest possible, regardless of the actual value. I.e. input is treated as though all quality values are high. This is also the default behavior when the input doesn't specify quality values (e.g. in -f, -r, or -c modes).");
-        CM_A_norc_box.getAccessibleContext().setAccessibleDescription("If --nofw is specified, bowtie2 will not attempt to align unpaired reads to the forward (Watson) reference strand. If --norc is specified, bowtie2 will not attempt to align unpaired reads against the reverse-complement (Crick) reference strand. In paired-end mode, --nofw and --norc pertain to the fragments; i.e. specifying --nofw causes bowtie2 to explore only those paired-end configurations corresponding to fragments from the reverse-complement (Crick) strand. Default: both strands enabled.");
-        CM_A_no1mm_box.getAccessibleContext().setAccessibleDescription("By default, Bowtie 2 will attempt to find either an exact or a 1-mismatch end-to-end alignment for the read before trying the multiseed heuristic. Such alignments can be found very quickly, and many short read alignments have exact or near-exact end-to-end alignments. However, this can lead to unexpected alignments when the user also sets options governing the multiseed heuristic, like -L and -N. For instance, if the user specifies -N 0 and -L equal to the length of the read, the user will be surprised to find 1-mismatch alignments reported. This option prevents Bowtie 2 from searching for 1-mismatch end-to-end alignments before using the multiseed heuristic, which leads to the expected behavior when combined with options such as -L and -N. This comes at the expense of speed.");
-        CM_A_N_label.getAccessibleContext().setAccessibleDescription("Sets the number of mismatches to allowed in a seed alignment during multiseed alignment. Can be set to 0 or 1. Setting this higher makes alignment slower (often much slower) but increases sensitivity. Default: 0.");
+        SAMSE_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("SAMSE Options"));
+        SAMSE_Panel.setName("SAMSE_Panel"); // NOI18N
+        SAMSE_Panel.setPreferredSize(new java.awt.Dimension(253, 96));
 
-        CM_TabPanel.addTab("Alignment", CM_Align_Panel);
-
-        CM_Scoring_Panel.setName("CM_Scoring_Panel"); // NOI18N
-
-        CM_S_ma_label.setText("--ma");
-        CM_S_ma_label.setName("CM_S_ma_label"); // NOI18N
-
-        CM_S_mp_label.setText("--mp");
-        CM_S_mp_label.setName("CM_S_mp_label"); // NOI18N
-
-        CM_S_np_label.setText("--np");
-        CM_S_np_label.setName("CM_S_np_label"); // NOI18N
-
-        CM_S_rdg_label.setText("--rdg");
-        CM_S_rdg_label.setName("CM_S_rdg_label"); // NOI18N
-
-        CM_S_rfg_label.setText("--rfg");
-        CM_S_rfg_label.setName("CM_S_rfg_label"); // NOI18N
-
-        CM_S_first_label.setText("first");
-        CM_S_first_label.setName("CM_S_first_label"); // NOI18N
-
-        CM_S_second_label.setText("second");
-        CM_S_second_label.setName("CM_S_second_label"); // NOI18N
-
-        CM_S_ma_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(2), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_S_ma_value.setToolTipText("");
-        CM_S_ma_value.setName("CM_S_ma_value"); // NOI18N
-        CM_S_ma_value.addChangeListener(new javax.swing.event.ChangeListener() {
+        SAMSE_n_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(3), Integer.valueOf(0), null, Integer.valueOf(1)));
+        SAMSE_n_value.setMinimumSize(new java.awt.Dimension(100, 28));
+        SAMSE_n_value.setName("SAMSE_n_value"); // NOI18N
+        SAMSE_n_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_S_ma_spinner_value(evt);
+                SAMSE_n_spinner_value(evt);
             }
         });
 
-        CM_S_np_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_S_np_value.setName("CM_S_np_value"); // NOI18N
-        CM_S_np_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_S_np_spinner_value(evt);
-            }
-        });
-
-        CM_S_rdg1_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_S_rdg1_value.setName("CM_S_rdg1_value"); // NOI18N
-        CM_S_rdg1_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_S_rdg1_spinner_value(evt);
-            }
-        });
-
-        CM_S_rfg1_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_S_rfg1_value.setName("CM_S_rfg1_value"); // NOI18N
-        CM_S_rfg1_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_S_rfg1_spinner_value(evt);
-            }
-        });
-
-        CM_S_rdg2_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(3), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_S_rdg2_value.setName("CM_S_rdg2_value"); // NOI18N
-        CM_S_rdg2_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_S_rdg2_spinner_value(evt);
-            }
-        });
-
-        CM_S_rfg2_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(3), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_S_rfg2_value.setName("CM_S_rfg2_value"); // NOI18N
-        CM_S_rfg2_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_S_rfg2_spinner_value(evt);
-            }
-        });
-
-        CM_S_mp_value.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CM_S_mp_value.setText("6,2");
-        CM_S_mp_value.setName("CM_S_mp_value"); // NOI18N
-        CM_S_mp_value.addActionListener(new java.awt.event.ActionListener() {
+        SAMSE_n_box.setText("-n");
+        SAMSE_n_box.setName("SAMSE_n_box"); // NOI18N
+        SAMSE_n_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMSE_n_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_S_mp_valueActionPerformed(evt);
+                SAMSE_n_boxActionPerformed(evt);
             }
         });
-        CM_S_mp_value.addFocusListener(new java.awt.event.FocusAdapter() {
+
+        SAMSE_r_box.setText("-r");
+        SAMSE_r_box.setName("SAMSE_r_box"); // NOI18N
+        SAMSE_r_box.setPreferredSize(new java.awt.Dimension(45, 24));
+        SAMSE_r_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SAMSE_r_boxActionPerformed(evt);
+            }
+        });
+
+        SAMSE_r_text.setName("SAMSE_r_text"); // NOI18N
+        SAMSE_r_text.setPreferredSize(new java.awt.Dimension(190, 27));
+        SAMSE_r_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_S_mp_valueFocusLost(evt);
+                SAMSE_r_textFocusLost(evt);
             }
         });
 
-        javax.swing.GroupLayout CM_Scoring_PanelLayout = new javax.swing.GroupLayout(CM_Scoring_Panel);
-        CM_Scoring_Panel.setLayout(CM_Scoring_PanelLayout);
-        CM_Scoring_PanelLayout.setHorizontalGroup(
-            CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_S_mp_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_S_mp_value, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CM_Scoring_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_S_rfg_label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_S_rdg_label)
-                                .addGap(9, 9, 9)))
-                        .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CM_S_rdg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(CM_S_rfg1_value))
-                        .addGap(18, 18, 18)
-                        .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CM_S_rdg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(CM_S_rfg2_value)))
-                    .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(CM_S_first_label)
-                        .addGap(86, 86, 86)
-                        .addComponent(CM_S_second_label))
-                    .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_S_ma_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_S_ma_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_S_np_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_S_np_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
-        CM_Scoring_PanelLayout.setVerticalGroup(
-            CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_ma_label)
-                    .addComponent(CM_S_ma_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_np_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_np_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_mp_label)
-                    .addComponent(CM_S_mp_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout SAMSE_PanelLayout = new javax.swing.GroupLayout(SAMSE_Panel);
+        SAMSE_Panel.setLayout(SAMSE_PanelLayout);
+        SAMSE_PanelLayout.setHorizontalGroup(
+            SAMSE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SAMSE_PanelLayout.createSequentialGroup()
+                .addComponent(SAMSE_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_first_label)
-                    .addComponent(CM_S_second_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_rdg_label)
-                    .addComponent(CM_S_rdg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_rdg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_rfg_label)
-                    .addComponent(CM_S_rfg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_rfg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-
-        CM_S_ma_label.getAccessibleContext().setAccessibleDescription("--ma; In `--local` mode match bonus is added to the alignment score for each position where a read character aligns to a reference character and the characters match. Not used in `--end-to-end` mode; Default=2");
-        CM_S_mp_label.getAccessibleContext().setAccessibleDescription("--mp; A number less than or equal to `MX` and greater than or equal to `MN` is subtracted from the alignment score for each position where a read character aligns to a reference character, the characters do not match, and neither is an `N`. If `--ignore-quals` is specified, the number subtracted quals `MX`. Otherwise, the number subtracted is `MN + floor( (MX-MN)(MIN(Q, 40.0)/40.0) )` where Q is the Phred quality value; Default=6,2");
-
-        CM_TabPanel.addTab("Scoring", CM_Scoring_Panel);
-
-        CM_Repor_Panel.setName("CM_Repor_Panel"); // NOI18N
-
-        CM_R_buttons.add(CM_R_noset_button);
-        CM_R_noset_button.setSelected(true);
-        CM_R_noset_button.setText("not set");
-        CM_R_noset_button.setName("CM_R_noset_button"); // NOI18N
-        CM_R_noset_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_R_noset_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_R_buttons.add(CM_R_a_button);
-        CM_R_a_button.setText("-a");
-        CM_R_a_button.setName("CM_R_a_button"); // NOI18N
-        CM_R_a_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_R_a_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_R_buttons.add(CM_R_k_button);
-        CM_R_k_button.setText("-k");
-        CM_R_k_button.setName("CM_R_k_button"); // NOI18N
-        CM_R_k_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_R_k_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_R_k_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_R_k_value.setName("CM_R_k_value"); // NOI18N
-        CM_R_k_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_R_k_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Repor_PanelLayout = new javax.swing.GroupLayout(CM_Repor_Panel);
-        CM_Repor_Panel.setLayout(CM_Repor_PanelLayout);
-        CM_Repor_PanelLayout.setHorizontalGroup(
-            CM_Repor_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Repor_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Repor_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_Repor_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_R_k_button)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_R_k_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CM_R_a_button)
-                    .addComponent(CM_R_noset_button))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        CM_Repor_PanelLayout.setVerticalGroup(
-            CM_Repor_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Repor_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CM_R_noset_button)
-                .addGap(18, 18, 18)
-                .addComponent(CM_R_a_button)
-                .addGap(18, 18, 18)
-                .addGroup(CM_Repor_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_R_k_button)
-                    .addComponent(CM_R_k_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        CM_TabPanel.addTab("Reporting", CM_Repor_Panel);
-
-        CM_Effort_Panel.setName("CM_Effort_Panel"); // NOI18N
-
-        CM_E_D_label.setText("-D");
-        CM_E_D_label.setName("CM_E_D_label"); // NOI18N
-
-        CM_E_R_label.setText("-R");
-        CM_E_R_label.setName("CM_E_R_label"); // NOI18N
-
-        CM_E_D_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(15), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_E_D_value.setName("CM_E_D_value"); // NOI18N
-        CM_E_D_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_E_D_spinner_value(evt);
-            }
-        });
-
-        CM_E_R_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(2), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_E_R_value.setName("CM_E_R_value"); // NOI18N
-        CM_E_R_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_E_R_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Effort_PanelLayout = new javax.swing.GroupLayout(CM_Effort_Panel);
-        CM_Effort_Panel.setLayout(CM_Effort_PanelLayout);
-        CM_Effort_PanelLayout.setHorizontalGroup(
-            CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Effort_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CM_E_R_label)
-                    .addComponent(CM_E_D_label))
-                .addGap(33, 33, 33)
-                .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CM_E_D_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_E_R_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        CM_Effort_PanelLayout.setVerticalGroup(
-            CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Effort_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_E_D_label)
-                    .addComponent(CM_E_D_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SAMSE_n_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SAMSE_PanelLayout.createSequentialGroup()
+                .addComponent(SAMSE_r_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_E_R_label)
-                    .addComponent(CM_E_R_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SAMSE_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        SAMSE_PanelLayout.setVerticalGroup(
+            SAMSE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SAMSE_PanelLayout.createSequentialGroup()
+                .addGroup(SAMSE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMSE_n_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMSE_n_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SAMSE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SAMSE_r_box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAMSE_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SAMPE_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(SAMSE_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addComponent(SAMSE_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SAMPE_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        CM_E_D_label.getAccessibleContext().setAccessibleDescription("Up to <int> consecutive seed extension attempts can \"fail\" before Bowtie 2 moves on, using the alignments found so far. A seed extension \"fails\" if it does not yield a new best or a new second-best alignment. This limit is automatically adjusted up when -k or -a are specified. Default: 15.");
-        CM_E_R_label.getAccessibleContext().setAccessibleDescription("<int> is the maximum number of times Bowtie 2 will \"re-seed\" reads with repetitive seeds. When \"re-seeding,\" Bowtie 2 simply chooses a new set of reads (same length, same number of mismatches allowed) at different offsets and searches for more alignments. A read is considered to have repetitive seeds if the total number of seed hits divided by the number of seeds that aligned at least once is greater than 300. Default: 2.");
-
-        CM_TabPanel.addTab("Effort", CM_Effort_Panel);
-
-        CM_Output_Panel.setName("CM_Output_Panel"); // NOI18N
-
-        CM_O_un_box.setText("--un/--un-conc");
-        CM_O_un_box.setName("CM_O_un_box"); // NOI18N
-        CM_O_un_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_O_un_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_al_box.setText("--al/--al-conc");
-        CM_O_al_box.setName("CM_O_al_box"); // NOI18N
-        CM_O_al_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_O_al_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_quiet_box.setText("--quiet");
-        CM_O_quiet_box.setName("CM_O_quiet_box"); // NOI18N
-        CM_O_quiet_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_O_quiet_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_metfile_box.setText("--met-file");
-        CM_O_metfile_box.setName("CM_O_metfile_box"); // NOI18N
-        CM_O_metfile_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_O_metfile_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_metstderr_box.setText("--met-stderr");
-        CM_O_metstderr_box.setName("CM_O_metstderr_box"); // NOI18N
-        CM_O_metstderr_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_O_metstderr_boxActionPerformed(evt);
-            }
-        });
-
-        CM_O_met_label.setText("--met");
-        CM_O_met_label.setName("CM_O_met_label"); // NOI18N
-
-        CM_O_met_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
-        CM_O_met_value.setName("CM_O_met_value"); // NOI18N
-        CM_O_met_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_O_met_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Output_PanelLayout = new javax.swing.GroupLayout(CM_Output_Panel);
-        CM_Output_Panel.setLayout(CM_Output_PanelLayout);
-        CM_Output_PanelLayout.setHorizontalGroup(
-            CM_Output_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Output_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Output_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_Output_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_O_metfile_box)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CM_O_metstderr_box)
-                        .addGap(41, 41, 41)
-                        .addComponent(CM_O_met_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CM_O_met_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CM_Output_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Output_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_O_un_box)
-                            .addComponent(CM_O_quiet_box))
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_O_al_box)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        CM_Output_PanelLayout.setVerticalGroup(
-            CM_Output_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Output_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Output_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_O_un_box)
-                    .addComponent(CM_O_al_box))
-                .addGap(18, 18, 18)
-                .addComponent(CM_O_quiet_box)
-                .addGap(18, 18, 18)
-                .addGroup(CM_Output_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_O_met_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_O_met_label)
-                    .addComponent(CM_O_metfile_box)
-                    .addComponent(CM_O_metstderr_box))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        CM_TabPanel.addTab("Output", CM_Output_Panel);
-
-        CM_SAM_Panel.setName("CM_SAM_Panel"); // NOI18N
-
-        CM_SAM_noUnal_box.setText("--no-unal");
-        CM_SAM_noUnal_box.setName("CM_SAM_noUnal_box"); // NOI18N
-        CM_SAM_noUnal_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_SAM_noUnal_boxActionPerformed(evt);
-            }
-        });
-
-        CM_SAM_omitSecSeq_box.setText("--omit-sec-seq");
-        CM_SAM_omitSecSeq_box.setName("CM_SAM_omitSecSeq_box"); // NOI18N
-        CM_SAM_omitSecSeq_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_SAM_omitSecSeq_boxActionPerformed(evt);
-            }
-        });
-
-        CM_SAM_noHd_box.setText("--no-hd");
-        CM_SAM_noHd_box.setName("CM_SAM_noHd_box"); // NOI18N
-        CM_SAM_noHd_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_SAM_noHd_boxActionPerformed(evt);
-            }
-        });
-
-        CM_SAM_noSq_box.setText("--no-sq");
-        CM_SAM_noSq_box.setName("CM_SAM_noSq_box"); // NOI18N
-        CM_SAM_noSq_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_SAM_noSq_boxActionPerformed(evt);
-            }
-        });
-
-        CM_SAM_rgId_label.setText("--rg-id");
-        CM_SAM_rgId_label.setName("CM_SAM_rgId_label"); // NOI18N
-
-        CM_SAM_rg_label.setText("--rg");
-        CM_SAM_rg_label.setName("CM_SAM_rg_label"); // NOI18N
-
-        CM_SAM_rgId_text.setName("CM_SAM_rgId_text"); // NOI18N
-        CM_SAM_rgId_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_SAM_rgId_textActionPerformed(evt);
-            }
-        });
-        CM_SAM_rgId_text.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_SAM_rgId_textFocusLost(evt);
-            }
-        });
-
-        CM_SAM_rg_text.setName("CM_SAM_rg_text"); // NOI18N
-        CM_SAM_rg_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_SAM_rg_textActionPerformed(evt);
-            }
-        });
-        CM_SAM_rg_text.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_SAM_rg_textFocusLost(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_SAM_PanelLayout = new javax.swing.GroupLayout(CM_SAM_Panel);
-        CM_SAM_Panel.setLayout(CM_SAM_PanelLayout);
-        CM_SAM_PanelLayout.setHorizontalGroup(
-            CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_SAM_noUnal_box)
-                        .addGap(81, 81, 81)
-                        .addComponent(CM_SAM_noHd_box)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CM_SAM_noSq_box))
-                    .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_SAM_omitSecSeq_box)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_SAM_rgId_label)
-                            .addComponent(CM_SAM_rg_label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_SAM_rg_text)
-                            .addComponent(CM_SAM_rgId_text))))
-                .addContainerGap())
-        );
-        CM_SAM_PanelLayout.setVerticalGroup(
-            CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_SAM_noUnal_box)
-                    .addComponent(CM_SAM_noHd_box)
-                    .addComponent(CM_SAM_noSq_box))
-                .addGap(18, 18, 18)
-                .addComponent(CM_SAM_omitSecSeq_box)
-                .addGap(18, 18, 18)
-                .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_SAM_rgId_label)
-                    .addComponent(CM_SAM_rgId_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_SAM_rg_label)
-                    .addComponent(CM_SAM_rg_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        CM_TabPanel.addTab("SAM", CM_SAM_Panel);
-
-        CM_Performance_Panel.setName("CM_Performance_Panel"); // NOI18N
-
-        CM_P_o_label.setText("-o/--offrate");
-        CM_P_o_label.setName("CM_P_o_label"); // NOI18N
-
-        CM_P_p_label.setText("-p/--threads");
-        CM_P_p_label.setName("CM_P_p_label"); // NOI18N
-
-        CM_P_o_text.setEditable(false);
-        CM_P_o_text.setText("NOT SET");
-        CM_P_o_text.setEnabled(false);
-        CM_P_o_text.setName("CM_P_o_text"); // NOI18N
-        CM_P_o_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_P_o_textActionPerformed(evt);
-            }
-        });
-        CM_P_o_text.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_P_o_textFocusLost(evt);
-            }
-        });
-
-        CM_P_reorder_box.setText("--reorder");
-        CM_P_reorder_box.setName("CM_P_reorder_box"); // NOI18N
-        CM_P_reorder_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_P_reorder_boxActionPerformed(evt);
-            }
-        });
-
-        CM_P_mm_box.setText("--mm");
-        CM_P_mm_box.setName("CM_P_mm_box"); // NOI18N
-        CM_P_mm_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_P_mm_boxActionPerformed(evt);
-            }
-        });
-
-        CM_P_p_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
-        CM_P_p_value.setName("CM_P_p_value"); // NOI18N
-        CM_P_p_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_P_t_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Performance_PanelLayout = new javax.swing.GroupLayout(CM_Performance_Panel);
-        CM_Performance_Panel.setLayout(CM_Performance_PanelLayout);
-        CM_Performance_PanelLayout.setHorizontalGroup(
-            CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Performance_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CM_Performance_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_P_p_label)
-                            .addComponent(CM_P_o_label))
-                        .addGap(18, 18, 18)
-                        .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CM_P_p_value)
-                            .addComponent(CM_P_o_text)))
-                    .addComponent(CM_P_reorder_box)
-                    .addComponent(CM_P_mm_box))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        CM_Performance_PanelLayout.setVerticalGroup(
-            CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Performance_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_P_o_label)
-                    .addComponent(CM_P_o_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_P_p_label)
-                    .addComponent(CM_P_p_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(CM_P_reorder_box)
-                .addGap(18, 18, 18)
-                .addComponent(CM_P_mm_box)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        CM_TabPanel.addTab("Performances", CM_Performance_Panel);
-
-        CM_Other_Panel.setName("CM_Other_Panel"); // NOI18N
-
-        CM_OO_qcFilter_box.setText("--qc-filter");
-        CM_OO_qcFilter_box.setName("CM_OO_qcFilter_box"); // NOI18N
-        CM_OO_qcFilter_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_OO_qcFilter_boxActionPerformed(evt);
-            }
-        });
-
-        CM_OO_seed_label.setText("--seed");
-        CM_OO_seed_label.setName("CM_OO_seed_label"); // NOI18N
-
-        CM_OO_nonDeterminist_box.setText("--non-deterministic");
-        CM_OO_nonDeterminist_box.setName("CM_OO_nonDeterminist_box"); // NOI18N
-        CM_OO_nonDeterminist_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_OO_nonDeterminist_boxActionPerformed(evt);
-            }
-        });
-
-        CM_OO_seed_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        CM_OO_seed_value.setName("CM_OO_seed_value"); // NOI18N
-        CM_OO_seed_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                CM_OO_seed_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout CM_Other_PanelLayout = new javax.swing.GroupLayout(CM_Other_Panel);
-        CM_Other_Panel.setLayout(CM_Other_PanelLayout);
-        CM_Other_PanelLayout.setHorizontalGroup(
-            CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Other_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CM_OO_qcFilter_box)
-                    .addGroup(CM_Other_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_OO_seed_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_OO_seed_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CM_OO_nonDeterminist_box))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        CM_Other_PanelLayout.setVerticalGroup(
-            CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_Other_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CM_OO_qcFilter_box)
-                .addGap(18, 18, 18)
-                .addGroup(CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_OO_seed_label)
-                    .addComponent(CM_OO_seed_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(CM_OO_nonDeterminist_box)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        CM_TabPanel.addTab("Other options", CM_Other_Panel);
-
-        javax.swing.GroupLayout CM_PanelLayout = new javax.swing.GroupLayout(CM_Panel);
-        CM_Panel.setLayout(CM_PanelLayout);
-        CM_PanelLayout.setHorizontalGroup(
-            CM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_PanelLayout.createSequentialGroup()
-                .addComponent(CM_TabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 432, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        CM_PanelLayout.setVerticalGroup(
-            CM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CM_PanelLayout.createSequentialGroup()
-                .addComponent(CM_TabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 288, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        Options.addTab("Custom Mapping", CM_Panel);
-
-        M_Buttons.add(M_default_button);
-        M_default_button.setSelected(true);
-        M_default_button.setText("Use default options");
-        M_default_button.setName("M_default_button"); // NOI18N
-        M_default_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_default_buttonActionPerformed(evt);
-            }
-        });
-
-        M_Buttons.add(M_CM_button);
-        M_CM_button.setText("Custom Made Mapping");
-        M_CM_button.setName("M_CM_button"); // NOI18N
-        M_CM_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_CM_buttonActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Indexed Genome from");
-
-        M_IDG_source_buttons.add(M_IDG_workflow_button);
-        M_IDG_workflow_button.setText("Workflow");
-        M_IDG_workflow_button.setName("M_IDG_workflow_button"); // NOI18N
-        M_IDG_workflow_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_IDG_workflow_buttonActionPerformed(evt);
-            }
-        });
-
-        M_IDG_source_buttons.add(M_IDG_directory_button);
-        M_IDG_directory_button.setText("Directory");
-        M_IDG_directory_button.setName("M_IDG_directory_button"); // NOI18N
-        M_IDG_directory_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_IDG_directory_buttonActionPerformed(evt);
-            }
-        });
+        jPanel11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         M_IDG_main_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Indexed Options Genome"));
         M_IDG_main_panel.setName("M_IDG_main_panel"); // NOI18N
+        M_IDG_main_panel.setPreferredSize(new java.awt.Dimension(358, 159));
 
         IDG_selected_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose_an_indexed_Genome" }));
         IDG_selected_ComboBox.setName("IDG_selected_ComboBox"); // NOI18N
+        IDG_selected_ComboBox.setPreferredSize(new java.awt.Dimension(330, 27));
         IDG_selected_ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDG_selected_ComboBoxActionPerformed(evt);
             }
         });
 
-        IDG_r_text.setText("./indexed_genomes/bowtie2/");
         IDG_r_text.setName("IDG_r_text"); // NOI18N
+        IDG_r_text.setPreferredSize(new java.awt.Dimension(330, 27));
         IDG_r_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDG_r_textActionPerformed(evt);
@@ -1656,23 +1747,19 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
         M_IDG_main_panelLayout.setHorizontalGroup(
             M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(M_IDG_main_panelLayout.createSequentialGroup()
+                .addGroup(M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(M_IDG_main_panelLayout.createSequentialGroup()
-                        .addGroup(M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDG_change_button, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(IDG_Update_button, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(IDG_r_text, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IDG_selected_ComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(IDG_change_button, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(IDG_Update_button, javax.swing.GroupLayout.Alignment.TRAILING)))
+            .addComponent(IDG_r_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(IDG_selected_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         M_IDG_main_panelLayout.setVerticalGroup(
             M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(M_IDG_main_panelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(M_IDG_main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(IDG_change_button))
@@ -1683,293 +1770,139 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
                     .addComponent(jLabel3)
                     .addComponent(IDG_Update_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IDG_selected_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(IDG_selected_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        CM_PE_type_buttons.add(M_SE_button);
-        M_SE_button.setSelected(true);
-        M_SE_button.setText("Single-end");
-        M_SE_button.setName("M_SE_button"); // NOI18N
-        M_SE_button.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("Indexed Genome from");
+
+        BWA_IDG_source_buttons.add(M_IDG_workflow_button);
+        M_IDG_workflow_button.setText("Workflow");
+        M_IDG_workflow_button.setName("M_IDG_workflow_button"); // NOI18N
+        M_IDG_workflow_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_SE_buttonActionPerformed(evt);
+                M_IDG_workflow_buttonActionPerformed(evt);
             }
         });
 
-        CM_PE_type_buttons.add(M_PE_button);
-        M_PE_button.setText("Paired-end");
-        M_PE_button.setMaximumSize(new java.awt.Dimension(185, 24));
-        M_PE_button.setMinimumSize(new java.awt.Dimension(185, 24));
-        M_PE_button.setName("M_PE_button"); // NOI18N
-        M_PE_button.addActionListener(new java.awt.event.ActionListener() {
+        BWA_IDG_source_buttons.add(M_IDG_directory_button);
+        M_IDG_directory_button.setText("Directory");
+        M_IDG_directory_button.setName("M_IDG_directory_button"); // NOI18N
+        M_IDG_directory_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_buttonActionPerformed(evt);
+                M_IDG_directory_buttonActionPerformed(evt);
             }
         });
 
-        M_PE_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Paired-end Options"));
-        M_PE_Panel.setName("M_PE_Panel"); // NOI18N
-
-        M_PE_I_label.setText("-I/--minins");
-        M_PE_I_label.setName("M_PE_I_label"); // NOI18N
-
-        M_PE_X_label.setText("-X/--maxins");
-        M_PE_X_label.setName("M_PE_X_label"); // NOI18N
-
-        M_PE_un_box.setText("--un/--un-conc");
-        M_PE_un_box.setName("M_PE_un_box"); // NOI18N
-        M_PE_un_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_un_boxActionPerformed(evt);
-            }
-        });
-
-        CM_PE_stream_buttons.add(M_PE_fr_button);
-        M_PE_fr_button.setSelected(true);
-        M_PE_fr_button.setText("--fr");
-        M_PE_fr_button.setName("M_PE_fr_button"); // NOI18N
-        M_PE_fr_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_fr_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_PE_stream_buttons.add(M_PE_rf_button);
-        M_PE_rf_button.setText("--rf");
-        M_PE_rf_button.setName("M_PE_rf_button"); // NOI18N
-        M_PE_rf_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_rf_buttonActionPerformed(evt);
-            }
-        });
-
-        CM_PE_stream_buttons.add(M_PE_ff_button);
-        M_PE_ff_button.setText("--ff");
-        M_PE_ff_button.setName("M_PE_ff_button"); // NOI18N
-        M_PE_ff_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_ff_buttonActionPerformed(evt);
-            }
-        });
-
-        M_PE_noMixed_box.setText("--no-mixed");
-        M_PE_noMixed_box.setName("M_PE_noMixed_box"); // NOI18N
-        M_PE_noMixed_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_noMixed_boxActionPerformed(evt);
-            }
-        });
-
-        M_PE_noDiscordant_box.setText("--no-discordant");
-        M_PE_noDiscordant_box.setName("M_PE_noDiscordant_box"); // NOI18N
-        M_PE_noDiscordant_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_noDiscordant_boxActionPerformed(evt);
-            }
-        });
-
-        M_PE_dovetail_box.setText("--dovetail");
-        M_PE_dovetail_box.setName("M_PE_dovetail_box"); // NOI18N
-        M_PE_dovetail_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_dovetail_boxActionPerformed(evt);
-            }
-        });
-
-        M_PE_noContain_box.setText("--no-contain");
-        M_PE_noContain_box.setName("M_PE_noContain_box"); // NOI18N
-        M_PE_noContain_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_noContain_boxActionPerformed(evt);
-            }
-        });
-
-        M_PE_noOverlap_box.setText("--no-overlap");
-        M_PE_noOverlap_box.setName("M_PE_noOverlap_box"); // NOI18N
-        M_PE_noOverlap_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                M_PE_noOverlap_boxActionPerformed(evt);
-            }
-        });
-
-        M_PE_I_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
-        M_PE_I_value.setName("M_PE_I_value"); // NOI18N
-        M_PE_I_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                M_PE_I_spinner_value(evt);
-            }
-        });
-
-        M_PE_X_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(500), Integer.valueOf(0), null, Integer.valueOf(1)));
-        M_PE_X_value.setName("M_PE_X_value"); // NOI18N
-        M_PE_X_value.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                M_PE_X_spinner_value(evt);
-            }
-        });
-
-        javax.swing.GroupLayout M_PE_PanelLayout = new javax.swing.GroupLayout(M_PE_Panel);
-        M_PE_Panel.setLayout(M_PE_PanelLayout);
-        M_PE_PanelLayout.setHorizontalGroup(
-            M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                .addComponent(M_PE_un_box)
-                .addGap(18, 18, 18)
-                .addComponent(M_PE_dovetail_box)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                        .addComponent(M_PE_fr_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(M_PE_rf_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(M_PE_ff_button))
-                    .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                        .addComponent(M_PE_I_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(M_PE_I_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                        .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(M_PE_noOverlap_box)
-                            .addComponent(M_PE_noMixed_box))
-                        .addGap(18, 18, 18)
-                        .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(M_PE_noDiscordant_box)
-                            .addComponent(M_PE_noContain_box)))
-                    .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                        .addComponent(M_PE_X_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(M_PE_X_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(M_IDG_workflow_button)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(M_IDG_directory_button))
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(M_IDG_main_panel, 346, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        M_PE_PanelLayout.setVerticalGroup(
-            M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_un_box)
-                    .addComponent(M_PE_dovetail_box))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_I_label)
-                    .addComponent(M_PE_I_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_X_label)
-                    .addComponent(M_PE_X_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_fr_button)
-                    .addComponent(M_PE_rf_button)
-                    .addComponent(M_PE_ff_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_noDiscordant_box)
-                    .addComponent(M_PE_noMixed_box))
-                .addGap(2, 2, 2)
-                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_noOverlap_box)
-                    .addComponent(M_PE_noContain_box))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        jLabel5.setText("Type of mapping");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(M_IDG_workflow_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(M_IDG_directory_button, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(M_PE_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(M_SE_button)
-                            .addGap(18, 18, 18)
-                            .addComponent(M_PE_button, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(M_IDG_main_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(M_IDG_workflow_button)
                     .addComponent(M_IDG_directory_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(M_IDG_main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(M_SE_button)
-                    .addComponent(M_PE_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(M_PE_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(M_IDG_main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jScrollPane1.setViewportView(jPanel4);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name_jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(reset_jButton3))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(stop_jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(run_jButton5)
+                        .addGap(18, 18, 18)
+                        .addComponent(ClosejButton6)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Options, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(223, 223, 223))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(name_jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Options, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(reset_jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(stop_jButton4)
+                            .addComponent(run_jButton5)
+                            .addComponent(ClosejButton6)))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(307, 307, 307))
+        );
+
+        Options.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(reset_jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(stop_jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(run_jButton5)
-                                .addGap(18, 18, 18)
-                                .addComponent(ClosejButton6))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(M_default_button)
-                                .addGap(18, 18, 18)
-                                .addComponent(M_CM_button))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                            .addComponent(Options, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 863, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_default_button)
-                    .addComponent(M_CM_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Options, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reset_jButton3)
-                    .addComponent(stop_jButton4)
-                    .addComponent(run_jButton5)
-                    .addComponent(ClosejButton6))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        Options.getAccessibleContext().setAccessibleName("");
 
         BwaMapEditor.addTab("Bwa Mapping", jPanel1);
 
@@ -1980,16 +1913,14 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(BwaMapEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(BwaMapEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BwaMapEditor, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BwaMapEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         BwaMapEditor.getAccessibleContext().setAccessibleName("BwaEditors");
@@ -2032,7 +1963,8 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
         // TODO add your handling code here:
         properties.load();             //--reload current properties from file
         this.setProperties(properties);//--Update current field
-        this.display(properties);
+        //this.display(properties); // Doesn't work
+        this.setVisible(false);
     }//GEN-LAST:event_reset_jButton3ActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -2043,528 +1975,35 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
     private void name_jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_name_jTextField1ActionPerformed
-    
-    private void M_default_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_default_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_default_button);
-    }//GEN-LAST:event_M_default_buttonActionPerformed
-    
-    private void CM_SAM_rg_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_rg_textActionPerformed
-        // TODO add your handling code here:
-        eventText(CM_SAM_rg_text);
-    }//GEN-LAST:event_CM_SAM_rg_textActionPerformed
-    
-    private void CM_SAM_rgId_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_rgId_textActionPerformed
-        // TODO add your handling code here:
-        eventText(CM_SAM_rgId_text);
-    }//GEN-LAST:event_CM_SAM_rgId_textActionPerformed
-    
-    private void CM_A_ete_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_ete_textActionPerformed
-        // TODO add your handling code here:
-        eventText(CM_A_ete_text);
-        if (properties.get(CM_A_ete_text).equals("")){
-            properties.put(CM_A_ete_text,"L,-0.6,-0.6");
-            CM_A_ete_text.setText("L,-0.6,-0.6");
-        }
-    }//GEN-LAST:event_CM_A_ete_textActionPerformed
-    
-    private void CM_A_nceil_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_nceil_textActionPerformed
-        // TODO add your handling code here:
-        eventText(CM_A_nceil_text);
-    }//GEN-LAST:event_CM_A_nceil_textActionPerformed
-    
-    private void CM_A_i_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_i_textActionPerformed
-        // TODO add your handling code here:
-        eventText(CM_A_i_text);
-        if (properties.get(CM_A_i_text).equals("")) {
-            properties.put(CM_A_i_text,"S,1,1.15");
-            CM_A_i_text.setText("S,1,1.15");
-        }
-    }//GEN-LAST:event_CM_A_i_textActionPerformed
-    
-    private void M_CM_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_CM_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_CM_button);
-        //addCMMProperties(properties);
-    }//GEN-LAST:event_M_CM_buttonActionPerformed
-    
-    private void M_ETE_F_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_ETE_F_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_ETE_F_button);
-        //removeCMMProperties(properties);
-    }//GEN-LAST:event_M_ETE_F_buttonActionPerformed
-    
-    private void M_ETE_S_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_ETE_S_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_ETE_S_button);
-        //removeCMMProperties(properties);
-    }//GEN-LAST:event_M_ETE_S_buttonActionPerformed
-    
-    private void M_ETE_VS_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_ETE_VS_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_ETE_VS_button);
-        //removeCMMProperties(properties);
-    }//GEN-LAST:event_M_ETE_VS_buttonActionPerformed
-    
-    private void CM_P_mm_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_mm_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_P_mm_box,null);
-    }//GEN-LAST:event_CM_P_mm_boxActionPerformed
-            
-    private void M_ETE_VF_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_ETE_VF_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_ETE_VF_button);
-    }//GEN-LAST:event_M_ETE_VF_buttonActionPerformed
-    
-    private void M_L_F_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_L_F_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_L_F_button);
-    }//GEN-LAST:event_M_L_F_buttonActionPerformed
-    
-    private void M_L_VF_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_L_VF_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_L_VF_button);
-    }//GEN-LAST:event_M_L_VF_buttonActionPerformed
-    
-    private void M_L_S_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_L_S_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_L_S_button);
-    }//GEN-LAST:event_M_L_S_buttonActionPerformed
-    
-    private void M_L_VS_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_L_VS_buttonActionPerformed
-        // TODO add your handling code here:
-        menuEvent(M_L_VS_button);
-    }//GEN-LAST:event_M_L_VS_buttonActionPerformed
-                                    
-    private void CM_OO_seed_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_OO_seed_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_OO_seed_value);
-    }//GEN-LAST:event_CM_OO_seed_spinner_value
-        
-    private void CM_I_s_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_s_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_I_s_value);
-    }//GEN-LAST:event_CM_I_s_spinner_value
-    
-    private void CM_I_u_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_u_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_I_u_value);
-    }//GEN-LAST:event_CM_I_u_spinner_value
-    
-    private void CM_I_5_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_5_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_I_5_value);
-    }//GEN-LAST:event_CM_I_5_spinner_value
-    
-    private void CM_I_3_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_3_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_I_3_value);
-    }//GEN-LAST:event_CM_I_3_spinner_value
-    
-    private void CM_A_N_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_N_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_A_N_value);
-    }//GEN-LAST:event_CM_A_N_spinner_value
-    
-    private void CM_A_L_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_L_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_A_L_value);
-    }//GEN-LAST:event_CM_A_L_spinner_value
-    
-    private void CM_A_i_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_i_textFocusLost
-        // TODO add your handling code here:
-        textUpdate(CM_A_i_text);
-        if (properties.get(CM_A_i_text).equals("")) {
-            properties.put(CM_A_i_text,"S,1,1.15");
-            CM_A_i_text.setText("S,1,1.15");
-        }
-    }//GEN-LAST:event_CM_A_i_textFocusLost
-    
-    private void CM_A_nceil_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_nceil_textFocusLost
-        // TODO add your handling code here:
-        textUpdate(CM_A_nceil_text);
-    }//GEN-LAST:event_CM_A_nceil_textFocusLost
-    
-    private void CM_A_dpad_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_dpad_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_A_dpad_value);
-    }//GEN-LAST:event_CM_A_dpad_spinner_value
-    
-    private void CM_A_gbar_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_gbar_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_A_gbar_value);
-    }//GEN-LAST:event_CM_A_gbar_spinner_value
-    
-    private void CM_A_ete_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_ete_textFocusLost
-        // TODO add your handling code here:
-        textUpdate(CM_A_ete_text);
-    }//GEN-LAST:event_CM_A_ete_textFocusLost
-    
-    private void CM_S_ma_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_ma_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_S_ma_value);
-    }//GEN-LAST:event_CM_S_ma_spinner_value
-        
-    private void CM_S_np_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_np_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_S_np_value);
-    }//GEN-LAST:event_CM_S_np_spinner_value
-    
-    private void CM_S_rdg1_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rdg1_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_S_rdg1_value);
-    }//GEN-LAST:event_CM_S_rdg1_spinner_value
-    
-    private void CM_S_rdg2_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rdg2_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_S_rdg2_value);
-    }//GEN-LAST:event_CM_S_rdg2_spinner_value
-    
-    private void CM_S_rfg1_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rfg1_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_S_rfg1_value);
-    }//GEN-LAST:event_CM_S_rfg1_spinner_value
-    
-    private void CM_S_rfg2_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rfg2_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_S_rfg2_value);
-    }//GEN-LAST:event_CM_S_rfg2_spinner_value
-    
-    private void CM_R_k_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_R_k_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_R_k_value);
-    }//GEN-LAST:event_CM_R_k_spinner_value
-    
-    private void CM_R_k_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_R_k_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_R_noset_button.getName())) properties.remove(CM_R_noset_button.getName());
-        if (properties.isSet(CM_R_a_button.getName())) properties.remove(CM_R_a_button.getName());
-        buttonEvent(CM_R_k_button,CM_R_k_value);
-    }//GEN-LAST:event_CM_R_k_buttonActionPerformed
-    
-    private void CM_R_a_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_R_a_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_R_noset_button.getName())) properties.remove(CM_R_noset_button.getName());
-        if (properties.isSet(CM_R_k_value.getName())) properties.remove(CM_R_k_value.getName());
-        buttonEvent(CM_R_a_button,null);
-    }//GEN-LAST:event_CM_R_a_buttonActionPerformed
-    
-    private void CM_R_noset_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_R_noset_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_R_a_button.getName())) properties.remove(CM_R_a_button.getName());
-        if (properties.isSet(CM_R_k_value.getName())) properties.remove(CM_R_k_value.getName());
-        buttonEvent(CM_R_noset_button,null);
-    }//GEN-LAST:event_CM_R_noset_buttonActionPerformed
-    
-    private void CM_A_ignoreQuals_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_ignoreQuals_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_A_ignoreQuals_box,null);
-    }//GEN-LAST:event_CM_A_ignoreQuals_boxActionPerformed
-    
-    private void CM_A_no1mm_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_no1mm_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_A_no1mm_box,null);
-    }//GEN-LAST:event_CM_A_no1mm_boxActionPerformed
-    
-    private void CM_A_norc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_norc_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_A_norc_box,null);
-    }//GEN-LAST:event_CM_A_norc_boxActionPerformed
-    
-    private void CM_A_ete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_ete_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_A_local_button.getName())){
-            properties.remove(CM_A_local_button.getName());
-        }
-        CM_A_local_text.setEnabled(false);
-        buttonEventText(CM_A_ete_button,CM_A_ete_text);
-    }//GEN-LAST:event_CM_A_ete_buttonActionPerformed
-    
-    private void CM_A_local_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_local_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_A_ete_button.getName())){
-            properties.remove(CM_A_ete_button.getName());
-        }
-        CM_A_ete_text.setEnabled(false);
-        buttonEventText(CM_A_local_button,CM_A_local_text);
-    }//GEN-LAST:event_CM_A_local_buttonActionPerformed
-    
-    private void CM_I_q_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_q_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_qseq_box,null);
-    }//GEN-LAST:event_CM_I_q_boxActionPerformed
-    
-    private void CM_I_qseq_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_qseq_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_qseq_box,null);
-    }//GEN-LAST:event_CM_I_qseq_boxActionPerformed
-    
-    private void CM_I_solexa_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_solexa_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_solexa_box,null);
-    }//GEN-LAST:event_CM_I_solexa_boxActionPerformed
-    
-    private void CM_I_quals_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_quals_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_quals_box,null);
-    }//GEN-LAST:event_CM_I_quals_boxActionPerformed
-    
-    private void CM_I_f_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_f_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_f_box,null);
-    }//GEN-LAST:event_CM_I_f_boxActionPerformed
-    
-    private void CM_I_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_r_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_r_box,null);
-    }//GEN-LAST:event_CM_I_r_boxActionPerformed
-    
-    private void CM_I_c_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_c_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_I_c_box,null);
-    }//GEN-LAST:event_CM_I_c_boxActionPerformed
-    
-    private void CM_I_phred33_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_phred33_boxActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_I_phred64_box.getName())) properties.remove(CM_I_phred64_box.getName());
-        boxEvent(CM_I_phred33_box,null);
-    }//GEN-LAST:event_CM_I_phred33_boxActionPerformed
-    
-    private void CM_I_phred64_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_phred64_boxActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(CM_I_phred33_box.getName())) properties.remove(CM_I_phred33_box.getName());
-        boxEvent(CM_I_phred64_box,null);
-    }//GEN-LAST:event_CM_I_phred64_boxActionPerformed
-    
-    private void CM_E_D_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_E_D_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_E_D_value);
-    }//GEN-LAST:event_CM_E_D_spinner_value
-    
-    private void CM_E_R_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_E_R_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_E_R_value);
-    }//GEN-LAST:event_CM_E_R_spinner_value
-    
-    private void M_SE_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_SE_buttonActionPerformed
-        // TODO add your handling code here:
-        buttonEvent(M_SE_button,null);
-        if (properties.isSet(M_SE_button.getName())) {
-            properties.remove(M_PE_button.getName());
-        }
-        peButtonFields(false);
-
-    }//GEN-LAST:event_M_SE_buttonActionPerformed
-    
-    private void M_PE_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_buttonActionPerformed
-        // TODO add your handling code here:
-        buttonEvent(M_PE_button,null);
-        
-        if (properties.isSet(M_PE_button.getName())) {
-            peButtonFields(true);
-            properties.remove(M_SE_button.getName());
-            if ( !this.properties.isSet(M_PE_rf_button.getName()) && 
-                 !this.properties.isSet(M_PE_ff_button.getName())
-            ){
-                this.M_PE_fr_button.setSelected(true);
-                properties.put(M_PE_fr_button.getName(),M_PE_fr_button.getName());
-            }
-            spinnerUpdate(M_PE_X_value);
-            spinnerUpdate(M_PE_I_value);
-        }
-
-    }//GEN-LAST:event_M_PE_buttonActionPerformed
-    
-    private void M_PE_un_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_un_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(M_PE_un_box,null);
-    }//GEN-LAST:event_M_PE_un_boxActionPerformed
-    
-    private void M_PE_I_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_M_PE_I_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(M_PE_I_value);
-    }//GEN-LAST:event_M_PE_I_spinner_value
-    
-    private void M_PE_X_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_M_PE_X_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(M_PE_X_value);
-    }//GEN-LAST:event_M_PE_X_spinner_value
-    
-    private void M_PE_fr_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_fr_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(M_PE_ff_button.getName())) properties.remove(M_PE_ff_button.getName());
-        if (properties.isSet(M_PE_rf_button.getName())) properties.remove(M_PE_rf_button.getName());
-        buttonEvent(M_PE_fr_button,null);
-    }//GEN-LAST:event_M_PE_fr_buttonActionPerformed
-    
-    private void M_PE_rf_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_rf_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(M_PE_fr_button.getName())) properties.remove(M_PE_fr_button.getName());
-        if (properties.isSet(M_PE_ff_button.getName())) properties.remove(M_PE_ff_button.getName());
-        buttonEvent(M_PE_rf_button,null);
-    }//GEN-LAST:event_M_PE_rf_buttonActionPerformed
-    
-    private void M_PE_ff_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_ff_buttonActionPerformed
-        // TODO add your handling code here:
-        if (properties.isSet(M_PE_fr_button.getName())) properties.remove(M_PE_fr_button.getName());
-        if (properties.isSet(M_PE_rf_button.getName())) properties.remove(M_PE_rf_button.getName());
-        buttonEvent(M_PE_ff_button,null);
-    }//GEN-LAST:event_M_PE_ff_buttonActionPerformed
-    
-    private void M_PE_noMixed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noMixed_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(M_PE_noMixed_box,null);
-    }//GEN-LAST:event_M_PE_noMixed_boxActionPerformed
-    
-    private void M_PE_dovetail_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_dovetail_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(M_PE_dovetail_box,null);
-    }//GEN-LAST:event_M_PE_dovetail_boxActionPerformed
-    
-    private void M_PE_noDiscordant_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noDiscordant_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(M_PE_noDiscordant_box,null);
-    }//GEN-LAST:event_M_PE_noDiscordant_boxActionPerformed
-    
-    private void M_PE_noContain_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noContain_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(M_PE_noContain_box,null);
-    }//GEN-LAST:event_M_PE_noContain_boxActionPerformed
-    
-    private void M_PE_noOverlap_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noOverlap_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(M_PE_noOverlap_box,null);
-    }//GEN-LAST:event_M_PE_noOverlap_boxActionPerformed
-    
-    private void CM_O_un_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_O_un_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_O_un_box,null);
-    }//GEN-LAST:event_CM_O_un_boxActionPerformed
-    
-    private void CM_O_al_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_O_al_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_O_al_box,null);
-    }//GEN-LAST:event_CM_O_al_boxActionPerformed
-    
-    private void CM_O_quiet_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_O_quiet_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_O_quiet_box,null);
-    }//GEN-LAST:event_CM_O_quiet_boxActionPerformed
-    
-    private void CM_O_metfile_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_O_metfile_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_O_metfile_box,null);
-    }//GEN-LAST:event_CM_O_metfile_boxActionPerformed
-    
-    private void CM_O_metstderr_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_O_metstderr_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_O_metstderr_box,null);
-    }//GEN-LAST:event_CM_O_metstderr_boxActionPerformed
-    
-    private void CM_O_met_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_O_met_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_O_met_value);
-    }//GEN-LAST:event_CM_O_met_spinner_value
-    
-    private void CM_SAM_noUnal_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_noUnal_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_SAM_noUnal_box,null);
-    }//GEN-LAST:event_CM_SAM_noUnal_boxActionPerformed
-    
-    private void CM_SAM_noHd_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_noHd_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_SAM_noHd_box,null);
-    }//GEN-LAST:event_CM_SAM_noHd_boxActionPerformed
-    
-    private void CM_SAM_noSq_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_noSq_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_SAM_noSq_box,null);
-    }//GEN-LAST:event_CM_SAM_noSq_boxActionPerformed
-    
-    private void CM_SAM_omitSecSeq_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_omitSecSeq_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_SAM_omitSecSeq_box,null);
-    }//GEN-LAST:event_CM_SAM_omitSecSeq_boxActionPerformed
-    
-    private void CM_P_t_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_P_t_spinner_value
-        // TODO add your handling code here:
-        spinnerUpdate(CM_P_p_value);
-    }//GEN-LAST:event_CM_P_t_spinner_value
-    
-    private void CM_P_reorder_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_reorder_boxActionPerformed
-        // TODO add your handling code here:
-        boxEvent(CM_P_reorder_box,null);
-    }//GEN-LAST:event_CM_P_reorder_boxActionPerformed
-    
-    private void CM_OO_qcFilter_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_OO_qcFilter_boxActionPerformed
+                                
+    private void O_mem_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_mem_buttonActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_OO_qcFilter_box,null);
-    }//GEN-LAST:event_CM_OO_qcFilter_boxActionPerformed
+        menuEvent(O_mem_button);
+        menuEvent(ALN_PT_NOTUSED_button);
+    }//GEN-LAST:event_O_mem_buttonActionPerformed
     
-    private void CM_OO_nonDeterminist_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_OO_nonDeterminist_boxActionPerformed
+    private void ALN_PT_samse_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_PT_samse_buttonActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_OO_nonDeterminist_box,null);
-    }//GEN-LAST:event_CM_OO_nonDeterminist_boxActionPerformed
+        menuEvent(ALN_PT_samse_button);
+    }//GEN-LAST:event_ALN_PT_samse_buttonActionPerformed
     
-    private void CM_P_o_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_o_textActionPerformed
+    private void ALN_PT_sampe_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_PT_sampe_buttonActionPerformed
         // TODO add your handling code here:
-        //eventText(CM_P_o_text);
-    }//GEN-LAST:event_CM_P_o_textActionPerformed
-    
-    private void CM_SAM_rgId_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_SAM_rgId_textFocusLost
+        menuEvent(ALN_PT_sampe_button);
+    }//GEN-LAST:event_ALN_PT_sampe_buttonActionPerformed
+                
+    private void O_aln_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_aln_buttonActionPerformed
         // TODO add your handling code here:
-        textUpdate(CM_SAM_rgId_text);
-    }//GEN-LAST:event_CM_SAM_rgId_textFocusLost
+        menuEvent(O_aln_button);
+        menuEvent(ALN_PT_samse_button);
+    }//GEN-LAST:event_O_aln_buttonActionPerformed
     
-    private void CM_SAM_rg_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_SAM_rg_textFocusLost
-        // TODO add your handling code here:
-        textUpdate(CM_SAM_rg_text);
-    }//GEN-LAST:event_CM_SAM_rg_textFocusLost
-
-    private void CM_A_local_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_local_textActionPerformed
-        // TODO add your handling code here:
-        buttonEventText(CM_A_ete_button,CM_A_local_text);
-        if (CM_A_local_text.equals("")){
-            properties.put(CM_A_local_text,"G,20,8");
-            CM_A_local_text.setText("G,20,8");
-        }
-    }//GEN-LAST:event_CM_A_local_textActionPerformed
-
-    private void CM_A_local_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_local_textFocusLost
-        // TODO add your handling code here:
-        textUpdate(CM_A_local_text);
-    }//GEN-LAST:event_CM_A_local_textFocusLost
-
-    private void CM_P_o_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_P_o_textFocusLost
-        // TODO add your handling code here:
-        
-        //textUpdate(CM_P_o_text);
-    }//GEN-LAST:event_CM_P_o_textFocusLost
-
-    private void CM_S_mp_valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_mp_valueActionPerformed
-        // TODO add your handling code here:
-        String s = CM_S_mp_value.getText();
-        s = s.replace(".",",");
-        if (!s.matches("\\d*,\\d*")) {
-            CM_S_mp_value.setText("6,2");
-        } else {
-            CM_S_mp_value.setText(s);
-        }
-        textUpdate(CM_S_mp_value);
-    }//GEN-LAST:event_CM_S_mp_valueActionPerformed
-
-    private void CM_S_mp_valueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_S_mp_valueFocusLost
+    private void O_bwasw_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_bwasw_buttonActionPerformed
         // TODO add your handling code here:
-        String s = CM_S_mp_value.getText();
-        s = s.replace(".",",");
-        if (!s.matches("\\d*,\\d*")) {
-            CM_S_mp_value.setText("6,2");
-        } else {
-            CM_S_mp_value.setText(s);
-        }
-        textUpdate(CM_S_mp_value);
-    }//GEN-LAST:event_CM_S_mp_valueFocusLost
-
+        menuEvent(O_bwasw_button);
+        menuEvent(ALN_PT_NOTUSED_button);
+    }//GEN-LAST:event_O_bwasw_buttonActionPerformed
+                                                                                                                                                                                                                                                                                                                                    
     private void IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_change_buttonActionPerformed
         // TODO add your handling code here:
         JFileChooser d;
@@ -2589,31 +2028,33 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
             properties.put(IDG_r_text.getName(),s);
                 
             // Set the combobox
-            setIDGCombobox(dir);
+            setIDGCombobox(s);
         }
     }//GEN-LAST:event_IDG_change_buttonActionPerformed
     
     private void IDG_Update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_Update_buttonActionPerformed
         // TODO add your handling code here:
-        File dir = new File(IDG_r_text.getText());
-        setIDGCombobox(dir);
+        if (!IDG_r_text.getText().equals("")){
+            setIDGCombobox(IDG_r_text.getText());
+        }
     }//GEN-LAST:event_IDG_Update_buttonActionPerformed
 
-    private void setIDGCombobox (File dir) {
+    private void setIDGCombobox (String path) {
+        File dir = new File(path);
         IDG_selected_ComboBox.removeAllItems();
         IDG_selected_ComboBox.addItem("Choose_an_indexed_Genome");
         Hashtable<String,String> h = new Hashtable<String,String>();
         String s = "";
         for (File f:dir.listFiles()) {
-            if (f.getName().contains(".bt2")){
-                s = f.getName().replaceAll("\\.\\d.bt2","");
-                s = s.replaceAll("\\.rev$","");
+            if (f.getName().matches(".*\\.fasta$")){
+                s = f.getName().replaceAll("\\.fasta","");
                 if (!h.containsKey(s)){
                     h.put(s,"");
                     IDG_selected_ComboBox.addItem(s);
                 }
             }
         }
+        IDG_selected_ComboBox.setSelectedIndex(0);
     }
 
     private void IDG_r_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_r_textActionPerformed
@@ -2630,7 +2071,7 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(M_IDG_directory_button.getName())) {
             properties.remove(M_IDG_directory_button.getName());
         }
-        buttonEvent(M_IDG_workflow_button,null);
+        buttonEventSpinner(M_IDG_workflow_button,null);
         M_IDG_main_panel.setVisible(false);
     }//GEN-LAST:event_M_IDG_workflow_buttonActionPerformed
 
@@ -2639,9 +2080,523 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(M_IDG_workflow_button.getName())) {
             properties.remove(M_IDG_workflow_button.getName());
         }
-        buttonEvent(M_IDG_directory_button,null);
+        buttonEventSpinner(M_IDG_directory_button,null);
         M_IDG_main_panel.setVisible(true);
     }//GEN-LAST:event_M_IDG_directory_buttonActionPerformed
+
+    private void MEM_d_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_d_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_d_box,MEM_d_value);
+    }//GEN-LAST:event_MEM_d_boxActionPerformed
+
+    private void MEM_d_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_d_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_d_box,MEM_d_value);
+    }//GEN-LAST:event_MEM_d_spinner_value
+
+    private void MEM_t_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_t_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_t_box,MEM_t_value);
+    }//GEN-LAST:event_MEM_t_boxActionPerformed
+
+    private void MEM_t_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_t_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_t_box,MEM_t_value);
+    }//GEN-LAST:event_MEM_t_spinner_value
+
+    private void MEM_k_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_k_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_k_box,MEM_k_value);
+    }//GEN-LAST:event_MEM_k_boxActionPerformed
+
+    private void MEM_k_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_k_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_k_box,MEM_k_value);
+    }//GEN-LAST:event_MEM_k_spinner_value
+
+    private void MEM_w_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_w_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_w_box,MEM_w_value);
+    }//GEN-LAST:event_MEM_w_boxActionPerformed
+
+    private void MEM_w_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_w_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_w_box,MEM_w_value);
+    }//GEN-LAST:event_MEM_w_spinner_value
+
+    private void MEM_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_r_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_r_box,MEM_r_value);
+    }//GEN-LAST:event_MEM_r_boxActionPerformed
+
+    private void MEM_r_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_r_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_r_box,MEM_r_value);
+    }//GEN-LAST:event_MEM_r_spinner_value
+
+    private void MEM_c_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_c_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_c_box,MEM_c_value);
+    }//GEN-LAST:event_MEM_c_boxActionPerformed
+
+    private void MEM_c_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_c_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_c_box,MEM_c_value);
+    }//GEN-LAST:event_MEM_c_spinner_value
+
+    private void MEM_A_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_A_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_A_box,MEM_A_value);
+    }//GEN-LAST:event_MEM_A_boxActionPerformed
+
+    private void MEM_A_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_A_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_A_box,MEM_A_value);
+    }//GEN-LAST:event_MEM_A_spinner_value
+
+    private void MEM_B_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_B_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_B_box,MEM_B_value);
+    }//GEN-LAST:event_MEM_B_boxActionPerformed
+
+    private void MEM_O_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_O_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_O_box,MEM_O_value);
+    }//GEN-LAST:event_MEM_O_boxActionPerformed
+
+    private void MEM_E_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_E_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_E_box,MEM_E_value);
+    }//GEN-LAST:event_MEM_E_boxActionPerformed
+
+    private void MEM_L_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_L_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_L_box,MEM_L_value);
+    }//GEN-LAST:event_MEM_L_boxActionPerformed
+
+    private void MEM_U_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_U_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_U_box,MEM_U_value);
+    }//GEN-LAST:event_MEM_U_boxActionPerformed
+
+    private void MEM_T_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_T_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_T_box,MEM_T_value);
+    }//GEN-LAST:event_MEM_T_boxActionPerformed
+
+    private void MEM_v_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_v_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_v_box,MEM_v_value);
+    }//GEN-LAST:event_MEM_v_boxActionPerformed
+
+    private void MEM_v_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_v_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_v_box,MEM_v_value);
+    }//GEN-LAST:event_MEM_v_spinner_value
+
+    private void MEM_T_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_T_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_T_box,MEM_T_value);
+    }//GEN-LAST:event_MEM_T_spinner_value
+
+    private void MEM_U_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_U_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_U_box,MEM_U_value);
+    }//GEN-LAST:event_MEM_U_spinner_value
+
+    private void MEM_L_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_L_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_L_box,MEM_L_value);
+    }//GEN-LAST:event_MEM_L_spinner_value
+
+    private void MEM_E_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_E_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_E_box,MEM_E_value);
+    }//GEN-LAST:event_MEM_E_spinner_value
+
+    private void MEM_O_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_O_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_O_box,MEM_O_value);
+    }//GEN-LAST:event_MEM_O_spinner_value
+
+    private void MEM_B_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MEM_B_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_B_box,MEM_B_value);
+    }//GEN-LAST:event_MEM_B_spinner_value
+
+    private void MEM_R_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_R_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventText(MEM_R_box,MEM_R_text);
+    }//GEN-LAST:event_MEM_R_boxActionPerformed
+
+    private void MEM_M_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_M_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_M_box,null);
+    }//GEN-LAST:event_MEM_M_boxActionPerformed
+
+    private void MEM_H_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_H_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_H_box,null);
+    }//GEN-LAST:event_MEM_H_boxActionPerformed
+
+    private void MEM_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_a_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_a_box,null);
+    }//GEN-LAST:event_MEM_a_boxActionPerformed
+
+    private void MEM_C_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_C_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_C_box,null);
+    }//GEN-LAST:event_MEM_C_boxActionPerformed
+
+    private void MEM_P_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_P_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_P_box,null);
+    }//GEN-LAST:event_MEM_P_boxActionPerformed
+
+    private void MEM_p_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_p_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(MEM_p_box,null);
+    }//GEN-LAST:event_MEM_p_boxActionPerformed
+
+    private void MEM_R_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MEM_R_textActionPerformed
+        // TODO add your handling code here:
+        boxEventText(MEM_R_box,MEM_R_text);
+    }//GEN-LAST:event_MEM_R_textActionPerformed
+
+    private void ALN_n_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_n_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_n_box,ALN_n_value);
+    }//GEN-LAST:event_ALN_n_spinner_value
+
+    private void ALN_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_n_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_n_box,ALN_n_value);
+    }//GEN-LAST:event_ALN_n_boxActionPerformed
+
+    private void ALN_o_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_o_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_o_box,ALN_o_value);
+    }//GEN-LAST:event_ALN_o_boxActionPerformed
+
+    private void ALN_o_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_o_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_o_box,ALN_o_value);
+    }//GEN-LAST:event_ALN_o_spinner_value
+
+    private void ALN_e_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_e_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_e_box,ALN_e_value);
+    }//GEN-LAST:event_ALN_e_boxActionPerformed
+
+    private void ALN_e_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_e_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_e_box,ALN_e_value);
+    }//GEN-LAST:event_ALN_e_spinner_value
+
+    private void ALN_d_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_d_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_d_box,ALN_d_value);
+    }//GEN-LAST:event_ALN_d_boxActionPerformed
+
+    private void ALN_d_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_d_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_d_box,ALN_d_value);
+    }//GEN-LAST:event_ALN_d_spinner_value
+
+    private void ALN_M_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_M_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_M_box,ALN_M_value);
+    }//GEN-LAST:event_ALN_M_boxActionPerformed
+
+    private void ALN_M_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_M_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_M_box,ALN_M_value);
+    }//GEN-LAST:event_ALN_M_spinner_value
+
+    private void ALN_O_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_O_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_O_box,ALN_O_value);
+    }//GEN-LAST:event_ALN_O_spinner_value
+
+    private void ALN_O_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_O_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_O_box,ALN_O_value);
+    }//GEN-LAST:event_ALN_O_boxActionPerformed
+
+    private void ALN_E_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_E_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_E_box,ALN_E_value);
+    }//GEN-LAST:event_ALN_E_boxActionPerformed
+
+    private void ALN_E_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_E_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_E_box,ALN_E_value);
+    }//GEN-LAST:event_ALN_E_spinner_value
+
+    private void ALN_R_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_R_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_R_box,ALN_R_value);
+    }//GEN-LAST:event_ALN_R_boxActionPerformed
+
+    private void ALN_B_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_B_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_B_box,ALN_B_value);
+    }//GEN-LAST:event_ALN_B_spinner_value
+
+    private void ALN_q_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_q_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_q_box,ALN_q_value);
+    }//GEN-LAST:event_ALN_q_spinner_value
+
+    private void ALN_q_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_q_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_q_box,ALN_q_value);
+    }//GEN-LAST:event_ALN_q_boxActionPerformed
+
+    private void ALN_R_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_R_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_R_box,ALN_R_value);
+    }//GEN-LAST:event_ALN_R_spinner_value
+
+    private void ALN_B_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_B_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_B_box,ALN_B_value);
+    }//GEN-LAST:event_ALN_B_boxActionPerformed
+
+    private void ALN_i_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_i_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_i_box,ALN_i_value);
+    }//GEN-LAST:event_ALN_i_spinner_value
+
+    private void ALN_i_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_i_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_i_box,ALN_i_value);
+    }//GEN-LAST:event_ALN_i_boxActionPerformed
+
+    private void ALN_l_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_l_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_l_box,ALN_l_value);
+    }//GEN-LAST:event_ALN_l_boxActionPerformed
+
+    private void ALN_l_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_l_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_l_box,ALN_l_value);
+    }//GEN-LAST:event_ALN_l_spinner_value
+
+    private void ALN_k_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_k_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_k_box,ALN_k_value);
+    }//GEN-LAST:event_ALN_k_spinner_value
+
+    private void ALN_k_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_k_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_k_box,ALN_k_value);
+    }//GEN-LAST:event_ALN_k_boxActionPerformed
+
+    private void ALN_t_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_ALN_t_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_t_box,ALN_t_value);
+    }//GEN-LAST:event_ALN_t_spinner_value
+
+    private void ALN_t_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_t_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_t_box,ALN_t_value);
+    }//GEN-LAST:event_ALN_t_boxActionPerformed
+
+    private void ALN_c_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_c_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_c_box,null);
+    }//GEN-LAST:event_ALN_c_boxActionPerformed
+
+    private void ALN_N_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_N_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_N_box,null);
+    }//GEN-LAST:event_ALN_N_boxActionPerformed
+
+    private void ALN_I_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_I_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_I_box,null);
+    }//GEN-LAST:event_ALN_I_boxActionPerformed
+
+    private void ALN_b_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_b_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_b_box,null);
+        cleanALNbOptions(ALN_b_box.getName());
+    }//GEN-LAST:event_ALN_b_boxActionPerformed
+
+    private void ALN_b1_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_b1_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_b1_box,null);
+        cleanALNbOptions(ALN_b1_box.getName());
+    }//GEN-LAST:event_ALN_b1_boxActionPerformed
+
+    private void ALN_b2_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_b2_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(ALN_b2_box,null);
+        cleanALNbOptions(ALN_b2_box.getName());
+    }//GEN-LAST:event_ALN_b2_boxActionPerformed
+
+    private void SAMPE_n_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SAMPE_n_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_n_box,SAMPE_n_value);
+    }//GEN-LAST:event_SAMPE_n_spinner_value
+
+    private void SAMPE_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMPE_n_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_n_box,SAMPE_n_value);
+    }//GEN-LAST:event_SAMPE_n_boxActionPerformed
+
+    private void SAMPE_o_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMPE_o_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_o_box,SAMPE_o_value);
+    }//GEN-LAST:event_SAMPE_o_boxActionPerformed
+
+    private void SAMPE_N_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMPE_N_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_N_box,SAMPE_N_value);
+    }//GEN-LAST:event_SAMPE_N_boxActionPerformed
+
+    private void SAMPE_N_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SAMPE_N_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_N_box,SAMPE_N_value);
+    }//GEN-LAST:event_SAMPE_N_spinner_value
+
+    private void SAMPE_o_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SAMPE_o_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_o_box,SAMPE_o_value);
+    }//GEN-LAST:event_SAMPE_o_spinner_value
+
+    private void SAMPE_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMPE_a_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_a_box,SAMPE_a_value);
+    }//GEN-LAST:event_SAMPE_a_boxActionPerformed
+
+    private void SAMPE_a_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SAMPE_a_spinner_value
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_a_box,SAMPE_a_value);
+    }//GEN-LAST:event_SAMPE_a_spinner_value
+
+    private void SAMPE_P_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMPE_P_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(SAMPE_P_box,null);
+    }//GEN-LAST:event_SAMPE_P_boxActionPerformed
+
+    private void SAMSE_n_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SAMSE_n_spinner_value
+        // TODO add your handling code hre:
+        boxEventSpinner(SAMSE_n_box,SAMSE_n_value);
+    }//GEN-LAST:event_SAMSE_n_spinner_value
+
+    private void SAMSE_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMSE_n_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventSpinner(SAMSE_n_box,SAMSE_n_value);
+    }//GEN-LAST:event_SAMSE_n_boxActionPerformed
+
+    private void SAMSE_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMSE_r_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventText(SAMSE_r_box,SAMSE_r_text);
+    }//GEN-LAST:event_SAMSE_r_boxActionPerformed
+
+    private void SAMPE_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAMPE_r_boxActionPerformed
+        // TODO add your handling code here:
+        boxEventText(SAMPE_n_box,SAMPE_r_text);
+    }//GEN-LAST:event_SAMPE_r_boxActionPerformed
+
+    private void MEM_R_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MEM_R_textFocusLost
+        // TODO add your handling code here:
+        boxEventText(MEM_R_box,MEM_R_text);
+    }//GEN-LAST:event_MEM_R_textFocusLost
+
+    private void SAMSE_r_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SAMSE_r_textFocusLost
+        // TODO add your handling code here:
+        boxEventText(SAMSE_r_box,SAMSE_r_text);
+    }//GEN-LAST:event_SAMSE_r_textFocusLost
+
+    private void SAMPE_r_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SAMPE_r_textFocusLost
+        // TODO add your handling code here:
+        boxEventText(SAMPE_r_box,SAMPE_r_text);
+    }//GEN-LAST:event_SAMPE_r_textFocusLost
+
+    private void ALN_PT_NOTUSED_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALN_PT_NOTUSED_buttonActionPerformed
+        // TODO add your handling code here:
+        menuEvent(ALN_PT_NOTUSED_button);
+    }//GEN-LAST:event_ALN_PT_NOTUSED_buttonActionPerformed
+    
+    
+    /**
+     * CleansValues
+     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
+     * @param button_name
+     */
+    private void cleanMapButtons (String s) {
+        String[] sTab = {
+            O_aln_button.getName(),
+            O_bwasw_button.getName(),
+            O_mem_button.getName()
+        };
+        for (String sT:sTab)
+            if (!s.equals(sT) && properties.isSet(sT))
+                properties.remove(sT);
+    }
+    
+    private void cleanTypeLib (String s) {
+        String[] sTab = {
+            ALN_PT_samse_button.getName(),
+            ALN_PT_sampe_button.getName(),
+            ALN_PT_NOTUSED_button.getName()
+        };
+        for (String sT:sTab)
+            if (!s.equals(sT) && properties.isSet(sT))
+                properties.remove(sT);
+        
+        if (properties.isSet(O_aln_button.getName())){
+            if (!properties.isSet(ALN_PT_sampe_button.getName())&&
+                !properties.isSet(ALN_PT_samse_button.getName())
+                ){
+                properties.put(ALN_PT_samse_button.getName(),true);
+                ALN_PT_samse_button.setSelected(true);
+            }
+            ALN_PT_NOTUSED_button.setSelected(false);
+            ALN_PT_NOTUSED_button.setEnabled(false);
+            ALN_PT_samse_button.setEnabled(true);
+            ALN_PT_sampe_button.setEnabled(true);
+            properties.remove(ALN_PT_NOTUSED_button.getName());
+        } else {
+            ALN_PT_NOTUSED_button.setSelected(true);
+            ALN_PT_samse_button.setEnabled(false);
+            ALN_PT_sampe_button.setEnabled(false);
+            samseMappingFields(false);
+            sampeMappingFields(false);
+            if (properties.isSet(ALN_PT_sampe_button.getName()))
+                properties.remove(ALN_PT_sampe_button.getName());
+            if (properties.isSet(ALN_PT_samse_button.getName()))
+                properties.remove(ALN_PT_samse_button.getName());
+        }
+    }
+    
+    private void cleanALNbOptions (String s) {
+        if (s.equals(ALN_b_box.getName())){
+            ALN_b1_box.setSelected(false);
+            ALN_b2_box.setSelected(false);
+        }
+        if (s.equals(ALN_b1_box.getName())){
+            ALN_b_box.setSelected(false);
+            ALN_b2_box.setSelected(false);
+        }
+        if (s.equals(ALN_b2_box.getName())){
+            ALN_b1_box.setSelected(false);
+            ALN_b_box.setSelected(false);
+        }
+        
+        String[] sTab = {
+            ALN_b_box.getName(),
+            ALN_b1_box.getName(),
+            ALN_b2_box.getName()
+        };
+        for (String sT:sTab)
+            if (!s.equals(sT) && properties.isSet(sT))
+                properties.remove(sT);
+    }
     
     
     /**
@@ -2652,73 +2607,61 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
     //For Menu
     private void menuEvent(javax.swing.JRadioButton b){
         if (b.isSelected()==true){
-            String s = b.getName();
-            menuFields(s);
-            properties.put(Options.getName(),s);
-        } else {
-            properties.remove(Options.getName());
+            properties.put(b.getName(),b.isSelected());
         }
-        this.updateSavedProperties(properties);
+        if (b.equals(ALN_PT_samse_button)||
+            b.equals(ALN_PT_sampe_button)||
+            b.equals(ALN_PT_NOTUSED_button)
+            )
+            cleanTypeLib(b.getName());
+        else cleanMapButtons(b.getName());
+        menuFields();
     }
     //For Box
-    private void boxEvent(javax.swing.JCheckBox b,javax.swing.JSpinner s){
+    private void boxEventSpinner(javax.swing.JCheckBox b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
             if (s == null) {
                 properties.put(b.getName(),b.isSelected());
             } else {
                 s.setEnabled(true);
                 properties.put(s.getName(),s.getValue());
+                properties.put(b.getName(),s.getValue());
             }
         } else {
-            if (s == null){
-                properties.remove(b.getName());
-            } else {
+            properties.remove(b.getName());
+            if (s != null){
                 s.setEnabled(false);
-                properties.remove(s.getName());
             }
         }
     }
     //For Button and Spinner
-    private void buttonEvent(javax.swing.JRadioButton b,javax.swing.JSpinner s){
+    private void buttonEventSpinner(javax.swing.JRadioButton b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
             if (s == null) {
                 properties.put(b.getName(),b.isSelected());
             } else {
                 s.setEnabled(true);
                 properties.put(s.getName(),s.getValue());
+                properties.put(b.getName(),s.getValue());
             }
         }
     }
     //For Button and text
-    private void buttonEventText(javax.swing.JRadioButton b,javax.swing.JTextField t){
+    private void boxEventText(javax.swing.JCheckBox b,javax.swing.JTextField t){
         if (b.isSelected()==true){
             if (t == null) {
                 properties.put(b.getName(),b.isSelected());
             } else {
                 t.setEnabled(true);
                 properties.put(t.getName(),t.getText());
+                properties.put(b.getName(),b.isSelected());
+            }
+        } else {
+            properties.remove(b.getName());
+            if (t != null){
+                t.setEnabled(false);
             }
         }
-    }
-    
-    
-    /**
-     * Update Values content
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Update_Values
-     */
-    //For Text only
-    private void eventText(javax.swing.JTextField t){
-        properties.put(t.getName(),t.getText());
-    }
-    //Spinner update
-    private void spinnerUpdate(javax.swing.JSpinner s){
-        properties.put(s.getName(),s.getValue());
-    }
-    //Text update
-    private void textUpdate(javax.swing.JTextField t){
-            properties.put(t.getName(),t.getText());
-        //}
     }
     
     /**
@@ -2726,144 +2669,304 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
      * @param enabled
      */
     
-    private void menuFields(String s){    
-        if (s.equals(M_CM_button.getName())){
-            this.Options.setSelectedIndex(1);
-            this.mappingFields(true);
-            this.customMappingFields(true);
-            
-            if (properties.isSet(M_PE_button.getName())) {
-                M_PE_Panel.setVisible(true);
-                peButtonFields(true);
-            } else {
-                M_PE_Panel.setVisible(false);
-                peButtonFields(false);
-            }
-            if (properties.isSet(M_IDG_directory_button.getName())) {
-                M_IDG_main_panel.setVisible(true);
-            } else M_IDG_main_panel.setVisible(false);
+    private void menuFields(){
+        if (properties.isSet(M_IDG_directory_button.getName())) {
+            this.M_IDG_main_panel.setVisible(true);
+        } else this.M_IDG_main_panel.setVisible(false);
         
-        } else {
+        if (properties.isSet(O_aln_button.getName())) {
+            this.Options.setSelectedIndex(1);
+            alnMappingFields(true);
+            memMappingFields(false);
+        }
+        if (properties.isSet(O_bwasw_button.getName())) {
+            this.Options.setSelectedIndex(1);
+            bwaswMappingFields(true);
+            memMappingFields(false);
+            sampeMappingFields(false);
+            samseMappingFields(false);
+        }
+        if (properties.isSet(O_mem_button.getName())) {
             this.Options.setSelectedIndex(0);
-            this.mappingFields(true);
-            this.customMappingFields(false);
-            
-            if (properties.isSet(M_PE_button.getName())) {
-                this.M_PE_Panel.setVisible(true);
-                this.peButtonFields(true);
-            } else {
-                this.M_PE_Panel.setVisible(false);
-                this.peButtonFields(false);
-            }
-            if (properties.isSet(M_IDG_directory_button.getName())) {
-                this.M_IDG_main_panel.setVisible(true);
-            } else this.M_IDG_main_panel.setVisible(false);
+            alnMappingFields(false);
+            memMappingFields(true);
+            sampeMappingFields(false);
+            samseMappingFields(false);
+        }
+        if (properties.isSet(ALN_PT_sampe_button.getName())) {
+            sampeMappingFields(true);
+            samseMappingFields(false);
+            cleanTypeLib(ALN_PT_sampe_button.getName());
+        }
+        if (properties.isSet(ALN_PT_samse_button.getName())) {
+            sampeMappingFields(false);
+            samseMappingFields(true);
+            cleanTypeLib(ALN_PT_samse_button.getName());
+        }
+        if (properties.isSet(ALN_PT_NOTUSED_button.getName())) {
+            sampeMappingFields(false);
+            samseMappingFields(false);
+            cleanTypeLib(ALN_PT_NOTUSED_button.getName());
         }
     }
     
-    private void mappingFields(boolean enabled){
-        this.M_Panel.setEnabled(enabled);
-        this.M_default_button.setEnabled(enabled);
-        this.M_ETE_F_button.setEnabled(enabled);
-        this.M_ETE_VF_button.setEnabled(enabled);
-        this.M_ETE_S_button.setEnabled(enabled);
-        this.M_ETE_VS_button.setEnabled(enabled);
-        this.M_L_F_button.setEnabled(enabled);
-        this.M_L_VF_button.setEnabled(enabled);
-        this.M_L_S_button.setEnabled(enabled);
-        this.M_L_VS_button.setEnabled(enabled);
-        this.M_CM_button.setEnabled(enabled);
-        this.M_SE_button.setEnabled(enabled);
-        this.M_PE_button.setEnabled(enabled);
-        this.M_IDG_workflow_button.setEnabled(enabled);
-        this.M_IDG_directory_button.setEnabled(enabled);
+    private void alnMappingFields(boolean enabled){
+        this.ALN_Panel.setEnabled(enabled);
+        
+	this.ALN_B_box.setEnabled(enabled);
+	if (properties.isSet(ALN_B_box.getName()) && ALN_B_box.isEnabled())
+             ALN_B_value.setEnabled(true);
+	else ALN_B_value.setEnabled(false);
+
+	this.ALN_E_box.setEnabled(enabled);
+	if (properties.isSet(ALN_E_box.getName()) && ALN_E_box.isEnabled())
+             ALN_E_value.setEnabled(true);
+	else ALN_E_value.setEnabled(false);
+
+	this.ALN_I_box.setEnabled(enabled);
+	
+        this.ALN_M_box.setEnabled(enabled);
+	if (properties.isSet(ALN_M_box.getName()) && ALN_M_box.isEnabled())
+             ALN_M_value.setEnabled(true);
+	else ALN_M_value.setEnabled(false);
+
+	this.ALN_N_box.setEnabled(enabled);
+        
+	this.ALN_O_box.setEnabled(enabled);
+	if (properties.isSet(ALN_O_box.getName()) && ALN_O_box.isEnabled())
+             ALN_O_value.setEnabled(true);
+	else ALN_O_value.setEnabled(false);
+
+	this.ALN_R_box.setEnabled(enabled);
+	if (properties.isSet(ALN_R_box.getName()) && ALN_R_box.isEnabled())
+             ALN_R_value.setEnabled(true);
+	else ALN_R_value.setEnabled(false);
+
+	this.ALN_b1_box.setEnabled(enabled);
+	this.ALN_b2_box.setEnabled(enabled);
+	this.ALN_b_box.setEnabled(enabled);
+	this.ALN_c_box.setEnabled(enabled);
+        
+	this.ALN_d_box.setEnabled(enabled);
+	if (properties.isSet(ALN_d_box.getName()) && ALN_d_box.isEnabled())
+             ALN_d_value.setEnabled(true);
+	else ALN_d_value.setEnabled(false);
+
+	this.ALN_e_box.setEnabled(enabled);
+	if (properties.isSet(ALN_e_box.getName()) && ALN_e_box.isEnabled())
+             ALN_e_value.setEnabled(true);
+	else ALN_e_value.setEnabled(false);
+
+	this.ALN_i_box.setEnabled(enabled);
+	if (properties.isSet(ALN_i_box.getName()) && ALN_i_box.isEnabled())
+             ALN_i_value.setEnabled(true);
+	else ALN_i_value.setEnabled(false);
+
+	this.ALN_k_box.setEnabled(enabled);
+	if (properties.isSet(ALN_k_box.getName()) && ALN_k_box.isEnabled())
+             ALN_k_value.setEnabled(true);
+	else ALN_k_value.setEnabled(false);
+
+	this.ALN_l_box.setEnabled(enabled);
+	if (properties.isSet(ALN_l_box.getName()) && ALN_l_box.isEnabled())
+             ALN_l_value.setEnabled(true);
+	else ALN_l_value.setEnabled(false);
+
+	this.ALN_n_box.setEnabled(enabled);
+	if (properties.isSet(ALN_n_box.getName()) && ALN_n_box.isEnabled())
+             ALN_n_value.setEnabled(true);
+	else ALN_n_value.setEnabled(false);
+
+	this.ALN_o_box.setEnabled(enabled);
+	if (properties.isSet(ALN_o_box.getName()) && ALN_o_box.isEnabled())
+             ALN_o_value.setEnabled(true);
+	else ALN_o_value.setEnabled(false);
+
+	this.ALN_q_box.setEnabled(enabled);
+	if (properties.isSet(ALN_q_box.getName()) && ALN_q_box.isEnabled())
+             ALN_q_value.setEnabled(true);
+	else ALN_q_value.setEnabled(false);
+
+	this.ALN_t_box.setEnabled(enabled);
+	if (properties.isSet(ALN_t_box.getName()) && ALN_t_box.isEnabled())
+             ALN_t_value.setEnabled(true);
+	else ALN_t_value.setEnabled(false);
+    }
+
+    
+    private void bwaswMappingFields(boolean enabled){
+        alnMappingFields(enabled);
+        
+        // Removed UNUSED ALN Properties
+	this.ALN_B_box.setEnabled(false);
+        this.ALN_B_box.setSelected(false);
+	if (properties.isSet(ALN_B_box.getName())) properties.remove(ALN_B_box.getName());
+        this.ALN_B_value.setEnabled(false);
+        
+        this.ALN_I_box.setEnabled(false);
+        this.ALN_I_box.setSelected(false);
+        if (properties.isSet(ALN_I_box.getName())) properties.remove(ALN_I_box.getName());
+	
+        this.ALN_N_box.setEnabled(false);
+        this.ALN_N_box.setSelected(false);
+        if (properties.isSet(ALN_N_box.getName())) properties.remove(ALN_N_box.getName());
+        
+        this.ALN_b1_box.setEnabled(false);
+        this.ALN_b1_box.setSelected(false);
+	if (properties.isSet(ALN_b1_box.getName())) properties.remove(ALN_b1_box.getName());
+        
+        this.ALN_b2_box.setEnabled(false);
+        this.ALN_b2_box.setSelected(false);
+	if (properties.isSet(ALN_b2_box.getName())) properties.remove(ALN_b2_box.getName());
+        
+        
+        this.ALN_b_box.setSelected(false);
+        this.ALN_b_box.setEnabled(false);
+        if (properties.isSet(ALN_b_box.getName())) properties.remove(ALN_b_box.getName());
+	
+        this.ALN_c_box.setEnabled(false);
+        this.ALN_c_box.setSelected(false);
+        if (properties.isSet(ALN_c_box.getName())) properties.remove(ALN_c_box.getName());
+        
+	this.ALN_k_box.setEnabled(false);
+	this.ALN_k_box.setSelected(false);
+        if (properties.isSet(ALN_k_box.getName())) properties.remove(ALN_k_box.getName());
+        ALN_k_value.setEnabled(false);
+        
+	this.ALN_q_box.setEnabled(false);
+	this.ALN_q_box.setSelected(false);
+        if (properties.isSet(ALN_q_box.getName())) properties.remove(ALN_q_box.getName());
+	this.ALN_q_value.setEnabled(false);
+    }
+
+    private void memMappingFields(boolean enabled){
+        this.MEM_Panel.setEnabled(enabled);
+        this.MEM_INPUT_panel.setEnabled(enabled);
+        this.MEM_OUTPUT_panel.setEnabled(enabled);
+        
+	this.MEM_A_box.setEnabled(enabled);
+	if (properties.isSet(MEM_A_box.getName()) && MEM_A_box.isEnabled())
+             MEM_A_value.setEnabled(true);
+	else MEM_A_value.setEnabled(false);
+
+	this.MEM_B_box.setEnabled(enabled);
+	if (properties.isSet(MEM_B_box.getName()) && MEM_B_box.isEnabled())
+             MEM_B_value.setEnabled(true);
+	else MEM_B_value.setEnabled(false);
+
+	this.MEM_C_box.setEnabled(enabled);
+	this.MEM_E_box.setEnabled(enabled);
+	if (properties.isSet(MEM_E_box.getName()) && MEM_E_box.isEnabled())
+             MEM_E_value.setEnabled(true);
+	else MEM_E_value.setEnabled(false);
+
+	this.MEM_H_box.setEnabled(enabled);
+	this.MEM_L_box.setEnabled(enabled);
+	if (properties.isSet(MEM_L_box.getName()) && MEM_L_box.isEnabled())
+             MEM_L_value.setEnabled(true);
+	else MEM_L_value.setEnabled(false);
+
+	this.MEM_M_box.setEnabled(enabled);
+	this.MEM_O_box.setEnabled(enabled);
+	if (properties.isSet(MEM_O_box.getName()) && MEM_O_box.isEnabled())
+             MEM_O_value.setEnabled(true);
+	else MEM_O_value.setEnabled(false);
+
+	this.MEM_P_box.setEnabled(enabled);
+	this.MEM_R_box.setEnabled(enabled);
+	if (properties.isSet(ALN_B_box.getName()) && ALN_B_box.isEnabled())
+             ALN_B_value.setEnabled(true);
+	else ALN_B_value.setEnabled(false);
+
+	this.MEM_T_box.setEnabled(enabled);
+	if (properties.isSet(MEM_T_box.getName()) && MEM_T_box.isEnabled())
+             MEM_T_value.setEnabled(true);
+	else MEM_T_value.setEnabled(false);
+
+	this.MEM_U_box.setEnabled(enabled);
+	if (properties.isSet(MEM_U_box.getName()) && MEM_U_box.isEnabled())
+             MEM_U_value.setEnabled(true);
+	else MEM_U_value.setEnabled(false);
+
+	this.MEM_a_box.setEnabled(enabled);
+	this.MEM_c_box.setEnabled(enabled);
+	if (properties.isSet(MEM_c_box.getName()) && MEM_c_box.isEnabled())
+             MEM_c_value.setEnabled(true);
+	else MEM_c_value.setEnabled(false);
+
+	this.MEM_d_box.setEnabled(enabled);
+	if (properties.isSet(MEM_d_box.getName()) && MEM_d_box.isEnabled())
+             MEM_d_value.setEnabled(true);
+	else MEM_d_value.setEnabled(false);
+
+	this.MEM_k_box.setEnabled(enabled);
+	if (properties.isSet(MEM_k_box.getName()) && MEM_k_box.isEnabled())
+             MEM_k_value.setEnabled(true);
+	else MEM_k_value.setEnabled(false);
+
+	this.MEM_p_box.setEnabled(enabled);
+	this.MEM_r_box.setEnabled(enabled);
+	if (properties.isSet(MEM_r_box.getName()) && MEM_r_box.isEnabled())
+             MEM_r_value.setEnabled(true);
+	else MEM_r_value.setEnabled(false);
+
+	this.MEM_t_box.setEnabled(enabled);
+	if (properties.isSet(MEM_t_box.getName()) && MEM_t_box.isEnabled())
+             MEM_t_value.setEnabled(true);
+	else MEM_t_value.setEnabled(false);
+
+	this.MEM_v_box.setEnabled(enabled);
+	if (properties.isSet(MEM_v_box.getName()) && MEM_v_box.isEnabled())
+             MEM_v_value.setEnabled(true);
+	else MEM_v_value.setEnabled(false);
+
+	this.MEM_w_box.setEnabled(enabled);
+	if (properties.isSet(MEM_w_box.getName()) && MEM_w_box.isEnabled())
+             MEM_w_value.setEnabled(true);
+	else MEM_w_value.setEnabled(false);
     }
     
-    private void customMappingFields(boolean enabled){
-        this.CM_Panel.setEnabled(enabled);
-        this.CM_TabPanel.setEnabled(enabled);
-        this.CM_Input_Panel.setEnabled(enabled);
-        this.CM_I_q_box.setEnabled(enabled);
-        this.CM_I_qseq_box.setEnabled(enabled);
-        this.CM_I_f_box.setEnabled(enabled);
-        this.CM_I_r_box.setEnabled(enabled);
-        this.CM_I_c_box.setEnabled(enabled);
-        this.CM_I_phred64_box.setEnabled(enabled);
-        this.CM_I_phred33_box.setEnabled(enabled);
-        this.CM_I_solexa_box.setEnabled(enabled);
-        this.CM_I_quals_box.setEnabled(enabled);
-        this.CM_I_s_value.setEnabled(enabled);
-        this.CM_I_u_value.setEnabled(enabled);
-        this.CM_I_5_value.setEnabled(enabled);
-        this.CM_I_3_value.setEnabled(enabled);
-        this.CM_Align_Panel.setEnabled(enabled);
-        this.CM_A_ignoreQuals_box.setEnabled(enabled);
-        this.CM_A_norc_box.setEnabled(enabled);
-        this.CM_A_no1mm_box.setEnabled(enabled);
-        this.CM_A_i_text.setEnabled(enabled);
-        this.CM_A_nceil_text.setEnabled(enabled);
-        this.CM_A_ete_button.setEnabled(enabled);
-        this.CM_A_ete_text.setEnabled(enabled);
-        this.CM_A_local_button.setEnabled(enabled);
-        this.CM_A_local_text.setEnabled(false);
-        this.CM_A_N_value.setEnabled(enabled);
-        this.CM_A_L_value.setEnabled(enabled);
-        this.CM_A_dpad_value.setEnabled(enabled);
-        this.CM_A_gbar_value.setEnabled(enabled);
-        this.CM_Scoring_Panel.setEnabled(enabled);
-        this.CM_S_mp_value.setEnabled(enabled);
-        this.CM_S_ma_value.setEnabled(enabled);
-        this.CM_S_np_value.setEnabled(enabled);
-        this.CM_S_rdg1_value.setEnabled(enabled);
-        this.CM_S_rfg1_value.setEnabled(enabled);
-        this.CM_S_rdg2_value.setEnabled(enabled);
-        this.CM_S_rfg2_value.setEnabled(enabled);
-        this.CM_Repor_Panel.setEnabled(enabled);
-        this.CM_R_noset_button.setEnabled(enabled);
-        this.CM_R_a_button.setEnabled(enabled);
-        this.CM_R_k_button.setEnabled(enabled);
-        this.CM_R_k_value.setEnabled(false);
-        this.CM_Effort_Panel.setEnabled(enabled);
-        this.CM_E_D_value.setEnabled(enabled);
-        this.CM_E_R_value.setEnabled(enabled);
-        this.CM_Output_Panel.setEnabled(enabled);
-        this.CM_O_un_box.setEnabled(enabled);
-        this.CM_O_al_box.setEnabled(enabled);
-        this.CM_O_quiet_box.setEnabled(enabled);
-        this.CM_O_metfile_box.setEnabled(enabled);
-        this.CM_O_metstderr_box.setEnabled(enabled);
-        this.CM_O_met_value.setEnabled(enabled);
-        this.CM_SAM_Panel.setEnabled(enabled);
-        this.CM_SAM_noUnal_box.setEnabled(enabled);
-        this.CM_SAM_omitSecSeq_box.setEnabled(enabled);
-        this.CM_SAM_noHd_box.setEnabled(enabled);
-        this.CM_SAM_noSq_box.setEnabled(enabled);
-        this.CM_SAM_rgId_text.setEnabled(enabled);
-        this.CM_SAM_rg_text.setEnabled(enabled);
-        this.CM_Performance_Panel.setEnabled(enabled);
-        this.CM_P_o_text.setEnabled(enabled);
-        this.CM_P_reorder_box.setEnabled(enabled);
-        this.CM_P_mm_box.setEnabled(enabled);
-        this.CM_P_p_value.setEnabled(enabled);
-        this.CM_Other_Panel.setEnabled(enabled);
-        this.CM_OO_qcFilter_box.setEnabled(enabled);
-        this.CM_OO_nonDeterminist_box.setEnabled(enabled);
-        this.CM_OO_seed_value.setEnabled(enabled);
+    private void sampeMappingFields(boolean enabled){
+        this.SAMPE_Panel.setEnabled(enabled);
+        this.SAMPE_N_box.setEnabled(enabled);
+        if (properties.isSet(SAMPE_N_box.getName()) && SAMPE_N_box.isEnabled())
+             SAMPE_N_value.setEnabled(true);
+        else SAMPE_N_value.setEnabled(false);
+
+        this.SAMPE_P_box.setEnabled(enabled);
+        this.SAMPE_a_box.setEnabled(enabled);
+        if (properties.isSet(SAMPE_a_box.getName()) && SAMPE_a_box.isEnabled())
+             SAMPE_a_value.setEnabled(true);
+        else SAMPE_a_value.setEnabled(false);
+
+        this.SAMPE_n_box.setEnabled(enabled);
+        if (properties.isSet(SAMPE_n_box.getName()) && SAMPE_n_box.isEnabled())
+             SAMPE_n_value.setEnabled(true);
+        else SAMPE_n_value.setEnabled(false);
+
+        this.SAMPE_o_box.setEnabled(enabled);
+        if (properties.isSet(SAMPE_o_box.getName()) && SAMPE_o_box.isEnabled())
+             SAMPE_o_value.setEnabled(true);
+        else SAMPE_o_value.setEnabled(false);
+
+        this.SAMPE_r_box.setEnabled(enabled);
+        if (properties.isSet(SAMPE_r_box.getName()) && SAMPE_r_box.isEnabled())
+             SAMPE_r_text.setEnabled(true);
+        else SAMPE_r_text.setEnabled(false);
     }
     
-    private void peButtonFields(boolean enabled){
-        this.M_PE_Panel.setVisible(enabled);
-        this.M_PE_un_box.setEnabled(enabled);
-        this.M_PE_fr_button.setEnabled(enabled);
-        this.M_PE_rf_button.setEnabled(enabled);
-        this.M_PE_ff_button.setEnabled(enabled);
-        this.M_PE_noMixed_box.setEnabled(enabled);
-        this.M_PE_noDiscordant_box.setEnabled(enabled);
-        this.M_PE_dovetail_box.setEnabled(enabled);
-        this.M_PE_noContain_box.setEnabled(enabled);
-        this.M_PE_noOverlap_box.setEnabled(enabled);
-        this.M_PE_I_value.setEnabled(enabled);
-        this.M_PE_X_value.setEnabled(enabled);
+    private void samseMappingFields(boolean enabled){
+        this.SAMSE_Panel.setEnabled(enabled);
+        
+        this.SAMSE_n_box.setEnabled(enabled);
+        if (properties.isSet(SAMSE_n_box.getName()) && SAMSE_n_box.isEnabled())
+             SAMSE_n_value.setEnabled(true);
+        else SAMSE_n_value.setEnabled(false);
+
+        this.SAMSE_r_box.setEnabled(enabled);
+        if (properties.isSet(SAMSE_r_box.getName()) && SAMSE_r_box.isEnabled())
+             SAMSE_r_text.setEnabled(true);
+        else SAMSE_r_text.setEnabled(false);
     }
     
     /**
@@ -2887,15 +2990,22 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
     }
     
     private void defaultPgrmValues(workflow_properties properties) {
-        if (!this.properties.isSet(Options.getName()) && properties.isSet("defaultPgrmValues")) {
+        String[] sTab = {
+            O_aln_button.getName(),
+            O_bwasw_button.getName(),
+            O_mem_button.getName()
+        };
+        boolean b = false;
+        for (String sT:sTab)
+            if (properties.isSet(sT))
+                b = true;
+        
+        if (!b && properties.isSet("defaultPgrmValues")) {
             String defaultEditorStatus = this.properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
             int z = 0;
             for (int i =0 ; i < arrayDefault.length ; i=i+2){
                 z = i;
-                int y = z;
-                String cle = arrayDefault[y];
-                String val = arrayDefault[y+1];
                 this.properties.put(arrayDefault[z],arrayDefault[z+1]);
             }
         }
@@ -2907,300 +3017,213 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
     
     private void updateSavedProperties(workflow_properties properties) {
         // Menu Options
-        if (this.properties.isSet(Options.getName())) {
-            String s = properties.get(Options.getName());
-            if (s.equals(M_CM_button.getName())){
-                this.menuFields(s);
-                this.M_CM_button.setSelected(true);
-                this.uSP_CMM(properties);
-                this.uSP_Mapping_fields(properties);
-                
-            } else {
-                this.menuFields(s);
-                this.uSP_Mapping_options(properties);
-                this.uSP_Mapping_fields(properties);
-            }
-        }
+        uspValues(properties);
+        uspBoxesAndButtons(properties);
+        menuFields();
     }
     
-    private void uSP_Mapping_options(workflow_properties properties) {
-        // Mapping properties saved
-        String s     = this.properties.get(Options.getName());
-        
-        if (s.equals(M_ETE_F_button.getName())){
-            this.M_ETE_F_button.setSelected(true);
-        } else if (s.equals(M_ETE_VF_button.getName())){
-            this.M_ETE_VF_button.setSelected(true);
-        } else if (s.equals(M_ETE_S_button.getName())){
-            this.M_ETE_S_button.setSelected(true);
-        } else if (s.equals(M_ETE_VS_button.getName())){
-            this.M_ETE_VS_button.setSelected(true);
-        } else if (s.equals(M_L_F_button.getName())){
-            this.M_L_F_button.setSelected(true);
-        } else if (s.equals(M_L_VF_button.getName())){
-            this.M_L_VF_button.setSelected(true);
-        } else if (s.equals(M_L_S_button.getName())){
-            this.M_L_S_button.setSelected(true);
-        } else if (s.equals(M_L_VS_button.getName())){
-            this.M_L_VS_button.setSelected(true);
-        } else {
-            this.M_default_button.setSelected(true);
-            properties.put(Options.getName(),M_default_button.getName());
-        }
+    private void uspValues (workflow_properties properties) {
+        if (properties.isSet(ALN_B_value.getName()))
+            this.ALN_B_value.setValue(Integer.parseInt(this.properties.get(ALN_B_value.getName())));
+        if (properties.isSet(ALN_E_value.getName()))
+            this.ALN_E_value.setValue(Integer.parseInt(this.properties.get(ALN_E_value.getName())));
+        if (properties.isSet(ALN_M_value.getName()))
+            this.ALN_M_value.setValue(Integer.parseInt(this.properties.get(ALN_M_value.getName())));
+        if (properties.isSet(ALN_O_value.getName()))
+            this.ALN_O_value.setValue(Integer.parseInt(this.properties.get(ALN_O_value.getName())));
+        if (properties.isSet(ALN_R_value.getName()))
+            this.ALN_R_value.setValue(Integer.parseInt(this.properties.get(ALN_R_value.getName())));
+        if (properties.isSet(ALN_d_value.getName()))
+            this.ALN_d_value.setValue(Integer.parseInt(this.properties.get(ALN_d_value.getName())));
+        if (properties.isSet(ALN_e_value.getName()))
+            this.ALN_e_value.setValue(Integer.parseInt(this.properties.get(ALN_e_value.getName())));
+        if (properties.isSet(ALN_i_value.getName()))
+            this.ALN_i_value.setValue(Integer.parseInt(this.properties.get(ALN_i_value.getName())));
+        if (properties.isSet(ALN_k_value.getName()))
+            this.ALN_k_value.setValue(Integer.parseInt(this.properties.get(ALN_k_value.getName())));
+        if (properties.isSet(ALN_l_value.getName()))
+            this.ALN_l_value.setValue(Integer.parseInt(this.properties.get(ALN_l_value.getName())));
+        if (properties.isSet(ALN_n_value.getName()))
+            this.ALN_n_value.setValue(Float.parseFloat(this.properties.get(ALN_n_value.getName())));
+        if (properties.isSet(ALN_o_value.getName()))
+            this.ALN_o_value.setValue(Integer.parseInt(this.properties.get(ALN_o_value.getName())));
+        if (properties.isSet(ALN_q_value.getName()))
+            this.ALN_q_value.setValue(Integer.parseInt(this.properties.get(ALN_q_value.getName())));
+        if (properties.isSet(ALN_t_value.getName()))
+            this.ALN_t_value.setValue(Integer.parseInt(this.properties.get(ALN_t_value.getName())));
+        if (properties.isSet(MEM_A_value.getName()))
+            this.MEM_A_value.setValue(Integer.parseInt(this.properties.get(MEM_A_value.getName())));
+        if (properties.isSet(MEM_B_value.getName()))
+            this.MEM_B_value.setValue(Integer.parseInt(this.properties.get(MEM_B_value.getName())));
+        if (properties.isSet(MEM_E_value.getName()))
+            this.MEM_E_value.setValue(Integer.parseInt(this.properties.get(MEM_E_value.getName())));
+        if (properties.isSet(MEM_L_value.getName()))
+            this.MEM_L_value.setValue(Integer.parseInt(this.properties.get(MEM_L_value.getName())));
+        if (properties.isSet(MEM_O_value.getName()))
+            this.MEM_O_value.setValue(Integer.parseInt(this.properties.get(MEM_O_value.getName())));
+        if (properties.isSet(MEM_R_text.getName()))
+            this.MEM_R_text.setText(this.properties.get(MEM_R_text.getName()));
+        if (properties.isSet(MEM_T_value.getName()))
+            this.MEM_T_value.setValue(Integer.parseInt(this.properties.get(MEM_T_value.getName())));
+        if (properties.isSet(MEM_U_value.getName()))
+            this.MEM_U_value.setValue(Integer.parseInt(this.properties.get(MEM_U_value.getName())));
+        if (properties.isSet(MEM_c_value.getName()))
+            this.MEM_c_value.setValue(Integer.parseInt(this.properties.get(MEM_c_value.getName())));
+        if (properties.isSet(MEM_d_value.getName()))
+            this.MEM_d_value.setValue(Integer.parseInt(this.properties.get(MEM_d_value.getName())));
+        if (properties.isSet(MEM_k_value.getName()))
+            this.MEM_k_value.setValue(Integer.parseInt(this.properties.get(MEM_k_value.getName())));
+        if (properties.isSet(MEM_r_value.getName()))
+            this.MEM_r_value.setValue(Float.parseFloat(this.properties.get(MEM_r_value.getName())));
+        if (properties.isSet(MEM_t_value.getName()))
+            this.MEM_t_value.setValue(Integer.parseInt(this.properties.get(MEM_t_value.getName())));
+        if (properties.isSet(MEM_v_value.getName()))
+            this.MEM_v_value.setValue(Integer.parseInt(this.properties.get(MEM_v_value.getName())));
+        if (properties.isSet(MEM_w_value.getName()))
+            this.MEM_w_value.setValue(Integer.parseInt(this.properties.get(MEM_w_value.getName())));
+        if (properties.isSet(SAMPE_N_value.getName()))
+            this.SAMPE_N_value.setValue(Integer.parseInt(this.properties.get(SAMPE_N_value.getName())));
+        if (properties.isSet(SAMPE_a_value.getName()))
+            this.SAMPE_a_value.setValue(Integer.parseInt(this.properties.get(SAMPE_a_value.getName())));
+        if (properties.isSet(SAMPE_n_value.getName()))
+            this.SAMPE_n_value.setValue(Integer.parseInt(this.properties.get(SAMPE_n_value.getName())));
+        if (properties.isSet(SAMPE_o_value.getName()))
+            this.SAMPE_o_value.setValue(Integer.parseInt(this.properties.get(SAMPE_o_value.getName())));
+        if (properties.isSet(SAMPE_r_text.getName()))
+            this.SAMPE_r_text.setText(this.properties.get(SAMPE_r_text.getName()));
+        if (properties.isSet(SAMSE_n_value.getName()))
+            this.SAMSE_n_value.setValue(Integer.parseInt(this.properties.get(SAMSE_n_value.getName())));
+        if (properties.isSet(SAMSE_r_text.getName()))
+            this.SAMSE_r_text.setText(this.properties.get(SAMSE_r_text.getName()));
+        if (properties.isSet(IDG_r_text.getName()))
+            this.IDG_r_text.setText(this.properties.get(IDG_r_text.getName()));
     }
     
     
-    private void uSP_Mapping_fields(workflow_properties properties) {
-            //Paire-end options
-        if (this.properties.isSet(M_SE_button.getName())){
-            this.M_SE_button.setSelected(true);
-            this.peButtonFields(false);
-        } else if (this.properties.isSet(M_PE_button.getName())){
-            this.M_PE_button.setSelected(true);
-            this.peButtonFields(true);
-        }
-        if (this.properties.isSet(M_PE_fr_button.getName())) {
-            this.M_PE_fr_button.setSelected(true);
-        } else if (this.properties.isSet(M_PE_rf_button.getName())){
-            this.M_PE_rf_button.setSelected(true);
-        } else if (this.properties.isSet(M_PE_ff_button.getName())){
-            this.M_PE_ff_button.setSelected(true);
-        }
-        if (this.properties.isSet(M_PE_un_box.getName())){
-            this.M_PE_un_box.setSelected(true);
-        }
-        if (this.properties.isSet(M_PE_noMixed_box.getName())){
-            this.M_PE_noMixed_box.setSelected(true);
-        }
-        if (this.properties.isSet(M_PE_dovetail_box.getName())){
-            this.M_PE_dovetail_box.setSelected(true);
-        }
-        if (this.properties.isSet(M_PE_noDiscordant_box.getName())){
-            this.M_PE_noDiscordant_box.setSelected(true);
-        }
-        if (this.properties.isSet(M_PE_noContain_box.getName())){
-            this.M_PE_noContain_box.setSelected(true);
-        }
-        if (this.properties.isSet(M_PE_noOverlap_box.getName())){
-            this.M_PE_noOverlap_box.setSelected(true);
-        }
-
-        if (this.properties.isSet(M_PE_X_value.getName())){
-            this.M_PE_X_value.setValue(Integer.parseInt(this.properties.get(M_PE_X_value.getName())));
-        }
-        if (this.properties.isSet(M_PE_I_value.getName())){
-            this.M_PE_I_value.setValue(Integer.parseInt(this.properties.get(M_PE_I_value.getName())));
-        }
-
-        if (properties.isSet(M_IDG_directory_button.getName())) {
-            this.M_IDG_directory_button.setSelected(true);
-            this.M_IDG_main_panel.setVisible(true);
-        } else if (properties.isSet(M_IDG_workflow_button.getName())) {
-            this.M_IDG_workflow_button.setSelected(true);
-            this.M_IDG_main_panel.setVisible(false);
-        }
-    }
-    
-    private void uSP_CMM(workflow_properties properties) {
-        // CMM properties saved
-        
-        //Input Options
-        if (this.properties.get(Options.getName()).equals(M_CM_button.getName())){
-            this.M_CM_button.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_q_box.getName())){
-            this.CM_I_q_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_qseq_box.getName())){
-            this.CM_I_qseq_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_solexa_box.getName())){
-            this.CM_I_solexa_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_solexa_box.getName())){
-            this.CM_I_solexa_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_f_box.getName())){
-            this.CM_I_f_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_r_box.getName())){
-            this.CM_I_r_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_c_box.getName())){
-            this.CM_I_c_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_phred33_box.getName())){
-            this.CM_I_phred33_box.setSelected(true);
-        } else if (this.properties.isSet(CM_I_phred64_box.getName())){
-            this.CM_I_phred64_box.setSelected(true);
-        }
-        
-        if (this.properties.isSet(CM_I_3_value.getName())){
-            this.CM_I_3_value.setValue(Integer.parseInt(this.properties.get(CM_I_3_value.getName())));
-        }
-        if (this.properties.isSet(CM_I_5_value.getName())){
-            this.CM_I_5_value.setValue(Integer.parseInt(this.properties.get(CM_I_5_value.getName())));
-        }
-        if (this.properties.isSet(CM_I_s_value.getName())){
-            this.CM_I_s_value.setValue(Integer.parseInt(this.properties.get(CM_I_s_value.getName())));
-        }
-        if (this.properties.isSet(CM_I_u_value.getName())){
-            this.CM_I_u_value.setValue(Integer.parseInt(this.properties.get(CM_I_u_value.getName())));
-        }
-        
-        //Alignment Options
-        if (this.properties.isSet(CM_A_ignoreQuals_box.getName())){
-            this.CM_A_ignoreQuals_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_A_no1mm_box.getName())){
-            this.CM_A_no1mm_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_A_norc_box.getName())){
-            this.CM_A_norc_box.setSelected(true);
-        }
-        
-        if (this.properties.isSet(CM_A_ete_button.getName())){
-            this.CM_A_ete_button.setSelected(true);
-            this.CM_A_ete_text.setEnabled(true);
-            this.CM_A_local_text.setEnabled(false);
-        }
-        if (this.properties.isSet(CM_A_local_button.getName())){
-            this.CM_A_local_button.setSelected(true);
-            this.CM_A_local_text.setEnabled(true);
-            this.CM_A_ete_text.setEnabled(false);
-        }
-        if (this.properties.isSet(CM_A_ete_text.getName())){
-            this.CM_A_ete_text.setText(this.properties.get(CM_A_ete_text.getName()));
-        }
-        if (this.properties.isSet(CM_A_local_text.getName())){
-            this.CM_A_local_text.setText(this.properties.get(CM_A_local_text.getName()));
-        }
-        
-        if (this.properties.isSet(CM_A_L_value.getName())){
-            this.CM_A_L_value.setValue(Integer.parseInt(this.properties.get(CM_A_L_value.getName())));
-        }
-        if (this.properties.isSet(CM_A_N_value.getName())){
-            this.CM_A_N_value.setValue(Integer.parseInt(this.properties.get(CM_A_N_value.getName())));
-        }
-        if (this.properties.isSet(CM_A_dpad_value.getName())){
-            this.CM_A_dpad_value.setValue(Integer.parseInt(this.properties.get(CM_A_dpad_value.getName())));
-        }
-        if (this.properties.isSet(CM_A_gbar_value.getName())){
-            this.CM_A_gbar_value.setValue(Integer.parseInt(this.properties.get(CM_A_gbar_value.getName())));
-        }
-        if (this.properties.isSet(CM_A_i_text.getName())){
-            this.CM_A_i_text.setText(this.properties.get(CM_A_i_text.getName()));
-        }
-        if (this.properties.isSet(CM_A_nceil_text.getName())){
-            this.CM_A_nceil_text.setText(this.properties.get(CM_A_nceil_text.getName()));
-        }
-        
-        //Scoring Options
-        if (this.properties.isSet(CM_S_ma_value.getName())){
-            this.CM_S_ma_value.setValue(Integer.parseInt(this.properties.get(CM_S_ma_value.getName())));
-        }
-        if (this.properties.isSet(CM_S_mp_value.getName())){
-            this.CM_S_mp_value.setText(this.properties.get(CM_S_mp_value.getName()));
-        }
-        if (this.properties.isSet(CM_S_np_value.getName())){
-            this.CM_S_np_value.setValue(Integer.parseInt(this.properties.get(CM_S_np_value.getName())));
-        }
-        if (this.properties.isSet(CM_S_rdg1_value.getName())){
-            this.CM_S_rdg1_value.setValue(Integer.parseInt(this.properties.get(CM_S_rdg1_value.getName())));
-        }
-        if (this.properties.isSet(CM_S_rdg2_value.getName())){
-            this.CM_S_rdg2_value.setValue(Integer.parseInt(this.properties.get(CM_S_rdg2_value.getName())));
-        }
-        if (this.properties.isSet(CM_S_rfg1_value.getName())){
-            this.CM_S_rfg1_value.setValue(Integer.parseInt(this.properties.get(CM_S_rfg1_value.getName())));
-        }
-        if (this.properties.isSet(CM_E_D_value.getName())){
-            this.CM_S_rfg2_value.setValue(Integer.parseInt(this.properties.get(CM_S_rfg2_value.getName())));
-        }
-        
-        //Reporting options
-        if (this.properties.isSet(CM_R_noset_button.getName())){
-            this.CM_R_noset_button.setSelected(true);
-        } else if (this.properties.isSet(CM_R_a_button.getName())){
-            this.CM_R_a_button.setSelected(true);
-        } else if (this.properties.isSet(CM_R_k_button.getName())){
-            this.CM_R_k_value.setValue(Integer.parseInt(this.properties.get(CM_R_k_value.getName())));
-            this.CM_R_k_value.setEnabled(true);
-            this.CM_R_k_button.setSelected(true);
-        }
-        
-        //Effort Options
-        if (this.properties.isSet(CM_E_D_value.getName())){
-            this.CM_E_D_value.setValue(Integer.parseInt(this.properties.get(CM_E_D_value.getName())));
-        }
-        if (this.properties.isSet(CM_E_R_value.getName())){
-            this.CM_E_R_value.setValue(Integer.parseInt(this.properties.get(CM_E_R_value.getName())));
-        }
-        
-        //Output Options
-        if (this.properties.isSet(CM_O_un_box.getName())){
-            this.CM_O_un_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_O_al_box.getName())){
-            this.CM_O_al_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_O_quiet_box.getName())){
-            this.CM_O_quiet_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_O_metfile_box.getName())){
-            this.CM_O_metfile_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_O_metstderr_box.getName())){
-            this.CM_O_metstderr_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_O_met_value.getName())){
-            this.CM_O_met_value.setValue(Integer.parseInt(this.properties.get(CM_O_met_value.getName())));
-        }
-        
-        //SAM Options
-        if (this.properties.isSet(CM_SAM_noUnal_box.getName())){
-            this.CM_SAM_noUnal_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_SAM_noHd_box.getName())){
-            this.CM_SAM_noHd_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_SAM_noSq_box.getName())){
-            this.CM_SAM_noSq_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_SAM_omitSecSeq_box.getName())){
-            this.CM_SAM_omitSecSeq_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_SAM_rgId_text.getName())){
-            this.CM_SAM_rgId_text.setText(this.properties.get(CM_SAM_rgId_text.getName()));
-        }
-        if (this.properties.isSet(CM_SAM_rg_text.getName())){
-            this.CM_SAM_rg_text.setText(this.properties.get(CM_SAM_rg_text.getName()));
-        }
-        
-        //Performances Options
-        if (this.properties.isSet(CM_P_reorder_box.getName())){
-            this.CM_P_reorder_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_P_mm_box.getName())){
-            this.CM_P_mm_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_P_o_text.getName())){
-            this.CM_P_o_text.setText(this.properties.get(CM_P_o_text.getName()));
-        }
-        if (this.properties.isSet(CM_P_p_value.getName())){
-            this.CM_P_p_value.setValue(Integer.parseInt(this.properties.get(CM_P_p_value.getName())));
-        }
-        
-        //Other Options
-        if (this.properties.isSet(CM_OO_qcFilter_box.getName())){
-            this.CM_OO_qcFilter_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_OO_nonDeterminist_box.getName())){
-            this.CM_OO_nonDeterminist_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_OO_seed_value.getName())){
-            this.CM_OO_seed_value.setValue(Integer.parseInt(this.properties.get(CM_OO_seed_value.getName())));
-        }
+    private void uspBoxesAndButtons (workflow_properties properties) {
+        if (properties.isSet(ALN_B_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_B_box.setSelected(true);
+        if (properties.isSet(ALN_E_box.getName()))
+            ALN_E_box.setSelected(true);
+        if (properties.isSet(ALN_I_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_I_box.setSelected(true);
+        if (properties.isSet(ALN_M_box.getName()))
+            ALN_M_box.setSelected(true);
+        if (properties.isSet(ALN_N_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_N_box.setSelected(true);
+        if (properties.isSet(ALN_O_box.getName()))
+            ALN_O_box.setSelected(true);
+        if (properties.isSet(ALN_R_box.getName()))
+            ALN_R_box.setSelected(true);
+        if (properties.isSet(ALN_b1_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_b1_box.setSelected(true);
+        if (properties.isSet(ALN_b2_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_b2_box.setSelected(true);
+        if (properties.isSet(ALN_b_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_b_box.setSelected(true);
+        if (properties.isSet(ALN_c_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_c_box.setSelected(true);
+        if (properties.isSet(ALN_d_box.getName()))
+            ALN_d_box.setSelected(true);
+        if (properties.isSet(ALN_e_box.getName()))
+            ALN_e_box.setSelected(true);
+        if (properties.isSet(ALN_i_box.getName()))
+            ALN_i_box.setSelected(true);
+        if (properties.isSet(ALN_k_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_k_box.setSelected(true);
+        if (properties.isSet(ALN_l_box.getName()))
+            ALN_l_box.setSelected(true);
+        if (properties.isSet(ALN_n_box.getName()))
+            ALN_n_box.setSelected(true);
+        if (properties.isSet(ALN_o_box.getName()))
+            ALN_o_box.setSelected(true);
+        if (properties.isSet(ALN_q_box.getName()) &&
+                properties.isSet(O_aln_button.getName()))
+            ALN_q_box.setSelected(true);
+        if (properties.isSet(ALN_t_box.getName()))
+            ALN_t_box.setSelected(true);
+        if (properties.isSet(MEM_A_box.getName()))
+            MEM_A_box.setSelected(true);
+        if (properties.isSet(MEM_B_box.getName()))
+            MEM_B_box.setSelected(true);
+        if (properties.isSet(MEM_C_box.getName()))
+            MEM_C_box.setSelected(true);
+        if (properties.isSet(MEM_E_box.getName()))
+            MEM_E_box.setSelected(true);
+        if (properties.isSet(MEM_H_box.getName()))
+            MEM_H_box.setSelected(true);
+        if (properties.isSet(MEM_L_box.getName()))
+            MEM_L_box.setSelected(true);
+        if (properties.isSet(MEM_M_box.getName()))
+            MEM_M_box.setSelected(true);
+        if (properties.isSet(MEM_O_box.getName()))
+            MEM_O_box.setSelected(true);
+        if (properties.isSet(MEM_P_box.getName()))
+            MEM_P_box.setSelected(true);
+        if (properties.isSet(MEM_R_box.getName()))
+            MEM_R_box.setSelected(true);
+        if (properties.isSet(MEM_T_box.getName()))
+            MEM_T_box.setSelected(true);
+        if (properties.isSet(MEM_U_box.getName()))
+            MEM_U_box.setSelected(true);
+        if (properties.isSet(MEM_a_box.getName()))
+            MEM_a_box.setSelected(true);
+        if (properties.isSet(MEM_c_box.getName()))
+            MEM_c_box.setSelected(true);
+        if (properties.isSet(MEM_d_box.getName()))
+            MEM_d_box.setSelected(true);
+        if (properties.isSet(MEM_k_box.getName()))
+            MEM_k_box.setSelected(true);
+        if (properties.isSet(MEM_p_box.getName()))
+            MEM_p_box.setSelected(true);
+        if (properties.isSet(MEM_r_box.getName()))
+            MEM_r_box.setSelected(true);
+        if (properties.isSet(MEM_t_box.getName()))
+            MEM_t_box.setSelected(true);
+        if (properties.isSet(MEM_v_box.getName()))
+            MEM_v_box.setSelected(true);
+        if (properties.isSet(MEM_w_box.getName()))
+            MEM_w_box.setSelected(true);
+        if (properties.isSet(SAMPE_N_box.getName()))
+            SAMPE_N_box.setSelected(true);
+        if (properties.isSet(SAMPE_P_box.getName()))
+            SAMPE_P_box.setSelected(true);
+        if (properties.isSet(SAMPE_a_box.getName()))
+            SAMPE_a_box.setSelected(true);
+        if (properties.isSet(SAMPE_n_box.getName()))
+            SAMPE_n_box.setSelected(true);
+        if (properties.isSet(SAMPE_o_box.getName()))
+            SAMPE_o_box.setSelected(true);
+        if (properties.isSet(SAMPE_r_box.getName()))
+            SAMPE_r_box.setSelected(true);
+        if (properties.isSet(SAMSE_n_box.getName()))
+            SAMSE_n_box.setSelected(true);
+        if (properties.isSet(SAMSE_r_box.getName()))
+            SAMSE_r_box.setSelected(true);
+        if (properties.isSet(O_aln_button.getName()))
+            O_aln_button.setSelected(true);
+        if (properties.isSet(O_bwasw_button.getName()))
+            O_bwasw_button.setSelected(true);
+        if (properties.isSet(O_mem_button.getName()))
+            O_mem_button.setSelected(true);
+        if (properties.isSet(ALN_PT_sampe_button.getName()))
+            ALN_PT_sampe_button.setSelected(true);
+        if (properties.isSet(ALN_PT_samse_button.getName()))
+            ALN_PT_samse_button.setSelected(true);
+        if (properties.isSet(M_IDG_workflow_button.getName()))
+            M_IDG_workflow_button.setSelected(true);
+        if (properties.isSet(M_IDG_directory_button.getName()))
+            M_IDG_directory_button.setSelected(true);
+        if (properties.isSet(ALN_PT_NOTUSED_button.getName()))
+            ALN_PT_NOTUSED_button.setSelected(true);
     }
     
     /**
@@ -3239,158 +3262,135 @@ public class BwaMapEditors extends javax.swing.JDialog implements EditorInterfac
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox ALN_B_box;
+    private javax.swing.JSpinner ALN_B_value;
+    private javax.swing.JCheckBox ALN_E_box;
+    private javax.swing.JSpinner ALN_E_value;
+    private javax.swing.JCheckBox ALN_I_box;
+    private javax.swing.JCheckBox ALN_M_box;
+    private javax.swing.JSpinner ALN_M_value;
+    private javax.swing.JCheckBox ALN_N_box;
+    private javax.swing.JCheckBox ALN_O_box;
+    private javax.swing.JSpinner ALN_O_value;
+    private javax.swing.JRadioButton ALN_PT_NOTUSED_button;
+    private javax.swing.JRadioButton ALN_PT_sampe_button;
+    private javax.swing.JRadioButton ALN_PT_samse_button;
+    private javax.swing.JPanel ALN_Panel;
+    private javax.swing.JCheckBox ALN_R_box;
+    private javax.swing.JSpinner ALN_R_value;
+    private javax.swing.JCheckBox ALN_b1_box;
+    private javax.swing.JCheckBox ALN_b2_box;
+    private javax.swing.JCheckBox ALN_b_box;
+    private javax.swing.JCheckBox ALN_c_box;
+    private javax.swing.JCheckBox ALN_d_box;
+    private javax.swing.JSpinner ALN_d_value;
+    private javax.swing.JCheckBox ALN_e_box;
+    private javax.swing.JSpinner ALN_e_value;
+    private javax.swing.JCheckBox ALN_i_box;
+    private javax.swing.JSpinner ALN_i_value;
+    private javax.swing.JCheckBox ALN_k_box;
+    private javax.swing.JSpinner ALN_k_value;
+    private javax.swing.JCheckBox ALN_l_box;
+    private javax.swing.JSpinner ALN_l_value;
+    private javax.swing.JCheckBox ALN_n_box;
+    private javax.swing.JSpinner ALN_n_value;
+    private javax.swing.JCheckBox ALN_o_box;
+    private javax.swing.JSpinner ALN_o_value;
+    private javax.swing.JCheckBox ALN_q_box;
+    private javax.swing.JSpinner ALN_q_value;
+    private javax.swing.JCheckBox ALN_t_box;
+    private javax.swing.JSpinner ALN_t_value;
+    private javax.swing.ButtonGroup BWA_ALN_PostTreatment_buttons;
+    private javax.swing.ButtonGroup BWA_IDG_source_buttons;
+    private javax.swing.ButtonGroup BWA_options_Buttons;
     private javax.swing.JTabbedPane BwaMapEditor;
-    private javax.swing.JLabel CM_A_L_label;
-    private javax.swing.JSpinner CM_A_L_value;
-    private javax.swing.JLabel CM_A_N_label;
-    private javax.swing.JSpinner CM_A_N_value;
-    private javax.swing.ButtonGroup CM_A_Type;
-    private javax.swing.JLabel CM_A_dpad_label;
-    private javax.swing.JSpinner CM_A_dpad_value;
-    private javax.swing.JRadioButton CM_A_ete_button;
-    private javax.swing.JTextField CM_A_ete_text;
-    private javax.swing.JLabel CM_A_gbar_label;
-    private javax.swing.JSpinner CM_A_gbar_value;
-    private javax.swing.JLabel CM_A_i_label;
-    private javax.swing.JTextField CM_A_i_text;
-    private javax.swing.JCheckBox CM_A_ignoreQuals_box;
-    private javax.swing.JRadioButton CM_A_local_button;
-    private javax.swing.JTextField CM_A_local_text;
-    private javax.swing.JLabel CM_A_nceil_label;
-    private javax.swing.JTextField CM_A_nceil_text;
-    private javax.swing.JCheckBox CM_A_no1mm_box;
-    private javax.swing.JCheckBox CM_A_norc_box;
-    private javax.swing.JPanel CM_Align_Panel;
-    private javax.swing.JLabel CM_E_D_label;
-    private javax.swing.JSpinner CM_E_D_value;
-    private javax.swing.JLabel CM_E_R_label;
-    private javax.swing.JSpinner CM_E_R_value;
-    private javax.swing.JPanel CM_Effort_Panel;
-    private javax.swing.JLabel CM_I_3_label;
-    private javax.swing.JSpinner CM_I_3_value;
-    private javax.swing.JLabel CM_I_5_label;
-    private javax.swing.JSpinner CM_I_5_value;
-    private javax.swing.JCheckBox CM_I_c_box;
-    private javax.swing.JCheckBox CM_I_f_box;
-    private javax.swing.JCheckBox CM_I_phred33_box;
-    private javax.swing.JCheckBox CM_I_phred64_box;
-    private javax.swing.JCheckBox CM_I_q_box;
-    private javax.swing.JCheckBox CM_I_qseq_box;
-    private javax.swing.JCheckBox CM_I_quals_box;
-    private javax.swing.JCheckBox CM_I_r_box;
-    private javax.swing.JLabel CM_I_s_label;
-    private javax.swing.JSpinner CM_I_s_value;
-    private javax.swing.JCheckBox CM_I_solexa_box;
-    private javax.swing.JLabel CM_I_u_label;
-    private javax.swing.JSpinner CM_I_u_value;
-    private javax.swing.JPanel CM_Input_Panel;
-    private javax.swing.JCheckBox CM_OO_nonDeterminist_box;
-    private javax.swing.JCheckBox CM_OO_qcFilter_box;
-    private javax.swing.JLabel CM_OO_seed_label;
-    private javax.swing.JSpinner CM_OO_seed_value;
-    private javax.swing.JCheckBox CM_O_al_box;
-    private javax.swing.JLabel CM_O_met_label;
-    private javax.swing.JSpinner CM_O_met_value;
-    private javax.swing.JCheckBox CM_O_metfile_box;
-    private javax.swing.JCheckBox CM_O_metstderr_box;
-    private javax.swing.ButtonGroup CM_O_phred_Buttons;
-    private javax.swing.JCheckBox CM_O_quiet_box;
-    private javax.swing.JCheckBox CM_O_un_box;
-    private javax.swing.JPanel CM_Other_Panel;
-    private javax.swing.JPanel CM_Output_Panel;
-    private javax.swing.ButtonGroup CM_PE_stream_buttons;
-    private javax.swing.ButtonGroup CM_PE_type_buttons;
-    private javax.swing.JCheckBox CM_P_mm_box;
-    private javax.swing.JLabel CM_P_o_label;
-    private javax.swing.JTextField CM_P_o_text;
-    private javax.swing.JLabel CM_P_p_label;
-    private javax.swing.JSpinner CM_P_p_value;
-    private javax.swing.JCheckBox CM_P_reorder_box;
-    private javax.swing.JPanel CM_Panel;
-    private javax.swing.JPanel CM_Performance_Panel;
-    private javax.swing.JRadioButton CM_R_a_button;
-    private javax.swing.ButtonGroup CM_R_buttons;
-    private javax.swing.JRadioButton CM_R_k_button;
-    private javax.swing.JSpinner CM_R_k_value;
-    private javax.swing.JRadioButton CM_R_noset_button;
-    private javax.swing.JPanel CM_Repor_Panel;
-    private javax.swing.JPanel CM_SAM_Panel;
-    private javax.swing.JCheckBox CM_SAM_noHd_box;
-    private javax.swing.JCheckBox CM_SAM_noSq_box;
-    private javax.swing.JCheckBox CM_SAM_noUnal_box;
-    private javax.swing.JCheckBox CM_SAM_omitSecSeq_box;
-    private javax.swing.JLabel CM_SAM_rgId_label;
-    private javax.swing.JTextField CM_SAM_rgId_text;
-    private javax.swing.JLabel CM_SAM_rg_label;
-    private javax.swing.JTextField CM_SAM_rg_text;
-    private javax.swing.JLabel CM_S_first_label;
-    private javax.swing.JLabel CM_S_ma_label;
-    private javax.swing.JSpinner CM_S_ma_value;
-    private javax.swing.JLabel CM_S_mp_label;
-    private javax.swing.JTextField CM_S_mp_value;
-    private javax.swing.JLabel CM_S_np_label;
-    private javax.swing.JSpinner CM_S_np_value;
-    private javax.swing.JSpinner CM_S_rdg1_value;
-    private javax.swing.JSpinner CM_S_rdg2_value;
-    private javax.swing.JLabel CM_S_rdg_label;
-    private javax.swing.JSpinner CM_S_rfg1_value;
-    private javax.swing.JSpinner CM_S_rfg2_value;
-    private javax.swing.JLabel CM_S_rfg_label;
-    private javax.swing.JLabel CM_S_second_label;
-    private javax.swing.JPanel CM_Scoring_Panel;
-    private javax.swing.JTabbedPane CM_TabPanel;
     private javax.swing.JButton ClosejButton6;
     private javax.swing.JButton IDG_Update_button;
     private javax.swing.JButton IDG_change_button;
     private javax.swing.JTextField IDG_r_text;
     private javax.swing.JComboBox IDG_selected_ComboBox;
-    private javax.swing.ButtonGroup M_Buttons;
-    private javax.swing.JRadioButton M_CM_button;
-    private javax.swing.JRadioButton M_ETE_F_button;
-    private javax.swing.JLabel M_ETE_Label;
-    private javax.swing.JRadioButton M_ETE_S_button;
-    private javax.swing.JRadioButton M_ETE_VF_button;
-    private javax.swing.JRadioButton M_ETE_VS_button;
+    private javax.swing.JCheckBox MEM_A_box;
+    private javax.swing.JSpinner MEM_A_value;
+    private javax.swing.JCheckBox MEM_B_box;
+    private javax.swing.JSpinner MEM_B_value;
+    private javax.swing.JCheckBox MEM_C_box;
+    private javax.swing.JCheckBox MEM_E_box;
+    private javax.swing.JSpinner MEM_E_value;
+    private javax.swing.JCheckBox MEM_H_box;
+    private javax.swing.JPanel MEM_INPUT_panel;
+    private javax.swing.JCheckBox MEM_L_box;
+    private javax.swing.JSpinner MEM_L_value;
+    private javax.swing.JCheckBox MEM_M_box;
+    private javax.swing.JPanel MEM_OUTPUT_panel;
+    private javax.swing.JCheckBox MEM_O_box;
+    private javax.swing.JSpinner MEM_O_value;
+    private javax.swing.JCheckBox MEM_P_box;
+    private javax.swing.JPanel MEM_Panel;
+    private javax.swing.JCheckBox MEM_R_box;
+    private javax.swing.JTextField MEM_R_text;
+    private javax.swing.JCheckBox MEM_T_box;
+    private javax.swing.JSpinner MEM_T_value;
+    private javax.swing.JCheckBox MEM_U_box;
+    private javax.swing.JSpinner MEM_U_value;
+    private javax.swing.JCheckBox MEM_a_box;
+    private javax.swing.JCheckBox MEM_c_box;
+    private javax.swing.JSpinner MEM_c_value;
+    private javax.swing.JCheckBox MEM_d_box;
+    private javax.swing.JSpinner MEM_d_value;
+    private javax.swing.JCheckBox MEM_k_box;
+    private javax.swing.JSpinner MEM_k_value;
+    private javax.swing.JCheckBox MEM_p_box;
+    private javax.swing.JCheckBox MEM_r_box;
+    private javax.swing.JSpinner MEM_r_value;
+    private javax.swing.JCheckBox MEM_t_box;
+    private javax.swing.JSpinner MEM_t_value;
+    private javax.swing.JCheckBox MEM_v_box;
+    private javax.swing.JSpinner MEM_v_value;
+    private javax.swing.JCheckBox MEM_w_box;
+    private javax.swing.JSpinner MEM_w_value;
     private javax.swing.JRadioButton M_IDG_directory_button;
     private javax.swing.JPanel M_IDG_main_panel;
-    private javax.swing.ButtonGroup M_IDG_source_buttons;
     private javax.swing.JRadioButton M_IDG_workflow_button;
-    private javax.swing.JRadioButton M_L_F_button;
-    private javax.swing.JRadioButton M_L_S_button;
-    private javax.swing.JRadioButton M_L_VF_button;
-    private javax.swing.JRadioButton M_L_VS_button;
-    private javax.swing.JLabel M_Local_Label;
-    private javax.swing.JLabel M_PE_I_label;
-    private javax.swing.JSpinner M_PE_I_value;
-    private javax.swing.JPanel M_PE_Panel;
-    private javax.swing.JLabel M_PE_X_label;
-    private javax.swing.JSpinner M_PE_X_value;
-    private javax.swing.JRadioButton M_PE_button;
-    private javax.swing.JCheckBox M_PE_dovetail_box;
-    private javax.swing.JRadioButton M_PE_ff_button;
-    private javax.swing.JRadioButton M_PE_fr_button;
-    private javax.swing.JCheckBox M_PE_noContain_box;
-    private javax.swing.JCheckBox M_PE_noDiscordant_box;
-    private javax.swing.JCheckBox M_PE_noMixed_box;
-    private javax.swing.JCheckBox M_PE_noOverlap_box;
-    private javax.swing.JRadioButton M_PE_rf_button;
-    private javax.swing.JCheckBox M_PE_un_box;
-    private javax.swing.JPanel M_Panel;
-    private javax.swing.JRadioButton M_SE_button;
-    private javax.swing.JRadioButton M_default_button;
+    private javax.swing.JRadioButton O_aln_button;
+    private javax.swing.JRadioButton O_bwasw_button;
+    private javax.swing.JRadioButton O_mem_button;
     private javax.swing.JTabbedPane Options;
-    private javax.swing.ButtonGroup bowtie2ChoicesButtons;
+    private javax.swing.JCheckBox SAMPE_N_box;
+    private javax.swing.JSpinner SAMPE_N_value;
+    private javax.swing.JCheckBox SAMPE_P_box;
+    private javax.swing.JPanel SAMPE_Panel;
+    private javax.swing.JCheckBox SAMPE_a_box;
+    private javax.swing.JSpinner SAMPE_a_value;
+    private javax.swing.JCheckBox SAMPE_n_box;
+    private javax.swing.JSpinner SAMPE_n_value;
+    private javax.swing.JCheckBox SAMPE_o_box;
+    private javax.swing.JSpinner SAMPE_o_value;
+    private javax.swing.JCheckBox SAMPE_r_box;
+    private javax.swing.JTextField SAMPE_r_text;
+    private javax.swing.JPanel SAMSE_Panel;
+    private javax.swing.JCheckBox SAMSE_n_box;
+    private javax.swing.JSpinner SAMSE_n_value;
+    private javax.swing.JCheckBox SAMSE_r_box;
+    private javax.swing.JTextField SAMSE_r_text;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField name_jTextField1;
     private javax.swing.JButton reset_jButton3;
     private javax.swing.JButton run_jButton5;

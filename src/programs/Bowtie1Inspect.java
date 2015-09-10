@@ -9,15 +9,9 @@ package programs;
 import biologic.GenomeFile;
 import biologic.Results;
 import biologic.Text;
-import biologic.TextFile;
 import configuration.Util;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import program.RunProgram;
 import static program.RunProgram.PortInputDOWN;
 import static program.RunProgram.PortInputUP;
@@ -33,25 +27,32 @@ import workflows.workflow_properties;
  * @date Aout 2015
  *
  */
-public class Bowtie2Inspect extends RunProgram {
+public class Bowtie1Inspect extends RunProgram {
     
     private String genomeFile ="";
+    private String outputFile ="";
     
     private String[] inspectTab = {"I_a_box","I_n_box","I_s_box","I_v_box"};
     
-    public Bowtie2Inspect(workflow_properties properties) {
+    public Bowtie1Inspect(workflow_properties properties) {
         this.properties=properties;
         execute();
     }
     
     @Override
     public boolean init_checkRequirements() {
-        int GenomeRef = properties.getInputID("GenomeFile");
-        if (GenomeRef==0) {
+        Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
+        
+        String s     = getFileName(getGenomePath(GenomeRef));
+        String path  = getGenomePath(GenomeRef);
+        
+        if (GenomeRef.isEmpty()||s.equals("Unknown")) {
             setStatus(status_BadRequirements,"No Genome found.");
             return false;
+        } else if (!path.matches(".*\\.ebwt$")){
+            setStatus(status_BadRequirements,"Choose a file with .ebwt at the end");
+            return false;
         }
-        // TO BE COMPLETELY IDIOT PROOF NEED TO TEST EXISTENCE OF BOWTIE2's FILES
         return true;
     }
     
@@ -59,15 +60,12 @@ public class Bowtie2Inspect extends RunProgram {
     public String[] init_createCommandLine() {
         
         // Inputs
-        Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
+        Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
         genomeFile = getGenomePath(GenomeRef);
-        if (genomeFile.matches("\\.\\d.bt2l?$")) {
-            genomeFile = getFileName(genomeFile);
-            genomeFile = genomeFile.replaceAll("\\.\\d.bt2l?$","");
-            genomeFile = genomeFile.replaceAll("\\.rev$","");
-        }
+        genomeFile = genomeFile.replaceAll("\\.\\d.ebwt$","");
+        genomeFile = genomeFile.replaceAll("\\.rev$","");
         
         // Programme et options
         if (properties.get("I_AO_button").equals("true")) {
@@ -120,8 +118,8 @@ public class Bowtie2Inspect extends RunProgram {
         private String getGenomePath(Vector<Integer> f){
             String s = "";
             for (int ids:f) {
-                GenomeFile gen =new GenomeFile(ids);
-                s = gen.getName();
+                GenomeFile g =new GenomeFile(ids);
+                s = g.getName();
             }
             return s;
         }
@@ -134,7 +132,8 @@ public class Bowtie2Inspect extends RunProgram {
             else return s;
             return name;
         }
-        
+
+
     /*
     * Output Parsing
     */

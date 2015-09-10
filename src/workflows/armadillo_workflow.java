@@ -543,15 +543,18 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     
     /**
      * This is an helper function to create the "Add Program" to the Popup-Menu
+     * @return 
      */
     public Menu loadProgram() {
         Vector<workflow_properties>program=new Vector<workflow_properties>();
         HashMap<String,Menu> ListCategoryNode=new HashMap<String,Menu>();
+        
         for (String filename:workflow_properties.loadPropertieslisting(config.get("propertiesPath"))) {
             workflow_properties tmp=new workflow_properties();
             tmp.load(filename, config.get("propertiesPath"));
             program.add(tmp);
         }
+        
         workflow_properties rootnode=new workflow_properties();
         rootnode.setName("Armadillo");
         Menu menu=new Menu("Add Program");

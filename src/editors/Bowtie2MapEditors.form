@@ -41,12 +41,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <Component id="Bowtie2MapEditor" min="-2" pref="476" max="-2" attributes="0"/>
+              <Component id="Bowtie2MapEditor" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -55,8 +56,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="Bowtie2MapEditor" min="-2" pref="745" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Bowtie2MapEditor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,6 +73,11 @@
       </Events>
     </Component>
     <Container class="javax.swing.JTabbedPane" name="Bowtie2MapEditor">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[832, 573]"/>
+        </Property>
+      </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="BwaEditors"/>
       </AccessibilityProperties>
@@ -86,7 +93,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[521, 521]"/>
+              <Dimension value="[830, 521]"/>
             </Property>
           </Properties>
           <Constraints>
@@ -100,114 +107,119 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="M_default_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="M_CM_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="Options" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TypeOfLib_panel" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="reset_jButton3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="stop_jButton4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="run_jButton5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ClosejButton6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="Output_Panel" min="-2" pref="372" max="-2" attributes="0"/>
+                                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="M_default_button" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="M_CM_button" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="run_jButton5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="stop_jButton4" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="ClosejButton6" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="reset_jButton3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="jScrollPane1" pref="442" max="32767" attributes="0"/>
-                                  <Component id="Options" alignment="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="name_jTextField1" min="-2" pref="248" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="4" pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="M_default_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="M_CM_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="name_jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Options" min="-2" pref="321" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="reset_jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="stop_jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="run_jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ClosejButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="TypeOfLib_panel" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="M_default_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_CM_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Options" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Output_Panel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="reset_jButton3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="run_jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="stop_jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ClosejButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel2">
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="name_jTextField1" min="-2" pref="248" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="name_jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JButton" name="jButton2">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Rename"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JTextField" name="name_jTextField1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Bowtie2 Mapping"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_jTextField1ActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Name"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Name"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="name_jTextField1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bowtie2 Mapping"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_jTextField1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rename"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
+            </Component>
             <Component class="javax.swing.JButton" name="reset_jButton3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reset default value"/>
@@ -240,9 +252,418 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClosejButton6ActionPerformed"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JPanel" name="TypeOfLib_panel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Type of librairy">
+                      <Font PropertyName="font" name="Ubuntu" size="15" style="1"/>
+                    </TitledBorder>
+                  </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[426, 210]"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="M_SE_button" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="M_PE_button" min="-2" pref="119" max="-2" attributes="0"/>
+                          <EmptySpace pref="124" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="M_PE_Panel" alignment="0" pref="414" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="M_SE_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="M_PE_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="M_PE_Panel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JRadioButton" name="M_SE_button">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="CM_PE_type_buttons"/>
+                    </Property>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" value="Single-end"/>
+                    <Property name="name" type="java.lang.String" value="M_SE_button" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_SE_buttonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="M_PE_button">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="CM_PE_type_buttons"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Paired-end"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[185, 24]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[185, 24]"/>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="M_PE_button" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_buttonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JPanel" name="M_PE_Panel">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Paired-end Options"/>
+                      </Border>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="M_PE_Panel" noResource="true"/>
+                  </Properties>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="M_PE_noOverlap_box" min="-2" max="-2" attributes="0"/>
+                                          <Component id="M_PE_noMixed_box" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="M_PE_noDiscordant_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="M_PE_dovetail_box" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="M_PE_noContain_box" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="M_PE_I_label" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="M_PE_I_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="M_PE_X_label" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="M_PE_X_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="M_PE_I_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_I_value" alignment="3" max="-2" attributes="0"/>
+                                  <Component id="M_PE_X_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_X_value" alignment="3" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="M_PE_noDiscordant_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_noMixed_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_dovetail_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="M_PE_noOverlap_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_noContain_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="M_PE_I_label">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-I/--minins"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_I_label" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="M_PE_X_label">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-X/--maxins"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_X_label" noResource="true"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_noMixed_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="--no-mixed"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_noMixed_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noMixed_boxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_noDiscordant_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="--no-discordant"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_noDiscordant_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noDiscordant_boxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_dovetail_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="--dovetail"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_dovetail_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_dovetail_boxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_noContain_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="--no-contain"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_noContain_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noContain_boxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_noOverlap_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="--no-overlap"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_noOverlap_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noOverlap_boxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="M_PE_I_value">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="M_PE_I_value" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="M_PE_I_spinner_value"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JSpinner" name="M_PE_X_value">
+                      <Properties>
+                        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                          <SpinnerModel initial="500" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="M_PE_X_value" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="M_PE_X_spinner_value"/>
+                      </Events>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="jPanel3">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="upstream/downstream mate orientations"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="M_PE_fr_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="M_PE_rf_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="M_PE_ff_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="M_PE_fr_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_rf_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_ff_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JRadioButton" name="M_PE_fr_button">
+                          <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="CM_PE_stream_buttons"/>
+                            </Property>
+                            <Property name="selected" type="boolean" value="true"/>
+                            <Property name="text" type="java.lang.String" value="--fr"/>
+                            <Property name="name" type="java.lang.String" value="M_PE_fr_button" noResource="true"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_fr_buttonActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="M_PE_rf_button">
+                          <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="CM_PE_stream_buttons"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="--rf"/>
+                            <Property name="name" type="java.lang.String" value="M_PE_rf_button" noResource="true"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_rf_buttonActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JRadioButton" name="M_PE_ff_button">
+                          <Properties>
+                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                              <ComponentRef name="CM_PE_stream_buttons"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="--ff"/>
+                            <Property name="name" type="java.lang.String" value="M_PE_ff_button" noResource="true"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_ff_buttonActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Ubuntu" size="15" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Type"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="Output_Panel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Output Options">
+                      <Font PropertyName="font" name="Ubuntu" size="15" style="1"/>
+                    </TitledBorder>
+                  </Border>
+                </Property>
+                <Property name="name" type="java.lang.String" value="Output_Panel" noResource="true"/>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="O_unANDunConc_box" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="O_alANDalConc_box" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="O_quiet_box" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="O_unANDunConc_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="O_alANDalConc_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="O_quiet_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JCheckBox" name="O_unANDunConc_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="--un &amp; --un-conc"/>
+                    <Property name="name" type="java.lang.String" value="O_unANDunConc_box" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="O_unANDunConc_boxActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="O_alANDalConc_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="--al &amp; --al-conc"/>
+                    <Property name="name" type="java.lang.String" value="O_alANDalConc_box" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="O_alANDalConc_boxActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="O_quiet_box">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="--quiet"/>
+                    <Property name="name" type="java.lang.String" value="O_quiet_box" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="O_quiet_boxActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JRadioButton" name="M_default_button">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="M_Buttons"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Ubuntu" size="15" style="1"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Use default options"/>
+                <Property name="name" type="java.lang.String" value="M_default_button" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_default_buttonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="M_CM_button">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="M_Buttons"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Ubuntu" size="15" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Custom Mapping"/>
+                <Property name="name" type="java.lang.String" value="M_CM_button" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_CM_buttonActionPerformed"/>
+              </Events>
+            </Component>
             <Container class="javax.swing.JTabbedPane" name="Options">
               <Properties>
                 <Property name="name" type="java.lang.String" value="Options" noResource="true"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[426, 257]"/>
+                </Property>
               </Properties>
               <AccessibilityProperties>
                 <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
@@ -267,15 +688,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="M_ETE_F_button" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="M_ETE_VF_button" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="M_ETE_S_button" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="M_ETE_Label" min="-2" pref="206" max="-2" attributes="0"/>
-                                  <Component id="M_ETE_VS_button" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_ETE_VS_button" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="M_ETE_Label" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="M_L_S_button" min="-2" max="-2" attributes="0"/>
@@ -284,12 +706,9 @@
                                           <Component id="M_L_VS_button" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="M_Local_Label" min="-2" pref="199" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="M_Local_Label" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -341,6 +760,9 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
                         </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="--fast-local"/>
                         <Property name="toolTipText" type="java.lang.String" value="In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (&quot;soft clipped&quot;) from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode."/>
                         <Property name="name" type="java.lang.String" value="M_L_F_button" noResource="true"/>
@@ -353,6 +775,9 @@
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="--fast-local"/>
                         <Property name="toolTipText" type="java.lang.String" value="In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (&quot;soft clipped&quot;) from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode."/>
@@ -367,6 +792,9 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
                         </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="--sensitive-local"/>
                         <Property name="toolTipText" type="java.lang.String" value="In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (&quot;soft clipped&quot;) from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode."/>
                         <Property name="name" type="java.lang.String" value="M_L_S_button" noResource="true"/>
@@ -379,6 +807,9 @@
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="--very-sensitive-local"/>
                         <Property name="toolTipText" type="java.lang.String" value="In this mode, Bowtie 2 does not require that the entire read align from one end to the other. Rather, some characters may be omitted (&quot;soft clipped&quot;) from the ends in order to achieve the greatest possible alignment score. The match bonus --ma is used in this mode, and the best possible alignment score is equal to the match bonus (--ma) times the length of the read. Specifying --local and one of the presets (e.g. --local --very-fast) is equivalent to specifying the local version of the preset (--very-fast-local). This is mutually exclusive with --end-to-end. --end-to-end is the default mode."/>
@@ -393,6 +824,9 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
                         </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="--very-sensitive"/>
                         <Property name="name" type="java.lang.String" value="M_ETE_VS_button" noResource="true"/>
                       </Properties>
@@ -404,6 +838,9 @@
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="--sensitive"/>
                         <Property name="name" type="java.lang.String" value="M_ETE_S_button" noResource="true"/>
@@ -417,6 +854,9 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
                         </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="--very-fast"/>
                         <Property name="name" type="java.lang.String" value="M_ETE_VF_button" noResource="true"/>
                       </Properties>
@@ -428,6 +868,9 @@
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="M_Buttons"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Ubuntu" size="15" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="--fast"/>
                         <Property name="name" type="java.lang.String" value="M_ETE_F_button" noResource="true"/>
@@ -463,16 +906,16 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="CM_TabPanel" pref="432" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="CM_TabPanel" min="-2" pref="413" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="CM_TabPanel" pref="288" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="CM_TabPanel" min="-2" pref="247" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -513,57 +956,43 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="CM_I_phred33_box" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CM_I_phred64_box" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="CM_I_q_box" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CM_I_qseq_box" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                                      <Component id="CM_I_solexa_box" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CM_I_quals_box" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="CM_I_f_box" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CM_I_r_box" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CM_I_c_box" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="CM_I_s_label" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="CM_I_u_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="CM_I_u_value" pref="100" max="32767" attributes="0"/>
-                                                          <Component id="CM_I_s_value" pref="100" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="CM_I_3_label" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                      <Component id="CM_I_5_label" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="CM_I_s_label" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CM_I_u_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="CM_I_u_value" pref="100" max="32767" attributes="0"/>
+                                                  <Component id="CM_I_s_value" pref="100" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="CM_I_3_label" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CM_I_5_label" alignment="1" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="CM_I_5_value" min="-2" pref="100" max="-2" attributes="0"/>
                                                   <Component id="CM_I_3_value" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                                               </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_I_solexaQuals_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="CM_I_phred33_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_I_phred64_box" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="CM_I_intQuals_box" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Component id="CM_I_TOI_panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -574,19 +1003,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_I_q_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_I_qseq_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_I_solexa_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_I_quals_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_I_f_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_I_c_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_I_r_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="CM_I_TOI_panel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="CM_I_s_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_I_s_value" alignment="3" max="-2" attributes="0"/>
@@ -605,73 +1023,17 @@
                                           <Component id="CM_I_phred33_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_I_phred64_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="CM_I_solexaQuals_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_I_intQuals_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_q_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-q"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_q_box" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are FASTQ files. FASTQ files usually have extension .fq or .fastq. FASTQ is the default format. See also: --solexa-quals and --int-quals."/>
-                              </AccessibilityProperties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_q_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_qseq_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--qseq"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_qseq_box" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are QSEQ files. QSEQ files usually end in _qseq.txt. See also: --solexa-quals and --int-quals."/>
-                              </AccessibilityProperties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_qseq_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_f_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-f"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_f_box" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are FASTA files. FASTA files usually have extension .fa, .fasta, .mfa, .fna or similar. FASTA files do not have a way of specifying quality values, so when -f is set, the result is as if --ignore-quals is also set."/>
-                              </AccessibilityProperties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_f_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_r_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-r"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_r_box" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are files with one input sequence per line, without any other information (no read names, no qualities). When -r is set, the result is as if --ignore-quals is also set."/>
-                              </AccessibilityProperties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_r_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_c_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-c"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_c_box" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="The read sequences are given on command line. I.e. &lt;m1&gt;, &lt;m2&gt; and &lt;singles&gt; are comma-separated lists of reads rather than lists of read files. There is no way to specify read names or qualities, so -c also implies --ignore-quals."/>
-                              </AccessibilityProperties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_c_boxActionPerformed"/>
-                              </Events>
-                            </Component>
                             <Component class="javax.swing.JCheckBox" name="CM_I_phred64_box">
                               <Properties>
                                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
@@ -702,28 +1064,34 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_phred33_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_solexa_box">
+                            <Component class="javax.swing.JCheckBox" name="CM_I_solexaQuals_box">
                               <Properties>
+                                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                  <ComponentRef name="CM_O_phred_Buttons"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="--solexa-quals"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_solexa_box" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_I_solexaQuals_box" noResource="true"/>
                               </Properties>
                               <AccessibilityProperties>
                                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Convert input qualities from Solexa (which can be negative) to Phred (which can&apos;t). This scheme was used in older Illumina GA Pipeline versions (prior to 1.3). Default: off."/>
                               </AccessibilityProperties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_solexa_boxActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_solexaQuals_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_I_quals_box">
+                            <Component class="javax.swing.JCheckBox" name="CM_I_intQuals_box">
                               <Properties>
+                                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                  <ComponentRef name="CM_O_phred_Buttons"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="--int-quals"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_quals_box" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_I_intQuals_box" noResource="true"/>
                               </Properties>
                               <AccessibilityProperties>
                                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Quality values are represented in the read input file as space-separated ASCII integers, e.g., 40 40 30 40..., rather than ASCII characters, e.g., II?I.... Integers are treated as being on the Phred quality scale unless --solexa-quals is also specified. Default: off."/>
                               </AccessibilityProperties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_quals_boxActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_intQuals_boxActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="CM_I_s_label">
@@ -794,6 +1162,110 @@
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_I_3_spinner_value"/>
                               </Events>
                             </Component>
+                            <Container class="javax.swing.JPanel" name="CM_I_TOI_panel">
+                              <Properties>
+                                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                    <TitledBorder title="Type of inputs (only q is available and set by default)"/>
+                                  </Border>
+                                </Property>
+                              </Properties>
+
+                              <Layout>
+                                <DimensionLayout dim="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="CM_I_q_box" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="CM_I_qseq_box" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="CM_I_f_box" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="CM_I_r_box" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="CM_I_c_box" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                                <DimensionLayout dim="1">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="CM_I_q_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_I_qseq_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="CM_I_f_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_I_c_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_I_r_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                </DimensionLayout>
+                              </Layout>
+                              <SubComponents>
+                                <Component class="javax.swing.JCheckBox" name="CM_I_c_box">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="-c"/>
+                                    <Property name="name" type="java.lang.String" value="CM_I_c_box" noResource="true"/>
+                                  </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="The read sequences are given on command line. I.e. &lt;m1&gt;, &lt;m2&gt; and &lt;singles&gt; are comma-separated lists of reads rather than lists of read files. There is no way to specify read names or qualities, so -c also implies --ignore-quals."/>
+                                  </AccessibilityProperties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_c_boxActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JCheckBox" name="CM_I_r_box">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="-r"/>
+                                    <Property name="name" type="java.lang.String" value="CM_I_r_box" noResource="true"/>
+                                  </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are files with one input sequence per line, without any other information (no read names, no qualities). When -r is set, the result is as if --ignore-quals is also set."/>
+                                  </AccessibilityProperties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_r_boxActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JCheckBox" name="CM_I_f_box">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="-f"/>
+                                    <Property name="name" type="java.lang.String" value="CM_I_f_box" noResource="true"/>
+                                  </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are FASTA files. FASTA files usually have extension .fa, .fasta, .mfa, .fna or similar. FASTA files do not have a way of specifying quality values, so when -f is set, the result is as if --ignore-quals is also set."/>
+                                  </AccessibilityProperties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_f_boxActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JCheckBox" name="CM_I_qseq_box">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="--qseq"/>
+                                    <Property name="name" type="java.lang.String" value="CM_I_qseq_box" noResource="true"/>
+                                  </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are QSEQ files. QSEQ files usually end in _qseq.txt. See also: --solexa-quals and --int-quals."/>
+                                  </AccessibilityProperties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_qseq_boxActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JCheckBox" name="CM_I_q_box">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="-q"/>
+                                    <Property name="name" type="java.lang.String" value="CM_I_q_box" noResource="true"/>
+                                  </Properties>
+                                  <AccessibilityProperties>
+                                    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Reads (specified with &lt;m1&gt;, &lt;m2&gt;, &lt;s&gt;) are FASTQ files. FASTQ files usually have extension .fq or .fastq. FASTQ is the default format. See also: --solexa-quals and --int-quals."/>
+                                  </AccessibilityProperties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_q_boxActionPerformed"/>
+                                  </Events>
+                                </Component>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="CM_Align_Panel">
@@ -827,9 +1299,13 @@
                                               </Group>
                                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_A_no1mm_box" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CM_A_no1mmUpfront_box" min="-2" max="-2" attributes="0"/>
                                                   <Component id="CM_A_ignoreQuals_box" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CM_A_norc_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="CM_A_nofw_box" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="CM_A_norc_box" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="CM_A_i_label" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -847,12 +1323,12 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="CM_A_nceil_label" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="CM_A_nceil_text" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <Component id="CM_A_nCeil_text" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_A_ete_button" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CM_A_endToEnd_button" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="CM_A_ete_text" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <Component id="CM_A_endToEnd_text" min="-2" pref="100" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="CM_A_local_button" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -876,12 +1352,13 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="CM_A_L_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_A_L_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_A_no1mm_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_no1mmUpfront_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="CM_A_dpad_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_dpad_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_A_nofw_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_norc_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -894,12 +1371,12 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="CM_A_nceil_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_A_nceil_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_nCeil_text" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_A_ete_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_A_ete_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_endToEnd_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_endToEnd_text" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_local_button" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_local_text" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -921,28 +1398,28 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_ignoreQuals_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_A_norc_box">
+                            <Component class="javax.swing.JCheckBox" name="CM_A_nofw_box">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="--nofw/--norc"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_norc_box" noResource="true"/>
+                                <Property name="text" type="java.lang.String" value="--nofw"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_nofw_box" noResource="true"/>
                               </Properties>
                               <AccessibilityProperties>
                                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="If --nofw is specified, bowtie2 will not attempt to align unpaired reads to the forward (Watson) reference strand. If --norc is specified, bowtie2 will not attempt to align unpaired reads against the reverse-complement (Crick) reference strand. In paired-end mode, --nofw and --norc pertain to the fragments; i.e. specifying --nofw causes bowtie2 to explore only those paired-end configurations corresponding to fragments from the reverse-complement (Crick) strand. Default: both strands enabled."/>
                               </AccessibilityProperties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_norc_boxActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_nofw_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_A_no1mm_box">
+                            <Component class="javax.swing.JCheckBox" name="CM_A_no1mmUpfront_box">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="--no-1mm-upfront"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_no1mm_box" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_no1mmUpfront_box" noResource="true"/>
                               </Properties>
                               <AccessibilityProperties>
                                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="By default, Bowtie 2 will attempt to find either an exact or a 1-mismatch end-to-end alignment for the read before trying the multiseed heuristic. Such alignments can be found very quickly, and many short read alignments have exact or near-exact end-to-end alignments. However, this can lead to unexpected alignments when the user also sets options governing the multiseed heuristic, like -L and -N. For instance, if the user specifies -N 0 and -L equal to the length of the read, the user will be surprised to find 1-mismatch alignments reported. This option prevents Bowtie 2 from searching for 1-mismatch end-to-end alignments before using the multiseed heuristic, which leads to the expected behavior when combined with options such as -L and -N. This comes at the expense of speed."/>
                               </AccessibilityProperties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_no1mm_boxActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_no1mmUpfront_boxActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="CM_A_N_label">
@@ -993,26 +1470,26 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_i_textActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="CM_A_nceil_text">
+                            <Component class="javax.swing.JTextField" name="CM_A_nCeil_text">
                               <Properties>
-                                <Property name="name" type="java.lang.String" value="CM_A_nceil_text" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_nCeil_text" noResource="true"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_A_nceil_textFocusLost"/>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_nceil_textActionPerformed"/>
+                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_A_nCeil_textFocusLost"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_nCeil_textActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JRadioButton" name="CM_A_ete_button">
+                            <Component class="javax.swing.JRadioButton" name="CM_A_endToEnd_button">
                               <Properties>
                                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                                   <ComponentRef name="CM_A_Type"/>
                                 </Property>
                                 <Property name="selected" type="boolean" value="true"/>
                                 <Property name="text" type="java.lang.String" value="--end-to-end"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_ete_button" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_endToEnd_button" noResource="true"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_ete_buttonActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_endToEnd_buttonActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JRadioButton" name="CM_A_local_button">
@@ -1028,13 +1505,13 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_local_buttonActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="CM_A_ete_text">
+                            <Component class="javax.swing.JTextField" name="CM_A_endToEnd_text">
                               <Properties>
-                                <Property name="name" type="java.lang.String" value="CM_A_ete_text" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_endToEnd_text" noResource="true"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_A_ete_textFocusLost"/>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_ete_textActionPerformed"/>
+                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_A_endToEnd_textFocusLost"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_endToEnd_textActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JSpinner" name="CM_A_N_value">
@@ -1088,6 +1565,15 @@
                               <Events>
                                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_A_local_textFocusLost"/>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_local_textActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_norc_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--norc"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_norc_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_norc_boxActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -1152,7 +1638,7 @@
                                               <Component id="CM_S_np_value" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                                      <EmptySpace pref="72" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1188,7 +1674,7 @@
                                           <Component id="CM_S_rfg1_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_S_rfg2_value" alignment="3" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1507,134 +1993,6 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_E_R_spinner_value"/>
-                              </Events>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="CM_Output_Panel">
-                          <Properties>
-                            <Property name="name" type="java.lang.String" value="CM_Output_Panel" noResource="true"/>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                              <JTabbedPaneConstraints tabName="Output">
-                                <Property name="tabTitle" type="java.lang.String" value="Output"/>
-                              </JTabbedPaneConstraints>
-                            </Constraint>
-                          </Constraints>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_O_metfile_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="CM_O_metstderr_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                              <Component id="CM_O_met_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="CM_O_met_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_O_un_box" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CM_O_quiet_box" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="CM_O_al_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_O_un_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_O_al_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="CM_O_quiet_box" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_O_met_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_O_met_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_O_metfile_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_O_metstderr_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JCheckBox" name="CM_O_un_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--un/--un-conc"/>
-                                <Property name="name" type="java.lang.String" value="CM_O_un_box" noResource="true"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_O_un_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_O_al_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--al/--al-conc"/>
-                                <Property name="name" type="java.lang.String" value="CM_O_al_box" noResource="true"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_O_al_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_O_quiet_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--quiet"/>
-                                <Property name="name" type="java.lang.String" value="CM_O_quiet_box" noResource="true"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_O_quiet_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_O_metfile_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--met-file"/>
-                                <Property name="name" type="java.lang.String" value="CM_O_metfile_box" noResource="true"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_O_metfile_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JCheckBox" name="CM_O_metstderr_box">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--met-stderr"/>
-                                <Property name="name" type="java.lang.String" value="CM_O_metstderr_box" noResource="true"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_O_metstderr_boxActionPerformed"/>
-                              </Events>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_O_met_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--met"/>
-                                <Property name="name" type="java.lang.String" value="CM_O_met_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JSpinner" name="CM_O_met_value">
-                              <Properties>
-                                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                                </Property>
-                                <Property name="name" type="java.lang.String" value="CM_O_met_value" noResource="true"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_O_met_spinner_value"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -1984,485 +2342,200 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JRadioButton" name="M_default_button">
+            <Container class="javax.swing.JPanel" name="jPanel5">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="M_Buttons"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Indexed Genome Source">
+                      <Font PropertyName="font" name="Ubuntu" size="15" style="1"/>
+                    </TitledBorder>
+                  </Border>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Use default options"/>
-                <Property name="name" type="java.lang.String" value="M_default_button" noResource="true"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_default_buttonActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="M_CM_button">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="M_Buttons"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[376, 210]"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Custom Made Mapping"/>
-                <Property name="name" type="java.lang.String" value="M_CM_button" noResource="true"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_CM_buttonActionPerformed"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="M_IDG_main_panel" min="352" pref="352" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="M_IDG_workflow_button" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="M_IDG_directory_button" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="M_IDG_workflow_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="M_IDG_directory_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="M_IDG_main_panel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel4">
+                <Component class="javax.swing.JRadioButton" name="M_IDG_workflow_button">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="M_IDG_source_buttons"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Workflow"/>
+                    <Property name="name" type="java.lang.String" value="M_IDG_workflow_button" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_IDG_workflow_buttonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="M_IDG_directory_button">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="M_IDG_source_buttons"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Directory"/>
+                    <Property name="name" type="java.lang.String" value="M_IDG_directory_button" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_IDG_directory_buttonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Container class="javax.swing.JPanel" name="M_IDG_main_panel">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                        <TitledBorder title="Directory Indexed Genome Options"/>
+                      </Border>
+                    </Property>
+                    <Property name="name" type="java.lang.String" value="M_IDG_main_panel" noResource="true"/>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[354, 153]"/>
+                    </Property>
+                  </Properties>
 
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="IDG_r_text" alignment="0" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="M_IDG_workflow_button" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="M_IDG_directory_button" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="IDG_change_button" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="M_PE_Panel" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="M_SE_button" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="M_PE_button" min="-2" pref="119" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="IDG_Update_button" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="M_IDG_main_panel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="IDG_selected_ComboBox" alignment="1" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="31" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="M_IDG_workflow_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="M_IDG_directory_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="IDG_change_button" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="M_IDG_main_panel" min="-2" max="-2" attributes="0"/>
+                              <Component id="IDG_r_text" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="M_SE_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="M_PE_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="IDG_Update_button" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="M_PE_Panel" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="IDG_selected_ComboBox" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel4">
+                    <Component class="javax.swing.JComboBox" name="IDG_selected_ComboBox">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Indexed Genome from"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="M_IDG_workflow_button">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="M_IDG_source_buttons"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="1">
+                            <StringItem index="0" value="Choose_an_indexed_Genome"/>
+                          </StringArray>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Workflow"/>
-                        <Property name="name" type="java.lang.String" value="M_IDG_workflow_button" noResource="true"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_IDG_workflow_buttonActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="M_IDG_directory_button">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="M_IDG_source_buttons"/>
+                        <Property name="name" type="java.lang.String" value="IDG_selected_ComboBox" noResource="true"/>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[320, 27]"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Directory"/>
-                        <Property name="name" type="java.lang.String" value="M_IDG_directory_button" noResource="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_IDG_directory_buttonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_selected_ComboBoxActionPerformed"/>
                       </Events>
                     </Component>
-                    <Container class="javax.swing.JPanel" name="M_IDG_main_panel">
+                    <Component class="javax.swing.JTextField" name="IDG_r_text">
                       <Properties>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title="Indexed Options Genome"/>
-                          </Border>
+                        <Property name="name" type="java.lang.String" value="IDG_r_text" noResource="true"/>
+                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[320, 27]"/>
                         </Property>
-                        <Property name="name" type="java.lang.String" value="M_IDG_main_panel" noResource="true"/>
-                      </Properties>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="IDG_change_button" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="IDG_Update_button" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="IDG_r_text" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
-                                      <Component id="IDG_selected_ComboBox" alignment="1" min="-2" pref="360" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="IDG_change_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="IDG_r_text" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="IDG_Update_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="IDG_selected_ComboBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Component class="javax.swing.JComboBox" name="IDG_selected_ComboBox">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Choose_an_indexed_Genome"/>
-                              </StringArray>
-                            </Property>
-                            <Property name="name" type="java.lang.String" value="IDG_selected_ComboBox" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_selected_ComboBoxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="IDG_r_text">
-                          <Properties>
-                            <Property name="name" type="java.lang.String" value="IDG_r_text" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_r_textActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel2">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Indexed Genome Repertory :"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel3">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Select an indexed genome"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="IDG_Update_button">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Update"/>
-                            <Property name="name" type="java.lang.String" value="IDG_Update_button" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_Update_buttonActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="IDG_change_button">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Change"/>
-                            <Property name="name" type="java.lang.String" value="IDG_change_button" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_change_buttonActionPerformed"/>
-                          </Events>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Component class="javax.swing.JRadioButton" name="M_SE_button">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="CM_PE_type_buttons"/>
-                        </Property>
-                        <Property name="selected" type="boolean" value="true"/>
-                        <Property name="text" type="java.lang.String" value="Single-end"/>
-                        <Property name="name" type="java.lang.String" value="M_SE_button" noResource="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_SE_buttonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_r_textActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="M_PE_button">
+                    <Component class="javax.swing.JLabel" name="jLabel2">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="CM_PE_type_buttons"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Paired-end"/>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[185, 24]"/>
-                        </Property>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[185, 24]"/>
-                        </Property>
-                        <Property name="name" type="java.lang.String" value="M_PE_button" noResource="true"/>
+                        <Property name="text" type="java.lang.String" value="Indexed Genome Repertory :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Select an indexed genome"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="IDG_Update_button">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Update"/>
+                        <Property name="name" type="java.lang.String" value="IDG_Update_button" noResource="true"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_buttonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_Update_buttonActionPerformed"/>
                       </Events>
                     </Component>
-                    <Container class="javax.swing.JPanel" name="M_PE_Panel">
+                    <Component class="javax.swing.JButton" name="IDG_change_button">
                       <Properties>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title="Paired-end Options"/>
-                          </Border>
-                        </Property>
-                        <Property name="name" type="java.lang.String" value="M_PE_Panel" noResource="true"/>
+                        <Property name="text" type="java.lang.String" value="Change"/>
+                        <Property name="name" type="java.lang.String" value="IDG_change_button" noResource="true"/>
                       </Properties>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="M_PE_un_box" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="M_PE_dovetail_box" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="M_PE_fr_button" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="M_PE_rf_button" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="M_PE_ff_button" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="M_PE_I_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="M_PE_I_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="M_PE_noOverlap_box" min="-2" max="-2" attributes="0"/>
-                                              <Component id="M_PE_noMixed_box" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="M_PE_noDiscordant_box" min="-2" max="-2" attributes="0"/>
-                                              <Component id="M_PE_noContain_box" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="M_PE_X_label" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="M_PE_X_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace pref="20" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="M_PE_un_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_dovetail_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="M_PE_I_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_I_value" alignment="3" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="M_PE_X_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_X_value" alignment="3" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="M_PE_fr_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_rf_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_ff_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="M_PE_noDiscordant_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_noMixed_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="M_PE_noOverlap_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="M_PE_noContain_box" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="14" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Component class="javax.swing.JLabel" name="M_PE_I_label">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="-I/--minins"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_I_label" noResource="true"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="M_PE_X_label">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="-X/--maxins"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_X_label" noResource="true"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="M_PE_un_box">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="--un/--un-conc"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_un_box" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_un_boxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JRadioButton" name="M_PE_fr_button">
-                          <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="CM_PE_stream_buttons"/>
-                            </Property>
-                            <Property name="selected" type="boolean" value="true"/>
-                            <Property name="text" type="java.lang.String" value="--fr"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_fr_button" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_fr_buttonActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JRadioButton" name="M_PE_rf_button">
-                          <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="CM_PE_stream_buttons"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="--rf"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_rf_button" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_rf_buttonActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JRadioButton" name="M_PE_ff_button">
-                          <Properties>
-                            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                              <ComponentRef name="CM_PE_stream_buttons"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="--ff"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_ff_button" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_ff_buttonActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="M_PE_noMixed_box">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="--no-mixed"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_noMixed_box" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noMixed_boxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="M_PE_noDiscordant_box">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="--no-discordant"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_noDiscordant_box" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noDiscordant_boxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="M_PE_dovetail_box">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="--dovetail"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_dovetail_box" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_dovetail_boxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="M_PE_noContain_box">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="--no-contain"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_noContain_box" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noContain_boxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JCheckBox" name="M_PE_noOverlap_box">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="--no-overlap"/>
-                            <Property name="name" type="java.lang.String" value="M_PE_noOverlap_box" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_noOverlap_boxActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JSpinner" name="M_PE_I_value">
-                          <Properties>
-                            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                              <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                            </Property>
-                            <Property name="name" type="java.lang.String" value="M_PE_I_value" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="M_PE_I_spinner_value"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JSpinner" name="M_PE_X_value">
-                          <Properties>
-                            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                              <SpinnerModel initial="500" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                            </Property>
-                            <Property name="name" type="java.lang.String" value="M_PE_X_value" noResource="true"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="M_PE_X_spinner_value"/>
-                          </Events>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Component class="javax.swing.JLabel" name="jLabel5">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Type of mapping"/>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDG_change_buttonActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Ubuntu" size="15" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="from"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

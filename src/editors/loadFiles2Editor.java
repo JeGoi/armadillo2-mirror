@@ -736,7 +736,8 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
                     properties.put("inputAllNames",s);
                     addFilesInTheList();
                 } else if (!s.equals("") && !s.contains("<>")) {
-                    typeOfFiles = findTypeInt(s);
+                    String type = s.substring(s.lastIndexOf(".")+1,s.length());
+                    typeOfFiles = findTypeInt(type);
                     properties.put("inputAllNames",s);
                 }
                 this.type_jComboBox1.setSelectedIndex(typeOfFiles);
