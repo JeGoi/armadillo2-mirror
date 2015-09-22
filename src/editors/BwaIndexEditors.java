@@ -83,8 +83,8 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         run_jButton5 = new javax.swing.JButton();
         ClosejButton6 = new javax.swing.JButton();
         IG_Panel = new javax.swing.JPanel();
-        IG_p_button = new javax.swing.JCheckBox();
-        IG_p_value = new javax.swing.JTextField();
+        IG_p_box = new javax.swing.JCheckBox();
+        IG_p_text = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         IG_notUsed_button = new javax.swing.JRadioButton();
         IG_is_button = new javax.swing.JRadioButton();
@@ -182,23 +182,23 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         IG_Panel.setEnabled(false);
         IG_Panel.setName("IG_Panel"); // NOI18N
 
-        IG_p_button.setText("-p (prefix for output database)");
-        IG_p_button.setName("IG_p_button"); // NOI18N
-        IG_p_button.addActionListener(new java.awt.event.ActionListener() {
+        IG_p_box.setText("-p (prefix for output database)");
+        IG_p_box.setName("IG_p_box"); // NOI18N
+        IG_p_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_p_buttonActionPerformed(evt);
+                IG_p_boxActionPerformed(evt);
             }
         });
 
-        IG_p_value.setName("IG_p_value"); // NOI18N
-        IG_p_value.addFocusListener(new java.awt.event.FocusAdapter() {
+        IG_p_text.setName("IG_p_text"); // NOI18N
+        IG_p_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                IG_p_valueFocusLost(evt);
+                IG_p_textFocusLost(evt);
             }
         });
-        IG_p_value.addActionListener(new java.awt.event.ActionListener() {
+        IG_p_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IG_p_valueActionPerformed(evt);
+                IG_p_textActionPerformed(evt);
             }
         });
 
@@ -238,8 +238,8 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
             .addGroup(IG_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IG_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IG_p_button)
+                    .addComponent(IG_p_text, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IG_p_box)
                     .addComponent(jLabel3)
                     .addGroup(IG_PanelLayout.createSequentialGroup()
                         .addComponent(IG_notUsed_button)
@@ -253,9 +253,9 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
             IG_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IG_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(IG_p_button)
+                .addComponent(IG_p_box)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IG_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IG_p_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -449,14 +449,14 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         }        
     }//GEN-LAST:event_IDG_change_buttonActionPerformed
 
-    private void IG_p_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_buttonActionPerformed
+    private void IG_p_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(IG_p_button,IG_p_value);
-    }//GEN-LAST:event_IG_p_buttonActionPerformed
+        boxEventText(IG_p_box,IG_p_text);
+    }//GEN-LAST:event_IG_p_boxActionPerformed
 
-    private void IG_p_valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_valueActionPerformed
+    private void IG_p_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_textActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IG_p_valueActionPerformed
+    }//GEN-LAST:event_IG_p_textActionPerformed
 
     private void IG_notUsed_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_notUsed_buttonActionPerformed
         // TODO add your handling code here:
@@ -488,14 +488,14 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         buttonEvent(IG_bwtsw_button);
     }//GEN-LAST:event_IG_bwtsw_buttonActionPerformed
 
-    private void IG_p_valueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IG_p_valueFocusLost
+    private void IG_p_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IG_p_textFocusLost
         // TODO add your handling code here:
-        eventText(IG_p_value);
-        if (properties.get(IG_bwtsw_button.getName()).equals("")){
-            properties.remove(IG_p_button);
-            IG_p_button.setSelected(false);
+        boxEventText(IG_p_box,IG_p_text);
+        if (properties.get(IG_p_text.getName()).equals("")){
+            properties.remove(IG_p_box);
+            IG_p_box.setSelected(false);
         }
-    }//GEN-LAST:event_IG_p_valueFocusLost
+    }//GEN-LAST:event_IG_p_textFocusLost
 
     private void IDG_r_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IDG_r_textFocusLost
         // TODO add your handling code here:
@@ -512,13 +512,13 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         properties.put(b.getName(),b.isSelected());
     }
     //For Box
-    private void boxEvent(javax.swing.JCheckBox b,javax.swing.JTextField t){
+    private void boxEventText(javax.swing.JCheckBox b,javax.swing.JTextField t){
         if (b.isSelected()==true){
             if (t != null) {
                 t.setEnabled(true);
                 properties.put(t.getName(),t.getText());
-            }
-            properties.put(b.getName(),b.isSelected());
+                properties.put(b.getName(),t.getText());
+            } else properties.put(b.getName(),b.isSelected());
         } else {
             if (t != null){
                 t.setEnabled(false);
@@ -551,7 +551,7 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     }
     
     private void defaultPgrmValues(workflow_properties properties) {
-        if (!properties.isSet(IG_p_value.getName())){
+        if (!properties.isSet(IG_p_text.getName())){
             String defaultEditorStatus = properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
             int z = 0;
@@ -569,13 +569,13 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     private void updateSavedProperties(workflow_properties properties) {
         // IG Properties saved
         // Utilisation d'une méthode ?
-        if (properties.isSet(IG_p_value.getName())){
-            this.IG_p_value.setText(properties.get(IG_p_value.getName()));
+        if (properties.isSet(IG_p_text.getName())){
+            this.IG_p_text.setText(properties.get(IG_p_text.getName()));
         }
         
-        if (properties.isSet(IG_p_button.getName())) {
-            this.IG_p_value.setEnabled(true);
-            this.IG_p_button.setSelected(true);
+        if (properties.isSet(IG_p_box.getName())) {
+            this.IG_p_text.setEnabled(true);
+            this.IG_p_box.setSelected(true);
         }
         
         if (properties.isSet(IG_notUsed_button.getName())) {
@@ -637,8 +637,8 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     private javax.swing.JRadioButton IG_is_button;
     private javax.swing.JRadioButton IG_notUsed_button;
     private javax.swing.ButtonGroup IG_options_buttons;
-    private javax.swing.JCheckBox IG_p_button;
-    private javax.swing.JTextField IG_p_value;
+    private javax.swing.JCheckBox IG_p_box;
+    private javax.swing.JTextField IG_p_text;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

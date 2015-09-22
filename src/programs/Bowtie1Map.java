@@ -138,8 +138,8 @@ public class Bowtie1Map extends RunProgram {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
-        String s1 = getFileName(getFastqPath(Fastq1));
-        String s2 = getFileName(getFastqPath(Fastq2));
+        String s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
+        String s2 = Util.getFileName(FastqFile.getFastqPath(Fastq2));
 
         // In case program is started without edition
         pgrmStartWithoutEdition(Fastq2);
@@ -166,8 +166,8 @@ public class Bowtie1Map extends RunProgram {
             setStatus(status_BadRequirements,"Choose a Genome Reference");
             return false;
         } else if (!Fastq2.isEmpty() && b4) {
-            s1 = getFileName(getFastqPath(Fastq1));
-            s2 = getFileName(getFastqPath(Fastq2));
+            s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
+            s2 = Util.getFileName(FastqFile.getFastqPath(Fastq2));
             if (!s1.contains("<>") && !s2.contains("<>")) {
             if (fastqGoodNumber(s1,s2) && fastqSameName(s1,s2)) {
                     setStatus(status_BadRequirements,"It looks that Fastq paired are not compatible.\n"
@@ -220,12 +220,12 @@ public class Bowtie1Map extends RunProgram {
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
-        fastqFile1 = getFastqPath(Fastq1);
-        if (!Fastq2.isEmpty()) fastqFile2 = getFastqPath(Fastq2);
+        fastqFile1 = FastqFile.getFastqPath(Fastq1);
+        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqPath(Fastq2);
         
         // Genome File source
         if (!GenomeRef.isEmpty()){
-            genomeFile = getGenomePath(GenomeRef);
+            genomeFile = GenomeFile.getGenomePath(GenomeRef);
             genomeFile = genomeFile.replaceAll("\\.\\d\\.ebwtl?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         } else {
@@ -235,8 +235,8 @@ public class Bowtie1Map extends RunProgram {
             genomeFile = genomePath+File.separator+genomeChoosed;
         }
         
-        fastqFile1Name = getFileName(fastqFile1);
-        genomeFileName = getFileName(genomeFile);
+        fastqFile1Name = Util.getFileName(fastqFile1);
+        genomeFileName = Util.getFileName(genomeFile);
         outfile = outPutPath+File.separator+fastqFile1Name+"_"+genomeFileName;
         if (properties.isSet("O_SAM_sam_box"))
             outfile = outfile+".sam";
@@ -304,81 +304,32 @@ public class Bowtie1Map extends RunProgram {
                     String t = op;
                     boolean path = false;
                     // Extract the command line operator
-                    if (op.contains("PATH")){
-                        path = true;
+                    if (op.equals("CM_R_maxPATH_box")){
+                        t = "--max "+outPutPath+File.separator+fastqFile1Name+"_"+genomeFileName+"_maxFile.fq";
                     } else {
-                        t = t.replaceAll("_[a-z]*$","");
-                        t = t.replaceAll("([A-Z]*_)*","");
-                        t = t.replaceFirst("([A-Z])","-$1");
-                    }
-                    
-                    if (t.length()>1) {
-                        if (t.contains("DOT")) t = t.replaceAll("DOT",".");
-                        if (!t.matches(".*-[A-Z]{2}")) t = t.toLowerCase();
-                        if (t.matches("[a-z]+[0-9][a-z]+"))
-                            t = t.replaceAll("([a-z]+)([0-9])([a-z]+)","$1-$2$3");
-                        t = " --"+t;
-                    } else {
-                        t = " -"+t;
-                    }
-                    // Add the value if needed
-                    if (!properties.get(op).matches("[true]?[false]")) {
-                        t = t+" " + properties.get(op);
-                    }
-                    if (path) {
-                        t = t+" "+outPutPath;
-                        if (op.equals("CM_R_maxPATH_box")) {
-                            t = t+File.separator+fastqFile1Name+"_"+genomeFileName+"_maxFile.fq";
+                        t = t.replaceAll("_[a-z]*$","_");
+                        t = t.replaceAll("(.*_(.*)_$","$1");
+                        if (t.length()>1) {
+                            t = t.replaceFirst("([A-Z])","-$1");
+                            if (t.contains("DOT")) t = t.replaceAll("DOT",".");
+                            if (!t.matches(".*-[A-Z]{2}")) t = t.toLowerCase();
+                            if (t.matches("[a-z]+[0-9][a-z]+"))
+                                t = t.replaceAll("([a-z]+)([0-9])([a-z]+)","$1-$2$3");
+                            t = " --"+t;
+                        } else {
+                            t = " -"+t;
+                        }
+                        // Add the value if needed
+                        if (!properties.get(op).matches("[true]?[false]")) {
+                            t = t+" " + properties.get(op);
                         }
                     }
-
                     s = s+" "+t;
                 }
             }
             return s;
         }
         
-        private String getFastqPath(Vector<Integer> f){
-            String s = "";
-            for (int ids:f) {
-                FastqFile fas =new FastqFile(ids);
-                s = fas.getName();
-            }
-            if (s.contains("<>")) s = s.replaceAll("<>", ",");
-            return s;
-        }
-        
-        private String getGenomePath(Vector<Integer> f){
-            String s = "";
-            for (int ids:f) {
-                GenomeFile gen =new GenomeFile(ids);
-                s = gen.getName();
-            }
-            return s;
-        }
-
-        private String getFileName(String s){
-            String name = s;
-            
-            // Test for several input name
-            String sFirstName = name;
-            if (s.contains(",")) {
-                String[] tab = s.split(",");
-                sFirstName = tab[0];
-            }
-            if (!name.equals(sFirstName)) name = sFirstName;
-            
-            // Find the name
-            int pos1 = name.lastIndexOf(File.separator);
-            int pos2 = name.lastIndexOf(".");
-            int pos3 = name.length();
-            if (pos1 > 0 && pos2>pos1) name = name.substring(pos1+1,pos2);
-            else if (pos1 > 0 && pos2<pos1) name = name.substring(pos1+1,pos3);
-            else return s;
-
-            return name;
-        }
-
     /*
     * Output Parsing
     */

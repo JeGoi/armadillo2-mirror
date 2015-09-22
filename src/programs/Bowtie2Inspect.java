@@ -6,24 +6,13 @@
 
 package programs;
 
-import biologic.GenomeFile;
 import biologic.Results;
-import biologic.Text;
-import biologic.TextFile;
+import biologic.GenomeFile;
 import configuration.Util;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import program.RunProgram;
 import static program.RunProgram.PortInputDOWN;
-import static program.RunProgram.PortInputUP;
-import static program.RunProgram.df;
 import static program.RunProgram.status_BadRequirements;
-import static program.RunProgram.status_error;
 import workflows.workflow_properties;
 
 
@@ -37,7 +26,7 @@ public class Bowtie2Inspect extends RunProgram {
     
     private String genomeFile ="";
     
-    private String[] inspectTab = {"I_a_box","I_n_box","I_s_box","I_v_box"};
+    private final String[] inspectTab = {"I_a_box","I_n_box","I_s_box","I_v_box"};
     
     public Bowtie2Inspect(workflow_properties properties) {
         this.properties=properties;
@@ -62,16 +51,16 @@ public class Bowtie2Inspect extends RunProgram {
         Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
-        genomeFile = getGenomePath(GenomeRef);
+        genomeFile = GenomeFile.getGenomePath(GenomeRef);
         if (genomeFile.matches("\\.\\d.bt2l?$")) {
-            genomeFile = getFileName(genomeFile);
+            genomeFile = Util.getFileName(genomeFile);
             genomeFile = genomeFile.replaceAll("\\.\\d.bt2l?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         }
         
         // Programme et options
         if (properties.get("I_AO_button").equals("true")) {
-            optionsChoosed = findOptions(inspectTab);
+            optionsChoosed = Util.findOptions(inspectTab,properties);
         }
         
         String[] com = new String[30];
@@ -86,55 +75,6 @@ public class Bowtie2Inspect extends RunProgram {
     }
     
     
-        private String findOptions(String[] tab) {
-            String s = ""; // Final string
-            String t = ""; // Box type or option
-            String v = ""; // Box value if set
-            for ( int i = 0 ; i < tab.length ; i++ ){
-                if (properties.isSet(tab[i]) &&
-                    properties.get(tab[i]).equals("true")
-                    ) {
-                    t = tab[i];
-                    t = t.replaceAll("_[a-z]*$","");
-                    t = t.replaceAll("([A-Z]*_)*","");
-                    t = t.replaceAll("([A-Z])","$1");
-                    t = t.toLowerCase();
-                    if (t.length()>1) {
-                        t = " --"+t;
-                    } else {
-                        t = " -"+t;
-                    }
-
-                    v = tab[i];
-                    v = v.replaceAll("_[a-z]*$","_value");
-                    if (properties.isSet(v)){
-                        t += " "+properties.get(v);
-                    }
-
-                    s += t;
-                }
-            }
-            return s;
-        }
-        
-        private String getGenomePath(Vector<Integer> f){
-            String s = "";
-            for (int ids:f) {
-                GenomeFile gen =new GenomeFile(ids);
-                s = gen.getName();
-            }
-            return s;
-        }
-        
-        private String getFileName(String s){
-            String name = "";
-            int pos1 = s.lastIndexOf(File.separator);
-            int pos2 = s.lastIndexOf(".");
-            if (pos1 > 0 && pos2>pos1) name = s.substring(pos1+1,pos2);
-            else return s;
-            return name;
-        }
-        
     /*
     * Output Parsing
     */

@@ -3182,7 +3182,11 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             
             //CASE 3. Dest is the unique option ADDED BY JG
             //PB : impossible to came from output to input is it came from the unique
-            if (SolelyConnectorsSelected(dest)) return false ;
+            if (solelyConnectorsSelected(dest)) return false ;
+            
+            //CASE 4. ONLY ONE CONNECTOR ACCEPTED ADDED BY JG
+            //PB : impossible to came from output to input is it came from the unique
+            if (onlyOneConnectorAccepted(dest)) return false ;
             
             //--If we have no connection and its compatible add...
             if (!existsConnection(source, dest)&&isCompatible(source, dest)) {
@@ -3251,7 +3255,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
          * @param dest
          * @return true if SolelyConnectors
          */
-        public boolean SolelyConnectorsSelected(workflow_connector dest) {
+        public boolean solelyConnectorsSelected(workflow_connector dest) {
             workflow_object source_object = dest.parent;
             String s                      = source_object.getProperties().get("SolelyConnectors");
             
@@ -3275,6 +3279,33 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 }
                 if (val == 1) {
                     if (dest.number == Integer.parseInt(a[0]) ){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        
+        /**
+         * This is the method to have just one connector. OneConnectorOnlyFor = 2,1
+         *
+         * @by JG 2015
+         *
+         * @param dest
+         * @return true if SolelyConnectors
+         */
+        public boolean onlyOneConnectorAccepted(workflow_connector dest) {
+            workflow_object source_object = dest.parent;
+            String s                      = source_object.getProperties().get("OneConnectorOnlyFor");
+            
+            if(!s.equals("Not Set") && !s.isEmpty()) {
+                String[] a             = s.split(",");
+                workflow_connector[] c = source_object.connection;
+                
+                // Case 1: First Selected is the Unique
+                for (int i = 0; i <= (a.length)-1; i++) {
+                    if (dest.number==Integer.parseInt(a[i])&&
+                            c[Integer.parseInt(a[i])].selected) {
                         return true;
                     }
                 }

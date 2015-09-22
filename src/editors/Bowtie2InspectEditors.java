@@ -11,6 +11,7 @@
 package editors;
 
 import configuration.Config;
+import configuration.Util;
 import editor.EditorInterface;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -401,7 +402,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             properties.remove(I_n_box.getName());
             I_n_box.setSelected(false);
         }
-        boxEvent(I_v_box,null);
+        boxEventSpinner(I_v_box,null);
     }//GEN-LAST:event_I_v_boxActionPerformed
     
     private void I_s_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_s_boxActionPerformed
@@ -413,7 +414,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             properties.remove(I_n_box.getName());
             I_n_box.setSelected(false);
         }
-        boxEvent(I_s_box,null);
+        boxEventSpinner(I_s_box,null);
     }//GEN-LAST:event_I_s_boxActionPerformed
     
     private void I_n_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_n_boxActionPerformed
@@ -425,7 +426,7 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
             properties.remove(I_s_box.getName());
             I_s_box.setSelected(false);
         }
-        boxEvent(I_n_box,null);
+        boxEventSpinner(I_n_box,null);
     }//GEN-LAST:event_I_n_boxActionPerformed
         
     private void name_jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_jTextField1ActionPerformed
@@ -434,12 +435,12 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
                                                                                                         
     private void I_a_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_I_a_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(I_a_value);
+        boxEventSpinner(I_a_box,I_a_value);
     }//GEN-LAST:event_I_a_spinner_value
         
     private void I_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_a_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(I_a_box,I_a_value);
+        boxEventSpinner(I_a_box,I_a_value);
     }//GEN-LAST:event_I_a_boxActionPerformed
                                                                                                                                                                                                                                                                                     
     private void I_DO_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_I_DO_buttonActionPerformed
@@ -467,13 +468,15 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
      * @param Save_Values
      */
     //For Box
-    private void boxEvent(javax.swing.JCheckBox b,javax.swing.JSpinner s){
+    private void boxEventSpinner(javax.swing.JCheckBox b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
             if (s != null) {
                 s.setEnabled(true);
                 properties.put(s.getName(),s.getValue());
+                properties.put(b.getName(),s.getValue());
+            } else {
+                properties.put(b.getName(),b.isSelected());
             }
-            properties.put(b.getName(),b.isSelected());
         } else {
             if (s != null){
                 s.setEnabled(false);
@@ -486,17 +489,6 @@ public class Bowtie2InspectEditors extends javax.swing.JDialog implements Editor
         if (b.isSelected()==true){
             properties.put(b.getName(),b.isSelected());
         }
-    }
-    
-    
-    /**
-     * Update Values content
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Update_Values
-     */
-    //Spinner update
-    private void spinnerUpdate(javax.swing.JSpinner s){
-        properties.put(s.getName(),s.getValue());
     }
     
     /**

@@ -8,10 +8,10 @@ package biologic;
 
 import configuration.Util;
 import java.io.Serializable;
+import java.util.Vector;
 
 /**
- *
- * @author Brisée-pas-morte
+ * @author JG 2015
  */
 public class FastqFile extends Text implements Serializable{
     
@@ -27,6 +27,28 @@ public class FastqFile extends Text implements Serializable{
     }
     public String getFastqFile(){
         return this.getFilename();
+    }
+    public static String[] getFastqExtension() {
+        String[] t = {".fastq",".fq"};
+        return t;
+    }
+    
+    public static boolean isFastqFile(String s){
+        boolean b = false;
+        String ext = s.substring(s.lastIndexOf("."),s.length());
+        for (String sT:getFastqExtension())
+            if (ext.equals(sT))
+                b = true;
+        return b;
+    }
+    
+    public static String getFastqPath(Vector<Integer> f){
+        String s = "";
+        for (int ids:f) {
+            FastqFile fas =new FastqFile(ids);
+            s = fas.getName();
+        }
+        return s;
     }
     
     @Override

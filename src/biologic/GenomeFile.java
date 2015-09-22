@@ -8,6 +8,7 @@ package biologic;
 
 import configuration.Util;
 import java.io.Serializable;
+import java.util.Vector;
 
 /**
  *
@@ -28,6 +29,15 @@ public class GenomeFile extends Text implements Serializable{
         return this.getFilename();
     }
     
+    public static String getGenomePath(Vector<Integer> f){
+        String s = "";
+        for (int ids:f) {
+            GenomeFile gen =new GenomeFile(ids);
+            s = gen.getName();
+        }
+        return s;
+    }
+    
     @Override
     public String getBiologicType() {
         return "GenomeFile";
@@ -36,4 +46,6 @@ public class GenomeFile extends Text implements Serializable{
     public String getExtendedString() {
         return toString();
     }
+    
+
 }

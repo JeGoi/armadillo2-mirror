@@ -407,10 +407,10 @@ public class BwaMap extends RunProgram {
         properties.put("output_samfile_id", sam.getId());
         
         String txt = this.getPgrmOutput();
-        Results text=new Results(outfile+"_bowtie2_stats.txt");
+        Results text=new Results(outfile+"_bwa_stats.txt");
         text.setText(txt+"\nThe output file is saved here "+s+"\n");
-        text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_Test ("+Util.returnCurrentDateAndTime()+")");
+        text.setNote("Bwa_stats ("+Util.returnCurrentDateAndTime()+")");
+        text.setName("Bwa_Test ("+Util.returnCurrentDateAndTime()+")");
         text.saveToDatabase();
         properties.put("output_results_id",text.getId());
     }

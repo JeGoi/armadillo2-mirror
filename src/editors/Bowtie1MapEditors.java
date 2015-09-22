@@ -2151,8 +2151,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
         // TODO add your handling code here:
         if (IDG_selected_ComboBox.getItemCount()>0) {
             int i    = IDG_selected_ComboBox.getSelectedIndex();
-            String s = IDG_selected_ComboBox.getItemAt(i).toString();
-            properties.put(IDG_selected_ComboBox.getName(),s);
+            properties.put(IDG_selected_ComboBox.getName(),Integer.toString(i));
         }
     }//GEN-LAST:event_IDG_selected_ComboBoxActionPerformed
 

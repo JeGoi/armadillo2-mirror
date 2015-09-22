@@ -43,8 +43,8 @@ public class Bowtie1Inspect extends RunProgram {
     public boolean init_checkRequirements() {
         Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         
-        String s     = getFileName(getGenomePath(GenomeRef));
-        String path  = getGenomePath(GenomeRef);
+        String path  = GenomeFile.getGenomePath(GenomeRef);
+        String s     = Util.getFileName(path);
         
         if (GenomeRef.isEmpty()||s.equals("Unknown")) {
             setStatus(status_BadRequirements,"No Genome found.");
@@ -63,13 +63,13 @@ public class Bowtie1Inspect extends RunProgram {
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
-        genomeFile = getGenomePath(GenomeRef);
+        genomeFile = GenomeFile.getGenomePath(GenomeRef);
         genomeFile = genomeFile.replaceAll("\\.\\d.ebwt$","");
         genomeFile = genomeFile.replaceAll("\\.rev$","");
         
         // Programme et options
         if (properties.get("I_AO_button").equals("true")) {
-            optionsChoosed = findOptions(inspectTab);
+            optionsChoosed = Util.findOptions(inspectTab,properties);
         }
         
         String[] com = new String[30];
@@ -83,57 +83,6 @@ public class Bowtie1Inspect extends RunProgram {
         return com;
     }
     
-    
-        private String findOptions(String[] tab) {
-            String s = ""; // Final string
-            String t = ""; // Box type or option
-            String v = ""; // Box value if set
-            for ( int i = 0 ; i < tab.length ; i++ ){
-                if (properties.isSet(tab[i]) &&
-                    properties.get(tab[i]).equals("true")
-                    ) {
-                    t = tab[i];
-                    t = t.replaceAll("_[a-z]*$","");
-                    t = t.replaceAll("([A-Z]*_)*","");
-                    t = t.replaceAll("([A-Z])","$1");
-                    t = t.toLowerCase();
-                    if (t.length()>1) {
-                        t = " --"+t;
-                    } else {
-                        t = " -"+t;
-                    }
-
-                    v = tab[i];
-                    v = v.replaceAll("_[a-z]*$","_value");
-                    if (properties.isSet(v)){
-                        t += " "+properties.get(v);
-                    }
-
-                    s += t;
-                }
-            }
-            return s;
-        }
-        
-        private String getGenomePath(Vector<Integer> f){
-            String s = "";
-            for (int ids:f) {
-                GenomeFile g =new GenomeFile(ids);
-                s = g.getName();
-            }
-            return s;
-        }
-        
-        private String getFileName(String s){
-            String name = "";
-            int pos1 = s.lastIndexOf(File.separator);
-            int pos2 = s.lastIndexOf(".");
-            if (pos1 > 0 && pos2>pos1) name = s.substring(pos1+1,pos2);
-            else return s;
-            return name;
-        }
-
-
     /*
     * Output Parsing
     */
