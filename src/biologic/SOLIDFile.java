@@ -21,7 +21,9 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
+import workflows.workflow_properties;
 
 /**
  *
@@ -48,7 +50,26 @@ public class SOLIDFile extends Text implements Serializable {
         return this.getFilename();
     }
 
+    @Override
     public String getExtendedString() {
         return toString();
+    }
+    
+    public static int saveSolidFile (workflow_properties properties, String outputFile, String pgrmName) {
+        String s = "";
+        if (outputFile.matches("^\\.\\/.*")) {
+            File f = new File(outputFile);
+            s = f.getAbsolutePath();
+            s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
+        }
+        
+        if (s.equals("")) s = outputFile;
+        
+        SOLIDFile so=new SOLIDFile();
+        so.setSolidFile(s);
+        so.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        so.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        so.saveToDatabase();
+        return so.getId();
     }
 }

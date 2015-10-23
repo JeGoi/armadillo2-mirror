@@ -23,12 +23,13 @@ import workflows.workflow_properties_dictionnary;
 
 /**
  *
- * @author Brisée-pas-morte
+ * @author Jérémy Goimard
+ * 
  */
 public class miRcheckEditors extends javax.swing.JDialog implements EditorInterface  {
     
     /**
-     * Creates new form MaqEditors
+     * Creates new form miRchekEditors
      */
     Config config=new Config();
     //ConnectorInfoBox connectorinfobox;
@@ -60,7 +61,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
-        BwaEditor = new javax.swing.JTabbedPane();
+        miRcheck = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -102,8 +103,8 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         P_deletions_value = new javax.swing.JSpinner();
         P_insertions_value = new javax.swing.JSpinner();
         IDG_change_button = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        P_db_box = new javax.swing.JRadioButton();
+        P_workflow_box = new javax.swing.JRadioButton();
         Evaluate_panel = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -138,10 +139,10 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
             }
         });
 
-        BwaEditor.setPreferredSize(new java.awt.Dimension(405, 604));
-        BwaEditor.addComponentListener(new java.awt.event.ComponentAdapter() {
+        miRcheck.setPreferredSize(new java.awt.Dimension(405, 604));
+        miRcheck.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                BwaEditorComponentShown(evt);
+                miRcheckComponentShown(evt);
             }
         });
 
@@ -194,6 +195,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         Options_panel.setPreferredSize(new java.awt.Dimension(341, 413));
 
         M_win_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_win_value.setName("M_win_value"); // NOI18N
         M_win_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_win_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -202,6 +204,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_unpair_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_unpair_value.setName("M_unpair_value"); // NOI18N
         M_unpair_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_unpair_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -210,6 +213,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_starUnpair_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_starUnpair_value.setName("M_starUnpair_value"); // NOI18N
         M_starUnpair_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_starUnpair_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -218,6 +222,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_sizeDiff_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_sizeDiff_value.setName("M_sizeDiff_value"); // NOI18N
         M_sizeDiff_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_sizeDiff_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -226,6 +231,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_mirBulge_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_mirBulge_value.setName("M_mirBulge_value"); // NOI18N
         M_mirBulge_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_mirBulge_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -234,6 +240,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_starBulge_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_starBulge_value.setName("M_starBulge_value"); // NOI18N
         M_starBulge_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_starBulge_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -242,6 +249,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_fbackMin_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_fbackMin_value.setName("M_fbackMin_value"); // NOI18N
         M_fbackMin_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_fbackMin_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -250,6 +258,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_ass_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_ass_value.setName("M_ass_value"); // NOI18N
         M_ass_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_ass_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -258,6 +267,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_bpExt_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_bpExt_value.setName("M_bpExt_value"); // NOI18N
         M_bpExt_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_bpExt_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -266,6 +276,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         M_minUnpair_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        M_minUnpair_value.setName("M_minUnpair_value"); // NOI18N
         M_minUnpair_value.setPreferredSize(new java.awt.Dimension(118, 28));
         M_minUnpair_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -393,6 +404,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         P_db_text.setPreferredSize(new java.awt.Dimension(251, 27));
 
         P_mismatches_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        P_mismatches_value.setName("P_mismatches_value"); // NOI18N
         P_mismatches_value.setPreferredSize(new java.awt.Dimension(118, 28));
         P_mismatches_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -401,6 +413,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         P_deletions_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        P_deletions_value.setName("P_deletions_value"); // NOI18N
         P_deletions_value.setPreferredSize(new java.awt.Dimension(118, 28));
         P_deletions_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -409,6 +422,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         });
 
         P_insertions_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        P_insertions_value.setName("P_insertions_value"); // NOI18N
         P_insertions_value.setPreferredSize(new java.awt.Dimension(118, 28));
         P_insertions_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -424,9 +438,10 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
             }
         });
 
-        jRadioButton1.setText("from file");
+        P_db_box.setText("from file");
 
-        jRadioButton2.setText("from workflow");
+        P_workflow_box.setText("from workflow");
+        P_workflow_box.setName("P_workflow_box"); // NOI18N
 
         javax.swing.GroupLayout Patscan_panelLayout = new javax.swing.GroupLayout(Patscan_panel);
         Patscan_panel.setLayout(Patscan_panelLayout);
@@ -447,10 +462,10 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
                             .addComponent(P_deletions_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(P_mismatches_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel12)
-                    .addComponent(jRadioButton2)
+                    .addComponent(P_workflow_box)
                     .addGroup(Patscan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Patscan_panelLayout.createSequentialGroup()
-                            .addComponent(jRadioButton1)
+                            .addComponent(P_db_box)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(IDG_change_button))
                         .addComponent(P_db_text, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -476,10 +491,10 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(P_workflow_box)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Patscan_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
+                    .addComponent(P_db_box)
                     .addComponent(IDG_change_button))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(P_db_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,6 +508,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel16.setText("unpair");
 
         E_unpair_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_unpair_value.setName("E_minUnpair_value"); // NOI18N
         E_unpair_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_unpair_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -503,6 +519,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel29.setText("star_unpair");
 
         E_starUnpair_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_starUnpair_value.setName("E_starUnpair_value"); // NOI18N
         E_starUnpair_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_starUnpair_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -513,6 +530,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel30.setText("size_diff");
 
         E_sizeDiff_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_sizeDiff_value.setName("E_sizeDiff_value"); // NOI18N
         E_sizeDiff_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_sizeDiff_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -523,6 +541,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel31.setText("mir_bulge");
 
         E_mirBulge_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_mirBulge_value.setName("E_mirBulge_value"); // NOI18N
         E_mirBulge_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_mirBulge_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -533,6 +552,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel32.setText("star_bulge");
 
         E_starBulge_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_starBulge_value.setName("E_starBulge_value"); // NOI18N
         E_starBulge_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_starBulge_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -543,6 +563,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel33.setText("fback_min");
 
         E_fbackMin_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_fbackMin_value.setName("E_fbackMin_value"); // NOI18N
         E_fbackMin_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_fbackMin_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -553,6 +574,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel34.setText("ass");
 
         E_ass_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_ass_value.setName("E_ass_value"); // NOI18N
         E_ass_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_ass_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -563,6 +585,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel35.setText("min_unpair");
 
         E_minUnpair_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_minUnpair_value.setName("E_minUnpair_value"); // NOI18N
         E_minUnpair_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_minUnpair_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -573,6 +596,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         jLabel36.setText("bp_ext");
 
         E_bpExt_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-1), Integer.valueOf(-1), null, Integer.valueOf(1)));
+        E_bpExt_value.setName("E_bpExt_value"); // NOI18N
         E_bpExt_value.setPreferredSize(new java.awt.Dimension(118, 28));
         E_bpExt_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -741,7 +765,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
                 .addContainerGap())
         );
 
-        BwaEditor.addTab("miRcheck", jPanel1);
+        miRcheck.addTab("miRcheck", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -750,25 +774,23 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1))
-            .addComponent(BwaEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(miRcheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BwaEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(miRcheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        BwaEditor.getAccessibleContext().setAccessibleName("BwaEditors");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     
-    private void BwaEditorComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_BwaEditorComponentShown
+    private void miRcheckComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_miRcheckComponentShown
         // TODO add your handling code here:
-    }//GEN-LAST:event_BwaEditorComponentShown
+    }//GEN-LAST:event_miRcheckComponentShown
 
     private void ClosejButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClosejButton6ActionPerformed
         // TODO add your handling code here:
@@ -799,8 +821,9 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
             this.parent_workflow.workflow.updateDependance();
             programs prog=new programs(parent_workflow.workbox.getCurrentWorkflows());
             prog.Run(properties);
+        }
     }//GEN-LAST:event_run_jButton5ActionPerformed
-    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         properties.put("Name", this.name_jTextField1.getText());
@@ -978,8 +1001,6 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         tmp.load(filename, path);
         this.properties=tmp;
         setTitle(properties.getName());
-        
-        
     }
     /*
     ***************************************************************************
@@ -1049,7 +1070,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         if ( y==-1 && properties.isSet("defaultPgrmValues")) {
             String defaultEditorStatus = this.properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
-            int z = 0;
+            int z;
             for (int i =0 ; i < arrayDefault.length ; i=i+2){
                 z = i;
                 this.properties.put(arrayDefault[z],arrayDefault[z+1]);
@@ -1064,6 +1085,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
     
     
     
+    @Override
     public void display(workflow_properties properties) {
         this.properties=properties;
         initComponents();
@@ -1079,6 +1101,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
         this.setVisible(true);
     }
     
+    @Override
     public void saveImage(String filename) {
         BufferedImage bi;
         try {
@@ -1091,7 +1114,6 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane BwaEditor;
     private javax.swing.JButton ClosejButton6;
     private javax.swing.JSpinner E_ass_value;
     private javax.swing.JSpinner E_bpExt_value;
@@ -1116,10 +1138,12 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
     private javax.swing.JSpinner M_win_value;
     private javax.swing.JPanel Mircheck_panel;
     private javax.swing.JTabbedPane Options_panel;
+    private javax.swing.JRadioButton P_db_box;
     private javax.swing.JTextField P_db_text;
     private javax.swing.JSpinner P_deletions_value;
     private javax.swing.JSpinner P_insertions_value;
     private javax.swing.JSpinner P_mismatches_value;
+    private javax.swing.JRadioButton P_workflow_box;
     private javax.swing.JPanel Patscan_panel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
@@ -1154,8 +1178,7 @@ public class miRcheckEditors extends javax.swing.JDialog implements EditorInterf
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JTabbedPane miRcheck;
     private javax.swing.JComboBox mircheck_selected_ComboBox;
     private javax.swing.JTextField name_jTextField1;
     private javax.swing.JButton reset_jButton3;

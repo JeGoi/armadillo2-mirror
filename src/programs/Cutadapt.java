@@ -186,15 +186,15 @@ public class Cutadapt extends RunProgram {
                 if (t.length()>1) {
                     t = t.replaceAll("([A-Z])","-$1");
                     t = t.toLowerCase();
-                    if (t.matches("quality-base64")) t= "--quality-base=64";
-                    else if (t.matches("quality-base33")) t= "--quality-base=33";
-                    else if (t.matches("too-long-output")) t= "--too-long-output="+outputFileTSO;
+                    if (t.matches("quality-base64"))        t= "--quality-base=64";
+                    else if (t.matches("quality-base33"))   t= "--quality-base=33";
+                    else if (t.matches("too-long-output"))  t= "--too-long-output="+outputFileTSO;
                     else if (t.matches("too-short-output")) t= "--too-short-output="+outputFileTLO;
                     else if (t.matches("untrimmed-output")) t= "--untrimmed-output="+outputFileUO;
-                    else if (t.equals("info-file")) t = "--info-file="+outputFile+"_infoFile.txt";
-                    else if (s.equals("rest-file")) t = "--rest-file="+outputFile+"_restFile.txt";
-                    else if (s.equals("wildcard-file"))t = "--wildcard-file="+outputFile+"_wildcardFile.txt";
-                    else if (s.equals("discard")) t = "--discard="+outputFile+"_discardFile.txt";
+                    else if (t.equals("info-file"))         t = "--info-file="+outputFile+"_infoFile.txt";
+                    else if (s.equals("rest-file"))         t = "--rest-file="+outputFile+"_restFile.txt";
+                    else if (s.equals("wildcard-file"))     t = "--wildcard-file="+outputFile+"_wildcardFile.txt";
+                    else if (s.equals("discard"))           t = "--discard="+outputFile+"_discardFile.txt";
                     else t = " --"+t;
                 } else {
                     t = " -"+t;
@@ -214,36 +214,15 @@ public class Cutadapt extends RunProgram {
     */
     @Override
     public void post_parseOutput() {
-        File f   = new File(outputFile);
-        String s = f.getAbsolutePath();
-        s = s.replaceAll(File.separator+"\\."+File.separator,File.separator); // From relativ to abs
-        if (s.matches(".*\\.fastq")){
-            FastqFile out=new FastqFile();
-            out.setFastqFile(s);
-            out.setName(s);
-            out.saveToDatabase();
-            properties.put("output_fastqfile_id", out.getId());
-        } else if (s.matches(".*\\.fasta")) {
-            FastaFile out=new FastaFile();
-            out.setFastaFile(s);
-            out.setName(s);
-            out.saveToDatabase();
-            properties.put("output_fastafile_id", out.getId());
-        } else if (s.matches(".*\\.txt")) {
-            TextFile out=new TextFile();
-            out.setFile(s);
-            out.setName(s);
-            out.saveToDatabase();
-            properties.put("output_fastafile_id", out.getId());
+        if (outputFile.matches(".*\\.fastq$")){
+            FastqFile.saveFastqFile(properties,outputFile,"CutAdapt");
+        } else if (outputFile.matches(".*\\.fasta$")) {
+            FastaFile.saveFastaFile(properties,outputFile,"CutAdapt");
+        } else if (outputFile.matches(".*\\.txt$")) {
+            TextFile.saveTextFile(properties,outputFile,"CutAdapt");
         }
         
-        String txt = this.getPgrmOutput();
-        Results text=new Results(outputFile+"_bwa_stats.txt");
-        text.setText(txt+"\nThe output file is saved here "+s+"\n");
-        text.setNote("Bwa_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bwa_Test ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"CutAdapt");
     }
     
 }

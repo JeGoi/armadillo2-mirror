@@ -80,12 +80,7 @@ public class Bowtie2Inspect extends RunProgram {
     */
     @Override
     public void post_parseOutput() {
-        String txt = this.getPgrmOutput();
-        Results text=new Results("bowtie2_inspect_stats.txt");
-        text.setText(txt+"\n");
-        text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_Inspect ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie2_Inspect");
     }
+    
 }

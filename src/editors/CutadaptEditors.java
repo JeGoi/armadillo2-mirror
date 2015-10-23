@@ -7,6 +7,7 @@
 package editors;
 
 import configuration.Config;
+import configuration.Util;
 import editor.EditorInterface;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -1177,7 +1178,7 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             BO_ANCH_a_box.setSelected(false);
         }
         cleanR1_5and3options();
-        boxEventText(BO_a_box,BO_a_text);
+        Util.boxEventText(properties,BO_a_box,BO_a_text);
     }//GEN-LAST:event_BO_a_boxActionPerformed
 
     private void BO_ANCH_a_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_ANCH_a_boxActionPerformed
@@ -1187,7 +1188,7 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             BO_a_box.setSelected(false);
         }
         cleanR1_5and3options();
-        boxEventText(BO_ANCH_a_box,BO_a_text);
+        Util.boxEventText(properties,BO_ANCH_a_box,BO_a_text);
     }//GEN-LAST:event_BO_ANCH_a_boxActionPerformed
 
     private void BO_g_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_g_boxActionPerformed
@@ -1197,7 +1198,7 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             BO_ANCH_g_box.setSelected(false);
         }
         cleanR1_5and3options();
-        boxEventText(BO_g_box,BO_g_text);
+        Util.boxEventText(properties,BO_g_box,BO_g_text);
     }//GEN-LAST:event_BO_g_boxActionPerformed
 
     private void BO_ANCH_g_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_ANCH_g_boxActionPerformed
@@ -1207,88 +1208,88 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             BO_g_box.setSelected(false);
         }
         cleanR1_5and3options();
-        boxEventText(BO_ANCH_g_box,BO_g_text);
+        Util.boxEventText(properties,BO_ANCH_g_box,BO_g_text);
     }//GEN-LAST:event_BO_ANCH_g_boxActionPerformed
 
     private void BO_anywhere_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_anywhere_boxActionPerformed
         // TODO add your handling code here:
         cleanR1_5or3options();
-        boxEventText(BO_anywhere_box,BO_anywhere_text);
+        Util.boxEventText(properties,BO_anywhere_box,BO_anywhere_text);
     }//GEN-LAST:event_BO_anywhere_boxActionPerformed
 
     private void BO_a_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_a_textActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(BO_ANCH_a_box.getName()))
-            boxEventText(BO_ANCH_a_box,BO_a_text);
+            Util.boxEventText(properties,BO_ANCH_a_box,BO_a_text);
         if (properties.isSet(BO_a_box.getName()))
-            boxEventText(BO_a_box,BO_a_text);
+            Util.boxEventText(properties,BO_a_box,BO_a_text);
     }//GEN-LAST:event_BO_a_textActionPerformed
 
     private void BO_g_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_g_textActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(BO_ANCH_g_box.getName()))
-            boxEventText(BO_ANCH_g_box,BO_g_text);
+            Util.boxEventText(properties,BO_ANCH_g_box,BO_g_text);
         if (properties.isSet(BO_g_box.getName()))
-            boxEventText(BO_g_box,BO_g_text);
+            Util.boxEventText(properties,BO_g_box,BO_g_text);
     }//GEN-LAST:event_BO_g_textActionPerformed
 
     private void BO_a_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BO_a_textFocusLost
         // TODO add your handling code here:
         if (properties.isSet(BO_ANCH_a_box.getName()))
-            boxEventText(BO_ANCH_a_box,BO_a_text);
+            Util.boxEventText(properties,BO_ANCH_a_box,BO_a_text);
         if (properties.isSet(BO_a_box.getName()))
-            boxEventText(BO_a_box,BO_a_text);
+            Util.boxEventText(properties,BO_a_box,BO_a_text);
     }//GEN-LAST:event_BO_a_textFocusLost
 
     private void BO_g_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BO_g_textFocusLost
         // TODO add your handling code here:
         if (properties.isSet(BO_ANCH_g_box.getName()))
-            boxEventText(BO_ANCH_g_box,BO_g_text);
+            Util.boxEventText(properties,BO_ANCH_g_box,BO_g_text);
         if (properties.isSet(BO_g_box.getName()))
-            boxEventText(BO_g_box,BO_g_text);
+            Util.boxEventText(properties,BO_g_box,BO_g_text);
     }//GEN-LAST:event_BO_g_textFocusLost
 
     private void BO_anywhere_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BO_anywhere_textFocusLost
         // TODO add your handling code here:
-        boxEventText(BO_anywhere_box,BO_anywhere_text);
+        Util.boxEventText(properties,BO_anywhere_box,BO_anywhere_text);
     }//GEN-LAST:event_BO_anywhere_textFocusLost
 
     private void BO_anywhere_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_anywhere_textActionPerformed
         // TODO add your handling code here:
-        boxEventText(BO_anywhere_box,BO_anywhere_text);
+        Util.boxEventText(properties,BO_anywhere_box,BO_anywhere_text);
     }//GEN-LAST:event_BO_anywhere_textActionPerformed
 
     private void RM_cut_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_cut_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_cut_box,RM_cut_value);
+        Util.boxEventSpinner(properties,RM_cut_box,RM_cut_value);
     }//GEN-LAST:event_RM_cut_boxActionPerformed
 
     private void RM_cut_valueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_RM_cut_valueStateChanged
         // TODO add your handling code here:
-        boxEventSpinner(RM_cut_box,RM_cut_value);
+        Util.boxEventSpinner(properties,RM_cut_box,RM_cut_value);
     }//GEN-LAST:event_RM_cut_valueStateChanged
 
     private void O_infoFile_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_infoFile_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_infoFile_box,null);
+        Util.boxEventSpinner(properties,O_infoFile_box,null);
     }//GEN-LAST:event_O_infoFile_boxActionPerformed
 
     private void O_restFile_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_restFile_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_restFile_box,null);
+        Util.boxEventSpinner(properties,O_restFile_box,null);
     }//GEN-LAST:event_O_restFile_boxActionPerformed
 
     private void O_wildcardFile_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_wildcardFile_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_wildcardFile_box,null);
+        Util.boxEventSpinner(properties,O_wildcardFile_box,null);
     }//GEN-LAST:event_O_wildcardFile_boxActionPerformed
 
     private void F_discard_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_discard_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(F_discard_box,null);
+        Util.boxEventSpinner(properties,F_discard_box,null);
         if (properties.isSet(F_discard_box.getName())&&
                 !properties.isSet(BO_overlap_box.getName())){
-            boxEventSpinner(BO_overlap_box,BO_overlap_value);
+            Util.boxEventSpinner(properties,BO_overlap_box,BO_overlap_value);
             BO_overlap_box.setSelected(true);
         }
         if (properties.isSet(F_discard_box.getName())){
@@ -1299,39 +1300,39 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
 
     private void BO_noIndels_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_noIndels_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(BO_noIndels_box,null);
+        Util.boxEventSpinner(properties,BO_noIndels_box,null);
     }//GEN-LAST:event_BO_noIndels_boxActionPerformed
 
     private void BO_e_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_e_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(BO_e_box,BO_e_value);
+        Util.boxEventSpinner(properties,BO_e_box,BO_e_value);
     }//GEN-LAST:event_BO_e_boxActionPerformed
 
     private void BO_e_valueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_BO_e_valueStateChanged
         // TODO add your handling code here:
-        boxEventSpinner(BO_e_box,BO_e_value);
+        Util.boxEventSpinner(properties,BO_e_box,BO_e_value);
     }//GEN-LAST:event_BO_e_valueStateChanged
 
     private void BO_overlap_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_overlap_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(BO_overlap_box,BO_overlap_value);
+        Util.boxEventSpinner(properties,BO_overlap_box,BO_overlap_value);
     }//GEN-LAST:event_BO_overlap_boxActionPerformed
 
     private void BO_overlap_valueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_BO_overlap_valueStateChanged
         // TODO add your handling code here:
-        boxEventSpinner(BO_overlap_box,BO_overlap_value);
+        Util.boxEventSpinner(properties,BO_overlap_box,BO_overlap_value);
     }//GEN-LAST:event_BO_overlap_valueStateChanged
 
     private void RM_trimQualities_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_trimQualities_boxActionPerformed
         // TODO add your handling code here:
         testValueInText(RM_qualityCutoff_text);
-        boxEventText(RM_trimQualities_box,RM_qualityCutoff_text);
+        Util.boxEventText(properties,RM_trimQualities_box,RM_qualityCutoff_text);
     }//GEN-LAST:event_RM_trimQualities_boxActionPerformed
 
     private void RM_qualityCutoff_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RM_qualityCutoff_textFocusLost
         // TODO add your handling code here:
         testValueInText(RM_qualityCutoff_text);
-        boxEventText(RM_trimQualities_box,RM_qualityCutoff_text);
+        Util.boxEventText(properties,RM_trimQualities_box,RM_qualityCutoff_text);
     }//GEN-LAST:event_RM_qualityCutoff_textFocusLost
 
     private void RM_qualityBase33_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_qualityBase33_boxActionPerformed
@@ -1340,7 +1341,7 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             properties.remove(RM_qualityBase64_box.getName());
             RM_qualityBase64_box.setSelected(false);
         }
-        boxEventSpinner(RM_qualityBase33_box,null);
+        Util.boxEventSpinner(properties,RM_qualityBase33_box,null);
     }//GEN-LAST:event_RM_qualityBase33_boxActionPerformed
 
     private void RM_qualityBase64_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_qualityBase64_boxActionPerformed
@@ -1349,48 +1350,48 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             properties.remove(RM_qualityBase33_box.getName());
             RM_qualityBase33_box.setSelected(false);
         }
-        boxEventSpinner(RM_qualityBase64_box,null);
+        Util.boxEventSpinner(properties,RM_qualityBase64_box,null);
     }//GEN-LAST:event_RM_qualityBase64_boxActionPerformed
 
     private void BO_times_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_times_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(BO_times_box,BO_times_value);
+        Util.boxEventSpinner(properties,BO_times_box,BO_times_value);
     }//GEN-LAST:event_BO_times_boxActionPerformed
 
     private void BO_times_valueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_BO_times_valueStateChanged
         // TODO add your handling code here:
-        boxEventSpinner(BO_times_box,BO_times_value);
+        Util.boxEventSpinner(properties,BO_times_box,BO_times_value);
     }//GEN-LAST:event_BO_times_valueStateChanged
 
     private void F_noTrim_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_noTrim_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(F_noTrim_box,null);
+        Util.boxEventSpinner(properties,F_noTrim_box,null);
     }//GEN-LAST:event_F_noTrim_boxActionPerformed
 
     private void RM_trimN_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_trimN_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_trimN_box,null);
+        Util.boxEventSpinner(properties,RM_trimN_box,null);
     }//GEN-LAST:event_RM_trimN_boxActionPerformed
 
     private void BO_N_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_N_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(BO_N_box,null);
+        Util.boxEventSpinner(properties,BO_N_box,null);
     }//GEN-LAST:event_BO_N_boxActionPerformed
 
     private void BO_matchReadWildcards_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BO_matchReadWildcards_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(BO_matchReadWildcards_box,null);
+        Util.boxEventSpinner(properties,BO_matchReadWildcards_box,null);
     }//GEN-LAST:event_BO_matchReadWildcards_boxActionPerformed
 
     private void F_maxN_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_maxN_boxActionPerformed
         // TODO add your handling code here:
         testValueInText(F_maxN_text);
-        boxEventText(F_maxN_box,F_maxN_text);
+        Util.boxEventText(properties,F_maxN_box,F_maxN_text);
     }//GEN-LAST:event_F_maxN_boxActionPerformed
 
     private void F_minimumLength_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_minimumLength_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(F_minimumLength_box,F_minimumLength_value);
+        Util.boxEventSpinner(properties,F_minimumLength_box,F_minimumLength_value);
         if (properties.isSet(F_minimumLength_box.getName())){
             O_tooShortOutput_box.setEnabled(true);
         } else {
@@ -1401,17 +1402,17 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
 
     private void F_minimumLength_valueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_F_minimumLength_valueStateChanged
         // TODO add your handling code here:
-        boxEventSpinner(F_minimumLength_box,F_minimumLength_value);
+        Util.boxEventSpinner(properties,F_minimumLength_box,F_minimumLength_value);
     }//GEN-LAST:event_F_minimumLength_valueStateChanged
 
     private void O_tooShortOutput_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_tooShortOutput_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_tooShortOutput_box,null);
+        Util.boxEventSpinner(properties,O_tooShortOutput_box,null);
     }//GEN-LAST:event_O_tooShortOutput_boxActionPerformed
 
     private void F_maximumLength_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_maximumLength_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(F_maximumLength_box,F_maximumLength_value);
+        Util.boxEventSpinner(properties,F_maximumLength_box,F_maximumLength_value);
         if (properties.isSet(F_maximumLength_box.getName())){
             O_tooLongOutput_box.setEnabled(true);
         } else {
@@ -1422,22 +1423,22 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
 
     private void F_maximumLength_valueStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_F_maximumLength_valueStateChanged
         // TODO add your handling code here:
-        boxEventSpinner(F_maximumLength_box,F_maximumLength_value);
+        Util.boxEventSpinner(properties,F_maximumLength_box,F_maximumLength_value);
     }//GEN-LAST:event_F_maximumLength_valueStateChanged
 
     private void O_tooLongOutput_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_tooLongOutput_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_tooLongOutput_box,null);
+        Util.boxEventSpinner(properties,O_tooLongOutput_box,null);
     }//GEN-LAST:event_O_tooLongOutput_boxActionPerformed
 
     private void O_untrimmedOutput_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_untrimmedOutput_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_untrimmedOutput_box,null);
+        Util.boxEventSpinner(properties,O_untrimmedOutput_box,null);
     }//GEN-LAST:event_O_untrimmedOutput_boxActionPerformed
 
     private void RM_colorspace_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_colorspace_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_colorspace_box,null);
+        Util.boxEventSpinner(properties,RM_colorspace_box,null);
         if (properties.isSet(RM_colorspace_box.getName()))
             enabledColorPanel(true);
         else enabledColorPanel(false);
@@ -1445,40 +1446,40 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
 
     private void RM_C_stripF3_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_C_stripF3_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_C_stripF3_box,null);
+        Util.boxEventSpinner(properties,RM_C_stripF3_box,null);
     }//GEN-LAST:event_RM_C_stripF3_boxActionPerformed
 
     private void RM_C_bwa_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_C_bwa_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_C_bwa_box,null);
+        Util.boxEventSpinner(properties,RM_C_bwa_box,null);
     }//GEN-LAST:event_RM_C_bwa_boxActionPerformed
 
     private void RM_noZeroCap_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_noZeroCap_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_noZeroCap_box,null);
+        Util.boxEventSpinner(properties,RM_noZeroCap_box,null);
         if (properties.isSet(RM_noZeroCap_box.getName())){
             properties.remove(RM_zeroCap_box.getName());
             RM_zeroCap_box.setSelected(false);
         } else if (properties.isSet(RM_colorspace_box.getName())&&
                 !properties.isSet(RM_noZeroCap_box.getName())) {
-            boxEventSpinner(RM_zeroCap_box,null);
+            Util.boxEventSpinner(properties,RM_zeroCap_box,null);
             RM_zeroCap_box.setSelected(true);
         }
     }//GEN-LAST:event_RM_noZeroCap_boxActionPerformed
 
     private void RM_C_doubleEncode_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_C_doubleEncode_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_C_doubleEncode_box,null);
+        Util.boxEventSpinner(properties,RM_C_doubleEncode_box,null);
     }//GEN-LAST:event_RM_C_doubleEncode_boxActionPerformed
 
     private void RM_C_trimPrimer_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_C_trimPrimer_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_C_trimPrimer_box,null);
+        Util.boxEventSpinner(properties,RM_C_trimPrimer_box,null);
     }//GEN-LAST:event_RM_C_trimPrimer_boxActionPerformed
 
     private void F_discardUntrimmed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_discardUntrimmed_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(F_discardUntrimmed_box,null);
+        Util.boxEventSpinner(properties,F_discardUntrimmed_box,null);
         if (properties.isSet(F_discardUntrimmed_box.getName())){
             properties.remove(F_discard_box.getName());
             F_discard_box.setSelected(false);
@@ -1487,53 +1488,53 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
 
     private void F_maskAdapter_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F_maskAdapter_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(F_maskAdapter_box,null);
+        Util.boxEventSpinner(properties,F_maskAdapter_box,null);
     }//GEN-LAST:event_F_maskAdapter_boxActionPerformed
 
     private void RM_prefix_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RM_prefix_textFocusLost
         // TODO add your handling code here:
-        boxEventText(RM_prefix_box,RM_prefix_text);
+        Util.boxEventText(properties,RM_prefix_box,RM_prefix_text);
     }//GEN-LAST:event_RM_prefix_textFocusLost
 
     private void RM_prefix_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_prefix_boxActionPerformed
         // TODO add your handling code here:
-        boxEventText(RM_prefix_box,RM_prefix_text);
+        Util.boxEventText(properties,RM_prefix_box,RM_prefix_text);
     }//GEN-LAST:event_RM_prefix_boxActionPerformed
 
     private void RM_suffix_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_suffix_boxActionPerformed
         // TODO add your handling code here:
-        boxEventText(RM_suffix_box,RM_suffix_text);
+        Util.boxEventText(properties,RM_suffix_box,RM_suffix_text);
     }//GEN-LAST:event_RM_suffix_boxActionPerformed
 
     private void RM_suffix_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RM_suffix_textFocusLost
         // TODO add your handling code here:
-        boxEventText(RM_suffix_box,RM_suffix_text);
+        Util.boxEventText(properties,RM_suffix_box,RM_suffix_text);
     }//GEN-LAST:event_RM_suffix_textFocusLost
 
     private void RM_stripSuffix_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_stripSuffix_boxActionPerformed
         // TODO add your handling code here:
-        boxEventText(RM_stripSuffix_box,RM_stripSuffix_text);
+        Util.boxEventText(properties,RM_stripSuffix_box,RM_stripSuffix_text);
     }//GEN-LAST:event_RM_stripSuffix_boxActionPerformed
 
     private void RM_stripSuffix_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RM_stripSuffix_textFocusLost
         // TODO add your handling code here:
-        boxEventText(RM_stripSuffix_box,RM_stripSuffix_text);
+        Util.boxEventText(properties,RM_stripSuffix_box,RM_stripSuffix_text);
     }//GEN-LAST:event_RM_stripSuffix_textFocusLost
 
     private void RM_lengthTag_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_lengthTag_boxActionPerformed
         // TODO add your handling code here:
         testlengthTagText(RM_lengthTag_text);
-        boxEventText(RM_lengthTag_box,RM_lengthTag_text);
+        Util.boxEventText(properties,RM_lengthTag_box,RM_lengthTag_text);
     }//GEN-LAST:event_RM_lengthTag_boxActionPerformed
 
     private void RM_zeroCap_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_zeroCap_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(RM_zeroCap_box,null);
+        Util.boxEventSpinner(properties,RM_zeroCap_box,null);
     }//GEN-LAST:event_RM_zeroCap_boxActionPerformed
 
     private void O_quiet_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_quiet_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_quiet_box,null);
+        Util.boxEventSpinner(properties,O_quiet_box,null);
     }//GEN-LAST:event_O_quiet_boxActionPerformed
 
     private void RM_qualityCutoff_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RM_qualityCutoff_textActionPerformed
@@ -1543,18 +1544,18 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
     private void RM_lengthTag_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RM_lengthTag_textFocusLost
         // TODO add your handling code here:
         testlengthTagText(RM_lengthTag_text);
-        boxEventText(RM_lengthTag_box,RM_lengthTag_text);
+        Util.boxEventText(properties,RM_lengthTag_box,RM_lengthTag_text);
     }//GEN-LAST:event_RM_lengthTag_textFocusLost
 
     private void F_maxN_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_F_maxN_textFocusLost
         // TODO add your handling code here:
         testValueInText(F_maxN_text);
-        boxEventText(F_maxN_box,F_maxN_text);
+        Util.boxEventText(properties,F_maxN_box,F_maxN_text);
     }//GEN-LAST:event_F_maxN_textFocusLost
 
     private void O_name_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_name_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(O_name_box,null);
+        Util.boxEventSpinner(properties,O_name_box,null);
     }//GEN-LAST:event_O_name_boxActionPerformed
     
     
@@ -1584,17 +1585,6 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
     /**
      * CleansValues
      */
-    private void removePropertiesIn(String[] sTab,String s) {
-        if (s.equals("null")){
-            for (String sT:sTab)
-                if (properties.isSet(sT))
-                    properties.remove(sT);
-        } else {
-            for (String sT:sTab)
-                if (properties.isSet(sT)&&!s.equals(sT))
-                    properties.remove(sT);
-        }
-    }
     
     private void cleanR1_5or3options() {
         String[] sTab = {
@@ -1603,7 +1593,7 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             BO_g_box.getName(),
             BO_ANCH_g_box.getName()
         };
-        removePropertiesIn(sTab,"null");
+        Util.removePropertiesIn(properties,sTab,"null");
         
         BO_g_text.setEnabled(false);
         BO_a_text.setEnabled(false);
@@ -1618,46 +1608,6 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             properties.remove(BO_anywhere_box.getName());
         BO_anywhere_text.setEnabled(false);
         BO_anywhere_box.setSelected(false);
-    }
-    
-    /**
-     * Save Values
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Save_Values
-     */
-    //For Box and text
-    private void boxEventText(javax.swing.JCheckBox b,javax.swing.JTextField t){
-        if (b.isSelected()==true){
-            if (t == null) {
-                properties.put(b.getName(),b.isSelected());
-            } else {
-                t.setEnabled(true);
-                properties.put(t.getName(),t.getText());
-                properties.put(b.getName(),t.getText());
-            }
-        } else {
-            properties.remove(b.getName());
-            if (t != null){
-                t.setEnabled(false);
-            }
-        }
-    }
-    //For Box and spinner
-    private void boxEventSpinner(javax.swing.JCheckBox b,javax.swing.JSpinner s){
-        if (b.isSelected()==true){
-            if (s == null) {
-                properties.put(b.getName(),b.isSelected());
-            } else {
-                s.setEnabled(true);
-                properties.put(s.getName(),s.getValue());
-                properties.put(b.getName(),s.getValue());
-            }
-        } else {
-            properties.remove(b.getName());
-            if (s != null){
-                s.setEnabled(false);
-            }
-        }
     }
     
     /**
@@ -1714,15 +1664,7 @@ public class CutadaptEditors extends javax.swing.JDialog implements EditorInterf
             if (properties.isSet(sT))
                 b = true;
         
-        if (!b && properties.isSet("defaultPgrmValues")) {
-            String defaultEditorStatus = this.properties.get("defaultPgrmValues");
-            String[] arrayDefault = defaultEditorStatus.split("<>");
-            int z = 0;
-            for (int i =0 ; i < arrayDefault.length ; i=i+2){
-                z = i;
-                this.properties.put(arrayDefault[z],arrayDefault[z+1]);
-            }
-        }
+        Util.getDefaultPgrmValues(properties,b);
     }
     
     /**

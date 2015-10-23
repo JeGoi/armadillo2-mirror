@@ -58,7 +58,10 @@ public class Bowtie2Index extends RunProgram{
         // File output directory
         if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
             properties.put("IDG_r_text",outputPath);
-            Util.CreateDir(outputPath);
+            if (!Util.CreateDir(outputPath)) {
+                setStatus(status_BadRequirements,"Can't create the directory.");
+                return false;
+            }
         }
         
         // Input
@@ -102,21 +105,8 @@ public class Bowtie2Index extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        GenomeFile genome=new GenomeFile();
-        genome.setGenomeFile(outputFile);
-        genome.setName(outputFile);
-        genome.setNote("Bowtie builder. Created on "+Util.returnCurrentDateAndTime());
-        genome.saveToDatabase();
-        properties.put("output_genomefile_id", genome.getId());
-        this.addOutput(genome);
-        
-        String txt = this.getPgrmOutput();
-        Results text=new Results("bowtie2_index_stats.txt");
-        text.setText(txt+"\n");
-        text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_builder ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        GenomeFile.saveGenomeFile(properties,outputFile,"Bowtie2_builder");
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie2_builder");
     }
     
 }

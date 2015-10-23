@@ -7,7 +7,10 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
+import java.util.Vector;
+import workflows.workflow_properties;
 
 /**
  *
@@ -25,9 +28,30 @@ public class BamFile extends Text implements Serializable{
         //--Note: we have a properties in the Fastq file
         this.setText("BamFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
+    
     public String getBamFile(){
         return this.getFilename();
     }
+    
+    public static String getBamPath(Vector<Integer> f){
+        String s = "";
+        for (int ids:f) {
+            BamFile b =new BamFile(ids);
+            s = b.getName();
+        }
+        return s;
+    }
+    
+    public static int saveBamFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        BamFile f=new BamFile();
+        f.setBamFile(s);
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        f.saveToDatabase();
+        return f.getId();
+    }
+
     
     @Override
     public String getBiologicType() {

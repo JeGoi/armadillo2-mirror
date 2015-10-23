@@ -21,7 +21,10 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
+import java.util.Vector;
+import workflows.workflow_properties;
 
 /**
  *
@@ -43,11 +46,32 @@ public class SamFile extends Text implements Serializable {
         this.setUnknownType("SamFile");
         this.setText("SamFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
+    
+    public static String getSamPath(Vector<Integer> f){
+        String s = "";
+        for (int ids:f) {
+            SamFile fas =new SamFile(ids);
+            s = fas.getName();
+        }
+        return s;
+    }
+    
+    public static void saveSamFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        SamFile f=new SamFile();
+        f.setSamFile(s);
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        boolean b = f.saveToDatabase();
+        if (b) properties.put("output_samfile_id", f.getId());
+        else System.out.println("WARNING : sam file not saved");
+    }
 
     public String getSamFile() {
         return this.getFilename();
     }
 
+    @Override
     public String getExtendedString() {
         return toString();
     }

@@ -700,9 +700,124 @@ public class Util {
                 if (!properties.get(op).equals("true")) {
                     t = t+" " + properties.get(op);
                 }
+                
                 s = s+" "+t;
             }
         }
         return s;
     }
+    
+    /**
+     * 
+     * If the path is relative, it changes it to the absolute path for a file
+     * Didn't check or validate the path during the process (TO DO ?)
+     * 
+     * @param s
+     * @return s
+     */
+    public static String relativeToAbsoluteFilePath(String s) {
+        if (s.matches("^\\.\\/.*")) {
+            File f = new File(s);
+            s = f.getAbsolutePath();
+            s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
+        }
+        return s;
+    }
+    
+    
+    /***************************************************************************
+     * EDITOR FUNCTIONS
+     **************************************************************************/
+    
+    ////////////////////////////////////////////////////////////////////////////
+    // Save Values in program editor
+    // /!\ DONT FORGET TO ADD A NAME in the design for all /!\
+    // @param Save_Values
+    ////////////////////////////////////////////////////////////////////////////
+    
+    //For Box and spinner
+    public static void boxEventSpinner(workflow_properties properties,javax.swing.JCheckBox b,javax.swing.JSpinner s){
+        if (b.isSelected()==true){
+            if (s == null) {
+                properties.put(b.getName(),b.isSelected());
+            } else {
+                s.setEnabled(true);
+                properties.put(s.getName(),s.getValue());
+                properties.put(b.getName(),s.getValue());
+            }
+        } else {
+            properties.remove(b.getName());
+            if (s != null){
+                s.setEnabled(false);
+            }
+        }
+    }
+    //For Button and Spinner
+    public static void buttonEventSpinner (workflow_properties properties, javax.swing.JRadioButton b,javax.swing.JSpinner s){
+        if (b.isSelected()==true){
+            if (s == null) {
+                properties.put(b.getName(),b.isSelected());
+            } else {
+                s.setEnabled(true);
+                properties.put(s.getName(),s.getValue());
+                properties.put(b.getName(),s.getValue());
+            }
+        }
+    }
+    //For Box and text
+    public static void boxEventText(workflow_properties properties,javax.swing.JCheckBox b,javax.swing.JTextField t){
+        if (b.isSelected()==true){
+            if (t == null) {
+                properties.put(b.getName(),b.isSelected());
+            } else {
+                t.setEnabled(true);
+                properties.put(t.getName(),t.getText());
+                properties.put(b.getName(),t.getText());
+            }
+        } else {
+            properties.remove(b.getName());
+            if (t != null){
+                t.setEnabled(false);
+            }
+        }
+    }
+    
+    //For Button and text
+    public static void buttonEventText (workflow_properties properties, javax.swing.JRadioButton b,javax.swing.JTextField t){
+        if (b.isSelected()==true){
+            if (t == null) {
+                properties.put(b.getName(),b.isSelected());
+            } else {
+                t.setEnabled(true);
+                properties.put(t.getName(),t.getText());
+                properties.put(b.getName(),t.getText());
+            }
+        }
+    }
+    
+    public static void removePropertiesIn(workflow_properties properties, String[] sTab,String s) {
+        if (s.equals("null")){
+            for (String sT:sTab)
+                if (properties.isSet(sT))
+                    properties.remove(sT);
+        } else {
+            for (String sT:sTab)
+                if (properties.isSet(sT)&&!s.equals(sT))
+                    properties.remove(sT);
+        }
+    }
+    
+    public static void getDefaultPgrmValues(workflow_properties properties,boolean b) {
+        if (b!=true && properties.isSet("defaultPgrmValues")) {
+            String defaultEditorStatus = properties.get("defaultPgrmValues");
+            String[] arrayDefault = defaultEditorStatus.split("<>");
+            int z;
+            for (int i =0 ; i < arrayDefault.length ; i=i+2){
+                z = i;
+                properties.put(arrayDefault[z],arrayDefault[z+1]);
+            }
+        }
+    }
+
+
 }

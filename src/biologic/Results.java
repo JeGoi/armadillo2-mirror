@@ -21,7 +21,9 @@
 
 package biologic;
 
+import configuration.Util;
 import java.io.Serializable;
+import workflows.workflow_properties;
 
 /**
  * Common Text returned by a Program
@@ -59,9 +61,19 @@ public class Results extends Unknown implements Serializable {
         return "Results";
     }
 
+    @Override
     public String getExtendedString() {
         return toString();
     }
 
+    public static void saveResultsPgrmOutput (workflow_properties properties, String outputPgrm, String pgrmName) {
+        Results text=new Results(pgrmName+"_stats.txt");
+        text.setText(outputPgrm+"\n");
+        text.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        text.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        boolean b = text.saveToDatabase();
+        if (b) properties.put("output_results_id", text.getId());
+        else System.out.println("WARNING : results not saved");
+    }
 
 }

@@ -98,7 +98,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" alignment="0" pref="384" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" pref="385" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -879,6 +879,7 @@
                         <Component class="javax.swing.JCheckBox" name="O_trimQualities_box">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="--trim-qualities/-q"/>
+                            <Property name="name" type="java.lang.String" value="O_trimQualities_box" noResource="true"/>
                           </Properties>
                           <AccessibilityProperties>
                             <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="default 0,0 the first 0 is for 5&apos; the second is for 3&apos;"/>
@@ -916,6 +917,7 @@
                         <Component class="javax.swing.JCheckBox" name="O_qualityBase64_box">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="64"/>
+                            <Property name="name" type="java.lang.String" value="O_qualityBase64_box" noResource="true"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="O_qualityBase64_boxActionPerformed"/>
@@ -1357,7 +1359,7 @@
                                               <Component id="OT_DE_trimPrimer_box" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="54" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>

@@ -124,7 +124,7 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="Output_Panel" min="-2" pref="372" max="-2" attributes="0"/>
+                                          <Component id="Output_Panel" min="-2" max="-2" attributes="0"/>
                                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -277,7 +277,7 @@
                           <Component id="M_PE_button" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace pref="124" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="M_PE_Panel" alignment="0" pref="414" max="32767" attributes="0"/>
+                      <Component id="M_PE_Panel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -339,46 +339,41 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="M_PE_noOverlap_box" min="-2" max="-2" attributes="0"/>
-                                          <Component id="M_PE_noMixed_box" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="M_PE_noDiscordant_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="M_PE_dovetail_box" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="M_PE_noContain_box" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="M_PE_I_label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                      <Component id="M_PE_I_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="M_PE_X_label" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="M_PE_X_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_noOverlap_box" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_noMixed_box" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="M_PE_noDiscordant_box" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="M_PE_dovetail_box" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="M_PE_noContain_box" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="M_PE_I_box" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="M_PE_I_value" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="M_PE_X_box" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="M_PE_X_value" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="M_PE_I_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="M_PE_I_value" alignment="3" max="-2" attributes="0"/>
-                                  <Component id="M_PE_X_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="M_PE_X_value" alignment="3" max="-2" attributes="0"/>
+                                  <Component id="M_PE_I_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="M_PE_X_box" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -399,18 +394,6 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="M_PE_I_label">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="-I/--minins"/>
-                        <Property name="name" type="java.lang.String" value="M_PE_I_label" noResource="true"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="M_PE_X_label">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="-X/--maxins"/>
-                        <Property name="name" type="java.lang.String" value="M_PE_X_label" noResource="true"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JCheckBox" name="M_PE_noMixed_box">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="--no-mixed"/>
@@ -551,6 +534,24 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_I_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-I/--minins"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_I_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_I_boxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="M_PE_X_box">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-X/--maxins"/>
+                        <Property name="name" type="java.lang.String" value="M_PE_X_box" noResource="true"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="M_PE_X_boxActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel5">
@@ -954,48 +955,39 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_I_s_label" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CM_I_u_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="CM_I_u_box" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="CM_I_u_value" pref="100" max="32767" attributes="0"/>
-                                                  <Component id="CM_I_s_value" pref="100" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_I_3_label" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CM_I_5_label" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="CM_I_u_value" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_I_5_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  <Component id="CM_I_3_value" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="CM_I_3_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CM_I_3_value" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="CM_I_solexaQuals_box" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="CM_I_phred33_box" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="CM_I_phred64_box" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="CM_I_intQuals_box" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Component id="CM_I_TOI_panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CM_I_solexaQuals_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CM_I_phred33_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="CM_I_phred64_box" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="CM_I_intQuals_box" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="CM_I_TOI_panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="CM_I_s_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="CM_I_s_value" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="CM_I_5_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CM_I_5_value" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1006,17 +998,17 @@
                                       <Component id="CM_I_TOI_panel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_I_s_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_I_s_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_I_5_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_I_5_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_I_s_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_I_s_value" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Component id="CM_I_5_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_I_u_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_I_u_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_I_3_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_I_3_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_I_u_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_I_3_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1094,36 +1086,15 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_intQuals_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="CM_I_s_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-s/--skip"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_s_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_I_u_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-u/--qupto"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_u_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_I_5_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-5/--trim5"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_5_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_I_3_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-3/--trim3"/>
-                                <Property name="name" type="java.lang.String" value="CM_I_3_label" noResource="true"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JSpinner" name="CM_I_s_value">
                               <Properties>
                                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                                   <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
                                 </Property>
                                 <Property name="name" type="java.lang.String" value="CM_I_s_value" noResource="true"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[115, 20]"/>
+                                </Property>
                               </Properties>
                               <Events>
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_I_s_spinner_value"/>
@@ -1132,9 +1103,12 @@
                             <Component class="javax.swing.JSpinner" name="CM_I_u_value">
                               <Properties>
                                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                                  <SpinnerModel initial="100000000" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                                  <SpinnerModel initial="2147483647" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
                                 </Property>
                                 <Property name="name" type="java.lang.String" value="CM_I_u_value" noResource="true"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[115, 20]"/>
+                                </Property>
                               </Properties>
                               <Events>
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_I_u_spinner_value"/>
@@ -1266,6 +1240,42 @@
                                 </Component>
                               </SubComponents>
                             </Container>
+                            <Component class="javax.swing.JCheckBox" name="CM_I_s_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-s/--skip"/>
+                                <Property name="name" type="java.lang.String" value="CM_I_s_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_s_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_I_5_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-5/--trim5"/>
+                                <Property name="name" type="java.lang.String" value="CM_I_5_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_5_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_I_u_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-u/--qupto"/>
+                                <Property name="name" type="java.lang.String" value="CM_I_u_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_u_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_I_3_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-3/--trim3"/>
+                                <Property name="name" type="java.lang.String" value="CM_I_3_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_I_3_boxActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="CM_Align_Panel">
@@ -1287,41 +1297,50 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="CM_A_gbar_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="CM_A_gbar_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_A_N_value" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                                  <Component id="CM_A_L_value" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_A_N_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="CM_A_L_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_A_N_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                                          <Component id="CM_A_L_value" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_A_dpad_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="CM_A_gbar_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_A_gbar_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                                          <Component id="CM_A_dpad_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_A_no1mmUpfront_box" min="-2" max="-2" attributes="0"/>
                                                   <Component id="CM_A_ignoreQuals_box" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="CM_A_nofw_box" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="CM_A_norc_box" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="CM_A_i_label" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="CM_A_i_text" min="-2" pref="100" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="CM_A_i_box" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="CM_A_i_text" min="-2" pref="100" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="CM_A_no1mmUpfront_box" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_A_dpad_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="CM_A_dpad_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="CM_A_L_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_A_N_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_A_nceil_label" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CM_A_nCeil_box" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="CM_A_nCeil_text" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
@@ -1344,34 +1363,34 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_A_N_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_N_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_A_ignoreQuals_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_N_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="CM_A_L_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_A_L_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_no1mmUpfront_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_L_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_A_dpad_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_dpad_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_A_nofw_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_norc_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_dpad_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_A_gbar_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_gbar_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_A_i_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_i_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_i_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_gbar_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_A_nceil_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_nCeil_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_A_nCeil_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1380,7 +1399,7 @@
                                           <Component id="CM_A_local_button" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_local_text" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="20" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1421,45 +1440,6 @@
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_no1mmUpfront_boxActionPerformed"/>
                               </Events>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_A_N_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-N"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_N_label" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Sets the number of mismatches to allowed in a seed alignment during multiseed alignment. Can be set to 0 or 1. Setting this higher makes alignment slower (often much slower) but increases sensitivity. Default: 0."/>
-                              </AccessibilityProperties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_A_L_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-L"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_L_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_A_dpad_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--dpad"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_dpad_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_A_gbar_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--gbar"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_gbar_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_A_i_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-i"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_i_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_A_nceil_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--n-ceil"/>
-                                <Property name="name" type="java.lang.String" value="CM_A_nceil_label" noResource="true"/>
-                              </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="CM_A_i_text">
                               <Properties>
@@ -1576,6 +1556,60 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_norc_boxActionPerformed"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_i_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-i"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_i_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_i_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_nCeil_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--n-ceil"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_nCeil_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_nCeil_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_N_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-N"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_N_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_N_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_L_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-L"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_L_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_L_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_dpad_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--dpad"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_dpad_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_dpad_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_A_gbar_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--gbar"/>
+                                <Property name="name" type="java.lang.String" value="CM_A_gbar_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_A_gbar_boxActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="CM_Scoring_Panel">
@@ -1593,52 +1627,56 @@
                           <Layout>
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_S_mp_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="CM_S_mp_value" min="-2" pref="200" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="CM_S_rfg_label" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="CM_S_first_label" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="CM_S_rdg_label" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_S_rfg1_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="CM_S_rdg1_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_S_rfg1_value" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                                          <Component id="CM_S_rdg1_value" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="CM_S_rdg1_value" pref="100" max="32767" attributes="0"/>
-                                                  <Component id="CM_S_rfg1_value" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="CM_S_rdg2_value" pref="101" max="32767" attributes="0"/>
-                                                  <Component id="CM_S_rfg2_value" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="CM_S_second_label" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="CM_S_rfg2_box" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="CM_S_rdg2_box" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="CM_S_rfg2_value" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                                          <Component id="CM_S_rdg2_value" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                              <Component id="CM_S_first_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                                              <Component id="CM_S_second_label" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CM_S_mp_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CM_S_mp_text" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_S_ma_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="CM_S_ma_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="CM_S_ma_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="CM_S_np_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="CM_S_np_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="CM_S_np_value" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="72" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1647,32 +1685,34 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_S_ma_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_S_ma_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_S_np_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_S_np_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_ma_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_np_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_S_mp_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_S_mp_value" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_mp_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_mp_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="CM_S_second_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_first_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_S_first_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_S_second_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_S_rdg_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_S_rdg1_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_S_rdg2_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_S_rdg1_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_rdg2_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_S_rfg_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_S_rfg1_value" alignment="3" max="-2" attributes="0"/>
                                           <Component id="CM_S_rfg2_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_S_rfg1_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_rfg2_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_S_rfg1_value" alignment="3" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -1680,42 +1720,6 @@
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="CM_S_ma_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--ma"/>
-                                <Property name="name" type="java.lang.String" value="CM_S_ma_label" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="--ma; In `--local` mode match bonus is added to the alignment score for each position where a read character aligns to a reference character and the characters match. Not used in `--end-to-end` mode; Default=2"/>
-                              </AccessibilityProperties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_S_mp_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--mp"/>
-                                <Property name="name" type="java.lang.String" value="CM_S_mp_label" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="--mp; A number less than or equal to `MX` and greater than or equal to `MN` is subtracted from the alignment score for each position where a read character aligns to a reference character, the characters do not match, and neither is an `N`. If `--ignore-quals` is specified, the number subtracted quals `MX`. Otherwise, the number subtracted is `MN + floor( (MX-MN)(MIN(Q, 40.0)/40.0) )` where Q is the Phred quality value; Default=6,2"/>
-                              </AccessibilityProperties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_S_np_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--np"/>
-                                <Property name="name" type="java.lang.String" value="CM_S_np_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_S_rdg_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--rdg"/>
-                                <Property name="name" type="java.lang.String" value="CM_S_rdg_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_S_rfg_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--rfg"/>
-                                <Property name="name" type="java.lang.String" value="CM_S_rfg_label" noResource="true"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JLabel" name="CM_S_first_label">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="first"/>
@@ -1795,15 +1799,78 @@
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_S_rfg2_spinner_value"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="CM_S_mp_value">
+                            <Component class="javax.swing.JTextField" name="CM_S_mp_text">
                               <Properties>
                                 <Property name="horizontalAlignment" type="int" value="0"/>
                                 <Property name="text" type="java.lang.String" value="6,2"/>
-                                <Property name="name" type="java.lang.String" value="CM_S_mp_value" noResource="true"/>
+                                <Property name="name" type="java.lang.String" value="CM_S_mp_text" noResource="true"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_S_mp_valueFocusLost"/>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_mp_valueActionPerformed"/>
+                                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_S_mp_textFocusLost"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_mp_textActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_ma_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--ma"/>
+                                <Property name="name" type="java.lang.String" value="CM_S_ma_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_ma_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_np_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--np"/>
+                                <Property name="name" type="java.lang.String" value="CM_S_np_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_np_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_mp_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--mp"/>
+                                <Property name="name" type="java.lang.String" value="CM_S_mp_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_mp_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_rdg1_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--rdg1"/>
+                                <Property name="name" type="java.lang.String" value="CM_S_rdg1_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_rdg1_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_rdg2_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--rdg2"/>
+                                <Property name="name" type="java.lang.String" value="CM_S_rdg2_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_rdg2_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_rfg1_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--rfg1 "/>
+                                <Property name="name" type="java.lang.String" value="CM_S_rdg1_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_rfg1_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_S_rfg2_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--rfg2 "/>
+                                <Property name="name" type="java.lang.String" value="CM_S_rfg2_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_S_rfg2_boxActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -1924,15 +1991,15 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CM_E_R_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="CM_E_D_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_E_D_box" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_E_R_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="CM_E_D_value" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <Component id="CM_E_R_value" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="CM_E_R_value" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="252" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1941,38 +2008,20 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_E_D_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_E_D_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_E_D_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_E_R_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_E_R_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_E_R_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="123" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="CM_E_D_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-D"/>
-                                <Property name="name" type="java.lang.String" value="CM_E_D_label" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Up to &lt;int&gt; consecutive seed extension attempts can &quot;fail&quot; before Bowtie 2 moves on, using the alignments found so far. A seed extension &quot;fails&quot; if it does not yield a new best or a new second-best alignment. This limit is automatically adjusted up when -k or -a are specified. Default: 15."/>
-                              </AccessibilityProperties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_E_R_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-R"/>
-                                <Property name="name" type="java.lang.String" value="CM_E_R_label" noResource="true"/>
-                              </Properties>
-                              <AccessibilityProperties>
-                                <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="&lt;int&gt; is the maximum number of times Bowtie 2 will &quot;re-seed&quot; reads with repetitive seeds. When &quot;re-seeding,&quot; Bowtie 2 simply chooses a new set of reads (same length, same number of mismatches allowed) at different offsets and searches for more alignments. A read is considered to have repetitive seeds if the total number of seed hits divided by the number of seeds that aligned at least once is greater than 300. Default: 2."/>
-                              </AccessibilityProperties>
-                            </Component>
                             <Component class="javax.swing.JSpinner" name="CM_E_D_value">
                               <Properties>
                                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
@@ -1995,6 +2044,24 @@
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_E_R_spinner_value"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_E_D_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-D"/>
+                                <Property name="name" type="java.lang.String" value="CM_E_D_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_E_D_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_E_R_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-R"/>
+                                <Property name="name" type="java.lang.String" value="CM_E_R_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_E_R_boxActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="CM_SAM_Panel">
@@ -2015,30 +2082,26 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Component id="CM_SAM_noUnal_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                               <Component id="CM_SAM_noHd_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="CM_SAM_noSq_box" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="CM_SAM_omitSecSeq_box" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="CM_SAM_rgId_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CM_SAM_rgId_text" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_SAM_rgId_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CM_SAM_rg_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="CM_SAM_rg_box" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_SAM_rg_text" max="32767" attributes="0"/>
-                                                  <Component id="CM_SAM_rgId_text" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="CM_SAM_rg_text" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="CM_SAM_omitSecSeq_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="159" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2051,17 +2114,17 @@
                                           <Component id="CM_SAM_noHd_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_SAM_noSq_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="CM_SAM_omitSecSeq_box" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_SAM_rgId_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_SAM_rgId_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_SAM_rgId_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_SAM_rg_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_SAM_rg_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_SAM_rg_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
@@ -2105,21 +2168,12 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_SAM_noSq_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="CM_SAM_rgId_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--rg-id"/>
-                                <Property name="name" type="java.lang.String" value="CM_SAM_rgId_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_SAM_rg_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--rg"/>
-                                <Property name="name" type="java.lang.String" value="CM_SAM_rg_label" noResource="true"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JTextField" name="CM_SAM_rgId_text">
                               <Properties>
                                 <Property name="name" type="java.lang.String" value="CM_SAM_rgId_text" noResource="true"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[265, 19]"/>
+                                </Property>
                               </Properties>
                               <Events>
                                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_SAM_rgId_textFocusLost"/>
@@ -2129,11 +2183,26 @@
                             <Component class="javax.swing.JTextField" name="CM_SAM_rg_text">
                               <Properties>
                                 <Property name="name" type="java.lang.String" value="CM_SAM_rg_text" noResource="true"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[283, 19]"/>
+                                </Property>
                               </Properties>
                               <Events>
                                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CM_SAM_rg_textFocusLost"/>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_SAM_rg_textActionPerformed"/>
                               </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_SAM_rgId_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--rg-id"/>
+                                <Property name="name" type="java.lang.String" value="CM_SAM_rgId_box" noResource="true"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_SAM_rg_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--rg"/>
+                                <Property name="name" type="java.lang.String" value="CM_SAM_rg_box" noResource="true"/>
+                              </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -2155,21 +2224,20 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="CM_P_o_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="CM_P_o_text" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="CM_P_p_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="CM_P_o_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="CM_P_p_value" max="32767" attributes="0"/>
-                                                  <Component id="CM_P_o_text" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="CM_P_p_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CM_P_p_value" min="-2" pref="56" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="CM_P_reorder_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_P_mm_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="227" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2178,36 +2246,24 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_P_o_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_P_o_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_P_o_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_P_p_label" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_P_p_value" alignment="3" max="-2" attributes="0"/>
+                                          <Component id="CM_P_p_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="CM_P_reorder_box" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="CM_P_mm_box" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="77" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="CM_P_o_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-o/--offrate"/>
-                                <Property name="name" type="java.lang.String" value="CM_P_o_label" noResource="true"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="CM_P_p_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="-p/--threads"/>
-                                <Property name="name" type="java.lang.String" value="CM_P_p_label" noResource="true"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JTextField" name="CM_P_o_text">
                               <Properties>
                                 <Property name="editable" type="boolean" value="false"/>
@@ -2249,6 +2305,24 @@
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_P_t_spinner_value"/>
                               </Events>
                             </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_P_p_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-p/--threads"/>
+                                <Property name="name" type="java.lang.String" value="CM_P_p_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_P_p_boxActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_P_o_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="-o/--offrate"/>
+                                <Property name="name" type="java.lang.String" value="CM_P_o_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_P_o_boxActionPerformed"/>
+                              </Events>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="CM_Other_Panel">
@@ -2271,13 +2345,13 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="CM_OO_qcFilter_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="CM_OO_seed_label" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="CM_OO_seed_box" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="CM_OO_seed_value" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="CM_OO_nonDeterminist_box" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="216" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2288,7 +2362,7 @@
                                       <Component id="CM_OO_qcFilter_box" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_OO_seed_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CM_OO_seed_box" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_OO_seed_value" alignment="3" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2308,12 +2382,6 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_OO_qcFilter_boxActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="CM_OO_seed_label">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="--seed"/>
-                                <Property name="name" type="java.lang.String" value="CM_OO_seed_label" noResource="true"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JCheckBox" name="CM_OO_nonDeterminist_box">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="--non-deterministic"/>
@@ -2332,6 +2400,15 @@
                               </Properties>
                               <Events>
                                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="CM_OO_seed_spinner_value"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="CM_OO_seed_box">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="--seed"/>
+                                <Property name="name" type="java.lang.String" value="CM_OO_seed_box" noResource="true"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CM_OO_seed_boxActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
@@ -2371,7 +2448,7 @@
                                   <Component id="M_IDG_directory_button" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="14" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

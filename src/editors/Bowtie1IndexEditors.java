@@ -11,6 +11,7 @@
 package editors;
 
 import configuration.Config;
+import configuration.Util;
 import editor.EditorInterface;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -368,6 +369,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Big or Little"));
 
         IG_big_box.setText("--big");
+        IG_big_box.setName("IG_big_box"); // NOI18N
         IG_big_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IG_big_boxActionPerformed(evt);
@@ -375,6 +377,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
         });
 
         IG_little_box.setText("--little");
+        IG_little_box.setName("IG_little_box"); // NOI18N
         IG_little_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IG_little_boxActionPerformed(evt);
@@ -594,7 +597,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
                                 .addComponent(run_jButton5)
                                 .addGap(18, 18, 18)
                                 .addComponent(ClosejButton6))
-                            .addComponent(IG_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(IG_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(IG_DO_button)
                                 .addGap(18, 18, 18)
@@ -707,7 +710,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
 
     private void IG_3_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_3_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_3_box,null);
+        Util.boxEventSpinner(properties,IG_3_box,null);
         if (properties.isSet(IG_r_box.getName())) {
             properties.remove(IG_r_box.getName());
             IG_r_box.setSelected(false);
@@ -716,7 +719,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
 
     private void IG_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_r_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_r_box,null);
+        Util.boxEventSpinner(properties,IG_r_box,null);
         if (properties.isSet(IG_3_box.getName())) {
             properties.remove(IG_3_box.getName());
             IG_3_box.setSelected(false);
@@ -725,57 +728,57 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
 
     private void IG_o_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_o_spinner_value
         // TODO add your handling code here:
-        boxEventSpinner(IG_o_box,IG_o_value);
+        Util.boxEventSpinner(properties,IG_o_box,IG_o_value);
     }//GEN-LAST:event_IG_o_spinner_value
 
     private void IG_t_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_t_spinner_value
         // TODO add your handling code here:
-        boxEventSpinner(IG_t_box,IG_t_value);
+        Util.boxEventSpinner(properties,IG_t_box,IG_t_value);
     }//GEN-LAST:event_IG_t_spinner_value
 
     private void IG_seed_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_seed_spinner_value
         // TODO add your handling code here:
-        boxEventSpinner(IG_seed_box,IG_seed_value);
+        Util.boxEventSpinner(properties,IG_seed_box,IG_seed_value);
     }//GEN-LAST:event_IG_seed_spinner_value
 
     private void IG_q_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_q_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_q_box,null);
+        Util.boxEventSpinner(properties,IG_q_box,null);
     }//GEN-LAST:event_IG_q_boxActionPerformed
 
     private void IG_seed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_seed_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_seed_box,IG_seed_value);
+        Util.boxEventSpinner(properties,IG_seed_box,IG_seed_value);
     }//GEN-LAST:event_IG_seed_boxActionPerformed
 
     private void IG_t_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_t_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_t_box,IG_t_value);
+        Util.boxEventSpinner(properties,IG_t_box,IG_t_value);
     }//GEN-LAST:event_IG_t_boxActionPerformed
 
     private void IG_o_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_o_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_o_box,IG_o_value);
+        Util.boxEventSpinner(properties,IG_o_box,IG_o_value);
     }//GEN-LAST:event_IG_o_boxActionPerformed
 
     private void IG_nodc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_nodc_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_nodc_box,null);
+        Util.boxEventSpinner(properties,IG_nodc_box,null);
     }//GEN-LAST:event_IG_nodc_boxActionPerformed
 
     private void IG_dcv_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_dcv_spinner_value
         // TODO add your handling code here:
-        boxEventSpinner(IG_dcv_box,IG_dcv_value);
+        Util.boxEventSpinner(properties,IG_dcv_box,IG_dcv_value);
     }//GEN-LAST:event_IG_dcv_spinner_value
 
     private void IG_bmax_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_bmax_spinner_value
         // TODO add your handling code here:
-        boxEventSpinner(IG_bmax_box,IG_bmax_value);
+        Util.boxEventSpinner(properties,IG_bmax_box,IG_bmax_value);
     }//GEN-LAST:event_IG_bmax_spinner_value
 
     private void IG_bmaxdivn_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_IG_bmaxdivn_spinner_value
         // TODO add your handling code here:
-        boxEventSpinner(IG_bmaxdivn_box,IG_bmaxdivn_value);
+        Util.boxEventSpinner(properties,IG_bmaxdivn_box,IG_bmaxdivn_value);
     }//GEN-LAST:event_IG_bmaxdivn_spinner_value
 
     private void IG_bmaxdivn_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_bmaxdivn_boxActionPerformed
@@ -787,7 +790,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
             
         }
 
-        boxEventSpinner(IG_bmaxdivn_box,IG_bmaxdivn_value);
+        Util.boxEventSpinner(properties,IG_bmaxdivn_box,IG_bmaxdivn_value);
 
         if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
             !(properties.isSet(IG_dcv_value.getName())) &&
@@ -807,7 +810,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
             IG_bmaxdivn_box.setSelected(false);
         }
 
-        boxEventSpinner(IG_bmax_box,IG_bmax_value);
+        Util.boxEventSpinner(properties,IG_bmax_box,IG_bmax_value);
 
         if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
             !(properties.isSet(IG_dcv_value.getName())) &&
@@ -821,7 +824,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
 
     private void IG_p_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_p_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_p_box,null);
+        Util.boxEventSpinner(properties,IG_p_box,null);
 
         if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
             !(properties.isSet(IG_dcv_value.getName())) &&
@@ -835,7 +838,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
 
     private void IG_dcv_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_dcv_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_dcv_box,IG_dcv_value);
+        Util.boxEventSpinner(properties,IG_dcv_box,IG_dcv_value);
 
         if (!(properties.isSet(IG_bmaxdivn_value.getName())) &&
             !(properties.isSet(IG_dcv_value.getName())) &&
@@ -867,7 +870,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
         if (properties.isSet(IG_AO_button.getName())){
             properties.remove(IG_AO_button.getName());
         }
-        buttonEvent(IG_DO_button);        
+        Util.buttonEventSpinner(properties, IG_DO_button, null);
         IG_Panel.setVisible(false);
     }//GEN-LAST:event_IG_DO_buttonActionPerformed
 
@@ -876,13 +879,12 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
         if (properties.isSet(IG_DO_button.getName())){
             properties.remove(IG_DO_button.getName());
         }
-        buttonEvent(IG_AO_button);
+        Util.buttonEventSpinner(properties, IG_AO_button, null);
         IG_Panel.setVisible(true);
     }//GEN-LAST:event_IG_AO_buttonActionPerformed
 
     private void IDG_r_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_r_textActionPerformed
         // TODO add your handling code here:
-        eventText(IDG_r_text);
     }//GEN-LAST:event_IDG_r_textActionPerformed
 
     private void IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_change_buttonActionPerformed
@@ -901,68 +903,40 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
         int result = d.showOpenDialog(this);
         
         if (result==JFileChooser.APPROVE_OPTION) {           
+            properties.remove(IDG_r_text.getName());
+            
             File dir = d.getSelectedFile();
             
             // Set the text
             String s = dir.getAbsolutePath();
             IDG_r_text.setText(s);
-            properties.remove(IDG_r_text.getName());
-            eventText(IDG_r_text);
+            properties.put(IDG_r_text.getName(),IDG_r_text.getText());
         }        
     }//GEN-LAST:event_IDG_change_buttonActionPerformed
 
     private void IG_ntoa_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_ntoa_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_ntoa_box,null);
+        Util.boxEventSpinner(properties,IG_ntoa_box,null);
     }//GEN-LAST:event_IG_ntoa_boxActionPerformed
 
     private void IG_big_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_big_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_big_box,null);
         if (properties.isSet(IG_little_box.getName())) {
             properties.remove(IG_little_box.getName());
             IG_little_box.setSelected(false);
         }
+        Util.boxEventSpinner(properties,IG_big_box,null);
     }//GEN-LAST:event_IG_big_boxActionPerformed
 
     private void IG_little_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IG_little_boxActionPerformed
         // TODO add your handling code here:
-        boxEventSpinner(IG_little_box,null);
         if (properties.isSet(IG_big_box.getName())) {
             properties.remove(IG_big_box.getName());
             IG_big_box.setSelected(false);
         }
+        Util.boxEventSpinner(properties,IG_little_box,null);
     }//GEN-LAST:event_IG_little_boxActionPerformed
                                                                                                                                                                                                                                                                                                                                                                                                     
-    /**
-     * Save Values
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Save_Values
-     */
-    //For Button
-    private void buttonEvent(javax.swing.JRadioButton b){
-        properties.put(b.getName(),b.isSelected());
-    }
-    //For Text only
-    private void eventText(javax.swing.JTextField t){
-        properties.put(t.getName(),t.getText());
-    }
-    //For Box
-    private void boxEventSpinner(javax.swing.JCheckBox b,javax.swing.JSpinner s){
-        if (b.isSelected()==true){
-            if (s != null) {
-                s.setEnabled(true);
-                properties.put(s.getName(),s.getValue());
-                properties.put(b.getName(),s.getValue());
-            } else properties.put(b.getName(),b.isSelected());
-        } else {
-            if (s != null){
-                s.setEnabled(false);
-            }
-            properties.remove(b.getName());
-        }
-    }
-    
     /**
      * Enable or disable fields of Options
      * @param enabled
@@ -985,6 +959,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
     
     /**
      * Set Properties
+     * @param properties
      */
     
     public void setProperties(workflow_properties properties) {
@@ -1132,6 +1107,7 @@ public class Bowtie1IndexEditors extends javax.swing.JDialog implements EditorIn
      * Set the configuration properties for this object
      */
     
+    @Override
     public void display(workflow_properties properties) {
         this.properties=properties;
         initComponents();

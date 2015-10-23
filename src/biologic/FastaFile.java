@@ -21,8 +21,10 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
 import java.util.Vector;
+import workflows.workflow_properties;
 
 /**
  *
@@ -70,6 +72,16 @@ public class FastaFile extends Text implements Serializable {
             s = fas.getName();
         }
         return s;
+    }
+    
+    public static int saveFastaFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        FastaFile f=new FastaFile();
+        f.setFastaFile(s);
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        f.saveToDatabase();
+        return f.getId();
     }
 
     @Override

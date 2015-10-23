@@ -102,7 +102,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="ClosejButton6" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="IG_Panel" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="IG_Panel" alignment="0" pref="428" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="IG_DO_button" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -623,6 +623,7 @@
                     <Component class="javax.swing.JCheckBox" name="IG_big_box">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="--big"/>
+                        <Property name="name" type="java.lang.String" value="IG_big_box" noResource="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_big_boxActionPerformed"/>
@@ -631,6 +632,7 @@
                     <Component class="javax.swing.JCheckBox" name="IG_little_box">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="--little"/>
+                        <Property name="name" type="java.lang.String" value="IG_little_box" noResource="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IG_little_boxActionPerformed"/>

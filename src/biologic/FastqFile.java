@@ -7,8 +7,10 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
 import java.util.Vector;
+import workflows.workflow_properties;
 
 /**
  * @author JG 2015
@@ -49,6 +51,33 @@ public class FastqFile extends Text implements Serializable{
             s = fas.getName();
         }
         return s;
+    }
+    
+    public static int fastqSameName (String s1,String s2) {
+        int b = 0;
+        s1 = s1.replaceAll("_\\d$","");
+        s2 = s2.replaceAll("_\\d$","");
+        if (s2.equals(s1)) b=1;
+        return b;
+    }
+
+    public static int fastqGoodNumber (String s1,String s2) {
+        int b = 0;
+        int val1 = Integer.parseInt(s1.replaceAll(".*_(\\d)$","$1"));
+        int val2 = Integer.parseInt(s2.replaceAll(".*_(\\d)$","$1"));
+        if (val1==1 && val2==2) b=1;
+        return b;
+    }
+
+    
+    public static int saveFastqFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        FastqFile f=new FastqFile();
+        f.setFastqFile(s);
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        f.saveToDatabase();
+        return f.getId();
     }
     
     @Override

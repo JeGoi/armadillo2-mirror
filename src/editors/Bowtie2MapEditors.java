@@ -11,6 +11,7 @@
 package editors;
 
 import configuration.Config;
+import configuration.Util;
 import editor.EditorInterface;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -99,8 +100,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         M_SE_button = new javax.swing.JRadioButton();
         M_PE_button = new javax.swing.JRadioButton();
         M_PE_Panel = new javax.swing.JPanel();
-        M_PE_I_label = new javax.swing.JLabel();
-        M_PE_X_label = new javax.swing.JLabel();
         M_PE_noMixed_box = new javax.swing.JCheckBox();
         M_PE_noDiscordant_box = new javax.swing.JCheckBox();
         M_PE_dovetail_box = new javax.swing.JCheckBox();
@@ -112,6 +111,8 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         M_PE_fr_button = new javax.swing.JRadioButton();
         M_PE_rf_button = new javax.swing.JRadioButton();
         M_PE_ff_button = new javax.swing.JRadioButton();
+        M_PE_I_box = new javax.swing.JCheckBox();
+        M_PE_X_box = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         Output_Panel = new javax.swing.JPanel();
         O_unANDunConc_box = new javax.swing.JCheckBox();
@@ -138,10 +139,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         CM_I_phred33_box = new javax.swing.JCheckBox();
         CM_I_solexaQuals_box = new javax.swing.JCheckBox();
         CM_I_intQuals_box = new javax.swing.JCheckBox();
-        CM_I_s_label = new javax.swing.JLabel();
-        CM_I_u_label = new javax.swing.JLabel();
-        CM_I_5_label = new javax.swing.JLabel();
-        CM_I_3_label = new javax.swing.JLabel();
         CM_I_s_value = new javax.swing.JSpinner();
         CM_I_u_value = new javax.swing.JSpinner();
         CM_I_5_value = new javax.swing.JSpinner();
@@ -152,16 +149,14 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         CM_I_f_box = new javax.swing.JCheckBox();
         CM_I_qseq_box = new javax.swing.JCheckBox();
         CM_I_q_box = new javax.swing.JCheckBox();
+        CM_I_s_box = new javax.swing.JCheckBox();
+        CM_I_5_box = new javax.swing.JCheckBox();
+        CM_I_u_box = new javax.swing.JCheckBox();
+        CM_I_3_box = new javax.swing.JCheckBox();
         CM_Align_Panel = new javax.swing.JPanel();
         CM_A_ignoreQuals_box = new javax.swing.JCheckBox();
         CM_A_nofw_box = new javax.swing.JCheckBox();
         CM_A_no1mmUpfront_box = new javax.swing.JCheckBox();
-        CM_A_N_label = new javax.swing.JLabel();
-        CM_A_L_label = new javax.swing.JLabel();
-        CM_A_dpad_label = new javax.swing.JLabel();
-        CM_A_gbar_label = new javax.swing.JLabel();
-        CM_A_i_label = new javax.swing.JLabel();
-        CM_A_nceil_label = new javax.swing.JLabel();
         CM_A_i_text = new javax.swing.JTextField();
         CM_A_nCeil_text = new javax.swing.JTextField();
         CM_A_endToEnd_button = new javax.swing.JRadioButton();
@@ -173,12 +168,13 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         CM_A_gbar_value = new javax.swing.JSpinner();
         CM_A_local_text = new javax.swing.JTextField();
         CM_A_norc_box = new javax.swing.JCheckBox();
+        CM_A_i_box = new javax.swing.JCheckBox();
+        CM_A_nCeil_box = new javax.swing.JCheckBox();
+        CM_A_N_box = new javax.swing.JCheckBox();
+        CM_A_L_box = new javax.swing.JCheckBox();
+        CM_A_dpad_box = new javax.swing.JCheckBox();
+        CM_A_gbar_box = new javax.swing.JCheckBox();
         CM_Scoring_Panel = new javax.swing.JPanel();
-        CM_S_ma_label = new javax.swing.JLabel();
-        CM_S_mp_label = new javax.swing.JLabel();
-        CM_S_np_label = new javax.swing.JLabel();
-        CM_S_rdg_label = new javax.swing.JLabel();
-        CM_S_rfg_label = new javax.swing.JLabel();
         CM_S_first_label = new javax.swing.JLabel();
         CM_S_second_label = new javax.swing.JLabel();
         CM_S_ma_value = new javax.swing.JSpinner();
@@ -187,38 +183,45 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         CM_S_rfg1_value = new javax.swing.JSpinner();
         CM_S_rdg2_value = new javax.swing.JSpinner();
         CM_S_rfg2_value = new javax.swing.JSpinner();
-        CM_S_mp_value = new javax.swing.JTextField();
+        CM_S_mp_text = new javax.swing.JTextField();
+        CM_S_ma_box = new javax.swing.JCheckBox();
+        CM_S_np_box = new javax.swing.JCheckBox();
+        CM_S_mp_box = new javax.swing.JCheckBox();
+        CM_S_rdg1_box = new javax.swing.JCheckBox();
+        CM_S_rdg2_box = new javax.swing.JCheckBox();
+        CM_S_rfg1_box = new javax.swing.JCheckBox();
+        CM_S_rfg2_box = new javax.swing.JCheckBox();
         CM_Repor_Panel = new javax.swing.JPanel();
         CM_R_noset_button = new javax.swing.JRadioButton();
         CM_R_a_button = new javax.swing.JRadioButton();
         CM_R_k_button = new javax.swing.JRadioButton();
         CM_R_k_value = new javax.swing.JSpinner();
         CM_Effort_Panel = new javax.swing.JPanel();
-        CM_E_D_label = new javax.swing.JLabel();
-        CM_E_R_label = new javax.swing.JLabel();
         CM_E_D_value = new javax.swing.JSpinner();
         CM_E_R_value = new javax.swing.JSpinner();
+        CM_E_D_box = new javax.swing.JCheckBox();
+        CM_E_R_box = new javax.swing.JCheckBox();
         CM_SAM_Panel = new javax.swing.JPanel();
         CM_SAM_noUnal_box = new javax.swing.JCheckBox();
         CM_SAM_omitSecSeq_box = new javax.swing.JCheckBox();
         CM_SAM_noHd_box = new javax.swing.JCheckBox();
         CM_SAM_noSq_box = new javax.swing.JCheckBox();
-        CM_SAM_rgId_label = new javax.swing.JLabel();
-        CM_SAM_rg_label = new javax.swing.JLabel();
         CM_SAM_rgId_text = new javax.swing.JTextField();
         CM_SAM_rg_text = new javax.swing.JTextField();
+        CM_SAM_rgId_box = new javax.swing.JCheckBox();
+        CM_SAM_rg_box = new javax.swing.JCheckBox();
         CM_Performance_Panel = new javax.swing.JPanel();
-        CM_P_o_label = new javax.swing.JLabel();
-        CM_P_p_label = new javax.swing.JLabel();
         CM_P_o_text = new javax.swing.JTextField();
         CM_P_reorder_box = new javax.swing.JCheckBox();
         CM_P_mm_box = new javax.swing.JCheckBox();
         CM_P_p_value = new javax.swing.JSpinner();
+        CM_P_p_box = new javax.swing.JCheckBox();
+        CM_P_o_box = new javax.swing.JCheckBox();
         CM_Other_Panel = new javax.swing.JPanel();
         CM_OO_qcFilter_box = new javax.swing.JCheckBox();
-        CM_OO_seed_label = new javax.swing.JLabel();
         CM_OO_nonDeterminist_box = new javax.swing.JCheckBox();
         CM_OO_seed_value = new javax.swing.JSpinner();
+        CM_OO_seed_box = new javax.swing.JCheckBox();
         jPanel5 = new javax.swing.JPanel();
         M_IDG_workflow_button = new javax.swing.JRadioButton();
         M_IDG_directory_button = new javax.swing.JRadioButton();
@@ -319,12 +322,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
 
         M_PE_Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Paired-end Options"));
         M_PE_Panel.setName("M_PE_Panel"); // NOI18N
-
-        M_PE_I_label.setText("-I/--minins");
-        M_PE_I_label.setName("M_PE_I_label"); // NOI18N
-
-        M_PE_X_label.setText("-X/--maxins");
-        M_PE_X_label.setName("M_PE_X_label"); // NOI18N
 
         M_PE_noMixed_box.setText("--no-mixed");
         M_PE_noMixed_box.setName("M_PE_noMixed_box"); // NOI18N
@@ -433,42 +430,55 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addComponent(M_PE_ff_button))
         );
 
+        M_PE_I_box.setText("-I/--minins");
+        M_PE_I_box.setName("M_PE_I_box"); // NOI18N
+        M_PE_I_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                M_PE_I_boxActionPerformed(evt);
+            }
+        });
+
+        M_PE_X_box.setText("-X/--maxins");
+        M_PE_X_box.setName("M_PE_X_box"); // NOI18N
+        M_PE_X_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                M_PE_X_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout M_PE_PanelLayout = new javax.swing.GroupLayout(M_PE_Panel);
         M_PE_Panel.setLayout(M_PE_PanelLayout);
         M_PE_PanelLayout.setHorizontalGroup(
             M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(M_PE_PanelLayout.createSequentialGroup()
                 .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(M_PE_noOverlap_box)
+                    .addComponent(M_PE_noMixed_box))
+                .addGap(18, 18, 18)
+                .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                        .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(M_PE_noOverlap_box)
-                            .addComponent(M_PE_noMixed_box))
+                        .addComponent(M_PE_noDiscordant_box)
                         .addGap(18, 18, 18)
-                        .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                                .addComponent(M_PE_noDiscordant_box)
-                                .addGap(18, 18, 18)
-                                .addComponent(M_PE_dovetail_box))
-                            .addComponent(M_PE_noContain_box)))
-                    .addGroup(M_PE_PanelLayout.createSequentialGroup()
-                        .addComponent(M_PE_I_label)
-                        .addGap(21, 21, 21)
-                        .addComponent(M_PE_I_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(M_PE_X_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(M_PE_X_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(M_PE_dovetail_box))
+                    .addComponent(M_PE_noContain_box)))
+            .addGroup(M_PE_PanelLayout.createSequentialGroup()
+                .addComponent(M_PE_I_box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(M_PE_I_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(M_PE_X_box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(M_PE_X_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         M_PE_PanelLayout.setVerticalGroup(
             M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(M_PE_PanelLayout.createSequentialGroup()
                 .addGroup(M_PE_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(M_PE_I_label)
                     .addComponent(M_PE_I_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(M_PE_X_label)
-                    .addComponent(M_PE_X_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(M_PE_X_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(M_PE_I_box)
+                    .addComponent(M_PE_X_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -497,7 +507,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addGap(18, 18, 18)
                 .addComponent(M_PE_button, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(124, Short.MAX_VALUE))
-            .addComponent(M_PE_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 414, Short.MAX_VALUE)
+            .addComponent(M_PE_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         TypeOfLib_panelLayout.setVerticalGroup(
             TypeOfLib_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -695,9 +705,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                             .addComponent(M_L_VF_button)
                             .addComponent(M_L_F_button)
                             .addComponent(M_L_VS_button)))
-                    .addGroup(M_PanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(M_Local_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(M_Local_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(43, 43, 43))
         );
         M_PanelLayout.setVerticalGroup(
@@ -772,28 +780,18 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
-        CM_I_s_label.setText("-s/--skip");
-        CM_I_s_label.setName("CM_I_s_label"); // NOI18N
-
-        CM_I_u_label.setText("-u/--qupto");
-        CM_I_u_label.setName("CM_I_u_label"); // NOI18N
-
-        CM_I_5_label.setText("-5/--trim5");
-        CM_I_5_label.setName("CM_I_5_label"); // NOI18N
-
-        CM_I_3_label.setText("-3/--trim3");
-        CM_I_3_label.setName("CM_I_3_label"); // NOI18N
-
         CM_I_s_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         CM_I_s_value.setName("CM_I_s_value"); // NOI18N
+        CM_I_s_value.setPreferredSize(new java.awt.Dimension(115, 20));
         CM_I_s_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 CM_I_s_spinner_value(evt);
             }
         });
 
-        CM_I_u_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(100000000), Integer.valueOf(0), null, Integer.valueOf(1)));
+        CM_I_u_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(2147483647), Integer.valueOf(0), null, Integer.valueOf(1)));
         CM_I_u_value.setName("CM_I_u_value"); // NOI18N
+        CM_I_u_value.setPreferredSize(new java.awt.Dimension(115, 20));
         CM_I_u_value.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 CM_I_u_spinner_value(evt);
@@ -892,42 +890,70 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         CM_I_qseq_box.getAccessibleContext().setAccessibleDescription("Reads (specified with <m1>, <m2>, <s>) are QSEQ files. QSEQ files usually end in _qseq.txt. See also: --solexa-quals and --int-quals.");
         CM_I_q_box.getAccessibleContext().setAccessibleDescription("Reads (specified with <m1>, <m2>, <s>) are FASTQ files. FASTQ files usually have extension .fq or .fastq. FASTQ is the default format. See also: --solexa-quals and --int-quals.");
 
+        CM_I_s_box.setText("-s/--skip");
+        CM_I_s_box.setName("CM_I_s_box"); // NOI18N
+        CM_I_s_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_I_s_boxActionPerformed(evt);
+            }
+        });
+
+        CM_I_5_box.setText("-5/--trim5");
+        CM_I_5_box.setName("CM_I_5_box"); // NOI18N
+        CM_I_5_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_I_5_boxActionPerformed(evt);
+            }
+        });
+
+        CM_I_u_box.setText("-u/--qupto");
+        CM_I_u_box.setName("CM_I_u_box"); // NOI18N
+        CM_I_u_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_I_u_boxActionPerformed(evt);
+            }
+        });
+
+        CM_I_3_box.setText("-3/--trim3");
+        CM_I_3_box.setName("CM_I_3_box"); // NOI18N
+        CM_I_3_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_I_3_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CM_Input_PanelLayout = new javax.swing.GroupLayout(CM_Input_Panel);
         CM_Input_Panel.setLayout(CM_Input_PanelLayout);
         CM_Input_PanelLayout.setHorizontalGroup(
             CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CM_Input_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_I_s_label)
-                            .addComponent(CM_I_u_label))
+                    .addGroup(CM_Input_PanelLayout.createSequentialGroup()
+                        .addComponent(CM_I_u_box)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CM_I_u_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(CM_I_s_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_I_3_label, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CM_I_5_label, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(CM_I_u_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_I_5_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CM_I_3_value, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(CM_I_3_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CM_I_3_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CM_Input_PanelLayout.createSequentialGroup()
                         .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CM_Input_PanelLayout.createSequentialGroup()
-                                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CM_I_solexaQuals_box)
-                                    .addComponent(CM_I_phred33_box))
-                                .addGap(18, 18, 18)
-                                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CM_I_phred64_box)
-                                    .addComponent(CM_I_intQuals_box)))
-                            .addComponent(CM_I_TOI_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 25, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(CM_I_solexaQuals_box)
+                            .addComponent(CM_I_phred33_box))
+                        .addGap(18, 18, 18)
+                        .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CM_I_phred64_box)
+                            .addComponent(CM_I_intQuals_box)))
+                    .addComponent(CM_I_TOI_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(CM_Input_PanelLayout.createSequentialGroup()
+                        .addComponent(CM_I_s_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CM_I_s_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CM_I_5_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CM_I_5_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         CM_Input_PanelLayout.setVerticalGroup(
             CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -936,16 +962,16 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addComponent(CM_I_TOI_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_s_label)
-                    .addComponent(CM_I_s_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_I_5_label)
-                    .addComponent(CM_I_5_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_I_5_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_I_s_box)
+                    .addComponent(CM_I_s_value, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_I_5_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_u_label)
                     .addComponent(CM_I_u_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_I_3_label)
-                    .addComponent(CM_I_3_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_I_3_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_I_u_box)
+                    .addComponent(CM_I_3_box))
                 .addGap(18, 18, 18)
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_I_phred33_box)
@@ -989,24 +1015,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 CM_A_no1mmUpfront_boxActionPerformed(evt);
             }
         });
-
-        CM_A_N_label.setText("-N");
-        CM_A_N_label.setName("CM_A_N_label"); // NOI18N
-
-        CM_A_L_label.setText("-L");
-        CM_A_L_label.setName("CM_A_L_label"); // NOI18N
-
-        CM_A_dpad_label.setText("--dpad");
-        CM_A_dpad_label.setName("CM_A_dpad_label"); // NOI18N
-
-        CM_A_gbar_label.setText("--gbar");
-        CM_A_gbar_label.setName("CM_A_gbar_label"); // NOI18N
-
-        CM_A_i_label.setText("-i");
-        CM_A_i_label.setName("CM_A_i_label"); // NOI18N
-
-        CM_A_nceil_label.setText("--n-ceil");
-        CM_A_nceil_label.setName("CM_A_nceil_label"); // NOI18N
 
         CM_A_i_text.setName("CM_A_i_text"); // NOI18N
         CM_A_i_text.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1116,6 +1124,54 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
+        CM_A_i_box.setText("-i");
+        CM_A_i_box.setName("CM_A_i_box"); // NOI18N
+        CM_A_i_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_A_i_boxActionPerformed(evt);
+            }
+        });
+
+        CM_A_nCeil_box.setText("--n-ceil");
+        CM_A_nCeil_box.setName("CM_A_nCeil_box"); // NOI18N
+        CM_A_nCeil_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_A_nCeil_boxActionPerformed(evt);
+            }
+        });
+
+        CM_A_N_box.setText("-N");
+        CM_A_N_box.setName("CM_A_N_box"); // NOI18N
+        CM_A_N_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_A_N_boxActionPerformed(evt);
+            }
+        });
+
+        CM_A_L_box.setText("-L");
+        CM_A_L_box.setName("CM_A_L_box"); // NOI18N
+        CM_A_L_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_A_L_boxActionPerformed(evt);
+            }
+        });
+
+        CM_A_dpad_box.setText("--dpad");
+        CM_A_dpad_box.setName("CM_A_dpad_box"); // NOI18N
+        CM_A_dpad_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_A_dpad_boxActionPerformed(evt);
+            }
+        });
+
+        CM_A_gbar_box.setText("--gbar");
+        CM_A_gbar_box.setName("CM_A_gbar_box"); // NOI18N
+        CM_A_gbar_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_A_gbar_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CM_Align_PanelLayout = new javax.swing.GroupLayout(CM_Align_Panel);
         CM_Align_Panel.setLayout(CM_Align_PanelLayout);
         CM_Align_PanelLayout.setHorizontalGroup(
@@ -1124,34 +1180,38 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addContainerGap()
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_gbar_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_A_gbar_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
                         .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_A_N_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CM_A_L_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43)
+                            .addGroup(CM_Align_PanelLayout.createSequentialGroup()
+                                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_A_N_box)
+                                    .addComponent(CM_A_L_box))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_A_N_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CM_A_L_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(CM_Align_PanelLayout.createSequentialGroup()
+                                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_A_dpad_box)
+                                    .addComponent(CM_A_gbar_box))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_A_gbar_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CM_A_dpad_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_A_no1mmUpfront_box)
                             .addComponent(CM_A_ignoreQuals_box)
                             .addGroup(CM_Align_PanelLayout.createSequentialGroup()
                                 .addComponent(CM_A_nofw_box)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CM_A_norc_box))
-                            .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_A_i_label)
-                                .addGap(18, 18, 18)
-                                .addComponent(CM_A_i_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CM_Align_PanelLayout.createSequentialGroup()
+                                    .addComponent(CM_A_i_box)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(CM_A_i_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CM_A_no1mmUpfront_box))))
                     .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_dpad_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_A_dpad_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CM_A_L_label)
-                    .addComponent(CM_A_N_label)
-                    .addGroup(CM_Align_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_A_nceil_label)
+                        .addComponent(CM_A_nCeil_box)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CM_A_nCeil_text, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CM_Align_PanelLayout.createSequentialGroup()
@@ -1169,62 +1229,46 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             .addGroup(CM_Align_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_N_label)
                     .addComponent(CM_A_N_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_ignoreQuals_box))
+                    .addComponent(CM_A_ignoreQuals_box)
+                    .addComponent(CM_A_N_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_A_L_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_L_label)
-                    .addComponent(CM_A_no1mmUpfront_box))
+                    .addComponent(CM_A_no1mmUpfront_box)
+                    .addComponent(CM_A_L_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_dpad_label)
                     .addComponent(CM_A_dpad_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CM_A_nofw_box)
-                    .addComponent(CM_A_norc_box))
+                    .addComponent(CM_A_norc_box)
+                    .addComponent(CM_A_dpad_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_gbar_label)
                     .addComponent(CM_A_gbar_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_A_i_label)
-                    .addComponent(CM_A_i_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_A_i_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_A_i_box)
+                    .addComponent(CM_A_gbar_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_A_nceil_label)
-                    .addComponent(CM_A_nCeil_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_A_nCeil_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_A_nCeil_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Align_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_A_endToEnd_button)
                     .addComponent(CM_A_endToEnd_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CM_A_local_button)
                     .addComponent(CM_A_local_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         CM_A_ignoreQuals_box.getAccessibleContext().setAccessibleDescription("When calculating a mismatch penalty, always consider the quality value at the mismatched position to be the highest possible, regardless of the actual value. I.e. input is treated as though all quality values are high. This is also the default behavior when the input doesn't specify quality values (e.g. in -f, -r, or -c modes).");
         CM_A_nofw_box.getAccessibleContext().setAccessibleDescription("If --nofw is specified, bowtie2 will not attempt to align unpaired reads to the forward (Watson) reference strand. If --norc is specified, bowtie2 will not attempt to align unpaired reads against the reverse-complement (Crick) reference strand. In paired-end mode, --nofw and --norc pertain to the fragments; i.e. specifying --nofw causes bowtie2 to explore only those paired-end configurations corresponding to fragments from the reverse-complement (Crick) strand. Default: both strands enabled.");
         CM_A_no1mmUpfront_box.getAccessibleContext().setAccessibleDescription("By default, Bowtie 2 will attempt to find either an exact or a 1-mismatch end-to-end alignment for the read before trying the multiseed heuristic. Such alignments can be found very quickly, and many short read alignments have exact or near-exact end-to-end alignments. However, this can lead to unexpected alignments when the user also sets options governing the multiseed heuristic, like -L and -N. For instance, if the user specifies -N 0 and -L equal to the length of the read, the user will be surprised to find 1-mismatch alignments reported. This option prevents Bowtie 2 from searching for 1-mismatch end-to-end alignments before using the multiseed heuristic, which leads to the expected behavior when combined with options such as -L and -N. This comes at the expense of speed.");
-        CM_A_N_label.getAccessibleContext().setAccessibleDescription("Sets the number of mismatches to allowed in a seed alignment during multiseed alignment. Can be set to 0 or 1. Setting this higher makes alignment slower (often much slower) but increases sensitivity. Default: 0.");
 
         CM_TabPanel.addTab("Alignment", CM_Align_Panel);
 
         CM_Scoring_Panel.setName("CM_Scoring_Panel"); // NOI18N
-
-        CM_S_ma_label.setText("--ma");
-        CM_S_ma_label.setName("CM_S_ma_label"); // NOI18N
-
-        CM_S_mp_label.setText("--mp");
-        CM_S_mp_label.setName("CM_S_mp_label"); // NOI18N
-
-        CM_S_np_label.setText("--np");
-        CM_S_np_label.setName("CM_S_np_label"); // NOI18N
-
-        CM_S_rdg_label.setText("--rdg");
-        CM_S_rdg_label.setName("CM_S_rdg_label"); // NOI18N
-
-        CM_S_rfg_label.setText("--rfg");
-        CM_S_rfg_label.setName("CM_S_rfg_label"); // NOI18N
 
         CM_S_first_label.setText("first");
         CM_S_first_label.setName("CM_S_first_label"); // NOI18N
@@ -1281,17 +1325,73 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
-        CM_S_mp_value.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CM_S_mp_value.setText("6,2");
-        CM_S_mp_value.setName("CM_S_mp_value"); // NOI18N
-        CM_S_mp_value.addFocusListener(new java.awt.event.FocusAdapter() {
+        CM_S_mp_text.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        CM_S_mp_text.setText("6,2");
+        CM_S_mp_text.setName("CM_S_mp_text"); // NOI18N
+        CM_S_mp_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                CM_S_mp_valueFocusLost(evt);
+                CM_S_mp_textFocusLost(evt);
             }
         });
-        CM_S_mp_value.addActionListener(new java.awt.event.ActionListener() {
+        CM_S_mp_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CM_S_mp_valueActionPerformed(evt);
+                CM_S_mp_textActionPerformed(evt);
+            }
+        });
+
+        CM_S_ma_box.setText("--ma");
+        CM_S_ma_box.setName("CM_S_ma_box"); // NOI18N
+        CM_S_ma_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_ma_boxActionPerformed(evt);
+            }
+        });
+
+        CM_S_np_box.setText("--np");
+        CM_S_np_box.setName("CM_S_np_box"); // NOI18N
+        CM_S_np_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_np_boxActionPerformed(evt);
+            }
+        });
+
+        CM_S_mp_box.setText("--mp");
+        CM_S_mp_box.setName("CM_S_mp_box"); // NOI18N
+        CM_S_mp_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_mp_boxActionPerformed(evt);
+            }
+        });
+
+        CM_S_rdg1_box.setText("--rdg1");
+        CM_S_rdg1_box.setName("CM_S_rdg1_box"); // NOI18N
+        CM_S_rdg1_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_rdg1_boxActionPerformed(evt);
+            }
+        });
+
+        CM_S_rdg2_box.setText("--rdg2");
+        CM_S_rdg2_box.setName("CM_S_rdg2_box"); // NOI18N
+        CM_S_rdg2_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_rdg2_boxActionPerformed(evt);
+            }
+        });
+
+        CM_S_rfg1_box.setText("--rfg1 ");
+        CM_S_rfg1_box.setName("CM_S_rdg1_box"); // NOI18N
+        CM_S_rfg1_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_rfg1_boxActionPerformed(evt);
+            }
+        });
+
+        CM_S_rfg2_box.setText("--rfg2 ");
+        CM_S_rfg2_box.setName("CM_S_rfg2_box"); // NOI18N
+        CM_S_rfg2_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_S_rfg2_boxActionPerformed(evt);
             }
         });
 
@@ -1303,71 +1403,72 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addContainerGap()
                 .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_S_mp_label)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_S_mp_value, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
                         .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CM_Scoring_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_S_rfg_label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addComponent(CM_S_first_label)
                             .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                                .addComponent(CM_S_rdg_label)
-                                .addGap(9, 9, 9)))
-                        .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CM_S_rdg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(CM_S_rfg1_value))
-                        .addGap(18, 18, 18)
-                        .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CM_S_rdg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(CM_S_rfg2_value)))
+                                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_S_rfg1_box)
+                                    .addComponent(CM_S_rdg1_box))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_S_rfg1_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CM_S_rdg1_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(8, 8, 8)
+                        .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CM_S_second_label)
+                            .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
+                                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(CM_S_rfg2_box)
+                                    .addComponent(CM_S_rdg2_box))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CM_S_rfg2_value, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CM_S_rdg2_value, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(CM_S_first_label)
-                        .addGap(86, 86, 86)
-                        .addComponent(CM_S_second_label))
+                        .addComponent(CM_S_mp_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CM_S_mp_text, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_S_ma_label)
-                        .addGap(18, 18, 18)
+                        .addComponent(CM_S_ma_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CM_S_ma_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CM_S_np_label)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CM_S_np_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CM_S_np_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CM_Scoring_PanelLayout.setVerticalGroup(
             CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CM_Scoring_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_ma_label)
                     .addComponent(CM_S_ma_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CM_S_np_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_np_label))
+                    .addComponent(CM_S_ma_box)
+                    .addComponent(CM_S_np_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_mp_label)
-                    .addComponent(CM_S_mp_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_S_mp_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_S_mp_box))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CM_S_second_label)
+                    .addComponent(CM_S_first_label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_first_label)
-                    .addComponent(CM_S_second_label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_rdg_label)
                     .addComponent(CM_S_rdg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_rdg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_S_rdg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_S_rdg1_box)
+                    .addComponent(CM_S_rdg2_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CM_Scoring_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_S_rfg_label)
-                    .addComponent(CM_S_rfg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_S_rfg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_S_rfg2_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_S_rfg1_box)
+                    .addComponent(CM_S_rfg2_box)
+                    .addComponent(CM_S_rfg1_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        CM_S_ma_label.getAccessibleContext().setAccessibleDescription("--ma; In `--local` mode match bonus is added to the alignment score for each position where a read character aligns to a reference character and the characters match. Not used in `--end-to-end` mode; Default=2");
-        CM_S_mp_label.getAccessibleContext().setAccessibleDescription("--mp; A number less than or equal to `MX` and greater than or equal to `MN` is subtracted from the alignment score for each position where a read character aligns to a reference character, the characters do not match, and neither is an `N`. If `--ignore-quals` is specified, the number subtracted quals `MX`. Otherwise, the number subtracted is `MN + floor( (MX-MN)(MIN(Q, 40.0)/40.0) )` where Q is the Phred quality value; Default=6,2");
 
         CM_TabPanel.addTab("Scoring", CM_Scoring_Panel);
 
@@ -1442,12 +1543,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
 
         CM_Effort_Panel.setName("CM_Effort_Panel"); // NOI18N
 
-        CM_E_D_label.setText("-D");
-        CM_E_D_label.setName("CM_E_D_label"); // NOI18N
-
-        CM_E_R_label.setText("-R");
-        CM_E_R_label.setName("CM_E_R_label"); // NOI18N
-
         CM_E_D_value.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(15), Integer.valueOf(0), null, Integer.valueOf(1)));
         CM_E_D_value.setName("CM_E_D_value"); // NOI18N
         CM_E_D_value.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1464,6 +1559,22 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
+        CM_E_D_box.setText("-D");
+        CM_E_D_box.setName("CM_E_D_box"); // NOI18N
+        CM_E_D_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_E_D_boxActionPerformed(evt);
+            }
+        });
+
+        CM_E_R_box.setText("-R");
+        CM_E_R_box.setName("CM_E_R_box"); // NOI18N
+        CM_E_R_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_E_R_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CM_Effort_PanelLayout = new javax.swing.GroupLayout(CM_Effort_Panel);
         CM_Effort_Panel.setLayout(CM_Effort_PanelLayout);
         CM_Effort_PanelLayout.setHorizontalGroup(
@@ -1471,30 +1582,27 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             .addGroup(CM_Effort_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CM_E_R_label)
-                    .addComponent(CM_E_D_label))
-                .addGap(33, 33, 33)
+                    .addComponent(CM_E_D_box)
+                    .addComponent(CM_E_R_box))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CM_E_D_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CM_E_R_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         CM_Effort_PanelLayout.setVerticalGroup(
             CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CM_Effort_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_E_D_label)
-                    .addComponent(CM_E_D_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_E_D_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_E_D_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Effort_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_E_R_label)
-                    .addComponent(CM_E_R_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(CM_E_R_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_E_R_box))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
-
-        CM_E_D_label.getAccessibleContext().setAccessibleDescription("Up to <int> consecutive seed extension attempts can \"fail\" before Bowtie 2 moves on, using the alignments found so far. A seed extension \"fails\" if it does not yield a new best or a new second-best alignment. This limit is automatically adjusted up when -k or -a are specified. Default: 15.");
-        CM_E_R_label.getAccessibleContext().setAccessibleDescription("<int> is the maximum number of times Bowtie 2 will \"re-seed\" reads with repetitive seeds. When \"re-seeding,\" Bowtie 2 simply chooses a new set of reads (same length, same number of mismatches allowed) at different offsets and searches for more alignments. A read is considered to have repetitive seeds if the total number of seed hits divided by the number of seeds that aligned at least once is greater than 300. Default: 2.");
 
         CM_TabPanel.addTab("Effort", CM_Effort_Panel);
 
@@ -1532,13 +1640,8 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
-        CM_SAM_rgId_label.setText("--rg-id");
-        CM_SAM_rgId_label.setName("CM_SAM_rgId_label"); // NOI18N
-
-        CM_SAM_rg_label.setText("--rg");
-        CM_SAM_rg_label.setName("CM_SAM_rg_label"); // NOI18N
-
         CM_SAM_rgId_text.setName("CM_SAM_rgId_text"); // NOI18N
+        CM_SAM_rgId_text.setPreferredSize(new java.awt.Dimension(265, 19));
         CM_SAM_rgId_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 CM_SAM_rgId_textFocusLost(evt);
@@ -1551,6 +1654,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         });
 
         CM_SAM_rg_text.setName("CM_SAM_rg_text"); // NOI18N
+        CM_SAM_rg_text.setPreferredSize(new java.awt.Dimension(283, 19));
         CM_SAM_rg_text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 CM_SAM_rg_textFocusLost(evt);
@@ -1562,6 +1666,12 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
+        CM_SAM_rgId_box.setText("--rg-id");
+        CM_SAM_rgId_box.setName("CM_SAM_rgId_box"); // NOI18N
+
+        CM_SAM_rg_box.setText("--rg");
+        CM_SAM_rg_box.setName("CM_SAM_rg_box"); // NOI18N
+
         javax.swing.GroupLayout CM_SAM_PanelLayout = new javax.swing.GroupLayout(CM_SAM_Panel);
         CM_SAM_Panel.setLayout(CM_SAM_PanelLayout);
         CM_SAM_PanelLayout.setHorizontalGroup(
@@ -1571,22 +1681,20 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
                         .addComponent(CM_SAM_noUnal_box)
-                        .addGap(81, 81, 81)
+                        .addGap(70, 70, 70)
                         .addComponent(CM_SAM_noHd_box)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CM_SAM_noSq_box))
                     .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_SAM_omitSecSeq_box)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_SAM_rgId_label)
-                            .addComponent(CM_SAM_rg_label))
+                        .addComponent(CM_SAM_rgId_box)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_SAM_rg_text)
-                            .addComponent(CM_SAM_rgId_text))))
-                .addContainerGap())
+                        .addComponent(CM_SAM_rgId_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CM_SAM_PanelLayout.createSequentialGroup()
+                        .addComponent(CM_SAM_rg_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CM_SAM_rg_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_SAM_omitSecSeq_box))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CM_SAM_PanelLayout.setVerticalGroup(
             CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1596,28 +1704,22 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                     .addComponent(CM_SAM_noUnal_box)
                     .addComponent(CM_SAM_noHd_box)
                     .addComponent(CM_SAM_noSq_box))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CM_SAM_omitSecSeq_box)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_SAM_rgId_label)
-                    .addComponent(CM_SAM_rgId_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_SAM_rgId_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_SAM_rgId_box))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CM_SAM_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_SAM_rg_label)
-                    .addComponent(CM_SAM_rg_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CM_SAM_rg_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_SAM_rg_box))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         CM_TabPanel.addTab("SAM", CM_SAM_Panel);
 
         CM_Performance_Panel.setName("CM_Performance_Panel"); // NOI18N
-
-        CM_P_o_label.setText("-o/--offrate");
-        CM_P_o_label.setName("CM_P_o_label"); // NOI18N
-
-        CM_P_p_label.setText("-p/--threads");
-        CM_P_p_label.setName("CM_P_p_label"); // NOI18N
 
         CM_P_o_text.setEditable(false);
         CM_P_o_text.setText("NOT SET");
@@ -1658,6 +1760,22 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
+        CM_P_p_box.setText("-p/--threads");
+        CM_P_p_box.setName("CM_P_p_box"); // NOI18N
+        CM_P_p_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_P_p_boxActionPerformed(evt);
+            }
+        });
+
+        CM_P_o_box.setText("-o/--offrate");
+        CM_P_o_box.setName("CM_P_o_box"); // NOI18N
+        CM_P_o_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_P_o_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CM_Performance_PanelLayout = new javax.swing.GroupLayout(CM_Performance_Panel);
         CM_Performance_Panel.setLayout(CM_Performance_PanelLayout);
         CM_Performance_PanelLayout.setHorizontalGroup(
@@ -1666,33 +1784,33 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addContainerGap()
                 .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CM_Performance_PanelLayout.createSequentialGroup()
-                        .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CM_P_p_label)
-                            .addComponent(CM_P_o_label))
-                        .addGap(18, 18, 18)
-                        .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CM_P_p_value)
-                            .addComponent(CM_P_o_text)))
+                        .addComponent(CM_P_o_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(CM_P_o_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CM_Performance_PanelLayout.createSequentialGroup()
+                        .addComponent(CM_P_p_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CM_P_p_value, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(CM_P_reorder_box)
                     .addComponent(CM_P_mm_box))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         CM_Performance_PanelLayout.setVerticalGroup(
             CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CM_Performance_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_P_o_label)
-                    .addComponent(CM_P_o_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(CM_P_o_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_P_o_box))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Performance_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_P_p_label)
-                    .addComponent(CM_P_p_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(CM_P_p_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CM_P_p_box))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CM_P_reorder_box)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CM_P_mm_box)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         CM_TabPanel.addTab("Performances", CM_Performance_Panel);
@@ -1706,9 +1824,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 CM_OO_qcFilter_boxActionPerformed(evt);
             }
         });
-
-        CM_OO_seed_label.setText("--seed");
-        CM_OO_seed_label.setName("CM_OO_seed_label"); // NOI18N
 
         CM_OO_nonDeterminist_box.setText("--non-deterministic");
         CM_OO_nonDeterminist_box.setName("CM_OO_nonDeterminist_box"); // NOI18N
@@ -1726,6 +1841,14 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             }
         });
 
+        CM_OO_seed_box.setText("--seed");
+        CM_OO_seed_box.setName("CM_OO_seed_box"); // NOI18N
+        CM_OO_seed_box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CM_OO_seed_boxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CM_Other_PanelLayout = new javax.swing.GroupLayout(CM_Other_Panel);
         CM_Other_Panel.setLayout(CM_Other_PanelLayout);
         CM_Other_PanelLayout.setHorizontalGroup(
@@ -1735,11 +1858,11 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addGroup(CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CM_OO_qcFilter_box)
                     .addGroup(CM_Other_PanelLayout.createSequentialGroup()
-                        .addComponent(CM_OO_seed_label)
-                        .addGap(18, 18, 18)
+                        .addComponent(CM_OO_seed_box)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CM_OO_seed_value, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(CM_OO_nonDeterminist_box))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         CM_Other_PanelLayout.setVerticalGroup(
             CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1748,7 +1871,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addComponent(CM_OO_qcFilter_box)
                 .addGap(18, 18, 18)
                 .addGroup(CM_Other_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_OO_seed_label)
+                    .addComponent(CM_OO_seed_box)
                     .addComponent(CM_OO_seed_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(CM_OO_nonDeterminist_box)
@@ -1878,16 +2001,16 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(M_IDG_main_panel, 352, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(M_IDG_workflow_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(M_IDG_directory_button)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(M_IDG_main_panel, 352, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(M_IDG_workflow_button)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(M_IDG_directory_button)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1920,7 +2043,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Output_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Output_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
@@ -2057,35 +2180,33 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     
     private void CM_SAM_rg_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_rg_textActionPerformed
         // TODO add your handling code here:
-        eventText(CM_SAM_rg_text);
+        Util.boxEventText(properties,CM_SAM_rg_box,CM_SAM_rg_text);
     }//GEN-LAST:event_CM_SAM_rg_textActionPerformed
     
     private void CM_SAM_rgId_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_rgId_textActionPerformed
         // TODO add your handling code here:
-        eventText(CM_SAM_rgId_text);
+        Util.boxEventText(properties,CM_SAM_rgId_box,CM_SAM_rgId_text);
     }//GEN-LAST:event_CM_SAM_rgId_textActionPerformed
     
     private void CM_A_endToEnd_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_endToEnd_textActionPerformed
         // TODO add your handling code here:
-        eventText(CM_A_endToEnd_text);
-        if (properties.get(CM_A_endToEnd_text).equals("")){
-            properties.put(CM_A_endToEnd_text,"L,-0.6,-0.6");
+        if (CM_A_endToEnd_text.getText().equals("")){
             CM_A_endToEnd_text.setText("L,-0.6,-0.6");
         }
+        Util.buttonEventText(properties,CM_A_endToEnd_button,CM_A_endToEnd_text);
     }//GEN-LAST:event_CM_A_endToEnd_textActionPerformed
     
     private void CM_A_nCeil_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_nCeil_textActionPerformed
         // TODO add your handling code here:
-        eventText(CM_A_nCeil_text);
+        Util.boxEventText(properties,CM_A_nCeil_box,CM_A_nCeil_text);
     }//GEN-LAST:event_CM_A_nCeil_textActionPerformed
     
     private void CM_A_i_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_i_textActionPerformed
         // TODO add your handling code here:
-        eventText(CM_A_i_text);
-        if (properties.get(CM_A_i_text).equals("")) {
-            properties.put(CM_A_i_text,"S,1,1.15");
+        if (CM_A_i_text.getText().equals("")) {
             CM_A_i_text.setText("S,1,1.15");
         }
+        Util.boxEventText(properties,CM_A_i_box,CM_A_i_text);
     }//GEN-LAST:event_CM_A_i_textActionPerformed
     
     private void M_CM_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_CM_buttonActionPerformed
@@ -2114,7 +2235,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     
     private void CM_P_mm_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_mm_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_P_mm_box,null);
+        Util.boxEventSpinner(properties,CM_P_mm_box,null);
     }//GEN-LAST:event_CM_P_mm_boxActionPerformed
             
     private void M_ETE_VF_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_ETE_VF_buttonActionPerformed
@@ -2144,137 +2265,136 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                                     
     private void CM_OO_seed_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_OO_seed_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_OO_seed_value);
+        Util.boxEventSpinner(properties,CM_OO_seed_box,CM_OO_seed_value);
     }//GEN-LAST:event_CM_OO_seed_spinner_value
         
     private void CM_I_s_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_s_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_I_s_value);
+        Util.boxEventSpinner(properties,CM_I_s_box,CM_I_s_value);
     }//GEN-LAST:event_CM_I_s_spinner_value
     
     private void CM_I_u_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_u_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_I_u_value);
+        Util.boxEventSpinner(properties,CM_I_u_box,CM_I_u_value);
     }//GEN-LAST:event_CM_I_u_spinner_value
     
     private void CM_I_5_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_5_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_I_5_value);
+        Util.boxEventSpinner(properties,CM_I_5_box,CM_I_5_value);
     }//GEN-LAST:event_CM_I_5_spinner_value
     
     private void CM_I_3_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_I_3_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_I_3_value);
+        Util.boxEventSpinner(properties,CM_I_3_box,CM_I_3_value);
     }//GEN-LAST:event_CM_I_3_spinner_value
     
     private void CM_A_N_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_N_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_A_N_value);
+        Util.boxEventSpinner(properties,CM_A_N_box,CM_A_N_value);
     }//GEN-LAST:event_CM_A_N_spinner_value
     
     private void CM_A_L_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_L_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_A_L_value);
+        Util.boxEventSpinner(properties,CM_A_L_box,CM_A_L_value);
     }//GEN-LAST:event_CM_A_L_spinner_value
     
     private void CM_A_i_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_i_textFocusLost
         // TODO add your handling code here:
-        textUpdate(CM_A_i_text);
-        if (properties.get(CM_A_i_text).equals("")) {
-            properties.put(CM_A_i_text,"S,1,1.15");
+        if (CM_A_i_text.getText().equals("")) {
             CM_A_i_text.setText("S,1,1.15");
         }
+        Util.boxEventText(properties,CM_A_i_box,CM_A_i_text);
     }//GEN-LAST:event_CM_A_i_textFocusLost
     
     private void CM_A_nCeil_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_nCeil_textFocusLost
         // TODO add your handling code here:
-        textUpdate(CM_A_nCeil_text);
+        Util.boxEventText(properties,CM_A_nCeil_box,CM_A_nCeil_text);
     }//GEN-LAST:event_CM_A_nCeil_textFocusLost
     
     private void CM_A_dpad_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_dpad_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_A_dpad_value);
+        Util.boxEventSpinner(properties,CM_A_dpad_box,CM_A_dpad_value);
     }//GEN-LAST:event_CM_A_dpad_spinner_value
     
     private void CM_A_gbar_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_A_gbar_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_A_gbar_value);
+        Util.boxEventSpinner(properties,CM_A_gbar_box,CM_A_gbar_value);
     }//GEN-LAST:event_CM_A_gbar_spinner_value
     
     private void CM_A_endToEnd_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_endToEnd_textFocusLost
         // TODO add your handling code here:
-        textUpdate(CM_A_endToEnd_text);
+        Util.buttonEventText(properties,CM_A_endToEnd_button,CM_A_endToEnd_text);
     }//GEN-LAST:event_CM_A_endToEnd_textFocusLost
     
     private void CM_S_ma_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_ma_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_S_ma_value);
+        Util.boxEventSpinner(properties,CM_S_ma_box,CM_S_ma_value);
     }//GEN-LAST:event_CM_S_ma_spinner_value
         
     private void CM_S_np_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_np_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_S_np_value);
+        Util.boxEventSpinner(properties,CM_S_np_box,CM_S_np_value);
     }//GEN-LAST:event_CM_S_np_spinner_value
     
     private void CM_S_rdg1_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rdg1_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_S_rdg1_value);
+        Util.boxEventSpinner(properties,CM_S_rdg1_box,CM_S_rdg1_value);
     }//GEN-LAST:event_CM_S_rdg1_spinner_value
     
     private void CM_S_rdg2_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rdg2_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_S_rdg2_value);
+        Util.boxEventSpinner(properties,CM_S_rdg2_box,CM_S_rdg2_value);
     }//GEN-LAST:event_CM_S_rdg2_spinner_value
     
     private void CM_S_rfg1_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rfg1_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_S_rfg1_value);
+        Util.boxEventSpinner(properties,CM_S_rfg1_box,CM_S_rfg1_value);
     }//GEN-LAST:event_CM_S_rfg1_spinner_value
     
     private void CM_S_rfg2_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_S_rfg2_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_S_rfg2_value);
+        Util.boxEventSpinner(properties,CM_S_rdg2_box,CM_S_rdg2_value);
     }//GEN-LAST:event_CM_S_rfg2_spinner_value
     
     private void CM_R_k_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_R_k_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_R_k_value);
+        Util.buttonEventSpinner(properties,CM_R_k_button,CM_R_k_value);
     }//GEN-LAST:event_CM_R_k_spinner_value
     
     private void CM_R_k_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_R_k_buttonActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(CM_R_noset_button.getName())) properties.remove(CM_R_noset_button.getName());
         if (properties.isSet(CM_R_a_button.getName())) properties.remove(CM_R_a_button.getName());
-        buttonEvent(CM_R_k_button,CM_R_k_value);
+        Util.buttonEventSpinner(properties,CM_R_k_button,CM_R_k_value);
     }//GEN-LAST:event_CM_R_k_buttonActionPerformed
     
     private void CM_R_a_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_R_a_buttonActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(CM_R_noset_button.getName())) properties.remove(CM_R_noset_button.getName());
         if (properties.isSet(CM_R_k_value.getName())) properties.remove(CM_R_k_value.getName());
-        buttonEvent(CM_R_a_button,null);
+        Util.buttonEventSpinner(properties,CM_R_a_button,null);
     }//GEN-LAST:event_CM_R_a_buttonActionPerformed
     
     private void CM_R_noset_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_R_noset_buttonActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(CM_R_a_button.getName())) properties.remove(CM_R_a_button.getName());
         if (properties.isSet(CM_R_k_value.getName())) properties.remove(CM_R_k_value.getName());
-        buttonEvent(CM_R_noset_button,null);
+        Util.buttonEventSpinner(properties,CM_R_noset_button,null);
     }//GEN-LAST:event_CM_R_noset_buttonActionPerformed
     
     private void CM_A_ignoreQuals_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_ignoreQuals_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_A_ignoreQuals_box,null);
+        Util.boxEventSpinner(properties,CM_A_ignoreQuals_box,null);
     }//GEN-LAST:event_CM_A_ignoreQuals_boxActionPerformed
     
     private void CM_A_no1mmUpfront_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_no1mmUpfront_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_A_no1mmUpfront_box,null);
+        Util.boxEventSpinner(properties,CM_A_no1mmUpfront_box,null);
     }//GEN-LAST:event_CM_A_no1mmUpfront_boxActionPerformed
     
     private void CM_A_nofw_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_nofw_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_A_nofw_box,null);
+        Util.boxEventSpinner(properties,CM_A_nofw_box,null);
     }//GEN-LAST:event_CM_A_nofw_boxActionPerformed
     
     private void CM_A_endToEnd_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_endToEnd_buttonActionPerformed
@@ -2283,7 +2403,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             properties.remove(CM_A_local_button.getName());
         }
         CM_A_local_text.setEnabled(false);
-        buttonEventText(CM_A_endToEnd_button,CM_A_endToEnd_text);
+        Util.buttonEventText(properties,CM_A_endToEnd_button,CM_A_endToEnd_text);
     }//GEN-LAST:event_CM_A_endToEnd_buttonActionPerformed
     
     private void CM_A_local_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_local_buttonActionPerformed
@@ -2292,81 +2412,80 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             properties.remove(CM_A_endToEnd_button.getName());
         }
         CM_A_endToEnd_text.setEnabled(false);
-        buttonEventText(CM_A_local_button,CM_A_local_text);
+        Util.buttonEventText(properties,CM_A_local_button,CM_A_local_text);
     }//GEN-LAST:event_CM_A_local_buttonActionPerformed
     
     private void CM_I_q_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_q_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_I_qseq_box,null);
+        Util.boxEventSpinner(properties,CM_I_qseq_box,null);
     }//GEN-LAST:event_CM_I_q_boxActionPerformed
     
     private void CM_I_qseq_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_qseq_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_I_qseq_box,null);
+        Util.boxEventSpinner(properties,CM_I_qseq_box,null);
     }//GEN-LAST:event_CM_I_qseq_boxActionPerformed
     
     private void CM_I_solexaQuals_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_solexaQuals_boxActionPerformed
         // TODO add your handling code here:
         cleanQualBox();
-        boxEvent(CM_I_solexaQuals_box,null);
+        Util.boxEventSpinner(properties,CM_I_solexaQuals_box,null);
     }//GEN-LAST:event_CM_I_solexaQuals_boxActionPerformed
     
     private void CM_I_intQuals_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_intQuals_boxActionPerformed
         // TODO add your handling code here:
         cleanQualBox();
-        boxEvent(CM_I_intQuals_box,null);
+        Util.boxEventSpinner(properties,CM_I_intQuals_box,null);
     }//GEN-LAST:event_CM_I_intQuals_boxActionPerformed
     
     private void CM_I_f_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_f_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_I_f_box,null);
+        Util.boxEventSpinner(properties,CM_I_f_box,null);
     }//GEN-LAST:event_CM_I_f_boxActionPerformed
     
     private void CM_I_r_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_r_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_I_r_box,null);
+        Util.boxEventSpinner(properties,CM_I_r_box,null);
     }//GEN-LAST:event_CM_I_r_boxActionPerformed
     
     private void CM_I_c_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_c_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_I_c_box,null);
+        Util.boxEventSpinner(properties,CM_I_c_box,null);
     }//GEN-LAST:event_CM_I_c_boxActionPerformed
     
     private void CM_I_phred33_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_phred33_boxActionPerformed
         // TODO add your handling code here:
         cleanQualBox();
-        boxEvent(CM_I_phred33_box,null);
+        Util.boxEventSpinner(properties,CM_I_phred33_box,null);
     }//GEN-LAST:event_CM_I_phred33_boxActionPerformed
     
     private void CM_I_phred64_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_phred64_boxActionPerformed
         // TODO add your handling code here:
         cleanQualBox();
-        boxEvent(CM_I_phred64_box,null);
+        Util.boxEventSpinner(properties,CM_I_phred64_box,null);
     }//GEN-LAST:event_CM_I_phred64_boxActionPerformed
     
     private void CM_E_D_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_E_D_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_E_D_value);
+        Util.boxEventSpinner(properties,CM_E_D_box,CM_E_D_value);
     }//GEN-LAST:event_CM_E_D_spinner_value
     
     private void CM_E_R_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_E_R_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_E_R_value);
+        Util.boxEventSpinner(properties,CM_E_R_box,CM_E_R_value);
     }//GEN-LAST:event_CM_E_R_spinner_value
     
     private void M_SE_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_SE_buttonActionPerformed
         // TODO add your handling code here:
-        buttonEvent(M_SE_button,null);
+        Util.buttonEventSpinner(properties,M_SE_button,null);
         if (properties.isSet(M_SE_button.getName())) {
             properties.remove(M_PE_button.getName());
         }
         peButtonFields(false);
-
     }//GEN-LAST:event_M_SE_buttonActionPerformed
     
     private void M_PE_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_buttonActionPerformed
         // TODO add your handling code here:
-        buttonEvent(M_PE_button,null);
+        Util.buttonEventSpinner(properties,M_PE_button,null);
         
         if (properties.isSet(M_PE_button.getName())) {
             peButtonFields(true);
@@ -2377,141 +2496,143 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 this.M_PE_fr_button.setSelected(true);
                 properties.put(M_PE_fr_button.getName(),M_PE_fr_button.getName());
             }
-            spinnerUpdate(M_PE_X_value);
-            spinnerUpdate(M_PE_I_value);
+            M_PE_X_box.setSelected(true);
+            M_PE_I_box.setSelected(true);
+            Util.boxEventSpinner(properties,M_PE_X_box,M_PE_X_value);
+            Util.boxEventSpinner(properties,M_PE_I_box,M_PE_I_value);
         }
 
     }//GEN-LAST:event_M_PE_buttonActionPerformed
         
     private void M_PE_I_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_M_PE_I_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(M_PE_I_value);
+        Util.boxEventSpinner(properties,M_PE_I_box,M_PE_I_value);
     }//GEN-LAST:event_M_PE_I_spinner_value
     
     private void M_PE_X_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_M_PE_X_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(M_PE_X_value);
+        Util.boxEventSpinner(properties,M_PE_X_box,M_PE_X_value);
     }//GEN-LAST:event_M_PE_X_spinner_value
     
     private void M_PE_fr_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_fr_buttonActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(M_PE_ff_button.getName())) properties.remove(M_PE_ff_button.getName());
         if (properties.isSet(M_PE_rf_button.getName())) properties.remove(M_PE_rf_button.getName());
-        buttonEvent(M_PE_fr_button,null);
+        Util.buttonEventSpinner(properties,M_PE_fr_button,null);
     }//GEN-LAST:event_M_PE_fr_buttonActionPerformed
     
     private void M_PE_rf_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_rf_buttonActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(M_PE_fr_button.getName())) properties.remove(M_PE_fr_button.getName());
         if (properties.isSet(M_PE_ff_button.getName())) properties.remove(M_PE_ff_button.getName());
-        buttonEvent(M_PE_rf_button,null);
+        Util.buttonEventSpinner(properties,M_PE_rf_button,null);
     }//GEN-LAST:event_M_PE_rf_buttonActionPerformed
     
     private void M_PE_ff_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_ff_buttonActionPerformed
         // TODO add your handling code here:
         if (properties.isSet(M_PE_fr_button.getName())) properties.remove(M_PE_fr_button.getName());
         if (properties.isSet(M_PE_rf_button.getName())) properties.remove(M_PE_rf_button.getName());
-        buttonEvent(M_PE_ff_button,null);
+        Util.buttonEventSpinner(properties,M_PE_ff_button,null);
     }//GEN-LAST:event_M_PE_ff_buttonActionPerformed
     
     private void M_PE_noMixed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noMixed_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(M_PE_noMixed_box,null);
+        Util.boxEventSpinner(properties,M_PE_noMixed_box,null);
     }//GEN-LAST:event_M_PE_noMixed_boxActionPerformed
     
     private void M_PE_dovetail_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_dovetail_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(M_PE_dovetail_box,null);
+        Util.boxEventSpinner(properties,M_PE_dovetail_box,null);
     }//GEN-LAST:event_M_PE_dovetail_boxActionPerformed
     
     private void M_PE_noDiscordant_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noDiscordant_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(M_PE_noDiscordant_box,null);
+        Util.boxEventSpinner(properties,M_PE_noDiscordant_box,null);
     }//GEN-LAST:event_M_PE_noDiscordant_boxActionPerformed
     
     private void M_PE_noContain_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noContain_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(M_PE_noContain_box,null);
+        Util.boxEventSpinner(properties,M_PE_noContain_box,null);
     }//GEN-LAST:event_M_PE_noContain_boxActionPerformed
     
     private void M_PE_noOverlap_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_noOverlap_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(M_PE_noOverlap_box,null);
+        Util.boxEventSpinner(properties,M_PE_noOverlap_box,null);
     }//GEN-LAST:event_M_PE_noOverlap_boxActionPerformed
     
     private void O_unANDunConc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_unANDunConc_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(O_unANDunConc_box,null);
+        Util.boxEventSpinner(properties,O_unANDunConc_box,null);
     }//GEN-LAST:event_O_unANDunConc_boxActionPerformed
     
     private void O_alANDalConc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_alANDalConc_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(O_alANDalConc_box,null);
+        Util.boxEventSpinner(properties,O_alANDalConc_box,null);
     }//GEN-LAST:event_O_alANDalConc_boxActionPerformed
     
     private void O_quiet_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_quiet_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(O_quiet_box,null);
+        Util.boxEventSpinner(properties,O_quiet_box,null);
     }//GEN-LAST:event_O_quiet_boxActionPerformed
                 
     private void CM_SAM_noUnal_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_noUnal_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_SAM_noUnal_box,null);
+        Util.boxEventSpinner(properties,CM_SAM_noUnal_box,null);
     }//GEN-LAST:event_CM_SAM_noUnal_boxActionPerformed
     
     private void CM_SAM_noHd_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_noHd_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_SAM_noHd_box,null);
+        Util.boxEventSpinner(properties,CM_SAM_noHd_box,null);
     }//GEN-LAST:event_CM_SAM_noHd_boxActionPerformed
     
     private void CM_SAM_noSq_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_noSq_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_SAM_noSq_box,null);
+        Util.boxEventSpinner(properties,CM_SAM_noSq_box,null);
     }//GEN-LAST:event_CM_SAM_noSq_boxActionPerformed
     
     private void CM_SAM_omitSecSeq_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_SAM_omitSecSeq_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_SAM_omitSecSeq_box,null);
+        Util.boxEventSpinner(properties,CM_SAM_omitSecSeq_box,null);
     }//GEN-LAST:event_CM_SAM_omitSecSeq_boxActionPerformed
     
     private void CM_P_t_spinner_value(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_CM_P_t_spinner_value
         // TODO add your handling code here:
-        spinnerUpdate(CM_P_p_value);
+        Util.boxEventSpinner(properties,CM_P_p_box,CM_P_p_value);
     }//GEN-LAST:event_CM_P_t_spinner_value
     
     private void CM_P_reorder_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_reorder_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_P_reorder_box,null);
+        Util.boxEventSpinner(properties,CM_P_reorder_box,null);
     }//GEN-LAST:event_CM_P_reorder_boxActionPerformed
     
     private void CM_OO_qcFilter_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_OO_qcFilter_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_OO_qcFilter_box,null);
+        Util.boxEventSpinner(properties,CM_OO_qcFilter_box,null);
     }//GEN-LAST:event_CM_OO_qcFilter_boxActionPerformed
     
     private void CM_OO_nonDeterminist_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_OO_nonDeterminist_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_OO_nonDeterminist_box,null);
+        Util.boxEventSpinner(properties,CM_OO_nonDeterminist_box,null);
     }//GEN-LAST:event_CM_OO_nonDeterminist_boxActionPerformed
     
     private void CM_P_o_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_o_textActionPerformed
         // TODO add your handling code here:
-        //eventText(CM_P_o_text);
+        //Util.buttonEventText(properties,CM_P_o_text);
     }//GEN-LAST:event_CM_P_o_textActionPerformed
     
     private void CM_SAM_rgId_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_SAM_rgId_textFocusLost
         // TODO add your handling code here:
-        textUpdate(CM_SAM_rgId_text);
+        Util.boxEventText(properties,CM_SAM_rgId_box,CM_SAM_rgId_text);
     }//GEN-LAST:event_CM_SAM_rgId_textFocusLost
     
     private void CM_SAM_rg_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_SAM_rg_textFocusLost
         // TODO add your handling code here:
-        textUpdate(CM_SAM_rg_text);
+        Util.boxEventText(properties,CM_SAM_rg_box,CM_SAM_rg_text);
     }//GEN-LAST:event_CM_SAM_rg_textFocusLost
 
     private void CM_A_local_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_local_textActionPerformed
         // TODO add your handling code here:
-        buttonEventText(CM_A_endToEnd_button,CM_A_local_text);
+        Util.buttonEventText(properties,CM_A_endToEnd_button,CM_A_local_text);
         if (CM_A_local_text.equals("")){
             properties.put(CM_A_local_text,"G,20,8");
             CM_A_local_text.setText("G,20,8");
@@ -2520,7 +2641,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
 
     private void CM_A_local_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_A_local_textFocusLost
         // TODO add your handling code here:
-        textUpdate(CM_A_local_text);
+        Util.buttonEventText(properties,CM_A_local_button,CM_A_local_text);
     }//GEN-LAST:event_CM_A_local_textFocusLost
 
     private void CM_P_o_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_P_o_textFocusLost
@@ -2529,29 +2650,29 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         //textUpdate(CM_P_o_text);
     }//GEN-LAST:event_CM_P_o_textFocusLost
 
-    private void CM_S_mp_valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_mp_valueActionPerformed
+    private void CM_S_mp_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_mp_textActionPerformed
         // TODO add your handling code here:
-        String s = CM_S_mp_value.getText();
+        String s = CM_S_mp_text.getText();
         s = s.replace(".",",");
         if (!s.matches("\\d*,\\d*")) {
-            CM_S_mp_value.setText("6,2");
+            CM_S_mp_text.setText("6,2");
         } else {
-            CM_S_mp_value.setText(s);
+            CM_S_mp_text.setText(s);
         }
-        textUpdate(CM_S_mp_value);
-    }//GEN-LAST:event_CM_S_mp_valueActionPerformed
+        Util.boxEventText(properties,CM_S_mp_box,CM_S_mp_text);
+    }//GEN-LAST:event_CM_S_mp_textActionPerformed
 
-    private void CM_S_mp_valueFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_S_mp_valueFocusLost
+    private void CM_S_mp_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CM_S_mp_textFocusLost
         // TODO add your handling code here:
-        String s = CM_S_mp_value.getText();
+        String s = CM_S_mp_text.getText();
         s = s.replace(".",",");
         if (!s.matches("\\d*,\\d*")) {
-            CM_S_mp_value.setText("6,2");
+            CM_S_mp_text.setText("6,2");
         } else {
-            CM_S_mp_value.setText(s);
+            CM_S_mp_text.setText(s);
         }
-        textUpdate(CM_S_mp_value);
-    }//GEN-LAST:event_CM_S_mp_valueFocusLost
+        Util.boxEventText(properties,CM_S_mp_box,CM_S_mp_text);
+    }//GEN-LAST:event_CM_S_mp_textFocusLost
 
     private void IDG_change_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDG_change_buttonActionPerformed
         // TODO add your handling code here:
@@ -2590,6 +2711,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     }//GEN-LAST:event_IDG_Update_buttonActionPerformed
 
     private void setIDGCombobox (String path) {
+        Util.CreateDir(path);
         File dir = new File(path);
         IDG_selected_ComboBox.removeAllItems();
         IDG_selected_ComboBox.addItem("Choose_an_indexed_Genome");
@@ -2629,7 +2751,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         if (properties.isSet(M_IDG_directory_button.getName())) {
             properties.remove(M_IDG_directory_button.getName());
         }
-        buttonEvent(M_IDG_workflow_button,null);
+        Util.buttonEventSpinner(properties,M_IDG_workflow_button,null);
         M_IDG_main_panel.setVisible(false);
     }//GEN-LAST:event_M_IDG_workflow_buttonActionPerformed
 
@@ -2638,14 +2760,134 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         if (properties.isSet(M_IDG_workflow_button.getName())) {
             properties.remove(M_IDG_workflow_button.getName());
         }
-        buttonEvent(M_IDG_directory_button,null);
+        Util.buttonEventSpinner(properties,M_IDG_directory_button,null);
         M_IDG_main_panel.setVisible(true);
     }//GEN-LAST:event_M_IDG_directory_buttonActionPerformed
 
     private void CM_A_norc_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_norc_boxActionPerformed
         // TODO add your handling code here:
-        boxEvent(CM_A_norc_box,null);
+        Util.boxEventSpinner(properties,CM_A_norc_box,null);
     }//GEN-LAST:event_CM_A_norc_boxActionPerformed
+
+    private void CM_A_i_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_i_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,CM_A_i_box,CM_A_i_text);
+    }//GEN-LAST:event_CM_A_i_boxActionPerformed
+
+    private void CM_A_nCeil_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_nCeil_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,CM_A_nCeil_box,CM_A_nCeil_text);
+    }//GEN-LAST:event_CM_A_nCeil_boxActionPerformed
+
+    private void CM_OO_seed_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_OO_seed_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_OO_seed_box,CM_OO_seed_value);
+    }//GEN-LAST:event_CM_OO_seed_boxActionPerformed
+
+    private void CM_P_o_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_o_boxActionPerformed
+        // TODO add your handling code here:
+        //Util.boxEventText(properties,CM_P_o_box,CM_P_o_text);
+    }//GEN-LAST:event_CM_P_o_boxActionPerformed
+
+    private void CM_P_p_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_P_p_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_P_p_box,CM_P_p_value);
+    }//GEN-LAST:event_CM_P_p_boxActionPerformed
+
+    private void CM_I_s_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_s_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_I_s_box,CM_I_s_value);
+    }//GEN-LAST:event_CM_I_s_boxActionPerformed
+
+    private void CM_I_u_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_u_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_I_u_box,CM_I_u_value);
+    }//GEN-LAST:event_CM_I_u_boxActionPerformed
+
+    private void CM_I_5_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_5_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_I_5_box,CM_I_5_value);
+    }//GEN-LAST:event_CM_I_5_boxActionPerformed
+
+    private void CM_I_3_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_I_3_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_I_3_box,CM_I_3_value);
+    }//GEN-LAST:event_CM_I_3_boxActionPerformed
+
+    private void CM_A_N_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_N_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_A_N_box,CM_A_N_value);
+    }//GEN-LAST:event_CM_A_N_boxActionPerformed
+
+    private void CM_A_L_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_L_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_A_L_box,CM_A_L_value);
+    }//GEN-LAST:event_CM_A_L_boxActionPerformed
+
+    private void CM_A_dpad_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_dpad_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_A_dpad_box,CM_A_dpad_value);
+    }//GEN-LAST:event_CM_A_dpad_boxActionPerformed
+
+    private void CM_A_gbar_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_A_gbar_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_A_gbar_box,CM_A_gbar_value);
+    }//GEN-LAST:event_CM_A_gbar_boxActionPerformed
+
+    private void CM_S_ma_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_ma_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_S_ma_box,CM_S_ma_value);
+    }//GEN-LAST:event_CM_S_ma_boxActionPerformed
+
+    private void CM_S_np_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_np_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_S_np_box,CM_S_np_value);
+    }//GEN-LAST:event_CM_S_np_boxActionPerformed
+
+    private void CM_S_mp_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_mp_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,CM_S_mp_box,CM_S_mp_text);
+    }//GEN-LAST:event_CM_S_mp_boxActionPerformed
+
+    private void CM_S_rdg1_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_rdg1_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_S_rdg1_box,CM_S_rdg1_value);
+    }//GEN-LAST:event_CM_S_rdg1_boxActionPerformed
+
+    private void CM_S_rfg1_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_rfg1_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_S_rfg1_box,CM_S_rfg1_value);
+    }//GEN-LAST:event_CM_S_rfg1_boxActionPerformed
+
+    private void CM_S_rdg2_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_rdg2_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_S_rdg2_box,CM_S_rdg2_value);
+    }//GEN-LAST:event_CM_S_rdg2_boxActionPerformed
+
+    private void CM_S_rfg2_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_S_rfg2_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_S_rfg2_box,CM_S_rfg2_value);
+    }//GEN-LAST:event_CM_S_rfg2_boxActionPerformed
+
+    private void M_PE_I_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_I_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,M_PE_I_box,M_PE_I_value);
+    }//GEN-LAST:event_M_PE_I_boxActionPerformed
+
+    private void M_PE_X_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M_PE_X_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,M_PE_X_box,M_PE_X_value);
+    }//GEN-LAST:event_M_PE_X_boxActionPerformed
+
+    private void CM_E_D_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_E_D_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_E_D_box,CM_E_D_value);
+    }//GEN-LAST:event_CM_E_D_boxActionPerformed
+
+    private void CM_E_R_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CM_E_R_boxActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,CM_E_R_box,CM_E_R_value);
+    }//GEN-LAST:event_CM_E_R_boxActionPerformed
     
     /**
      * Clean Variables in properties
@@ -2668,76 +2910,6 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
             menuFields(s);
             properties.put(Options.getName(),s);
         }
-    }
-    //For Box
-    private void boxEvent(javax.swing.JCheckBox b,javax.swing.JSpinner s){
-        if (b.isSelected()==true){
-            if (s == null) {
-                properties.put(b.getName(),b.isSelected());
-            } else {
-                s.setEnabled(true);
-                properties.put(s.getName(),s.getValue());
-            }
-        } else {
-            if (s == null){
-                properties.remove(b.getName());
-            } else {
-                s.setEnabled(false);
-                properties.remove(s.getName());
-            }
-        }
-    }
-    //For Button and Spinner
-    private void buttonEvent(javax.swing.JRadioButton b,javax.swing.JSpinner s){
-        if (b.isSelected()==true){
-            if (s == null) {
-                properties.put(b.getName(),b.isSelected());
-            } else {
-                s.setEnabled(true);
-                properties.put(s.getName(),s.getValue());
-            }
-        }
-    }
-    //For Button and text
-    private void buttonEventText(javax.swing.JRadioButton b,javax.swing.JTextField t){
-        if (b.isSelected()==true){
-            if (t == null) {
-                properties.put(b.getName(),b.isSelected());
-            } else {
-                t.setEnabled(true);
-                properties.put(t.getName(),t.getText());
-            }
-        }
-    }
-    //For Button and text
-    private void boxEventText(javax.swing.JCheckBox b,javax.swing.JTextField t){
-        if (b.isSelected()==true){
-            if (t == null) {
-                properties.put(b.getName(),b.isSelected());
-            } else {
-                t.setEnabled(true);
-                properties.put(t.getName(),t.getText());
-            }
-        }
-    }
-    
-    
-    /**
-     * Update Values content
-     * /!\ DONT FORGET TO ADD A NAME in the design for all /!\
-     * @param Update_Values
-     */
-    //For Text only
-    private void eventText(javax.swing.JTextField t){
-        properties.put(t.getName(),t.getText());
-    }
-    //Spinner update
-    private void spinnerUpdate(javax.swing.JSpinner s){
-        properties.put(s.getName(),s.getValue());
-    }
-    //Text update
-    private void textUpdate(javax.swing.JTextField t){
-            properties.put(t.getName(),t.getText());
     }
     
     /*
@@ -2769,71 +2941,124 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         }
     }
     
-    private void customMappingFields(boolean enabled){
-        this.CM_Panel.setEnabled(enabled);
-        this.CM_TabPanel.setEnabled(enabled);
-        this.CM_Input_Panel.setEnabled(enabled);
-        this.CM_I_q_box.setEnabled(enabled);
-        this.CM_I_qseq_box.setEnabled(enabled);
-        this.CM_I_f_box.setEnabled(enabled);
-        this.CM_I_r_box.setEnabled(enabled);
-        this.CM_I_c_box.setEnabled(enabled);
-        this.CM_I_phred64_box.setEnabled(enabled);
-        this.CM_I_phred33_box.setEnabled(enabled);
-        this.CM_I_solexaQuals_box.setEnabled(enabled);
-        this.CM_I_intQuals_box.setEnabled(enabled);
-        this.CM_I_s_value.setEnabled(enabled);
-        this.CM_I_TOI_panel.setVisible(false); // Always hide
-        this.CM_I_u_value.setEnabled(enabled);
-        this.CM_I_5_value.setEnabled(enabled);
-        this.CM_I_3_value.setEnabled(enabled);
-        this.CM_Align_Panel.setEnabled(enabled);
-        this.CM_A_ignoreQuals_box.setEnabled(enabled);
-        this.CM_A_nofw_box.setEnabled(enabled);
-        this.CM_A_norc_box.setEnabled(enabled);
-        this.CM_A_no1mmUpfront_box.setEnabled(enabled);
-        this.CM_A_i_text.setEnabled(enabled);
-        this.CM_A_nCeil_text.setEnabled(enabled);
-        this.CM_A_endToEnd_button.setEnabled(enabled);
-        this.CM_A_endToEnd_text.setEnabled(enabled);
-        this.CM_A_local_button.setEnabled(enabled);
-        this.CM_A_local_text.setEnabled(false);
-        this.CM_A_N_value.setEnabled(enabled);
-        this.CM_A_L_value.setEnabled(enabled);
-        this.CM_A_dpad_value.setEnabled(enabled);
-        this.CM_A_gbar_value.setEnabled(enabled);
-        this.CM_Scoring_Panel.setEnabled(enabled);
-        this.CM_S_mp_value.setEnabled(enabled);
-        this.CM_S_ma_value.setEnabled(enabled);
-        this.CM_S_np_value.setEnabled(enabled);
-        this.CM_S_rdg1_value.setEnabled(enabled);
-        this.CM_S_rfg1_value.setEnabled(enabled);
-        this.CM_S_rdg2_value.setEnabled(enabled);
-        this.CM_S_rfg2_value.setEnabled(enabled);
-        this.CM_Repor_Panel.setEnabled(enabled);
-        this.CM_R_noset_button.setEnabled(enabled);
-        this.CM_R_a_button.setEnabled(enabled);
-        this.CM_R_k_button.setEnabled(enabled);
-        this.CM_R_k_value.setEnabled(false);
-        this.CM_Effort_Panel.setEnabled(enabled);
-        this.CM_E_D_value.setEnabled(enabled);
-        this.CM_E_R_value.setEnabled(enabled);
-        this.CM_SAM_Panel.setEnabled(enabled);
-        this.CM_SAM_noUnal_box.setEnabled(enabled);
-        this.CM_SAM_omitSecSeq_box.setEnabled(enabled);
-        this.CM_SAM_noHd_box.setEnabled(enabled);
-        this.CM_SAM_noSq_box.setEnabled(enabled);
-        this.CM_SAM_rgId_text.setEnabled(enabled);
-        this.CM_SAM_rg_text.setEnabled(enabled);
-        this.CM_Performance_Panel.setEnabled(enabled);
-        this.CM_P_o_text.setEnabled(enabled);
-        this.CM_P_reorder_box.setEnabled(enabled);
-        this.CM_P_mm_box.setEnabled(enabled);
-        this.CM_P_p_value.setEnabled(enabled);
-        this.CM_Other_Panel.setEnabled(enabled);
-        this.CM_OO_qcFilter_box.setEnabled(enabled);
-        this.CM_OO_nonDeterminist_box.setEnabled(enabled);
-        this.CM_OO_seed_value.setEnabled(enabled);
+    private void customMappingFields(boolean e){
+        this.CM_A_L_box.setEnabled(e);
+        if (properties.isSet(CM_A_L_box.getName()) && e==true)
+            this.CM_A_L_value.setEnabled(true);
+        else this.CM_A_L_value.setEnabled(false);
+        this.CM_A_N_box.setEnabled(e);
+        if (properties.isSet(CM_A_N_box.getName()) && e==true)
+            this.CM_A_N_value.setEnabled(true);
+        else this.CM_A_N_value.setEnabled(false);
+        this.CM_A_dpad_box.setEnabled(e);
+        if (properties.isSet(CM_A_dpad_box.getName()) && e==true)
+            this.CM_A_dpad_value.setEnabled(true);
+        else this.CM_A_dpad_value.setEnabled(false);
+        this.CM_A_gbar_box.setEnabled(e);
+        if (properties.isSet(CM_A_gbar_box.getName()) && e==true)
+            this.CM_A_gbar_value.setEnabled(true);
+        else this.CM_A_gbar_value.setEnabled(false);
+        this.CM_A_i_box.setEnabled(e);
+        if (properties.isSet(CM_A_i_box.getName()) && e==true)
+            this.CM_A_i_text.setEnabled(true);
+        else this.CM_A_i_text.setEnabled(false);
+        this.CM_A_ignoreQuals_box.setEnabled(e);
+        this.CM_A_nCeil_box.setEnabled(e);
+        if (properties.isSet(CM_A_nCeil_box.getName()) && e==true)
+            this.CM_A_nCeil_text.setEnabled(true);
+        else this.CM_A_nCeil_text.setEnabled(false);
+        this.CM_A_no1mmUpfront_box.setEnabled(e);
+        this.CM_A_nofw_box.setEnabled(e);
+        this.CM_A_norc_box.setEnabled(e);
+        this.CM_E_D_box.setEnabled(e);
+        if (properties.isSet(CM_E_D_box.getName()) && e==true)
+            this.CM_E_D_value.setEnabled(true);
+        else this.CM_E_D_value.setEnabled(false);
+        this.CM_E_R_box.setEnabled(e);
+        if (properties.isSet(CM_E_R_box.getName()) && e==true)
+            this.CM_E_R_value.setEnabled(true);
+        else this.CM_E_R_value.setEnabled(false);
+        this.CM_I_3_box.setEnabled(e);
+        if (properties.isSet(CM_I_3_box.getName()) && e==true)
+            this.CM_I_3_value.setEnabled(true);
+        else this.CM_I_3_value.setEnabled(false);
+        this.CM_I_5_box.setEnabled(e);
+        if (properties.isSet(CM_I_5_box.getName()) && e==true)
+            this.CM_I_5_value.setEnabled(true);
+        else this.CM_I_5_value.setEnabled(false);
+        this.CM_I_c_box.setEnabled(e);
+        this.CM_I_f_box.setEnabled(e);
+        this.CM_I_intQuals_box.setEnabled(e);
+        this.CM_I_phred33_box.setEnabled(e);
+        this.CM_I_phred64_box.setEnabled(e);
+        this.CM_I_q_box.setEnabled(e);
+        this.CM_I_qseq_box.setEnabled(e);
+        this.CM_I_r_box.setEnabled(e);
+        this.CM_I_s_box.setEnabled(e);
+        if (properties.isSet(CM_I_s_box.getName()) && e==true)
+            this.CM_I_s_value.setEnabled(true);
+        else this.CM_I_s_value.setEnabled(false);
+        this.CM_I_solexaQuals_box.setEnabled(e);
+        this.CM_I_u_box.setEnabled(e);
+        if (properties.isSet(CM_I_u_box.getName()) && e==true)
+            this.CM_I_u_value.setEnabled(true);
+        else this.CM_I_u_value.setEnabled(false);
+        this.CM_OO_nonDeterminist_box.setEnabled(e);
+        this.CM_OO_qcFilter_box.setEnabled(e);
+        this.CM_OO_seed_box.setEnabled(e);
+        if (properties.isSet(CM_OO_seed_box.getName()) && e==true)
+            this.CM_OO_seed_value.setEnabled(true);
+        else this.CM_OO_seed_value.setEnabled(false);
+        this.CM_P_mm_box.setEnabled(e);
+        this.CM_P_o_box.setEnabled(e);
+        if (properties.isSet(CM_P_o_box.getName()) && e==true)
+            this.CM_P_o_text.setEnabled(true);
+        else this.CM_P_o_text.setEnabled(false);
+        this.CM_P_p_box.setEnabled(e);
+        if (properties.isSet(CM_P_p_box.getName()) && e==true)
+            this.CM_P_p_value.setEnabled(true);
+        else this.CM_P_p_value.setEnabled(false);
+        this.CM_P_reorder_box.setEnabled(e);
+        this.CM_SAM_noHd_box.setEnabled(e);
+        this.CM_SAM_noSq_box.setEnabled(e);
+        this.CM_SAM_noUnal_box.setEnabled(e);
+        this.CM_SAM_omitSecSeq_box.setEnabled(e);
+        this.CM_SAM_rgId_box.setEnabled(e);
+        if (properties.isSet(CM_SAM_rgId_box.getName()) && e==true)
+            this.CM_SAM_rgId_text.setEnabled(true);
+        else this.CM_SAM_rgId_text.setEnabled(false);
+        this.CM_SAM_rg_box.setEnabled(e);
+        if (properties.isSet(CM_SAM_rg_box.getName()) && e==true)
+            this.CM_SAM_rg_text.setEnabled(true);
+        else this.CM_SAM_rg_text.setEnabled(false);
+        this.CM_S_ma_box.setEnabled(e);
+        if (properties.isSet(CM_S_ma_box.getName()) && e==true)
+            this.CM_S_ma_value.setEnabled(true);
+        else this.CM_S_ma_value.setEnabled(false);
+        this.CM_S_mp_box.setEnabled(e);
+        if (properties.isSet(CM_S_mp_box.getName()) && e==true)
+            this.CM_S_mp_text.setEnabled(true);
+        else this.CM_S_mp_text.setEnabled(false);
+        this.CM_S_np_box.setEnabled(e);
+        if (properties.isSet(CM_S_np_box.getName()) && e==true)
+            this.CM_S_np_value.setEnabled(true);
+        else this.CM_S_np_value.setEnabled(false);
+        this.CM_S_rdg1_box.setEnabled(e);
+        if (properties.isSet(CM_S_rdg1_box.getName()) && e==true)
+            this.CM_S_rdg1_value.setEnabled(true);
+        else this.CM_S_rdg1_value.setEnabled(false);
+        this.CM_S_rdg2_box.setEnabled(e);
+        if (properties.isSet(CM_S_rdg2_box.getName()) && e==true)
+            this.CM_S_rdg2_value.setEnabled(true);
+        else this.CM_S_rdg2_value.setEnabled(false);
+        this.CM_S_rfg1_box.setEnabled(e);
+        if (properties.isSet(CM_S_rfg1_box.getName()) && e==true)
+            this.CM_S_rfg1_value.setEnabled(true);
+        else this.CM_S_rfg1_value.setEnabled(false);
+        this.CM_S_rfg2_box.setEnabled(e);
+        if (properties.isSet(CM_S_rfg2_box.getName()) && e==true)
+            this.CM_S_rfg2_value.setEnabled(true);
+        else this.CM_S_rfg2_value.setEnabled(false);
     }
     
     private void peButtonFields(boolean enabled){
@@ -2861,7 +3086,8 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         this.usp_GenomeDirFields(properties);
         this.usp_PairedEndFields(properties);
         this.usp_OutputFields(properties);
-        this.usp_CMFields(properties);
+        this.usp_CMFieldsValues(properties);
+        this.usp_CMFieldsBox(properties);
         this.usp_MapOptions(properties);
     }
     
@@ -2962,54 +3188,33 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         }
     }
     
-    private void usp_CMFields(workflow_properties properties) {
-        // CMM properties saved
-        
-        //Input Options
-        if (this.properties.isSet(CM_I_q_box.getName())){
-            this.CM_I_q_box.setSelected(true);
+    private void usp_CMFieldsBox(workflow_properties properties) {
+        if (this.properties.isSet(CM_A_L_box.getName())){
+            this.CM_A_L_box.setSelected(true);
+            this.CM_A_L_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_I_qseq_box.getName())){
-            this.CM_I_qseq_box.setSelected(true);
+        if (this.properties.isSet(CM_A_N_box.getName())){
+            this.CM_A_N_box.setSelected(true);
+            this.CM_A_N_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_I_solexaQuals_box.getName())){
-            this.CM_I_solexaQuals_box.setSelected(true);
+        if (this.properties.isSet(CM_A_dpad_box.getName())){
+            this.CM_A_dpad_box.setSelected(true);
+            this.CM_A_dpad_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_I_solexaQuals_box.getName())){
-            this.CM_I_solexaQuals_box.setSelected(true);
+        if (this.properties.isSet(CM_A_gbar_box.getName())){
+            this.CM_A_gbar_box.setSelected(true);
+            this.CM_A_gbar_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_I_f_box.getName())){
-            this.CM_I_f_box.setSelected(true);
+        if (this.properties.isSet(CM_A_i_box.getName())){
+            this.CM_A_i_box.setSelected(true);
+            this.CM_A_i_text.setEnabled(true);
         }
-        if (this.properties.isSet(CM_I_r_box.getName())){
-            this.CM_I_r_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_c_box.getName())){
-            this.CM_I_c_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_phred33_box.getName())){
-            this.CM_I_phred33_box.setSelected(true);
-        }
-        if (this.properties.isSet(CM_I_phred64_box.getName())){
-            this.CM_I_phred64_box.setSelected(true);
-        }
-        
-        if (this.properties.isSet(CM_I_3_value.getName())){
-            this.CM_I_3_value.setValue(Integer.parseInt(this.properties.get(CM_I_3_value.getName())));
-        }
-        if (this.properties.isSet(CM_I_5_value.getName())){
-            this.CM_I_5_value.setValue(Integer.parseInt(this.properties.get(CM_I_5_value.getName())));
-        }
-        if (this.properties.isSet(CM_I_s_value.getName())){
-            this.CM_I_s_value.setValue(Integer.parseInt(this.properties.get(CM_I_s_value.getName())));
-        }
-        if (this.properties.isSet(CM_I_u_value.getName())){
-            this.CM_I_u_value.setValue(Integer.parseInt(this.properties.get(CM_I_u_value.getName())));
-        }
-        
-        //Alignment Options
         if (this.properties.isSet(CM_A_ignoreQuals_box.getName())){
             this.CM_A_ignoreQuals_box.setSelected(true);
+        }
+        if (this.properties.isSet(CM_A_nCeil_box.getName())){
+            this.CM_A_nCeil_box.setSelected(true);
+            this.CM_A_nCeil_text.setEnabled(true);
         }
         if (this.properties.isSet(CM_A_no1mmUpfront_box.getName())){
             this.CM_A_no1mmUpfront_box.setSelected(true);
@@ -3019,88 +3224,81 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         }
         if (this.properties.isSet(CM_A_norc_box.getName())){
             this.CM_A_norc_box.setSelected(true);
-        }        
-        if (this.properties.isSet(CM_A_endToEnd_button.getName())){
-            this.CM_A_endToEnd_button.setSelected(true);
-            this.CM_A_endToEnd_text.setEnabled(true);
-            this.CM_A_local_text.setEnabled(false);
         }
-        if (this.properties.isSet(CM_A_local_button.getName())){
-            this.CM_A_local_button.setSelected(true);
-            this.CM_A_local_text.setEnabled(true);
-            this.CM_A_endToEnd_text.setEnabled(false);
+        if (this.properties.isSet(CM_E_D_box.getName())){
+            this.CM_E_D_box.setSelected(true);
+            this.CM_E_D_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_A_endToEnd_text.getName())){
-            this.CM_A_endToEnd_text.setText(this.properties.get(CM_A_endToEnd_text.getName()));
+        if (this.properties.isSet(CM_E_R_box.getName())){
+            this.CM_E_R_box.setSelected(true);
+            this.CM_E_R_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_A_local_text.getName())){
-            this.CM_A_local_text.setText(this.properties.get(CM_A_local_text.getName()));
+        if (this.properties.isSet(CM_I_3_box.getName())){
+            this.CM_I_3_box.setSelected(true);
+            this.CM_I_3_value.setEnabled(true);
         }
-        
-        if (this.properties.isSet(CM_A_L_value.getName())){
-            this.CM_A_L_value.setValue(Integer.parseInt(this.properties.get(CM_A_L_value.getName())));
+        if (this.properties.isSet(CM_I_5_box.getName())){
+            this.CM_I_5_box.setSelected(true);
+            this.CM_I_5_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_A_N_value.getName())){
-            this.CM_A_N_value.setValue(Integer.parseInt(this.properties.get(CM_A_N_value.getName())));
+        if (this.properties.isSet(CM_I_c_box.getName())){
+            this.CM_I_c_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_A_dpad_value.getName())){
-            this.CM_A_dpad_value.setValue(Integer.parseInt(this.properties.get(CM_A_dpad_value.getName())));
+        if (this.properties.isSet(CM_I_f_box.getName())){
+            this.CM_I_f_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_A_gbar_value.getName())){
-            this.CM_A_gbar_value.setValue(Integer.parseInt(this.properties.get(CM_A_gbar_value.getName())));
+        if (this.properties.isSet(CM_I_intQuals_box.getName())){
+            this.CM_I_intQuals_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_A_i_text.getName())){
-            this.CM_A_i_text.setText(this.properties.get(CM_A_i_text.getName()));
+        if (this.properties.isSet(CM_I_phred33_box.getName())){
+            this.CM_I_phred33_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_A_nCeil_text.getName())){
-            this.CM_A_nCeil_text.setText(this.properties.get(CM_A_nCeil_text.getName()));
+        if (this.properties.isSet(CM_I_phred64_box.getName())){
+            this.CM_I_phred64_box.setSelected(true);
         }
-        
-        //Scoring Options
-        if (this.properties.isSet(CM_S_ma_value.getName())){
-            this.CM_S_ma_value.setValue(Integer.parseInt(this.properties.get(CM_S_ma_value.getName())));
+        if (this.properties.isSet(CM_I_q_box.getName())){
+            this.CM_I_q_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_S_mp_value.getName())){
-            this.CM_S_mp_value.setText(this.properties.get(CM_S_mp_value.getName()));
+        if (this.properties.isSet(CM_I_qseq_box.getName())){
+            this.CM_I_qseq_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_S_np_value.getName())){
-            this.CM_S_np_value.setValue(Integer.parseInt(this.properties.get(CM_S_np_value.getName())));
+        if (this.properties.isSet(CM_I_r_box.getName())){
+            this.CM_I_r_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_S_rdg1_value.getName())){
-            this.CM_S_rdg1_value.setValue(Integer.parseInt(this.properties.get(CM_S_rdg1_value.getName())));
+        if (this.properties.isSet(CM_I_s_box.getName())){
+            this.CM_I_s_box.setSelected(true);
+            this.CM_I_s_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_S_rdg2_value.getName())){
-            this.CM_S_rdg2_value.setValue(Integer.parseInt(this.properties.get(CM_S_rdg2_value.getName())));
+        if (this.properties.isSet(CM_I_solexaQuals_box.getName())){
+            this.CM_I_solexaQuals_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_S_rfg1_value.getName())){
-            this.CM_S_rfg1_value.setValue(Integer.parseInt(this.properties.get(CM_S_rfg1_value.getName())));
+        if (this.properties.isSet(CM_I_u_box.getName())){
+            this.CM_I_u_box.setSelected(true);
+            this.CM_I_u_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_E_D_value.getName())){
-            this.CM_S_rfg2_value.setValue(Integer.parseInt(this.properties.get(CM_S_rfg2_value.getName())));
+        if (this.properties.isSet(CM_OO_nonDeterminist_box.getName())){
+            this.CM_OO_nonDeterminist_box.setSelected(true);
         }
-        
-        //Reporting options
-        if (this.properties.isSet(CM_R_noset_button.getName())){
-            this.CM_R_noset_button.setSelected(true);
-        } else if (this.properties.isSet(CM_R_a_button.getName())){
-            this.CM_R_a_button.setSelected(true);
-        } else if (this.properties.isSet(CM_R_k_button.getName())){
-            this.CM_R_k_value.setValue(Integer.parseInt(this.properties.get(CM_R_k_value.getName())));
-            this.CM_R_k_value.setEnabled(true);
-            this.CM_R_k_button.setSelected(true);
+        if (this.properties.isSet(CM_OO_qcFilter_box.getName())){
+            this.CM_OO_qcFilter_box.setSelected(true);
         }
-        
-        //Effort Options
-        if (this.properties.isSet(CM_E_D_value.getName())){
-            this.CM_E_D_value.setValue(Integer.parseInt(this.properties.get(CM_E_D_value.getName())));
+        if (this.properties.isSet(CM_OO_seed_box.getName())){
+            this.CM_OO_seed_box.setSelected(true);
+            this.CM_OO_seed_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_E_R_value.getName())){
-            this.CM_E_R_value.setValue(Integer.parseInt(this.properties.get(CM_E_R_value.getName())));
+        if (this.properties.isSet(CM_P_mm_box.getName())){
+            this.CM_P_mm_box.setSelected(true);
         }
-        
-        //SAM Options
-        if (this.properties.isSet(CM_SAM_noUnal_box.getName())){
-            this.CM_SAM_noUnal_box.setSelected(true);
+        if (this.properties.isSet(CM_P_o_box.getName())){
+            this.CM_P_o_box.setSelected(true);
+            this.CM_P_o_text.setEnabled(true);
+        }
+        if (this.properties.isSet(CM_P_p_box.getName())){
+            this.CM_P_p_box.setSelected(true);
+            this.CM_P_p_value.setEnabled(true);
+        }
+        if (this.properties.isSet(CM_P_reorder_box.getName())){
+            this.CM_P_reorder_box.setSelected(true);
         }
         if (this.properties.isSet(CM_SAM_noHd_box.getName())){
             this.CM_SAM_noHd_box.setSelected(true);
@@ -3108,39 +3306,158 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         if (this.properties.isSet(CM_SAM_noSq_box.getName())){
             this.CM_SAM_noSq_box.setSelected(true);
         }
+        if (this.properties.isSet(CM_SAM_noUnal_box.getName())){
+            this.CM_SAM_noUnal_box.setSelected(true);
+        }
         if (this.properties.isSet(CM_SAM_omitSecSeq_box.getName())){
             this.CM_SAM_omitSecSeq_box.setSelected(true);
         }
-        if (this.properties.isSet(CM_SAM_rgId_text.getName())){
-            this.CM_SAM_rgId_text.setText(this.properties.get(CM_SAM_rgId_text.getName()));
+        if (this.properties.isSet(CM_SAM_rgId_box.getName())){
+            this.CM_SAM_rgId_box.setSelected(true);
+            this.CM_SAM_rgId_text.setEnabled(true);
         }
-        if (this.properties.isSet(CM_SAM_rg_text.getName())){
-            this.CM_SAM_rg_text.setText(this.properties.get(CM_SAM_rg_text.getName()));
+        if (this.properties.isSet(CM_SAM_rg_box.getName())){
+            this.CM_SAM_rg_box.setSelected(true);
+            this.CM_SAM_rg_text.setEnabled(true);
         }
-        
-        //Performances Options
-        if (this.properties.isSet(CM_P_reorder_box.getName())){
-            this.CM_P_reorder_box.setSelected(true);
+        if (this.properties.isSet(CM_S_ma_box.getName())){
+            this.CM_S_ma_box.setSelected(true);
+            this.CM_S_ma_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_P_mm_box.getName())){
-            this.CM_P_mm_box.setSelected(true);
+        if (this.properties.isSet(CM_S_mp_box.getName())){
+            this.CM_S_mp_box.setSelected(true);
+            this.CM_S_mp_text.setEnabled(true);
         }
-        if (this.properties.isSet(CM_P_o_text.getName())){
-            this.CM_P_o_text.setText(this.properties.get(CM_P_o_text.getName()));
+        if (this.properties.isSet(CM_S_np_box.getName())){
+            this.CM_S_np_box.setSelected(true);
+            this.CM_S_np_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_P_p_value.getName())){
-            this.CM_P_p_value.setValue(Integer.parseInt(this.properties.get(CM_P_p_value.getName())));
+        if (this.properties.isSet(CM_S_rdg1_box.getName())){
+            this.CM_S_rdg1_box.setSelected(true);
+            this.CM_S_rdg1_value.setEnabled(true);
         }
-        
-        //Other Options
-        if (this.properties.isSet(CM_OO_qcFilter_box.getName())){
-            this.CM_OO_qcFilter_box.setSelected(true);
+        if (this.properties.isSet(CM_S_rdg2_box.getName())){
+            this.CM_S_rdg2_box.setSelected(true);
+            this.CM_S_rdg2_value.setEnabled(true);
         }
-        if (this.properties.isSet(CM_OO_nonDeterminist_box.getName())){
-            this.CM_OO_nonDeterminist_box.setSelected(true);
+        if (this.properties.isSet(CM_S_rfg1_box.getName())){
+            this.CM_S_rfg1_box.setSelected(true);
+            this.CM_S_rfg1_value.setEnabled(true);
+        }
+        if (this.properties.isSet(CM_S_rfg2_box.getName())){
+            this.CM_S_rfg2_box.setSelected(true);
+            this.CM_S_rfg2_value.setEnabled(true);
+        }
+    }
+    
+    private void usp_CMFieldsValues(workflow_properties properties) {
+        if (this.properties.isSet(CM_A_L_value.getName())){
+            this.CM_A_L_value.setValue(Integer.parseInt(this.properties.get(CM_A_L_value.getName())));
+            this.CM_A_L_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_N_value.getName())){
+            this.CM_A_N_value.setValue(Integer.parseInt(this.properties.get(CM_A_N_value.getName())));
+            this.CM_A_N_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_dpad_value.getName())){
+            this.CM_A_dpad_value.setValue(Integer.parseInt(this.properties.get(CM_A_dpad_value.getName())));
+            this.CM_A_dpad_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_gbar_value.getName())){
+            this.CM_A_gbar_value.setValue(Integer.parseInt(this.properties.get(CM_A_gbar_value.getName())));
+            this.CM_A_gbar_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_E_D_value.getName())){
+            this.CM_E_D_value.setValue(Integer.parseInt(this.properties.get(CM_E_D_value.getName())));
+            this.CM_E_D_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_E_R_value.getName())){
+            this.CM_E_R_value.setValue(Integer.parseInt(this.properties.get(CM_E_R_value.getName())));
+            this.CM_E_R_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_I_3_value.getName())){
+            this.CM_I_3_value.setValue(Integer.parseInt(this.properties.get(CM_I_3_value.getName())));
+            this.CM_I_3_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_I_5_value.getName())){
+            this.CM_I_5_value.setValue(Integer.parseInt(this.properties.get(CM_I_5_value.getName())));
+            this.CM_I_5_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_I_s_value.getName())){
+            this.CM_I_s_value.setValue(Integer.parseInt(this.properties.get(CM_I_s_value.getName())));
+            this.CM_I_s_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_I_u_value.getName())){
+            this.CM_I_u_value.setValue(Integer.parseInt(this.properties.get(CM_I_u_value.getName())));
+            this.CM_I_u_value.setEnabled(false);
         }
         if (this.properties.isSet(CM_OO_seed_value.getName())){
             this.CM_OO_seed_value.setValue(Integer.parseInt(this.properties.get(CM_OO_seed_value.getName())));
+            this.CM_OO_seed_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_P_p_value.getName())){
+            this.CM_P_p_value.setValue(Integer.parseInt(this.properties.get(CM_P_p_value.getName())));
+            this.CM_P_p_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_R_k_value.getName())){
+            this.CM_R_k_value.setValue(Integer.parseInt(this.properties.get(CM_R_k_value.getName())));
+            this.CM_R_k_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_ma_value.getName())){
+            this.CM_S_ma_value.setValue(Integer.parseInt(this.properties.get(CM_S_ma_value.getName())));
+            this.CM_S_ma_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_np_value.getName())){
+            this.CM_S_np_value.setValue(Integer.parseInt(this.properties.get(CM_S_np_value.getName())));
+            this.CM_S_np_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_rdg1_value.getName())){
+            this.CM_S_rdg1_value.setValue(Integer.parseInt(this.properties.get(CM_S_rdg1_value.getName())));
+            this.CM_S_rdg1_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_rdg2_value.getName())){
+            this.CM_S_rdg2_value.setValue(Integer.parseInt(this.properties.get(CM_S_rdg2_value.getName())));
+            this.CM_S_rdg2_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_rfg1_value.getName())){
+            this.CM_S_rfg1_value.setValue(Integer.parseInt(this.properties.get(CM_S_rfg1_value.getName())));
+            this.CM_S_rfg1_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_rfg2_value.getName())){
+            this.CM_S_rfg2_value.setValue(Integer.parseInt(this.properties.get(CM_S_rfg2_value.getName())));
+            this.CM_S_rfg2_value.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_endToEnd_text.getName())){
+            this.CM_A_endToEnd_text.setText(this.properties.get(CM_A_endToEnd_text.getName()));
+            this.CM_A_endToEnd_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_i_text.getName())){
+            this.CM_A_i_text.setText(this.properties.get(CM_A_i_text.getName()));
+            this.CM_A_i_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_local_text.getName())){
+            this.CM_A_local_text.setText(this.properties.get(CM_A_local_text.getName()));
+            this.CM_A_local_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_A_nCeil_text.getName())){
+            this.CM_A_nCeil_text.setText(this.properties.get(CM_A_nCeil_text.getName()));
+            this.CM_A_nCeil_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_P_o_text.getName())){
+            this.CM_P_o_text.setText(this.properties.get(CM_P_o_text.getName()));
+            this.CM_P_o_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_SAM_rgId_text.getName())){
+            this.CM_SAM_rgId_text.setText(this.properties.get(CM_SAM_rgId_text.getName()));
+            this.CM_SAM_rgId_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_SAM_rg_text.getName())){
+            this.CM_SAM_rg_text.setText(this.properties.get(CM_SAM_rg_text.getName()));
+            this.CM_SAM_rg_text.setEnabled(false);
+        }
+        if (this.properties.isSet(CM_S_mp_text.getName())){
+            this.CM_S_mp_text.setText(this.properties.get(CM_S_mp_text.getName()));
+            this.CM_S_mp_text.setEnabled(false);
         }
     }
     
@@ -3168,11 +3485,11 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         this.setVisible(true);
     }
     
-        /**
-         * Set Properties
-         */
-
-        public void setProperties(workflow_properties properties) {
+    /**
+     * Set Properties
+     * @param properties
+     */
+    public void setProperties(workflow_properties properties) {
             this.properties=properties;
             setTitle(properties.getName());
             //if (this.properties.isSet("Description")) this.Notice.setText(properties.get("Description"));
@@ -3196,17 +3513,10 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
          */
         
         private void defaultPgrmValues(workflow_properties properties) {
-            if (!this.properties.isSet(Options.getName()) && properties.isSet("defaultPgrmValues")) {
-                String defaultEditorStatus = this.properties.get("defaultPgrmValues");
-                String[] arrayDefault = defaultEditorStatus.split("<>");
-                int z = 0;
-                for (int i =0 ; i < arrayDefault.length ; i=i+2){
-                    z = i;
-                    this.properties.put(arrayDefault[z],arrayDefault[z+1]);
-                }
-            }
+            Util.getDefaultPgrmValues(properties,this.properties.isSet(Options.getName()));
         }
         
+    @Override
     public void saveImage(String filename) {
         BufferedImage bi;
         try {
@@ -3220,36 +3530,36 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Bowtie2MapEditor;
-    private javax.swing.JLabel CM_A_L_label;
+    private javax.swing.JCheckBox CM_A_L_box;
     private javax.swing.JSpinner CM_A_L_value;
-    private javax.swing.JLabel CM_A_N_label;
+    private javax.swing.JCheckBox CM_A_N_box;
     private javax.swing.JSpinner CM_A_N_value;
     private javax.swing.ButtonGroup CM_A_Type;
-    private javax.swing.JLabel CM_A_dpad_label;
+    private javax.swing.JCheckBox CM_A_dpad_box;
     private javax.swing.JSpinner CM_A_dpad_value;
     private javax.swing.JRadioButton CM_A_endToEnd_button;
     private javax.swing.JTextField CM_A_endToEnd_text;
-    private javax.swing.JLabel CM_A_gbar_label;
+    private javax.swing.JCheckBox CM_A_gbar_box;
     private javax.swing.JSpinner CM_A_gbar_value;
-    private javax.swing.JLabel CM_A_i_label;
+    private javax.swing.JCheckBox CM_A_i_box;
     private javax.swing.JTextField CM_A_i_text;
     private javax.swing.JCheckBox CM_A_ignoreQuals_box;
     private javax.swing.JRadioButton CM_A_local_button;
     private javax.swing.JTextField CM_A_local_text;
+    private javax.swing.JCheckBox CM_A_nCeil_box;
     private javax.swing.JTextField CM_A_nCeil_text;
-    private javax.swing.JLabel CM_A_nceil_label;
     private javax.swing.JCheckBox CM_A_no1mmUpfront_box;
     private javax.swing.JCheckBox CM_A_nofw_box;
     private javax.swing.JCheckBox CM_A_norc_box;
     private javax.swing.JPanel CM_Align_Panel;
-    private javax.swing.JLabel CM_E_D_label;
+    private javax.swing.JCheckBox CM_E_D_box;
     private javax.swing.JSpinner CM_E_D_value;
-    private javax.swing.JLabel CM_E_R_label;
+    private javax.swing.JCheckBox CM_E_R_box;
     private javax.swing.JSpinner CM_E_R_value;
     private javax.swing.JPanel CM_Effort_Panel;
-    private javax.swing.JLabel CM_I_3_label;
+    private javax.swing.JCheckBox CM_I_3_box;
     private javax.swing.JSpinner CM_I_3_value;
-    private javax.swing.JLabel CM_I_5_label;
+    private javax.swing.JCheckBox CM_I_5_box;
     private javax.swing.JSpinner CM_I_5_value;
     private javax.swing.JPanel CM_I_TOI_panel;
     private javax.swing.JCheckBox CM_I_c_box;
@@ -3260,24 +3570,24 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     private javax.swing.JCheckBox CM_I_q_box;
     private javax.swing.JCheckBox CM_I_qseq_box;
     private javax.swing.JCheckBox CM_I_r_box;
-    private javax.swing.JLabel CM_I_s_label;
+    private javax.swing.JCheckBox CM_I_s_box;
     private javax.swing.JSpinner CM_I_s_value;
     private javax.swing.JCheckBox CM_I_solexaQuals_box;
-    private javax.swing.JLabel CM_I_u_label;
+    private javax.swing.JCheckBox CM_I_u_box;
     private javax.swing.JSpinner CM_I_u_value;
     private javax.swing.JPanel CM_Input_Panel;
     private javax.swing.JCheckBox CM_OO_nonDeterminist_box;
     private javax.swing.JCheckBox CM_OO_qcFilter_box;
-    private javax.swing.JLabel CM_OO_seed_label;
+    private javax.swing.JCheckBox CM_OO_seed_box;
     private javax.swing.JSpinner CM_OO_seed_value;
     private javax.swing.ButtonGroup CM_O_phred_Buttons;
     private javax.swing.JPanel CM_Other_Panel;
     private javax.swing.ButtonGroup CM_PE_stream_buttons;
     private javax.swing.ButtonGroup CM_PE_type_buttons;
     private javax.swing.JCheckBox CM_P_mm_box;
-    private javax.swing.JLabel CM_P_o_label;
+    private javax.swing.JCheckBox CM_P_o_box;
     private javax.swing.JTextField CM_P_o_text;
-    private javax.swing.JLabel CM_P_p_label;
+    private javax.swing.JCheckBox CM_P_p_box;
     private javax.swing.JSpinner CM_P_p_value;
     private javax.swing.JCheckBox CM_P_reorder_box;
     private javax.swing.JPanel CM_Panel;
@@ -3293,23 +3603,25 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     private javax.swing.JCheckBox CM_SAM_noSq_box;
     private javax.swing.JCheckBox CM_SAM_noUnal_box;
     private javax.swing.JCheckBox CM_SAM_omitSecSeq_box;
-    private javax.swing.JLabel CM_SAM_rgId_label;
+    private javax.swing.JCheckBox CM_SAM_rgId_box;
     private javax.swing.JTextField CM_SAM_rgId_text;
-    private javax.swing.JLabel CM_SAM_rg_label;
+    private javax.swing.JCheckBox CM_SAM_rg_box;
     private javax.swing.JTextField CM_SAM_rg_text;
     private javax.swing.JLabel CM_S_first_label;
-    private javax.swing.JLabel CM_S_ma_label;
+    private javax.swing.JCheckBox CM_S_ma_box;
     private javax.swing.JSpinner CM_S_ma_value;
-    private javax.swing.JLabel CM_S_mp_label;
-    private javax.swing.JTextField CM_S_mp_value;
-    private javax.swing.JLabel CM_S_np_label;
+    private javax.swing.JCheckBox CM_S_mp_box;
+    private javax.swing.JTextField CM_S_mp_text;
+    private javax.swing.JCheckBox CM_S_np_box;
     private javax.swing.JSpinner CM_S_np_value;
+    private javax.swing.JCheckBox CM_S_rdg1_box;
     private javax.swing.JSpinner CM_S_rdg1_value;
+    private javax.swing.JCheckBox CM_S_rdg2_box;
     private javax.swing.JSpinner CM_S_rdg2_value;
-    private javax.swing.JLabel CM_S_rdg_label;
+    private javax.swing.JCheckBox CM_S_rfg1_box;
     private javax.swing.JSpinner CM_S_rfg1_value;
+    private javax.swing.JCheckBox CM_S_rfg2_box;
     private javax.swing.JSpinner CM_S_rfg2_value;
-    private javax.swing.JLabel CM_S_rfg_label;
     private javax.swing.JLabel CM_S_second_label;
     private javax.swing.JPanel CM_Scoring_Panel;
     private javax.swing.JTabbedPane CM_TabPanel;
@@ -3334,10 +3646,10 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     private javax.swing.JRadioButton M_L_VF_button;
     private javax.swing.JRadioButton M_L_VS_button;
     private javax.swing.JLabel M_Local_Label;
-    private javax.swing.JLabel M_PE_I_label;
+    private javax.swing.JCheckBox M_PE_I_box;
     private javax.swing.JSpinner M_PE_I_value;
     private javax.swing.JPanel M_PE_Panel;
-    private javax.swing.JLabel M_PE_X_label;
+    private javax.swing.JCheckBox M_PE_X_box;
     private javax.swing.JSpinner M_PE_X_value;
     private javax.swing.JRadioButton M_PE_button;
     private javax.swing.JCheckBox M_PE_dovetail_box;

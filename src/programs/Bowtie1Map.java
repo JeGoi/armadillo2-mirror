@@ -37,7 +37,7 @@ public class Bowtie1Map extends RunProgram {
     private String fastqFile2    ="";
     private String genomeFile    ="";
     private String genomeFileName="";
-    private String outfile       ="";
+    private String outputFile    ="";
     private static final String outPutPath = "."+File.separator+"results"+File.separator+"bowtie2";
     
     //private String[] optionsTab  = {"bowtie2IndexGenome_button","bowtie2Inspect_button","bowtie2Mapping_button"};
@@ -230,16 +230,16 @@ public class Bowtie1Map extends RunProgram {
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         } else {
             String genomeChoosed = properties.get("IDG_selected_ComboBox");
-            genomeChoosed = genomeChoosed.replaceAll("\\_long$","");
+            genomeChoosed        = genomeChoosed.replaceAll("\\_long$","");
             String genomePath    = properties.get("IDG_r_text");
             genomeFile = genomePath+File.separator+genomeChoosed;
         }
         
         fastqFile1Name = Util.getFileName(fastqFile1);
         genomeFileName = Util.getFileName(genomeFile);
-        outfile = outPutPath+File.separator+fastqFile1Name+"_"+genomeFileName;
+        outputFile = outPutPath+File.separator+fastqFile1Name+"_"+genomeFileName;
         if (properties.isSet("O_SAM_sam_box"))
-            outfile = outfile+".sam";
+            outputFile = outputFile+".sam";
         
         // Programme et options
         String options = optionsChoosed(properties.get("Options"));
@@ -259,11 +259,11 @@ public class Bowtie1Map extends RunProgram {
             com[5]="-1 \""+fastqFile1+"\"";
             com[6]="-2 \""+fastqFile2+"\"";
         }
-        if (!outfile.equals("")) {
+        if (!outputFile.equals("")) {
             String samOp = "";
             if (properties.isSet("O_SAM_sam_box")) samOp = "-S ";
             else samOp = ">";
-            com[7]= samOp+outfile+"";
+            com[7]= samOp+outputFile+"";
         }
         
         return com;
@@ -335,22 +335,8 @@ public class Bowtie1Map extends RunProgram {
     */
     @Override
     public void post_parseOutput() {
-        File f   = new File(outfile);
-        String s = f.getAbsolutePath();
-        s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
-        SamFile sam=new SamFile();
-        sam.setSamFile(s);
-        sam.setName(s);
-        sam.saveToDatabase();
-        properties.put("output_samfile_id", sam.getId());
-
-        String txt = this.getPgrmOutput();
-        Results text=new Results(outfile+"_bowtie2_stats.txt");
-        text.setText(txt+"\nThe output file is saved here "+s+"\n");
-        text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_Test ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        SamFile.saveSamFile(properties,outputFile,"Bowtie1_map");
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie1_map");
     }
     
 }

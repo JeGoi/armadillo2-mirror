@@ -33,15 +33,16 @@ import workflows.workflow_properties;
 public class BwaMap extends RunProgram {
     
     private String file1Name     ="";
+    private String file2Name     = "";
     private String fastqFile1    ="";
     private String fastqFile2    ="";
     private String bamFile1      ="";
     private String bamFile2      ="";
     private String genomeFile    ="";
     private String genomeFileName="";
-    private String outfile       ="";
-    private String outfileSE     ="";
-    private String outfilePE     ="";
+    private String outputFile       ="";
+    private String outputFileSE     ="";
+    private String outputFilePE     ="";
     private static final String outPutPath = "."+File.separator+"results"+
             File.separator+"bwa"+
             File.separator+Util.returnTimeCode();
@@ -150,7 +151,7 @@ public class BwaMap extends RunProgram {
     
     private boolean checkGenomeRequirements() {
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
-        String s1 = getFileName(getGenomePath(GenomeRef));
+        String s1 = Util.getFileName(GenomeFile.getGenomePath(GenomeRef));
         //Boolean Setting
         boolean b1 = properties.isSet("M_IDG_workflow_button");
         boolean b2 = properties.isSet("M_IDG_directory_button");
@@ -170,8 +171,8 @@ public class BwaMap extends RunProgram {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         
-        String s1 = getFileName(getFastqPath(Fastq1));
-        String s2 = getFileName(getFastqPath(Fastq2));
+        String s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
+        String s2 = Util.getFileName(FastqFile.getFastqPath(Fastq2));
         
         if (Fastq1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
@@ -190,8 +191,8 @@ public class BwaMap extends RunProgram {
         Vector<Integer>Bam1    = properties.getInputID("BamFile",PortInputUP);
         Vector<Integer>Bam2    = properties.getInputID("BamFile",PortInputDOWN);
         
-        String s1 = getFileName(getBamPath(Bam1));
-        String s2 = getFileName(getBamPath(Bam2));
+        String s1 = Util.getFileName(BamFile.getBamPath(Bam1));
+        String s2 = Util.getFileName(BamFile.getBamPath(Bam2));
                 
         if (Bam2.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
@@ -220,15 +221,15 @@ public class BwaMap extends RunProgram {
         Vector<Integer>Bam2      = properties.getInputID("BamFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
-        fastqFile1 = getFastqPath(Fastq1);
-        if (!Fastq2.isEmpty()) fastqFile2 = getFastqPath(Fastq2);
+        fastqFile1 = FastqFile.getFastqPath(Fastq1);
+        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqPath(Fastq2);
         
-        bamFile1 = getBamPath(Bam1);
-        if (!Bam2.isEmpty()) bamFile2 = getBamPath(Bam2);
+        bamFile1 = BamFile.getBamPath(Bam1);
+        if (!Bam2.isEmpty()) bamFile2 = BamFile.getBamPath(Bam2);
         
         // Genome File source
         if (!GenomeRef.isEmpty()){
-            genomeFile = getGenomePath(GenomeRef);
+            genomeFile = GenomeFile.getGenomePath(GenomeRef);
             genomeFile = genomeFile.replaceAll("(\\.fa|\\.fasta)$","");
         } else {
             String genomeChoosed = properties.get("IDG_selected_ComboBox");
@@ -237,22 +238,22 @@ public class BwaMap extends RunProgram {
         }
         
         // Get Name to create ouput
-        file1Name = getFileName(fastqFile1);
-        String file2Name = getFileName(fastqFile2);
-        genomeFileName = getFileName(genomeFile);
+        file1Name        = Util.getFileName(fastqFile1);
+        String file2Name = Util.getFileName(fastqFile2);
+        genomeFileName   = Util.getFileName(genomeFile);
         if (!properties.isSet("O_aln_button")) {
-            outfile = outPutPath+File.separator+file1Name+"_"+genomeFileName+".sam";
+            outputFile = outPutPath+File.separator+file1Name+"_"+genomeFileName+".sam";
         } else if  (properties.isSet("O_aln_button")){
-            outfileSE = outPutPath+File.separator+file1Name+"_"+genomeFileName+".sai";
+            outputFileSE = outPutPath+File.separator+file1Name+"_"+genomeFileName+".sai";
             if (properties.isSet("ALN_PT_sampe_button"))
-                outfilePE = outPutPath+File.separator+file2Name+"_"+genomeFileName+".sai";
+                outputFilePE = outPutPath+File.separator+file2Name+"_"+genomeFileName+".sai";
         }
         
         // Programme et options
         String options = "";
         String optionsSAMSE = "";
         String optionsSAMPE = "";
-        if (properties.isSet("O_mem_button")) options = "mem"+findOptions(memTab);
+        if (properties.isSet("O_mem_button"))   options = "mem"+findOptions(memTab);
         if (properties.isSet("O_bwasw_button")) options = "bwasw"+findOptions(alnANDbwaswTab);
         if (properties.isSet("O_aln_button")) {
             options = "aln"+findOptions(alnANDbwaswTab);
@@ -277,10 +278,10 @@ public class BwaMap extends RunProgram {
             if (!fastqFile2.equals("")) {
                 com[6]="\""+fastqFile2+"\"";
             }
-            com[7]="> "+outfile+"";
+            com[7]="> "+outputFile+"";
         }
         if (properties.isSet("O_aln_button")) {
-            com[6]="> "+outfileSE+"";
+            com[6]="> "+outputFileSE+"";
             com[7] ="&&";
             com[8] ="cmd.exe";
             com[9] ="/C";
@@ -288,26 +289,26 @@ public class BwaMap extends RunProgram {
             if (properties.isSet("ALN_PT_samse_button")){
                 com[11]=optionsSAMSE;
                 com[12]="\""+genomeFile+"\"";
-                com[13]="\""+outfileSE+"\"";
+                com[13]="\""+outputFileSE+"\"";
                 com[14]="\""+fastqFile1+"\"";
-                com[15]="> "+outfile+"";
+                com[15]="> "+outputFile+"";
             }
             if (properties.isSet("ALN_PT_sampe_button")){
                 com[11]=options;
                 com[12]="\""+genomeFile+"\"";
                 com[14]="\""+fastqFile2+"\"";
-                com[15]="> "+outfilePE+"";
+                com[15]="> "+outputFilePE+"";
                 com[16] ="&&";
                 com[17] ="cmd.exe";
                 com[18] ="/C";
                 com[19]=properties.getExecutable();
                 com[20]=optionsSAMPE;
                 com[21]="\""+genomeFile+"\"";
-                com[22]="\""+outfileSE+"\"";
-                com[23]="\""+outfilePE+"\"";
+                com[22]="\""+outputFileSE+"\"";
+                com[23]="\""+outputFilePE+"\"";
                 com[24]="\""+fastqFile1+"\"";
                 com[25]="\""+fastqFile2+"\"";
-                com[26]="> "+outfile+"";
+                com[26]="> "+outputFile+"";
             }
         }
         return com;
@@ -343,76 +344,17 @@ public class BwaMap extends RunProgram {
         return s;
     }
     
-    private String getFastqPath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            FastqFile fas =new FastqFile(ids);
-            s = fas.getName();
-        }
-        return s;
-    }
-    
-    private String getBamPath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            BamFile bam =new BamFile(ids);
-            s = bam.getName();
-        }
-        return s;
-    }
-    
-    private String getGenomePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            GenomeFile gen =new GenomeFile(ids);
-            s = gen.getName();
-        }
-        return s;
-    }
-    
-    private String getFileName(String s){
-        String name = s;
-        
-        // Test for several input name
-        String sFirstName = name;
-        if (s.contains(",")) {
-            String[] tab = s.split(",");
-            sFirstName = tab[0];
-        }
-        if (!name.equals(sFirstName)) name = sFirstName;
-        
-        // Find the name
-        int pos1 = name.lastIndexOf(File.separator);
-        int pos2 = name.lastIndexOf(".");
-        int pos3 = name.length();
-        if (pos1 > 0 && pos2>pos1) name = name.substring(pos1+1,pos2);
-        else if (pos1 > 0 && pos2<pos1) name = name.substring(pos1+1,pos3);
-        else return s;
-        
-        return name;
-    }
-    
     /*
     * Output Parsing
     */
     @Override
     public void post_parseOutput() {
-        File f   = new File(outfile);
-        String s = f.getAbsolutePath();
-        s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
-        SamFile sam=new SamFile();
-        sam.setSamFile(s);
-        sam.setName(s);
-        sam.saveToDatabase();
-        properties.put("output_samfile_id", sam.getId());
+        SamFile.saveSamFile(properties,outputFile,"Bwa_map");
         
-        String txt = this.getPgrmOutput();
-        Results text=new Results(outfile+"_bwa_stats.txt");
-        text.setText(txt+"\nThe output file is saved here "+s+"\n");
-        text.setNote("Bwa_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bwa_Test ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        String s = this.getPgrmOutput();
+        if (!outputFileSE.equals("")) s+="\nintermediate files :"+outputFileSE+"\n";
+        if (!outputFilePE.equals("")) s+="\nintermediate files :"+outputFilePE+"\n";
+        Results.saveResultsPgrmOutput(properties,s,"Bwa_map");
     }
     
 }

@@ -23,6 +23,7 @@ package biologic;
 
 import configuration.Util;
 import java.io.Serializable;
+import workflows.workflow_properties;
 
 /**
  * This is really a mock for handling in the Armadillo Workflow
@@ -70,6 +71,16 @@ public class TextFile extends Text implements Serializable {
             return super.toString()+"\n"+this.getNote();
         }
     }
-
+    
+    public static void saveTextFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        TextFile t=new TextFile();
+        t.setFile(s);
+        t.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        t.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        boolean b = t.saveToDatabase();
+        if (b) properties.put("output_genomefile_id", t.getId());
+        else System.out.println("genome not saved");
+    }
 
 }

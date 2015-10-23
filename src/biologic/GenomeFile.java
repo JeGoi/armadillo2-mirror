@@ -7,8 +7,10 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
 import java.util.Vector;
+import workflows.workflow_properties;
 
 /**
  *
@@ -47,5 +49,15 @@ public class GenomeFile extends Text implements Serializable{
         return toString();
     }
     
+    public static void saveGenomeFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        GenomeFile g = new GenomeFile();
+        g.setGenomeFile(s);
+        g.setName(s);
+        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
+        boolean b = g.saveToDatabase();
+        if (b) properties.put("output_genomefile_id", g.getId());
+        else System.out.println("genome not saved");
+    }
 
 }

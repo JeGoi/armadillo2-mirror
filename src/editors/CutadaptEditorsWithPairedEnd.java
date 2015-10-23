@@ -663,6 +663,7 @@ public class CutadaptEditorsWithPairedEnd extends javax.swing.JDialog implements
         });
 
         O_trimQualities_box.setText("--trim-qualities/-q");
+        O_trimQualities_box.setName("O_trimQualities_box"); // NOI18N
         O_trimQualities_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 O_trimQualities_boxActionPerformed(evt);
@@ -689,6 +690,7 @@ public class CutadaptEditorsWithPairedEnd extends javax.swing.JDialog implements
         });
 
         O_qualityBase64_box.setText("64");
+        O_qualityBase64_box.setName("O_qualityBase64_box"); // NOI18N
         O_qualityBase64_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 O_qualityBase64_boxActionPerformed(evt);
@@ -1091,7 +1093,7 @@ public class CutadaptEditorsWithPairedEnd extends javax.swing.JDialog implements
                         .addComponent(OT_DE_d_box)
                         .addGap(18, 18, 18)
                         .addComponent(OT_DE_trimPrimer_box)))
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addGap(0, 68, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1186,11 +1188,11 @@ public class CutadaptEditorsWithPairedEnd extends javax.swing.JDialog implements
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 449, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
         );
 
         CutadaptEditor.addTab("CutAdapt", jPanel1);

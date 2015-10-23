@@ -36,7 +36,7 @@ public class Bowtie2Map extends RunProgram {
     private String fastqFile2    ="";
     private String genomeFile    ="";
     private String genomeFileName="";
-    private String outfile       ="";
+    private String outputFile       ="";
     private static final String outputPath = "."+File.separator+"results"+File.separator+"bowtie2";
     
     //private String[] optionsTab  = {"bowtie2IndexGenome_button","bowtie2Inspect_button","bowtie2Mapping_button"};
@@ -164,8 +164,8 @@ public class Bowtie2Map extends RunProgram {
             return false;
         } else if (!Fastq2.isEmpty() && b4) {
             if (!s1.contains("<>") && !s2.contains("<>")) {
-                int gn = fastqGoodNumber(s1,s2);
-                int sn = fastqSameName(s1,s2);
+                int gn = FastqFile.fastqGoodNumber(s1,s2);
+                int sn = FastqFile.fastqSameName(s1,s2);
                 if (sn==0 && gn==0) {
                     setStatus(status_BadRequirements,"It looks that Fastq paired are not compatible.\n"
                             + "Check your files they need to have the same name and finish by _1 and _2,\n"
@@ -193,22 +193,6 @@ public class Bowtie2Map extends RunProgram {
             }
         }
         
-        private int fastqSameName (String s1,String s2) {
-            int b = 0;
-            s1 = s1.replaceAll("_\\d$","");
-            s2 = s2.replaceAll("_\\d$","");
-            if (s2.equals(s1)) b=1;
-            return b;
-        }
-
-        private int fastqGoodNumber (String s1,String s2) {
-            int b = 0;
-            int val1 = Integer.parseInt(s1.replaceAll(".*_(\\d)$","$1"));
-            int val2 = Integer.parseInt(s2.replaceAll(".*_(\\d)$","$1"));
-            if (val1==1 && val2==2) b=1;
-            return b;
-        }
-
     @Override
     public String[] init_createCommandLine() {
         
@@ -235,7 +219,7 @@ public class Bowtie2Map extends RunProgram {
         // Get Name to create ouput
         fastqFile1Name = Util.getFileName(fastqFile1);
         genomeFileName = Util.getFileName(genomeFile);
-        outfile = outputPath+File.separator+fastqFile1Name+"_"+genomeFileName+".sam";
+        outputFile = outputPath+File.separator+fastqFile1Name+"_"+genomeFileName+".sam";
         
         // Programme et options
         String preset  = "";
@@ -259,7 +243,7 @@ public class Bowtie2Map extends RunProgram {
             com[6]="-1 \""+fastqFile1+"\"";
             com[7]="-2 \""+fastqFile2+"\"";
         }
-        if (!outfile.equals(""))    com[8]="-S "+outfile+"";
+        if (!outputFile.equals(""))    com[8]="-S "+outputFile+"";
         
         return com;
     }
@@ -278,7 +262,7 @@ public class Bowtie2Map extends RunProgram {
             String pe = "";
             if (properties.isSet("M_PE_button")) pe = findOptions(pairedEndTab);
             
-            String outputOp = findOutputOptions(optionsOutputTab);
+            String outputOp = findOptions(optionsOutputTab);
             
             s = outputOp+" "+pe+" "+s;
 
@@ -293,35 +277,8 @@ public class Bowtie2Map extends RunProgram {
             String s = "";
             for (String op:tab) {
                 if (properties.isSet(op)) {
-                    String t = op;
-                    t = t.replaceAll("_[a-z]*$","_");
-                    t = t.replaceAll(".*_(.*)_$","$1");
-                    // Extract the command line operator
-                    if (t.length()>1) {
-                        t = t.replaceAll("([A-Z])","-$1");
-                        t = t.toLowerCase();
-                        t = t.replaceAll("([a-z]+)([0-9])([a-z]+)","$1-$2$3");
-                        t = " --"+t;
-                    } else {
-                        t = " -"+t;
-                    }
-                    // Add the value if needed
-                    if (op.contains("_value") || op.contains("_text")) {
-                        t = t+" " + properties.get(op);
-                    }
-                    s = s+" "+t;
-                }
-            }
-            return s;
-        }
-        
-        private String findOutputOptions(String[] tab) {
-            String s = "";
-            for (String op:tab) {
-                if (properties.isSet(op)){
                     String t = "";
                     if (op.contains("AND")){
-                        t = op;
                         t = t.replaceAll("_[a-z]*$","");
                         t = t.replaceAll("([A-Z]*_)*","");
                         String[] stab = t.split("AND");
@@ -333,38 +290,64 @@ public class Bowtie2Map extends RunProgram {
                         }
                         t = sa;
                     } else {
-                        t = op;
-                        t = t.replaceAll("_[a-z]*$","");
-                        t = t.replaceAll("([A-Z]*_)*","");
-                        t = " --"+t;
+                        t = t.replaceAll("_[a-z]*$","_");
+                        t = t.replaceAll(".*_(.*)_$","$1");
+                        // Extract the command line operator
+                        if (t.length()>1) {
+                            t = t.replaceAll("([A-Z])","-$1");
+                            t = t.toLowerCase();
+                            t = t.replaceAll("([a-z]+)([0-9])([a-z]+)","$1-$2$3");
+                            t = " --"+t;
+                        } else {
+                            t = " -"+t;
+                        }
+                        // Add the value if needed
+                        if (op.contains("_value") || op.contains("_text")) {
+                            t = t+" " + properties.get(op);
+                        }
                     }
                     s = s+" "+t;
-                } 
+                }
             }
             return s;
         }
+        
+//        private String findOutputOptions(String[] tab) {
+//            String s = "";
+//            for (String op:tab) {
+//                if (properties.isSet(op)){
+//                    String t = "";
+//                    if (op.contains("AND")){
+//                        t = op;
+//                        t = t.replaceAll("_[a-z]*$","");
+//                        t = t.replaceAll("([A-Z]*_)*","");
+//                        String[] stab = t.split("AND");
+//                        String sa = "";
+//                        for (String st:stab) {
+//                            st = st.replaceAll("([A-Z])","-$1");
+//                            st = st.toLowerCase();
+//                            sa += " --"+st+" "+outputPath;
+//                        }
+//                        t = sa;
+//                    } else {
+//                        t = op;
+//                        t = t.replaceAll("_[a-z]*$","");
+//                        t = t.replaceAll("([A-Z]*_)*","");
+//                        t = " --"+t;
+//                    }
+//                    s = s+" "+t;
+//                } 
+//            }
+//            return s;
+//        }
 
     /*
     * Output Parsing
     */
     @Override
     public void post_parseOutput() {
-        File f   = new File(outfile);
-        String s = f.getAbsolutePath();
-        s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
-        SamFile sam=new SamFile();
-        sam.setSamFile(s);
-        sam.setName(s);
-        sam.saveToDatabase();
-        properties.put("output_samfile_id", sam.getId());
-
-        String txt = this.getPgrmOutput();
-        Results text=new Results(outfile+"_bowtie2_stats.txt");
-        text.setText(txt+"\nThe output file is saved here "+s+"\n");
-        text.setNote("Bowtie2_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bowtie2_Test ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        SamFile.saveSamFile(properties,outputFile,"Bowtie2_map");
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie2_map");
     }
     
 }

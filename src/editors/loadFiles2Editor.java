@@ -268,6 +268,7 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         });
 
         LAF2_AFIOS_ANF_button.setText("Add New Files");
+        LAF2_AFIOS_ANF_button.setName("LAF2_AFIOS_ANF_button"); // NOI18N
         LAF2_AFIOS_ANF_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LAF2_AFIOS_ANF_buttonActionPerformed(evt);

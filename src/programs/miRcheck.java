@@ -26,7 +26,7 @@ import java.nio.file.Files;
  * @date Aout 2015
  *
  */
-public class BwaIndex extends RunProgram{
+public class miRcheck extends RunProgram{
     
     private String fastaFile1 ="";
     private String outputFile ="";
@@ -35,7 +35,7 @@ public class BwaIndex extends RunProgram{
     
     private String[] indexGenomeTab = {"IDG_r_text","IG_bwtsw_button","IG_is_button","IG_notUsed_button","IG_p_box"};
     
-    public BwaIndex(workflow_properties properties) {
+    public miRcheck(workflow_properties properties) {
         this.properties=properties;
         execute();
     }
@@ -107,8 +107,22 @@ public class BwaIndex extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        GenomeFile.saveGenomeFile(properties,outputFile,"Bwa_indexer");
-        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bwa_indexer");
+        
+        GenomeFile genome=new GenomeFile();
+        genome.setGenomeFile(outputFile);
+        genome.setName(outputFile);
+        genome.setNote("Bwa Indexer. Created on "+Util.returnCurrentDateAndTime());
+        genome.saveToDatabase();
+        properties.put("output_genomefile_id", genome.getId());
+        this.addOutput(genome);
+        
+        String txt = this.getPgrmOutput();
+        Results text=new Results("bwa_index_stats.txt");
+        text.setText(txt+"\n");
+        text.setNote("Bwa_stats ("+Util.returnCurrentDateAndTime()+")");
+        text.setName("Bwa_indexer ("+Util.returnCurrentDateAndTime()+")");
+        text.saveToDatabase();
+        properties.put("output_results_id",text.getId());
     }
     
     
