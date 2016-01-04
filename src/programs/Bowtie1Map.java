@@ -138,8 +138,8 @@ public class Bowtie1Map extends RunProgram {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
-        String s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
-        String s2 = Util.getFileName(FastqFile.getFastqPath(Fastq2));
+        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
+        String s2 = Util.getFileName(FastqFile.getFastqFilePath(Fastq2));
 
         // In case program is started without edition
         pgrmStartWithoutEdition(Fastq2);
@@ -166,8 +166,8 @@ public class Bowtie1Map extends RunProgram {
             setStatus(status_BadRequirements,"Choose a Genome Reference");
             return false;
         } else if (!Fastq2.isEmpty() && b4) {
-            s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
-            s2 = Util.getFileName(FastqFile.getFastqPath(Fastq2));
+            s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
+            s2 = Util.getFileName(FastqFile.getFastqFilePath(Fastq2));
             if (!s1.contains("<>") && !s2.contains("<>")) {
             if (fastqGoodNumber(s1,s2) && fastqSameName(s1,s2)) {
                     setStatus(status_BadRequirements,"It looks that Fastq paired are not compatible.\n"
@@ -220,12 +220,12 @@ public class Bowtie1Map extends RunProgram {
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
-        fastqFile1 = FastqFile.getFastqPath(Fastq1);
-        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqPath(Fastq2);
+        fastqFile1 = FastqFile.getFastqFilePath(Fastq1);
+        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqFilePath(Fastq2);
         
         // Genome File source
         if (!GenomeRef.isEmpty()){
-            genomeFile = GenomeFile.getGenomePath(GenomeRef);
+            genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
             genomeFile = genomeFile.replaceAll("\\.\\d\\.ebwtl?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         } else {

@@ -36,7 +36,7 @@ public class Bowtie2Map extends RunProgram {
     private String fastqFile2    ="";
     private String genomeFile    ="";
     private String genomeFileName="";
-    private String outputFile       ="";
+    private String outputFile    ="";
     private static final String outputPath = "."+File.separator+"results"+File.separator+"bowtie2";
     
     //private String[] optionsTab  = {"bowtie2IndexGenome_button","bowtie2Inspect_button","bowtie2Mapping_button"};
@@ -136,8 +136,8 @@ public class Bowtie2Map extends RunProgram {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
-        String s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
-        String s2 = Util.getFileName(FastqFile.getFastqPath(Fastq2));
+        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
+        String s2 = Util.getFileName(FastqFile.getFastqFilePath(Fastq2));
         
         // In case program is started without edition
         pgrmStartWithoutEdition(Fastq2);
@@ -164,8 +164,8 @@ public class Bowtie2Map extends RunProgram {
             return false;
         } else if (!Fastq2.isEmpty() && b4) {
             if (!s1.contains("<>") && !s2.contains("<>")) {
-                int gn = FastqFile.fastqGoodNumber(s1,s2);
-                int sn = FastqFile.fastqSameName(s1,s2);
+                int gn = FastqFile.goodFastqFileNumber(s1,s2);
+                int sn = FastqFile.sameFastqFileName(s1,s2);
                 if (sn==0 && gn==0) {
                     setStatus(status_BadRequirements,"It looks that Fastq paired are not compatible.\n"
                             + "Check your files they need to have the same name and finish by _1 and _2,\n"
@@ -201,12 +201,12 @@ public class Bowtie2Map extends RunProgram {
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
-        fastqFile1 = FastqFile.getFastqPath(Fastq1);
-        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqPath(Fastq2);
+        fastqFile1 = FastqFile.getFastqFilePath(Fastq1);
+        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqFilePath(Fastq2);
         
         // Genome File source
         if (!GenomeRef.isEmpty()){
-            genomeFile = GenomeFile.getGenomePath(GenomeRef);
+            genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
             genomeFile = genomeFile.replaceAll("\\.\\d\\.bt2l?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         } else {

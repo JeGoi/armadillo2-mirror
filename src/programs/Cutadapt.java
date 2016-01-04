@@ -111,11 +111,11 @@ public class Cutadapt extends RunProgram {
     
     private boolean checkFastaRequirements() {
         Vector<Integer>Fasta1    = properties.getInputID("FastaFile",PortInputDOWN);
-        String s1 = Util.getFileName(FastaFile.getFastaPath(Fasta1));
+        String s1 = Util.getFileName(FastaFile.getFastaFilePath(Fasta1));
         if (Fasta1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence 1 found.");
             return false;
-        } else if (!Fasta1.isEmpty()&&!FastaFile.isFastaFile(FastaFile.getFastaPath(Fasta1))){
+        } else if (!Fasta1.isEmpty()&&!FastaFile.isFastaFile(FastaFile.getFastaFilePath(Fasta1))){
             setStatus(status_BadRequirements,"Sequence1 is not a fasta file.");
             return false;
         }
@@ -124,11 +124,11 @@ public class Cutadapt extends RunProgram {
     
     private boolean checkFastqRequirements() {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputDOWN);
-        String s1 = Util.getFileName(FastqFile.getFastqPath(Fastq1));
+        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
         if (Fastq1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence 1 found.");
             return false;
-        } else if (!Fastq1.isEmpty()&&!FastqFile.isFastqFile(FastqFile.getFastqPath(Fastq1))){
+        } else if (!Fastq1.isEmpty()&&!FastqFile.isFastqFile(FastqFile.getFastqFilePath(Fastq1))){
             setStatus(status_BadRequirements,"Sequence1 is not a fastq file.");
             return false;
         }
@@ -142,13 +142,13 @@ public class Cutadapt extends RunProgram {
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         
         if (!Fastq1.isEmpty()){
-            fileRead1  = FastqFile.getFastqPath(Fastq1);
+            fileRead1  = FastqFile.getFastqFilePath(Fastq1);
             outputFile = outPutPath+File.separator+Util.getFileName(fileRead1)+".fastq";
             outputFileTSO += ".fastq";
             outputFileTLO += ".fastq";
             outputFileUO  += ".fastq";
         } else {
-            fileRead1 = FastaFile.getFastaPath(Fasta1);
+            fileRead1 = FastaFile.getFastaFilePath(Fasta1);
             outputFile = outPutPath+File.separator+Util.getFileName(fileRead1)+".fasta";
             outputFileTSO += ".fasta";
             outputFileTLO += ".fasta";

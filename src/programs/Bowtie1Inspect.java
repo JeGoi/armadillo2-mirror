@@ -43,7 +43,7 @@ public class Bowtie1Inspect extends RunProgram {
     public boolean init_checkRequirements() {
         Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         
-        String path  = GenomeFile.getGenomePath(GenomeRef);
+        String path  = GenomeFile.getGenomeFilePath(GenomeRef);
         String s     = Util.getFileName(path);
         
         if (GenomeRef.isEmpty()||s.equals("Unknown")) {
@@ -63,7 +63,7 @@ public class Bowtie1Inspect extends RunProgram {
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
-        genomeFile = GenomeFile.getGenomePath(GenomeRef);
+        genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
         genomeFile = genomeFile.replaceAll("\\.\\d.ebwt$","");
         genomeFile = genomeFile.replaceAll("\\.rev$","");
         

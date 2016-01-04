@@ -87,7 +87,7 @@ public class Bowtie1Index extends RunProgram{
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         String optionsChoosed = "";
         
-        fastaFile1 = FastaFile.getFastaPath(Fasta1);
+        fastaFile1 = FastaFile.getFastaFilePath(Fasta1);
         outputFile = properties.get("IDG_r_text")+File.separator+Util.getFileName(fastaFile1);
         
         if (properties.get("IG_AO_button").equals("true")){

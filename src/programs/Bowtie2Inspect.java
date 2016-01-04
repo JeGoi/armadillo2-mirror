@@ -51,7 +51,7 @@ public class Bowtie2Inspect extends RunProgram {
         Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
-        genomeFile = GenomeFile.getGenomePath(GenomeRef);
+        genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
         if (genomeFile.matches("\\.\\d.bt2l?$")) {
             genomeFile = Util.getFileName(genomeFile);
             genomeFile = genomeFile.replaceAll("\\.\\d.bt2l?$","");

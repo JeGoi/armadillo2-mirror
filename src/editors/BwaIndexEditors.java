@@ -533,6 +533,7 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
     
     /**
      * Classical functions
+     * @param properties
      */
     public void setProperties(workflow_properties properties) {
         this.properties=properties;
@@ -554,7 +555,7 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         if (!properties.isSet(IG_p_text.getName())){
             String defaultEditorStatus = properties.get("defaultPgrmValues");
             String[] arrayDefault = defaultEditorStatus.split("<>");
-            int z = 0;
+            int z;
             for (int i =0 ; i < arrayDefault.length ; i=i+2){
                 z = i;
                 properties.put(arrayDefault[z],arrayDefault[z+1]);
@@ -596,6 +597,7 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
      * Set the configuration properties for this object
      */
     
+    @Override
     public void display(workflow_properties properties) {
         this.properties=properties;
         initComponents();
@@ -616,6 +618,7 @@ public class BwaIndexEditors extends javax.swing.JDialog implements EditorInterf
         this.setVisible(true);
     }
     
+    @Override
     public void saveImage(String filename) {
         BufferedImage bi;
         try {
