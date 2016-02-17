@@ -81,12 +81,10 @@ public class BwaIndex extends RunProgram{
         } else outputFile = properties.get("IDG_r_text")+File.separator+outputFile+".fasta";
         
         if (!outputFile.equals(fastaFile1)) {
-            try {
-                    Util.copy(fastaFile1,outputFile);
-                } catch (final IOException e) {
-                    // À voir comment intégrer dans Armadillo
-                    throw new RuntimeException("Failed to copy the file", e);
-                }
+            boolean b1 = Util.copy(fastaFile1,outputFile);
+            if (!b1) {
+                setStatus(status_BadRequirements,"Can't Copy file "+fastaFile1+" to "+outputFile);
+            }
         }
         
         if (properties.get("IG_AO_button").equals("true")){

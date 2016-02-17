@@ -93,23 +93,23 @@ public class mrbayes extends RunProgram {
     @Override
     public void init_createInput() {
         try {
-            deleteFile("mrbayes.params");
-            deleteFile(infile);
-            deleteFile(outfile);
+            Util.deleteFile("mrbayes.params");
+            Util.deleteFile(infile);
+            Util.deleteFile(outfile);
             //--TO DO other file
-            deleteFile("sequences.nex1.run1.p");
-            deleteFile("sequences.nex1.run1.t");
-            deleteFile("sequences.nex1.run2.p");
-            deleteFile("sequences.nex1.run2.t");
-            deleteFile("sequences.nex1.t");
-            deleteFile("sequences.nex1.p");
-            deleteFile("sequences.nex1.con");
-            deleteFile("sequences.nex1.con.tre");
-            deleteFile("sequences.nex.lstat");
-            deleteFile("sequences.nex1.mcmc");
-            deleteFile("sequences.nex1.parts");
-            deleteFile("sequences.nex1.trprobs");
-            deleteFile("sequences.nex");
+            Util.deleteFile("sequences.nex1.run1.p");
+            Util.deleteFile("sequences.nex1.run1.t");
+            Util.deleteFile("sequences.nex1.run2.p");
+            Util.deleteFile("sequences.nex1.run2.t");
+            Util.deleteFile("sequences.nex1.t");
+            Util.deleteFile("sequences.nex1.p");
+            Util.deleteFile("sequences.nex1.con");
+            Util.deleteFile("sequences.nex1.con.tre");
+            Util.deleteFile("sequences.nex.lstat");
+            Util.deleteFile("sequences.nex1.mcmc");
+            Util.deleteFile("sequences.nex1.parts");
+            Util.deleteFile("sequences.nex1.trprobs");
+            Util.deleteFile("sequences.nex");
         } catch (Exception e) {
         }
         
@@ -173,19 +173,19 @@ public class mrbayes extends RunProgram {
         }
         
         try {
-            //deleteFile("mrbayes.params");
+            //Util.deleteFile("mrbayes.params");
 //            //--TO DO other file
-            deleteFile("sequences.nex1.run1.p");
-            deleteFile("sequences.nex1.run1.t");
-            deleteFile("sequences.nex1.run2.p");
-            deleteFile("sequences.nex1.run2.t");
-            deleteFile("sequences.nex1.t");
-            deleteFile("sequences.nex1.p");
-            deleteFile("sequences.nex1.con");
-            deleteFile("sequences.nex1.mcmc");
-            deleteFile("sequences.nex1.parts");
-            deleteFile("sequences.nex1.trprobs");
-            deleteFile("sequences.nex");
+            Util.deleteFile("sequences.nex1.run1.p");
+            Util.deleteFile("sequences.nex1.run1.t");
+            Util.deleteFile("sequences.nex1.run2.p");
+            Util.deleteFile("sequences.nex1.run2.t");
+            Util.deleteFile("sequences.nex1.t");
+            Util.deleteFile("sequences.nex1.p");
+            Util.deleteFile("sequences.nex1.con");
+            Util.deleteFile("sequences.nex1.mcmc");
+            Util.deleteFile("sequences.nex1.parts");
+            Util.deleteFile("sequences.nex1.trprobs");
+            Util.deleteFile("sequences.nex");
         } catch (Exception e) {
         }
     }

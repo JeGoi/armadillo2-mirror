@@ -22,6 +22,7 @@ package biologic;
 
 import configuration.Util;
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Vector;
 import workflows.workflow_properties;
@@ -29,6 +30,8 @@ import workflows.workflow_properties;
 /**
  *
  * @author Etienne Lord
+ * @author JG 2016
+ * 
  */
 public class FastaFile extends Text implements Serializable {
 
@@ -46,26 +49,28 @@ public class FastaFile extends Text implements Serializable {
         return this.getFilename();
     }
     
-    public static String[] getFastaExtensionTab() {
-        String[] t = {".fasta",".fa",".fna",".csfasta",".csfa"};
+    public static String[] getFastaFileExtensionTab() {
+        String[] t = {".fasta",".fa",".fna",".csfasta",".csfa",".gifasta"};
         return t;
     }
     
-    public static String getFastaExtensionString() {
-        String t = ".fasta<>.fa<>.fna<>.csfasta<>.csfa";
+    public static String getFastaFileExtensionString() {
+        String[] ts = getFastaFileExtensionTab();
+        String   t  = ts[0];
+        if (ts.length>1) t = String.join("<>",ts);
         return t;
     }
     
     public static boolean isFastaFile(String s){
         boolean b = false;
         String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getFastaExtensionTab())
+        for (String sT:getFastaFileExtensionTab())
             if (ext.equals(sT))
                 b = true;
         return b;
     }
     
-    public static String getFastaPath(Vector<Integer> f){
+    public static String getFastaFilePath(Vector<Integer> f){
         String s = "";
         for (int ids:f) {
             FastaFile fas =new FastaFile(ids);
@@ -74,14 +79,29 @@ public class FastaFile extends Text implements Serializable {
         return s;
     }
     
-    public static int saveFastaFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveFastaFile (workflow_properties properties, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
+        if (properties.isSet("THISISCLUSTERTEST") && s.equals("")) {
+            new File("./results/testZone/").mkdirs();
+            File f= new File("./results/testZone/INPUTS_OUTPUT_PROGRAMMENAME.fasta");
+            try {
+	        if (f.createNewFile()){
+                    System.out.println("File is created!");
+                }else{
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+	      e.printStackTrace();
+            }
+            s = Util.relativeToAbsoluteFilePath(f.getPath());
+        }
         FastaFile f=new FastaFile();
         f.setFastaFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        f.saveToDatabase();
-        return f.getId();
+        f.setName(Util.getFileNameAndExt(s)+" ("+Util.returnCurrentDateAndTime()+")");
+        boolean b = f.saveToDatabase();
+        if (b) properties.put("output_fastafile_id", f.getId());
+        else System.out.println("WARNING : fasta file not saved");
     }
 
     @Override
@@ -92,8 +112,5 @@ public class FastaFile extends Text implements Serializable {
     public String getBiologicType() {
         return "FastaFile";
     }
-
-    
-
 
 }

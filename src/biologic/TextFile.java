@@ -23,6 +23,7 @@ package biologic;
 
 import configuration.Util;
 import java.io.Serializable;
+import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
@@ -79,8 +80,17 @@ public class TextFile extends Text implements Serializable {
         t.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         t.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = t.saveToDatabase();
-        if (b) properties.put("output_genomefile_id", t.getId());
-        else System.out.println("genome not saved");
+        if (b) properties.put("output_textfile_id", t.getId());
+        else System.out.println("Text not saved");
+    }
+    
+    public static String getTextFilePath(Vector<Integer> v){
+        String s = "";
+        for (int ids:v) {
+            TextFile t =new TextFile(ids);
+            s = t.getFile();
+        }
+        return s;
     }
 
 }

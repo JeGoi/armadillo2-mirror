@@ -506,7 +506,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addComponent(M_SE_button)
                 .addGap(18, 18, 18)
                 .addComponent(M_PE_button, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(M_PE_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         TypeOfLib_panelLayout.setVerticalGroup(
@@ -961,11 +961,12 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                 .addContainerGap()
                 .addComponent(CM_I_TOI_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CM_I_5_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_I_s_box)
+                .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CM_I_s_value, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CM_I_5_box))
+                    .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CM_I_5_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CM_I_s_box)
+                        .addComponent(CM_I_5_box)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_I_u_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1259,7 +1260,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                     .addComponent(CM_A_endToEnd_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CM_A_local_button)
                     .addComponent(CM_A_local_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         CM_A_ignoreQuals_box.getAccessibleContext().setAccessibleDescription("When calculating a mismatch penalty, always consider the quality value at the mismatched position to be the highest possible, regardless of the actual value. I.e. input is treated as though all quality values are high. This is also the default behavior when the input doesn't specify quality values (e.g. in -f, -r, or -c modes).");
@@ -2010,7 +2011,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                         .addComponent(M_IDG_workflow_button)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(M_IDG_directory_button)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2038,7 +2039,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(Options, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TypeOfLib_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TypeOfLib_panel, 445, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2062,7 +2063,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
                         .addComponent(name_jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
-                .addGap(4, 16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2934,6 +2935,7 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
         if (s.equals(M_CM_button.getName())){
             this.M_CM_button.setSelected(true);
             this.Options.setSelectedIndex(1);
+            this.CM_TabPanel.setSelectedIndex(0);
             this.customMappingFields(true);
         } else {
             this.Options.setSelectedIndex(0);
@@ -2942,6 +2944,15 @@ public class Bowtie2MapEditors extends javax.swing.JDialog implements EditorInte
     }
     
     private void customMappingFields(boolean e){
+        CM_TabPanel.setEnabled(e);
+        CM_Input_Panel.setEnabled(e);
+        CM_Align_Panel.setEnabled(e);
+        CM_Scoring_Panel.setEnabled(e);
+        CM_Repor_Panel.setEnabled(e);
+        CM_Effort_Panel.setEnabled(e);
+        CM_Other_Panel.setEnabled(e);
+        CM_Performance_Panel.setEnabled(e);
+        CM_SAM_Panel.setEnabled(e);
         this.CM_A_L_box.setEnabled(e);
         if (properties.isSet(CM_A_L_box.getName()) && e==true)
             this.CM_A_L_value.setEnabled(true);

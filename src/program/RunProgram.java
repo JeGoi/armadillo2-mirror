@@ -31,6 +31,7 @@ import biologic.Sequence;
 import biologic.Tree;
 import biologic.Unknown;
 import configuration.Config;
+import configuration.Docker;
 import configuration.Util;
 import database.databaseFunction;
 import java.io.BufferedReader;
@@ -195,7 +196,31 @@ public class RunProgram implements runningThreadInterface {
      * Main function to call
      */
     public void execute() {
-        runthread();
+        if (workbox.isWorkboxATest()) {// JG 2016
+            properties.put("THISISCLUSTERTEST",true);
+            setStatus(status_running,"Initialization...");
+            try {
+                init_run();
+            } catch (Exception ex) {
+                if (properties.getBoolean("debug")) ex.printStackTrace();
+                if (!cancel) {
+                    setStatus(status_error,"Error in running... \n"+ex.getMessage());
+                    Docker.CleanContainerName(properties);
+                }
+            }
+            setStatus(status_running, "\tRunning program...");
+            setStatus(status_running,"<-Program Output->");
+            do_runTest();
+            setStatus(status_running,"<-End Program Output ->");
+            msg("\tProgram Exit Value: "+getExitVal());
+            setStatus(status_running,"\tParsing outputs... ");
+            Docker.CleanContainerName(properties);
+            saveOutput(getStatus());
+            post_runTest();
+            setStatus(status_done,"");
+        } else {
+            runthread();
+        }
         //--Note: removed since its handle in the programs class
         //if (properties.getBoolean("NoThread")) while(!isDone()){}
     }
@@ -326,8 +351,9 @@ public class RunProgram implements runningThreadInterface {
                     }
                     //--Note: work Even if not set because We return 0...
                     //setStatus(getStatus(), "Total running time: "+Util.msToString(getRunningTime()));
-                    if (properties.getBoolean("VerifyExitValue")&&getExitVal()!=properties.getInt("NormalExitValue")) {
+                    if ((properties.getBoolean("VerifyExitValue")&&getExitVal()!=properties.getInt("NormalExitValue"))) {
                         setStatus(status_error,"***Error with at "+getRunningTime()+" ms ExitValue: "+properties.get("ExitValue")+"\n");
+                        Docker.CleanContainerName(properties);
                     }  else {
                         if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) {
                             // JG 2015 Start
@@ -345,6 +371,7 @@ public class RunProgram implements runningThreadInterface {
                     if (properties.getBoolean("debug")) ex.printStackTrace();
                     if (!cancel) {
                         setStatus(status_error,"Error in running... \n"+ex.getMessage());
+                        Docker.CleanContainerName(properties);
                     }
                 }
                 programTimeEnd=Util.returnCurrentDateAndTime();
@@ -678,10 +705,45 @@ public class RunProgram implements runningThreadInterface {
         InputStreamThread stdout = new InputStreamThread(p.getInputStream());
         
         int exitvalue=p.waitFor();
-        
         properties.put("ExitValue", exitvalue);
         
         return true;
+    }
+    
+    /**
+     * Test ZONE
+     */
+    public boolean do_runTest() {
+        //--Test August 2011 - For Mac OS X
+        if ((config.getBoolean("MacOSX")||SystemUtils.IS_OS_MAC_OSX)) {
+            String cmdm="";
+            String execution_type=properties.get("RuntimeMacOSX");
+            if (execution_type.startsWith("runtime")) {
+                for (int i=0; i<commandline.length;i++) {
+                    cmdm+=commandline[i]+" ";
+                }
+                commandline=new String[1];
+                commandline[0]=cmdm;
+            }
+            properties.put("Commandline_Running",Util.toString(commandline));
+        }
+        int exitvalue=0;
+        if (properties.isSet("NormalExitValue"))
+            exitvalue=Integer.parseInt(properties.get("NormalExitValue"));
+        if (properties.isSet("TESTCommandLine"))
+            System.out.println(properties.get("TESTCommandLine"));
+        properties.put("ExitValue", exitvalue);
+        return true;
+    }
+    /**
+     * Test ZONE
+     */
+    
+    public void post_runTest() {
+        setStatus(status_running,"\tParsing outputs... ");
+        saveOutput(getStatus());
+        post_parseOutput();
+        setStatus(status_running,"\n******************************\n");
     }
     
     /**
@@ -1052,8 +1114,6 @@ public class RunProgram implements runningThreadInterface {
     ////////////////////////////////////////////////////////////////////////////
     /// Thread
     
-    
-    
     /**
      *
      * @return the timerunning
@@ -1107,7 +1167,6 @@ public class RunProgram implements runningThreadInterface {
         //TO DO: save that to a file...
         //--Good for text version...
         outputText.add(msg+"\n");
-        
         
         //--
         if (workbox!=null) workbox.addOutput(msg+"\n");
@@ -1173,7 +1232,6 @@ public class RunProgram implements runningThreadInterface {
         if (out.getId()==0) Config.log("Unable to save software ouput with program status "+statusCode);
         properties.put("output_outputtext_id",out.getId());
     }
-
     
     /**
      * @return the status
@@ -1183,8 +1241,6 @@ public class RunProgram implements runningThreadInterface {
             return properties.getStatus();
         }
     }
-    
-    
     
     /**
      * Return the state of the current RunProgram
@@ -1259,19 +1315,6 @@ public class RunProgram implements runningThreadInterface {
     // HELPER FUNCTIONS
     
     /**
-     * Delete a file
-     * @param filename (to delete)
-     * @return true if success
-     */
-    public boolean deleteFile(String filename) {
-        try {
-            File file=new File(filename);
-            if (file.exists()) file.delete();
-        } catch(Exception e) {Config.log("Unable to delete file "+filename);return false;}
-        return true;
-    }
-    
-    /**
      * Output to stdout the current program output associated with this program
      */
     public void PrintOutput() {
@@ -1287,19 +1330,9 @@ public class RunProgram implements runningThreadInterface {
             if (!path.isEmpty()&&!path.endsWith("\\")) path+="\\"; //Add in windows the dir separator
             
             for (String filename:files_to_delete) {
-                deleteFile(path+filename);
+                Util.deleteFile(path+filename);
             }
         } catch(Exception e) {Config.log("Problem in suredelete()");return false;}
-        return true;
-    }
-    
-    public boolean rename(String filename, String new_filename) {
-        if (!Util.FileExists(new_filename)) {
-            try {
-                Util.copy(filename, new_filename);
-                Util.deleteFile(filename);
-            } catch (IOException ex) {return false;}
-        } else return false;
         return true;
     }
     
@@ -1455,4 +1488,32 @@ public class RunProgram implements runningThreadInterface {
     public boolean test() {
         return false;
     };
+    
+    /*
+     * Docker initialisation
+    */
+    public boolean dockerInit(String localpath, String dockerpath, String name, String img) {
+        if (Docker.isDockerHere()) {
+            if (Docker.isNameWellWritten(name)) {
+                if (name.contains("_OUT")) {
+                    setStatus(status_BadRequirements,"Warnings already 1000 containers have been send with this name. Please remove few of them to continue");
+                    return false;
+                } else {
+                    boolean b = Docker.launchDockerImage(localpath,dockerpath,name,img);
+                    if (!b) {
+                        setStatus(status_BadRequirements,"Not able to launch the docker image");
+                        return false;
+                    }
+                }
+            } else {
+                setStatus(status_BadRequirements,"Warnings the name is not written well");
+                return false;
+            }
+        } else {
+            setStatus(status_BadRequirements,"Docker is not found. Please install docker");
+            return false;
+        }
+        return true;
+    }
+
 }

@@ -13,8 +13,7 @@ import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
- *
- * @author Brisée-pas-morte
+ * @author JG 2016
  */
 public class BamFile extends Text implements Serializable{
     
@@ -33,7 +32,7 @@ public class BamFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getBamPath(Vector<Integer> f){
+    public static String getBamFilePath(Vector<Integer> f){
         String s = "";
         for (int ids:f) {
             BamFile b =new BamFile(ids);
@@ -42,14 +41,15 @@ public class BamFile extends Text implements Serializable{
         return s;
     }
     
-    public static int saveBamFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveBamFile (workflow_properties properties, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         BamFile f=new BamFile();
         f.setBamFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        f.saveToDatabase();
-        return f.getId();
+        boolean b = f.saveToDatabase();
+        if (b) properties.put("output_bamfile_id", f.getId());
+        else System.out.println("WARNING : BAM file not saved");
     }
 
     

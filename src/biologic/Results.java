@@ -67,8 +67,8 @@ public class Results extends Unknown implements Serializable {
     }
 
     public static void saveResultsPgrmOutput (workflow_properties properties, String outputPgrm, String pgrmName) {
-        Results text=new Results(pgrmName+"_stats.txt");
-        text.setText(outputPgrm+"\n");
+        Results text=new Results();
+        text.setText(properties.getName()+"_result\n"+outputPgrm+"\n");
         text.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         text.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = text.saveToDatabase();

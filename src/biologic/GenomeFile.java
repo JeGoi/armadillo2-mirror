@@ -13,9 +13,9 @@ import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
- *
- * @author Brisée-pas-morte
+ * @author JG 2016
  */
+
 public class GenomeFile extends Text implements Serializable{
     
     public GenomeFile()                 {super();}
@@ -31,7 +31,7 @@ public class GenomeFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getGenomePath(Vector<Integer> f){
+    public static String getGenomeFilePath(Vector<Integer> f){
         String s = "";
         for (int ids:f) {
             GenomeFile gen =new GenomeFile(ids);

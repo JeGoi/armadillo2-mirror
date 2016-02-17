@@ -27,8 +27,7 @@ import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
- *
- * @author Etienne Lord
+ * @author JG 2016
  */
 public class SamFile extends Text implements Serializable {
 
@@ -36,18 +35,13 @@ public class SamFile extends Text implements Serializable {
     public SamFile(int id) {super(id);}
     public SamFile(String filename) {super(filename);}
 
-    @Override
-    public String getBiologicType() {
-        return "SamFile";
-    }
-
     public void setSamFile(String filename) {
         this.setFilename(filename);
         this.setUnknownType("SamFile");
         this.setText("SamFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
     
-    public static String getSamPath(Vector<Integer> f){
+    public static String getSamFilePath(Vector<Integer> f){
         String s = "";
         for (int ids:f) {
             SamFile fas =new SamFile(ids);
@@ -71,6 +65,11 @@ public class SamFile extends Text implements Serializable {
         return this.getFilename();
     }
 
+    @Override
+    public String getBiologicType() {
+        return "SamFile";
+    }
+    
     @Override
     public String getExtendedString() {
         return toString();

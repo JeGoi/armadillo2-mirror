@@ -63,7 +63,7 @@ public class Workbox {
     //--This ultimately hold the reference to the current armadillo_workflow...
     public static Workflows database_workflow=null;
     
-    ////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////
     /// Constructor
 
     /**
@@ -1082,4 +1082,22 @@ public class Workbox {
     public String getCurrentWorkflowFilename() {       
         return databaseFunction.db.dbFileName;
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    /// Workbox tested JG 2016
+
+    /**
+     * @return the workflow test status
+     */
+    public boolean isWorkboxATest() {
+        return workbox.isATest();
+    }
+    
+    /**
+     * @param initialized the initialized to set
+     */
+    public void setWorkboxAsTest(boolean tested) {
+        workbox.setTested(tested);
+    }
+
 }

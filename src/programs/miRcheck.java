@@ -81,12 +81,10 @@ public class miRcheck extends RunProgram{
         } else outputFile = properties.get("IDG_r_text")+File.separator+outputFile+".fasta";
         
         if (!outputFile.equals(fastaFile1)) {
-            try {
-                    Util.copy(fastaFile1,outputFile);
-                } catch (final IOException e) {
-                    // À voir comment intégrer dans Armadillo
-                    throw new RuntimeException("Failed to copy the file", e);
-                }
+            boolean b1 = Util.copy(fastaFile1,outputFile);
+            if (!b1) {
+                setStatus(status_BadRequirements,"Can't Copy file "+fastaFile1+" to "+outputFile);
+            }
         }
         
         if (properties.get("IG_AO_button").equals("true")){
@@ -107,22 +105,8 @@ public class miRcheck extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        
-        GenomeFile genome=new GenomeFile();
-        genome.setGenomeFile(outputFile);
-        genome.setName(outputFile);
-        genome.setNote("Bwa Indexer. Created on "+Util.returnCurrentDateAndTime());
-        genome.saveToDatabase();
-        properties.put("output_genomefile_id", genome.getId());
-        this.addOutput(genome);
-        
-        String txt = this.getPgrmOutput();
-        Results text=new Results("bwa_index_stats.txt");
-        text.setText(txt+"\n");
-        text.setNote("Bwa_stats ("+Util.returnCurrentDateAndTime()+")");
-        text.setName("Bwa_indexer ("+Util.returnCurrentDateAndTime()+")");
-        text.saveToDatabase();
-        properties.put("output_results_id",text.getId());
+        GenomeFile.saveGenomeFile(properties,outputFile,"Bwa Indexer");
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bwa Indexer");
     }
     
     

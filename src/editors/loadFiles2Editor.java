@@ -259,7 +259,7 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         LAF2_AFIOS_Label.setText("Note: This will send all files in one shot. Please choose Files or directory wisely.");
         LAF2_AFIOS_Label.setName("LAF2_AFIOS_Label"); // NOI18N
 
-        LAF2_AFIOS_update_button.setText("Update Selected Files");
+        LAF2_AFIOS_update_button.setText("Remove Selected Files");
         LAF2_AFIOS_update_button.setName("LAF2_AFIOS_update_button"); // NOI18N
         LAF2_AFIOS_update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -819,15 +819,15 @@ public class loadFiles2Editor extends javax.swing.JDialog implements EditorInter
         int[] tabInt = this.LAF2_AFIOS_Files_List.getSelectedIndices();
         
         if (tabInt.length>0) {
-            // Clean from the previous data
-            cleanAFIOSDatas();
+            for (int i:tabInt)
+                LAF2_AFIOS_Files_List.remove(i);
+            int listSize = LAF2_AFIOS_Files_List.getModel().getSize();
             
-            for (int i = 0; i < tabInt.length; i++) {
+            for (int i = 0 ; i < listSize; i++) {
                 t = LAF2_AFIOS_Files_List.getModel().getElementAt(tabInt[i]).toString();
                 s = addToFilesList(s,t);
             }
             properties.put("inputAllNames",s);
-            addFilesInTheList();
             updateTypeOfFile(s);
         }
     }

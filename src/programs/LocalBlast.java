@@ -256,9 +256,9 @@ public class LocalBlast extends RunProgram {
         this.addOutput(text);
         properties.put("output_results_id",text.getId());
         //--CleanUP
-        deleteFile("query.txt");
-        deleteFile("stragety.txt");
-        deleteFile(properties.get("outfile"));
+        Util.deleteFile("query.txt");
+        Util.deleteFile("stragety.txt");
+        Util.deleteFile(properties.get("outfile"));
     }
     
     

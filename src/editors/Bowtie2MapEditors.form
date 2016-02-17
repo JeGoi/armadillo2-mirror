@@ -118,7 +118,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="Options" min="-2" max="-2" attributes="0"/>
-                                  <Component id="TypeOfLib_panel" max="-2" attributes="0"/>
+                                  <Component id="TypeOfLib_panel" min="445" pref="445" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -152,7 +152,7 @@
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="4" pref="16" max="32767" attributes="0"/>
+                      <EmptySpace min="4" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -275,7 +275,7 @@
                           <Component id="M_SE_button" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="M_PE_button" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace pref="124" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Component id="M_PE_Panel" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -997,11 +997,13 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="CM_I_TOI_panel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CM_I_5_value" alignment="3" max="-2" attributes="0"/>
-                                          <Component id="CM_I_s_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="CM_I_s_value" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="CM_I_5_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="CM_I_5_value" alignment="3" max="-2" attributes="0"/>
+                                              <Component id="CM_I_s_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CM_I_5_box" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1399,7 +1401,7 @@
                                           <Component id="CM_A_local_button" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="CM_A_local_text" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2448,7 +2450,7 @@
                                   <Component id="M_IDG_directory_button" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

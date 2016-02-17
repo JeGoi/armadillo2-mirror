@@ -130,7 +130,7 @@ public class consense extends RunProgram {
        text.saveToDatabase();
        properties.put("output_text_id", text.getId());
        suredelete();
-       deleteFile("consense.params");
+       Util.deleteFile("consense.params");
     }
     
    ////////////////////////////////////////////////////////////////////////////

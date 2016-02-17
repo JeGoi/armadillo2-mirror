@@ -13,8 +13,9 @@ import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
- * @author JG 2015
+ * @author JG 2016
  */
+
 public class FastqFile extends Text implements Serializable{
     
     public FastqFile()                  {super();}
@@ -30,21 +31,27 @@ public class FastqFile extends Text implements Serializable{
     public String getFastqFile(){
         return this.getFilename();
     }
-    public static String[] getFastqExtension() {
+    public static String[] getFastqFileExtension() {
         String[] t = {".fastq",".fq"};
         return t;
     }
     
+    public static String getFastqFileExtensionString() {
+        String[] ts = getFastqFileExtension();
+        String   t  = ts[0];
+        if (ts.length>1) t = String.join("<>",ts);
+        return t;
+    }    
     public static boolean isFastqFile(String s){
         boolean b = false;
         String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getFastqExtension())
+        for (String sT:getFastqFileExtension())
             if (ext.equals(sT))
                 b = true;
         return b;
     }
     
-    public static String getFastqPath(Vector<Integer> f){
+    public static String getFastqFilePath(Vector<Integer> f){
         String s = "";
         for (int ids:f) {
             FastqFile fas =new FastqFile(ids);
@@ -53,7 +60,7 @@ public class FastqFile extends Text implements Serializable{
         return s;
     }
     
-    public static int fastqSameName (String s1,String s2) {
+    public static int sameFastqFileName (String s1,String s2) {
         int b = 0;
         s1 = s1.replaceAll("_\\d$","");
         s2 = s2.replaceAll("_\\d$","");
@@ -61,7 +68,7 @@ public class FastqFile extends Text implements Serializable{
         return b;
     }
 
-    public static int fastqGoodNumber (String s1,String s2) {
+    public static int goodFastqFileNumber (String s1,String s2) {
         int b = 0;
         int val1 = Integer.parseInt(s1.replaceAll(".*_(\\d)$","$1"));
         int val2 = Integer.parseInt(s2.replaceAll(".*_(\\d)$","$1"));
@@ -70,14 +77,15 @@ public class FastqFile extends Text implements Serializable{
     }
 
     
-    public static int saveFastqFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveFastqFile (workflow_properties properties, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         FastqFile f=new FastqFile();
         f.setFastqFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        f.saveToDatabase();
-        return f.getId();
+        boolean b = f.saveToDatabase();
+        if (b) properties.put("output_fastqfile_id", f.getId());
+        else System.out.println("WARNING : fastq file not saved");
     }
     
     @Override

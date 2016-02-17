@@ -1,22 +1,22 @@
 /*
- *  Armadillo Workflow Platform v1.0
- *  A simple pipeline system for phylogenetic analysis
- *  
- *  Copyright (C) 2009-2011  Etienne Lord, Mickael Leclercq
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- * 
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+*  Armadillo Workflow Platform v1.0
+*  A simple pipeline system for phylogenetic analysis
+*
+*  Copyright (C) 2009-2011  Etienne Lord, Mickael Leclercq
+*
+*  This program is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU General Public License as published by
+*  the Free Software Foundation, either version 3 of the License, or
+*  (at your option) any later version.
+*
+*  This program is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU General Public License for more details.
+*
+*  You should have received a copy of the GNU General Public License
+*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 package workflows;
 
@@ -47,22 +47,35 @@ import workflows.armadillo_workflow.Workflow;
  * @author Etienne Lord, Mickael Leclercq
  */
 public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
-
+    
     ////////////////////////////////////////////////////////////////////////////
     /// Variables
     private armadillo_workflow work;
-    private Workflows database_workflow; 
+    private Workflows database_workflow;
     public RunWorkflow runworkflow=new RunWorkflow();                //--This is the Runworkflow in results
     private workflow_properties selection=new workflow_properties(); //Selected object
     public WorkFlowPreferenceJDialog preferences;                    //Workflows and Program preferences
-
+    
     private String defaultNoteString=" Note";
-
+    
     programs program;
     Config config=new Config();
     Frame frame;
     CancelJDialog cancel;
-
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    /// WorkFlowJInternalFrame tested JG 2016
+    
+    private boolean tested=false;
+    
+        //Tested Functions
+        public boolean isATest() {
+            return tested;
+        }
+        public void setTested(boolean tested) {
+            this.tested = tested;
+        }
+    
     ////////////////////////////////////////////////////////////////////////////
     /// Main constructor
     public WorkFlowJInternalFrame(Frame frame, Workflows workflow) {
@@ -79,18 +92,18 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         //this.workflow_name_JTextfield.setText(work.getName());
         this.setFrameIcon(Config.icon);
         this.setResizable(true);
-         this.jScrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        this.jScrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         this.jScrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         //this.jTextArea1.setText(this.defaultNoteString);
         //this.Workflow_jTabbedPane.setEnabledAt(2, false); //--Results pane in progresss
         this.frame=frame;
     }
-
+    
     /**
      * Text mode constructor
      */
     public WorkFlowJInternalFrame() {}
-
+    
     public void setRunWorkflow(RunWorkflow run) {
         this.runworkflow=run;
 //        ResultsTableModel model=(ResultsTableModel)this.jTable1.getModel();
@@ -98,14 +111,14 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
 //        model.fireTableDataChanged();
 //        model.fireTableStructureChanged();
 //        this.jTable1.setModel(model);
-
+        
     }
-
+    
     /**
      * Common function of JInternalFrame responsable to resize the JInternalFrame to
      * a maximum size in relation to the JDesktopPane size
      */
-     public void mazimizeSize() {  
+    public void mazimizeSize() {
         Dimension d = this.getDesktopPane().getSize();
         Toolbox toolbox=new Toolbox();
         int toolbox_width=toolbox.getJInternalFrame().getWidth();
@@ -121,29 +134,29 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         this.repaint();
         work.force_redraw=true;
         work.redraw();
-        this.setResizable(true);        
+        this.setResizable(true);
         this.jScrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         this.jScrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-     }
-
-
-      /**
-       * Set the visible jPanel to the WorkflowJPanel
-       */
-     public void setWorkflowSelected() {
-         this.Workflow_jTabbedPane.setSelectedIndex(0);
-         this.work.redraw();
-          this.setResizable(true);
-     }
-     
-      /**
-       * Set the visible jPanel to the ScriptJPanel
-       */
-     public void setScriptSelected(Workflow wf) {
-         this.Workflow_jTabbedPane.setSelectedIndex(1);
-         //this.Output_jTextArea.setText(Scripts_conversion.workflowToScript(work.workflow));
-     }
-
+    }
+    
+    
+    /**
+     * Set the visible jPanel to the WorkflowJPanel
+     */
+    public void setWorkflowSelected() {
+        this.Workflow_jTabbedPane.setSelectedIndex(0);
+        this.work.redraw();
+        this.setResizable(true);
+    }
+    
+    /**
+     * Set the visible jPanel to the ScriptJPanel
+     */
+    public void setScriptSelected(Workflow wf) {
+        this.Workflow_jTabbedPane.setSelectedIndex(1);
+        //this.Output_jTextArea.setText(Scripts_conversion.workflowToScript(work.workflow));
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -169,6 +182,7 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         ExecuteAllWorkflow_jButton = new javax.swing.JButton();
         ProgressjLabel = new javax.swing.JLabel();
+        RunOptions_jComboBox = new javax.swing.JComboBox();
 
         jTextField1.setText("jTextField1");
 
@@ -198,7 +212,7 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        WorkflowsName.setFont(new java.awt.Font("Tahoma", 1, 11));
+        WorkflowsName.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         WorkflowsName.setToolTipText("Name of this Workflow.");
         WorkflowsName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -333,7 +347,7 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jStatusMessage.setEditable(false);
-        jStatusMessage.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jStatusMessage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jStatusMessage.setText("Not Running");
         jStatusMessage.setBorder(null);
 
@@ -355,9 +369,16 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        ProgressjLabel.setFont(new java.awt.Font("Tahoma", 1, 14));
+        ProgressjLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ProgressjLabel.setForeground(new java.awt.Color(153, 153, 153));
         ProgressjLabel.setText("100%");
+
+        RunOptions_jComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Local", "Cluster" }));
+        RunOptions_jComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunOptions_jComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -366,10 +387,12 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jStatusMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
-                        .addGap(37, 37, 37)
-                        .addComponent(ProgressjLabel))
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE))
+                        .addComponent(jStatusMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(ProgressjLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(RunOptions_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -386,8 +409,10 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ProgressjLabel)
-                    .addComponent(jStatusMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jStatusMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ProgressjLabel))
+                    .addComponent(RunOptions_jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -411,7 +436,7 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
     }//GEN-LAST:event_formComponentResized
 
@@ -421,14 +446,15 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Workflow_jTabbedPaneMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         StopSW();
+        StopSW();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ExecuteAllWorkflow_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExecuteAllWorkflow_jButtonActionPerformed
-         //--Note: To execute only the non-finished object
-         //--      Do not reset the state
-         work.resetState();
-         Run();
+        //--Note: To execute only the non-finished object
+        //--      Do not reset the state
+        work.resetState();
+        getSelectedWay(RunOptions_jComboBox);
+        Run();
     }//GEN-LAST:event_ExecuteAllWorkflow_jButtonActionPerformed
 
     private void ClearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearjButtonActionPerformed
@@ -436,20 +462,20 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ClearjButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         JFileChooser jf=new JFileChooser(config.getExplorerPath());
+        JFileChooser jf=new JFileChooser(config.getExplorerPath());
         jf.setName("Saving as text file to ...");
         int result=jf.showSaveDialog(this);
-           if (result==JFileChooser.APPROVE_OPTION) {
-               String filename=jf.getSelectedFile().getAbsolutePath();
-               String path=jf.getSelectedFile().getPath();
-               config.setExplorerPath(path);
-               config.Save();
-               Util file=new Util();
-               file.open(filename);
-               file.println(this.Output_jTextArea.getText());
-               file.close();
-               Message("Successfull saving to "+filename,"");
-            }
+        if (result==JFileChooser.APPROVE_OPTION) {
+            String filename=jf.getSelectedFile().getAbsolutePath();
+            String path=jf.getSelectedFile().getPath();
+            config.setExplorerPath(path);
+            config.Save();
+            Util file=new Util();
+            file.open(filename);
+            file.println(this.Output_jTextArea.getText());
+            file.close();
+            Message("Successfull saving to "+filename,"");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void WorkflowsNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WorkflowsNameFocusLost
@@ -473,6 +499,19 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         AddCommentsBiologicJDialog d=new AddCommentsBiologicJDialog(frame, this_workflow, "Add Comments");
     }//GEN-LAST:event_AddNotejButtonActionPerformed
 
+    private void RunOptions_jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunOptions_jComboBoxActionPerformed
+        getSelectedWay(RunOptions_jComboBox);
+    }//GEN-LAST:event_RunOptions_jComboBoxActionPerformed
+
+    public void getSelectedWay(javax.swing.JComboBox j) {
+        String s = (String)j.getModel().getElementAt(j.getSelectedIndex());
+        if (s.equalsIgnoreCase("local")) {
+            this.tested = false;
+        } else if (s.equalsIgnoreCase("cluster")) {
+            this.tested = true;
+        }
+    }
+    
     /**
      * This set the workflow output in the correct JTextArea
      * @param t
@@ -520,6 +559,7 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton ExecuteAllWorkflow_jButton;
     private javax.swing.JTextArea Output_jTextArea;
     private javax.swing.JLabel ProgressjLabel;
+    private javax.swing.JComboBox RunOptions_jComboBox;
     private javax.swing.JPanel ScriptJPanel;
     private javax.swing.JPanel WorkflowJPanel;
     private javax.swing.JTabbedPane Workflow_jTabbedPane;

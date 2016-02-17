@@ -418,7 +418,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="LAF2_AFIOS_update_button">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Update Selected Files"/>
+                    <Property name="text" type="java.lang.String" value="Remove Selected Files"/>
                     <Property name="name" type="java.lang.String" value="LAF2_AFIOS_update_button" noResource="true"/>
                   </Properties>
                   <Events>

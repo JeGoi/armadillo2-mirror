@@ -23,12 +23,14 @@ package biologic;
 
 import configuration.Util;
 import java.io.Serializable;
+import workflows.workflow_properties;
 
 /**
  * This is really a mock for handling in the Armadillo Workflow
  * (in fact, we just save the image filename into the
  *  filename field
  * @author Etienne Lord
+ * @author JG 2016
  */
 public class ImageFile extends Text implements Serializable {
 
@@ -66,4 +68,16 @@ public class ImageFile extends Text implements Serializable {
     public String getExtendedString() {
         return toString();
     }
+    
+    public static void saveImageFile (workflow_properties properties, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        SamFile f=new SamFile();
+        f.setSamFile(s);
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+        boolean b = f.saveToDatabase();
+        if (b) properties.put("output_imagefile_id", f.getId());
+        else System.out.println("WARNING : Image file not saved");
+    }
+
 }

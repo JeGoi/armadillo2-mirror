@@ -167,6 +167,11 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     private boolean changed=false;
     
 ////////////////////////////////////////////////////////////////////////////////
+/// Workflow tested JG 2016
+    
+    private boolean tested=false;
+    
+////////////////////////////////////////////////////////////////////////////////
 /// Cut and Paste
     
     public Workflow CopyPaste_selection=new Workflow(); // Current CopyPaste Selection
@@ -2879,7 +2884,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                             //JG 2015
                             //Vector<workflow_object> inputs=findInput(obj);
                             //--Array for the numbering of input
-                            int connector_next_indice[]={0,0,0,0,0}; // ATTENTION DIRECTLY LINKED TO THE NUMBER OF INPUT
+                            int connector_next_indice[]={0,0,0,0,0}; // ATTENTION DIRECTLY LINKED TO THE MAXIMUM NUMBER OF INPUTS
                             //--Clear input
                             //--But first verify if the input is done...
                             //--
@@ -7863,6 +7868,24 @@ public class armadillo_workflow extends PApplet implements ActionListener {
 //             thread.start();
     }
     
+    
+////////////////////////////////////////////////////////////////////////////////
+/// Workflow tested JG 2016
+
+    /**
+     * @return the workflow test status
+     */
+    public boolean isATest() {
+        return tested;
+    }
+    
+    /**
+     * @param initialized the initialized to set
+     */
+    public void setTested(boolean tested) {
+        this.tested = tested;
+    }
+
     
 } //End armadillo workflow
 

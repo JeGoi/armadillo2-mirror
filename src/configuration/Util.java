@@ -41,9 +41,12 @@ import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipInputStream;
 import workflows.workflow_properties;
@@ -72,10 +75,6 @@ public class Util {
         open(filename);
     }
     
-    
-    
-    
-    
     /**
      * Print to System.out current Memory Allocation and Total System Core
      */
@@ -103,56 +102,11 @@ public class Util {
             while(br.ready()) {
                 str+=br.readLine()+"\n";
             }
-        } catch(Exception e) {}
-        return str;
-    }
-    
-    /**
-     * Test if a file exists...
-     * @param filename
-     * @return true if file Exists
-     */
-    public static boolean FileExists(String filename) {
-        File f = new File(filename);
-        if (f==null||f.isDirectory()) return false;
-        return f.exists();
-    }
-    
-    /**
-     * Test if a directory exists
-     * @param filename
-     * @return true if file Exists
-     */
-    public static boolean DirExists(String filename) {
-        File f = new File(filename);
-        if (f==null||!f.isDirectory()) return false;
-        return f.exists();
-    }
-    
-    /**
-     * Create the directory or the directory arborescence
-     * @param directory
-     * @return true if succes, false for any other reasons.. (dir exists...)
-     */
-    public static boolean CreateDir(String directory) {
-        try {
-            File f=new File(directory);
-            if (DirExists(directory)) return false;
-            return (f.mkdirs());
         } catch(Exception e) {
-            return false;
+            System.out.println("Get Ressource "+name+" Failed!");
+            System.out.println(e);
         }
-    }
-    
-    /**
-     * Return the file size of a file or 0 if error or directory
-     * @param filename
-     * @return
-     */
-    public static long FileSize(String filename) {
-        File f = new File(filename);
-        if (f==null||f.isDirectory()) return 0;
-        return f.length();
+        return str;
     }
     
     /**
@@ -251,7 +205,12 @@ public class Util {
                 tmp.add(br.readLine());
             }
             br.close();
-        } catch(Exception e) {Config.log("Unable to open "+filename); return new String[1];}
+        } catch(Exception e) {
+            System.out.println("Open "+filename+" Failed!");
+            System.out.println(e);
+            Config.log("Unable to open "+filename);
+            return new String[1];
+        }
         String[] tmp2=new String[tmp.size()];
         int index=0;
         for (String s:tmp) tmp2[index++]=s;
@@ -277,6 +236,7 @@ public class Util {
      * @param directory (to delete)
      * @return true if success
      */
+    
     public static boolean deleteDir(String directory) {
         try {
             File outtree=new File(directory);
@@ -288,6 +248,24 @@ public class Util {
             }
         } catch(Exception e) {return false;}
         return false;
+    }
+    
+    /*
+    * http://www.tutorialspoint.com/javaexamples/dir_delete.htm
+    */
+    public static boolean deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir
+                        (new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        //System.out.println("The directory is deleted.");
+        return dir.delete();
     }
     
     /**
@@ -313,16 +291,37 @@ public class Util {
             out.write(buf);
             
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Copy File Directory Failed!");
+            System.out.println(e);
         }
         if (in != null) in.close();
         if (out != null) out.close();
     }
     
     /** Fast & simple file copy. */
-    public static void copy(String source, String dest) throws IOException {
-        copy(new File(source), new File(dest));
+    public static boolean copy(String source, String dest) {
+        try {
+            copy(new File(source), new File(dest));
+        } catch (IOException e) {
+            System.out.println("Copy Directory Failed!");
+            System.out.println(e);
+            return false;
+        }
+        return true;
     }
+    
+    /** Fast & simple file rename. */
+    public boolean rename(String filename, String new_filename) {
+        if (!Util.FileExists(new_filename)) {
+            boolean b = Util.copy(filename, new_filename);
+            if (!b) return b;
+            b = Util.deleteFile(filename);
+            if (!b) return b;
+        } else return false;
+        return true;
+    }
+    
+
     
     public Vector<String> read(String filename) {
         Vector<String>tmp=new Vector<String>();
@@ -331,8 +330,111 @@ public class Util {
             while (br.ready()) {
                 tmp.add(br.readLine());
             }
-        } catch(Exception e) {return tmp;}
+        } catch(Exception e) {
+            System.out.println("Copy Failed!");
+            System.out.println(e);
+            return tmp;
+        }
         return tmp;
+    }
+    
+    /**
+     * Test if a file exists...
+     * @param filename
+     * @return true if file Exists
+     */
+    public static boolean FileExists(String filename) {
+        File f = new File(filename);
+        if (f==null||f.isDirectory()) return false;
+        return f.exists();
+    }
+    
+    /**
+     * Test if a directory exists
+     * @param filename
+     * @return true if file Exists
+     */
+    public static boolean DirExists(String filename) {
+        File f = new File(filename);
+        if (f==null||!f.isDirectory()) return false;
+        return f.exists();
+    }
+    
+    /**
+     * Create the directory or the directory arborescence
+     * @param directory
+     * @return true if succes, false for any other reasons.. (dir exists...)
+     */
+    public static boolean CreateDir(String directory) {
+        try {
+            File f=new File(directory);
+            if (DirExists(directory)) return false;
+            return (f.mkdirs());
+        } catch(Exception e) {
+            System.out.println("Create Directory Failed!");
+            System.out.println(e);
+            return false;
+        }
+    }
+    
+    /*
+    * Copy a dir source to dir dest
+    */
+    public static boolean copyDirectory (String shd, String sad) {
+        File s = new File(shd);
+        File t = new File(sad);
+        try {
+            copyDirectory(s,t);
+        } catch (IOException e) {
+            System.out.println("Copy Directory Failed!");
+            System.out.println(e);
+            return false;
+        }
+        return true;
+    }
+    
+    /*
+    * Copy a dir source to dir dest
+    * Source
+    * http://www.java-tips.org/java-se-tips-100019/18-java-io/854-how-to-copy-a-directory-from-one-location-to-another-location.html
+    * If targetLocation does not exist, it will be created.
+    * 2016
+    */
+    public static void copyDirectory(File s, File t) throws IOException {
+        if (s.isDirectory()) {
+            if (!t.exists()) {
+                t.mkdir();
+            }
+            
+            String[] children = s.list();
+            for (int i=0; i<children.length; i++) {
+                copyDirectory(new File(s, children[i]),
+                        new File(t, children[i]));
+            }
+        } else {
+            InputStream in = new FileInputStream(s);
+            OutputStream out = new FileOutputStream(t);
+            
+            // Copy the bits from instream to outstream
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+            if (in != null)  in.close();
+            if (out != null) out.close();
+        }
+    }
+    
+    /**
+     * Return the file size of a file or 0 if error or directory
+     * @param filename
+     * @return
+     */
+    public static long FileSize(String filename) {
+        File f = new File(filename);
+        if (f==null||f.isDirectory()) return 0;
+        return f.length();
     }
     
     ////////////////////////////////////////////////////////////////////////////
@@ -414,7 +516,11 @@ public class Util {
             }
             in.close();
             out.close();
-        } catch (Exception e) {return false;}
+        } catch (Exception e) {
+            System.out.println("Download Failed!");
+            System.out.println(e);
+            return false;
+        }
         return true;
     }
     
@@ -436,7 +542,12 @@ public class Util {
             gzipInputStream.close();
             out.close();
             return true;
-        } catch(Exception e) {e.printStackTrace();return false;}
+        } catch(Exception e) {
+            System.out.println("ungzip Failed!");
+            System.out.println(e);
+            e.printStackTrace();
+            return false;
+        }
     }
     
     /**
@@ -457,7 +568,12 @@ public class Util {
             zipInputStream.close();
             out.close();
             return true;
-        } catch(Exception e) {e.printStackTrace();return false;}
+        } catch(Exception e) {
+            System.out.println("Unzip Failed!");
+            System.out.println(e);
+            e.printStackTrace();
+            return false;
+        }
     }
     
     ///////////////////////////////////////////////////////////////////////////
@@ -541,7 +657,10 @@ public class Util {
                 f=new File(dir);
             }
             for (String filename:f.list()) tmp.add(f.getAbsolutePath()+File.separator+filename);
-        } catch(Exception e) {}
+        } catch(Exception e) {
+            System.out.println("Directory File Failed!");
+            System.out.println(e);
+        }
         return tmp;
     }
     
@@ -635,6 +754,8 @@ public class Util {
                 }
             }
         } catch (Exception e) {
+            System.out.println("Ip Failed!");
+            System.out.println(e);
             return "";
         }
         return "";
@@ -650,14 +771,48 @@ public class Util {
                 tmp.add(br.readLine());
             }
             br.close();
-        } catch(Exception e) {}
+        } catch(Exception e) {
+            System.out.println("LoadStrings Failed!");
+            System.out.println(e);
+        }
         return tmp;
+    }
+    
+    
+    /**
+     * Added by JG 2016
+     * @param s path ex: ./path/to/file/file.f
+     * @return CanonicalPath ex: /home/user/path/to/file/file.f
+     */
+    public static String getCanonicalPath(String s) {
+        File f= new File(s);
+        try {
+            s = f.getCanonicalPath();
+        }catch (IOException ex) {
+            System.out.println("Error cananical path!");
+            System.out.println(ex);
+        }
+        return s;
     }
     
     /**
      * Added by JG 2015
-     * 
-     * @return
+     * @param  s a path ex: ./path/to/file/file.f
+     * @return absolute (kind of cannonical) path ex: /home/user/path/to/file/file.f
+     */
+    public static String relativeToAbsoluteFilePath(String s) {
+        if (s.matches("^\\.\\/.*")) {
+            File f = new File(s);
+            s = f.getAbsolutePath();
+            s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
+        }
+        return s;
+    }
+    
+    /**
+     * Added by JG 2015
+     * @in string path ex: ./path/to/file/file.f
+     * @return file name ex: file
      */
     public static String getFileName(String s){
         String name = s;
@@ -681,6 +836,69 @@ public class Util {
         return name;
     }
     
+    /**
+     * Added by JG 2015
+     * @in string path ex: ./path/to/file/file.f
+     * @return file name ex: file.f
+     */
+    public static String getFileNameAndExt(String s){
+        String name = s;
+        
+        // Test for several input name
+        String sFirstName = name;
+        if (s.contains(",")) {
+            String[] tab = s.split(",");
+            sFirstName = tab[0];
+        }
+        if (!name.equals(sFirstName)) name = sFirstName;
+        
+        // Find the name
+        int pos1 = name.lastIndexOf(File.separator);
+        int pos2 = name.length();
+        if (pos1 > 0 && pos2>pos1) name = name.substring(pos1+1,pos2);
+        else return s;
+        
+        return name;
+    }
+    
+    
+    /*
+    * From stackoverflow.com
+    * http://stackoverflow.com/questions/13501142/java-arraylist-how-can-i-tell-if-two-lists-are-equal-order-not-mattering
+    * with very few modifications
+    */
+    public static boolean equalArrayLists(ArrayList<String> one, ArrayList<String> two){
+        if (one == null && two == null){
+            return true;
+        }
+        
+        if((one == null && two != null)
+                || one != null && two == null
+                || one.size() != two.size()){
+            return false;
+        }
+        
+        //to avoid messing the order of the lists we will use a copy
+        //as noted in comments by A. R. S.
+        one = new ArrayList<String>(one);
+        two = new ArrayList<String>(two);
+        
+        Collections.sort(one);
+        Collections.sort(two);
+        return one.equals(two);
+    }
+    
+    // *************************************************************************
+    //  * PROGRAM file FUNCTIONS
+    //  ************************************************************************
+    
+    ////////////////////////////////////////////////////////////////////////////
+    // /!\ DONT FORGET TO USE NAME in EDITOR FILE /!\
+    // @param Save_Values
+    ////////////////////////////////////////////////////////////////////////////
+    
+    // Old
+    // Obsolet do not take care of the -- or - it consider multiple text as -- and single lettre as -
     public static String findOptions(String[] tab,workflow_properties properties) {
         String s = ""; // Final string
         String t = ""; // Box type or option
@@ -696,7 +914,7 @@ public class Util {
                 } else {
                     t = " -"+t;
                 }
-
+                
                 if (!properties.get(op).equals("true")) {
                     t = t+" " + properties.get(op);
                 }
@@ -708,26 +926,49 @@ public class Util {
     }
     
     /**
-     * 
-     * If the path is relative, it changes it to the absolute path for a file
-     * Didn't check or validate the path during the process (TO DO ?)
-     * 
-     * @param s
-     * @return s
+     * Added by JG 2015
+     * New Find options
+     * Take care of the -- or - it consider the number of _ to select -- or -.
+     * One "_" is "-". Two "__" is "--".
+     *
+     * A command like --hello-world has been transformed in propertie as NAME__helloWorld_TYPE
+     * A command like --hello       has been transformed in propertie as NAME__helloWorld
+     * A command like --h           has been transformed in propertie as NAME__h
+     * A command like -h            has been transformed in propertie as NAME_h
+     *
+     * @in tab of options name
+     * @return options selected and values in one string
      */
-    public static String relativeToAbsoluteFilePath(String s) {
-        if (s.matches("^\\.\\/.*")) {
-            File f = new File(s);
-            s = f.getAbsolutePath();
-            s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
+    public static String findOptionsNew(String[] tab,workflow_properties properties) {
+        String s = ""; // Final string
+        String t = ""; // Box type or option
+        for (String op:tab){
+            if (properties.isSet(op)) {
+                String prefix = " -";
+                if (op.contains("__")) prefix=" --";
+                
+                t = op;
+                t = t.replaceAll("_[a-z,A-Z]*$",""); // Remove extention name (box,button, etc.)
+                t = t.replaceAll(".*_(.*)$","$1");
+                if (t.length()>1 && !t.matches("^[A-Z].*")) {
+                    t = t.replaceAll("([A-Z])","-$1");
+                }
+                t = t.toLowerCase();
+                t = prefix+t;
+                
+                if (!properties.get(op).equals("true")) {
+                    t = t+" " + properties.get(op);
+                }
+                s = s+" "+t;
+            }
         }
         return s;
     }
     
     
-    /***************************************************************************
-     * EDITOR FUNCTIONS
-     **************************************************************************/
+    // *************************************************************************
+    // * EDITOR FUNCTIONS
+    // *************************************************************************
     
     ////////////////////////////////////////////////////////////////////////////
     // Save Values in program editor
@@ -735,7 +976,28 @@ public class Util {
     // @param Save_Values
     ////////////////////////////////////////////////////////////////////////////
     
+    //For Box and combobox
+    // Added by JG 2016
+    public static void boxEventComboBox(workflow_properties properties,javax.swing.JCheckBox b,javax.swing.JComboBox s){
+        if (b.isSelected()==true){
+            String i = (String)s.getSelectedItem();
+            if (s == null) {
+                properties.put(b.getName(),b.isSelected());
+            } else {
+                s.setEnabled(true);
+                properties.put(s.getName(),i);
+                properties.put(b.getName(),i);
+            }
+        } else {
+            properties.remove(b.getName());
+            if (s != null){
+                s.setEnabled(false);
+            }
+        }
+    }
+    
     //For Box and spinner
+    // Added by JG 2015
     public static void boxEventSpinner(workflow_properties properties,javax.swing.JCheckBox b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
             if (s == null) {
@@ -752,7 +1014,9 @@ public class Util {
             }
         }
     }
+    
     //For Button and Spinner
+    // Added by JG 2015
     public static void buttonEventSpinner (workflow_properties properties, javax.swing.JRadioButton b,javax.swing.JSpinner s){
         if (b.isSelected()==true){
             if (s == null) {
@@ -764,7 +1028,9 @@ public class Util {
             }
         }
     }
+    
     //For Box and text
+    // Added by JG 2015
     public static void boxEventText(workflow_properties properties,javax.swing.JCheckBox b,javax.swing.JTextField t){
         if (b.isSelected()==true){
             if (t == null) {
@@ -783,6 +1049,7 @@ public class Util {
     }
     
     //For Button and text
+    // Added by JG 2015
     public static void buttonEventText (workflow_properties properties, javax.swing.JRadioButton b,javax.swing.JTextField t){
         if (b.isSelected()==true){
             if (t == null) {
@@ -795,7 +1062,14 @@ public class Util {
         }
     }
     
-    public static void removePropertiesIn(workflow_properties properties, String[] sTab,String s) {
+    /**
+     * Added by JG 2015
+     * remove a series of properties from a tab depending on the presence of a value
+     * Exemple : remove setted properties valueA,valueB,valueC,valueD that are not valueD
+     * It will remove all properties A,B,C and let properties valueD setted
+     * Usefull when a selection have to remove previous selected values
+     */
+    public static void removePropertiesIn(workflow_properties properties, String[] sTab, String s) {
         if (s.equals("null")){
             for (String sT:sTab)
                 if (properties.isSet(sT))
@@ -806,6 +1080,18 @@ public class Util {
                     properties.remove(sT);
         }
     }
+    
+    // **************************************************************************
+    // * EDITOR AND PROGRAM FUNCTIONS
+    // **************************************************************************
+    
+    /*
+    * Added by JG 2015
+    * Load default program values setted in properties file if the test is false
+    *
+    * @param b for the test
+    * @results add default parameter in properties
+    */
     
     public static void getDefaultPgrmValues(workflow_properties properties,boolean b) {
         if (b!=true && properties.isSet("defaultPgrmValues")) {
@@ -818,6 +1104,5 @@ public class Util {
             }
         }
     }
-
-
+    
 }
