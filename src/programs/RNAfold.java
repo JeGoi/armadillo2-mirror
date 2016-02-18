@@ -2,21 +2,15 @@
 * To change this license header, choose License Headers in Project Properties.
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
-* Author : Jérémy Goimard
-* Date   : 10 115
+* Author : JG
+* Date   : Feb 2016
 */
 
 package programs;
 
-import biologic.BamFile;
-import biologic.FastaFile;
-import biologic.FastqFile;
-import biologic.GenomeFile;
-import biologic.ImageFile;
 import biologic.Results;
-import biologic.SamFile;
-import biologic.SOLIDFile;
-import biologic.TextFile;
+import biologic.FastaFile;
+import configuration.Docker;
 import configuration.Util;
 import java.io.File;
 import java.util.Vector;
@@ -28,101 +22,123 @@ import static program.RunProgram.PortInputUP;
 import static program.RunProgram.df;
 import static program.RunProgram.status_error;
 import workflows.workflow_properties;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
  *
- * @author Jérémy Goimard
- * @date 10 115
+ * @author JG
+ * @date Feb 2016
  *
  */
 public class RNAfold extends RunProgram {
     // CREATE VARIABLES HERE
-    private String input1     ="";
-    private String input2     ="";
-    private String outputFile ="";
-    private static final String outputPath = "."+File.separator+"results"+File.separator+"RNAfold";
-
-    private static final String[] AO_MD_panel = {
-        "AO_MD_noTetra_Box",
-        "AO_MD_dangles_Box",
-        "AO_MD_noLP_Box",
-        "AO_MD_noGU_Box",
-        "AO_MD_noClosingGU_Box",
-        "AO_MD_paramFile_Box"
-,
-        "AO_MD_paramFile_Box_Text"
-    };
-    private static final String[] AO_GO_panel = {
-        "AO_GO_canonicalBPonly_Box",
-        "AO_GO_noconv_Box",
-        "AO_GO_noPS_Box"
-    };
-    private static final String[] AO_ASaawsbiitcTMfeaasraciac_panel = {
-        "AO_ASaawsbiitcTMfeaasraciac_MEA_Box",
-        "AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value",
-        "AO_ASaawsbiitcTMfeaasraciac_circ_Box",
-        "AO_ASaawsbiitcTMfeaasraciac_gquad_Box"
-    };
+    private String doImage        = "jego/vienna";
+    private String doPgrmPath     = "RNAfold";
+    private String doSharedFolder = "/data";
+    private String doName         = "vienna_RNAfold_armadilloWF_0";
+    //INPUTS
+    private String input1       ="";
+    private String inputPath1   ="";
+    private String inputInDo1   ="";
+    private String inputPathDo1 ="";
+    //OUTPUTS
+    private String output1       ="";
+    private String outputInDo1   ="";
+    private String outputPathDo1 ="";
+    //PATHS
+    private static final String outputPath = "."+File.separator+"results"+File.separator+"RNAfold"+File.separator+"";
+    private static final String inputPath  = outputPath+File.separator+"INPUTS";
 
 
     public RNAfold(workflow_properties properties) {
         this.properties=properties;
         execute();
     }
+
     @Override
     public boolean init_checkRequirements() {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
-        // Sample
-        Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputDOWN);
-        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
 
-        // In case program is started without edition
-        pgrmStartWithoutEdition(Fastq1);
+        Vector<Integer>FastaFile_1    = properties.getInputID("FastaFile",PortInputDOWN);
+        inputPath1 = FastaFile.getFastaFilePath(FastaFile_1);
+        input1     = Util.getFileNameAndExt(inputPath1);
 
-        //INSERT YOUR TEST
-        if (!(s1.equals(""))) {
+        //INSERT YOUR TEST HERE
+        if (FastaFile_1.isEmpty()||input1.equals("Unknown")||input1.equals("")) {
+            setStatus(status_BadRequirements,"No FastaFile found.");
             return false;
         }
+
+        //INSERT DOCKER SHARED FILES COPY HERE
+        if (!Util.CreateDir(inputPath) && !Util.DirExists(inputPath)){
+            setStatus(status_BadRequirements,"Not able to create INPUTS directory files");
+            return false;
+        }
+        if (!Util.CreateDir(outputPath) && !Util.DirExists(outputPath)){
+            setStatus(status_BadRequirements,"Not able to create OUTPUTS directory files");
+            return false;
+        }
+
+        inputPathDo1 = outputPath+File.separator+"INPUTS"+File.separator+input1;
+        if (!(Util.copy(inputPath1,inputPathDo1))) {
+            setStatus(status_BadRequirements,"Not able to copy files");
+            return false;
+        }
+        inputInDo1 = doSharedFolder+File.separator+"INPUTS"+File.separator+input1;
+        input1 = Util.getFileName(inputPath1);
+
+        // TEST Docker initialisation
+        doName = Docker.getContainersVal(doName);
+        if (!dockerInit(outputPath,doSharedFolder,doName,doImage)) {
+            Docker.cleanContainers(doName);
+            return false;
+        } else {
+            properties.put("DOCKERName",doName);
+        }
+
         return true;
     }
 
-        // Sub functions for init_checkRequirements
-        private void pgrmStartWithoutEdition (Vector<Integer> v) {
-           // In case program is started without edition
-           if (!properties.isSet("")) properties.put("","true");
-        }
-
     @Override
     public String[] init_createCommandLine() {
-        // Inputs
-        // Sample
-        Vector<Integer>Fastq1 = properties.getInputID("FastqFile",PortInputDOWN);
-        String fastqFile1     = "";
-        String fastqFile1Name = "";
+
+        // In case program is started without edition
+        pgrmStartWithoutEdition(properties);
+
+        //Create ouputs
+        output1 = outputPath+File.separator+"OutpuOf_"+input1+".fold";
+        outputInDo1 = doSharedFolder+File.separator+"OutpuOf_"+input1+".fold";
         
-        if (!Fastq1.isEmpty()) fastqFile1 = FastqFile.getFastqFilePath(Fastq1);
-        
-        // Get Name to create ouput
-        fastqFile1Name = Util.getFileName(fastqFile1);
-        outputFile = outputPath+File.separator+fastqFile1Name+".sam";
-        
-        // Programme et options
-        String options = Util.findOptions(AO_GO_panel,properties);
-        options = options+Util.findOptions(AO_ASaawsbiitcTMfeaasraciac_panel,properties);
-        options = options+Util.findOptions(AO_MD_panel,properties);
+        // Program and Options
+        String options = "";
         
         // Command line creation
         String[] com = new String[30];
         for (int i=0; i<com.length;i++) com[i]="";
         
-        com[0]="cmd.exe"; // Windows 
-        com[1]="/C";      // Windows 
+        com[0]="cmd.exe"; // Windows will de remove if another os is used
+        com[1]="/C";      // Windows will de remove if another os is used
         com[2]=properties.getExecutable();
-        com[3]=options;
-        com[4]=outputFile;
+        com[3]= "exec "+doName+" "+doPgrmPath ;
+        com[4]=options;
+        com[5]= "-i "+inputInDo1;
+        com[6]= "-o "+outputInDo1;
         return com;
     }
+
+        // Sub functions for init_createCommandLine
+        // In case program is started without edition and params need to be setted
+        private void pgrmStartWithoutEdition (workflow_properties properties) {
+            if (!(properties.isSet("Default_Options_RButton"))
+                && !(properties.isSet("Advanced_Options_RButton"))
+            ) {
+                Util.getDefaultPgrmValues(properties,false);
+            }
+        }
 
     /*
     * Output Parsing
@@ -130,8 +146,11 @@ public class RNAfold extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        //SAMPLE OF OUTPUT as SAMFILE
-        SamFile.saveSamFile(properties,outputFile,"RNAfold");
+        Util.deleteDir(outputPath+File.separator+"INPUTS");
+        ArrayList<String> a = new ArrayList<String>();
+        a.add(doName);
+        Docker.cleanContainers(a);
+        FastaFile.saveFastaFile(properties,output1,"RNAfold");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"RNAfold");
     }
 }

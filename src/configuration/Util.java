@@ -950,14 +950,21 @@ public class Util {
                 t = op;
                 t = t.replaceAll("_[a-z,A-Z]*$",""); // Remove extention name (box,button, etc.)
                 t = t.replaceAll(".*_(.*)$","$1");
-                if (t.length()>1 && !t.matches("^[A-Z].*")) {
+                
+                if (t.matches(".*_EQUALSYMBOL.*")) // EQUAL is back
+                    t = t.replaceAll("_EQUALSYMBOL","=");
+                
+                if (t.length()>1 && !t.matches("^[A-Z].*")) // Composed command is back
                     t = t.replaceAll("([A-Z])","-$1");
-                }
+                
                 t = t.toLowerCase();
                 t = prefix+t;
                 
                 if (!properties.get(op).equals("true")) {
-                    t = t+" " + properties.get(op);
+                    if (t.matches(".*=$"))
+                        t = t+"" + properties.get(op);
+                    else
+                        t = t+" " + properties.get(op);
                 }
                 s = s+" "+t;
             }

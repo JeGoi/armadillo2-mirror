@@ -8,9 +8,9 @@
 
 package programs;
 
-import biologic.FastaFile;
-import biologic.BananaFile;
 import biologic.Results;
+import biologic.BananaFile;
+import biologic.FastaFile;
 import configuration.Docker;
 import configuration.Util;
 import java.io.File;

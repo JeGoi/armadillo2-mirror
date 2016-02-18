@@ -76,8 +76,8 @@ public class EMBOSS_sizeseqEditors extends javax.swing.JDialog implements Editor
         Advanced_Options_RButton = new javax.swing.JRadioButton();
         Sq_panel = new javax.swing.JPanel();
         Sq_descending_Box = new javax.swing.JCheckBox();
-        Sq_descending_Box_IntValue = new javax.swing.JSpinner();
         Sq_descending_Box_Label = new javax.swing.JLabel();
+        Sq_descending_Box_IntValue = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -186,10 +186,6 @@ public class EMBOSS_sizeseqEditors extends javax.swing.JDialog implements Editor
             }
         });
 
-        Sq_descending_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        Sq_descending_Box_Label.setText("Longest first");
-        Sq_descending_Box_Label.setName("Sq_descending_Box_Label"); // NOI18N
-
         Sq_descending_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(0, 0, 1, 1));
         Sq_descending_Box_IntValue.setName("Sq_descending_Box_IntValue"); // NOI18N
         Sq_descending_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
@@ -198,6 +194,10 @@ public class EMBOSS_sizeseqEditors extends javax.swing.JDialog implements Editor
                 Sq_descending_Box_IntValue_StateChanged(evt);
             }
         });
+
+        Sq_descending_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        Sq_descending_Box_Label.setText("Longest first");
+        Sq_descending_Box_Label.setName("Sq_descending_Box_Label"); // NOI18N
 
         javax.swing.GroupLayout Sq_panelLayout = new javax.swing.GroupLayout(Sq_panel);
         Sq_panel.setLayout(Sq_panelLayout);

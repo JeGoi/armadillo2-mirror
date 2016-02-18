@@ -9,8 +9,8 @@
 package programs;
 
 import biologic.FastaFile;
-import biologic.Results;
 import biologic.ChipsFile;
+import biologic.Results;
 import configuration.Docker;
 import configuration.Util;
 import java.io.File;

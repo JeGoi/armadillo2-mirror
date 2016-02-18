@@ -3,7 +3,6 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-
 package editors;
 
 import configuration.Config;
@@ -24,12 +23,12 @@ import workflows.workflow_properties_dictionnary;
 
 /**
  *
- * @author : Jérémy Goimard
- * @Date   : 10 115
+ * @author : JG
+ * @Date   : Feb 2016
  */
 
 public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterface  {
-    
+
     /**
      * Creates new form RNAfoldEditors
      */
@@ -40,18 +39,18 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
     Frame frame;
     workflow_properties properties;
     armadillo_workflow  parent_workflow;
-    
-    public final String defaultNameString=" Name";
+
+    public final String defaultNameString="Name";
     static final boolean default_map=true;
-    
+
     public RNAfoldEditors(java.awt.Frame parent, armadillo_workflow parent_workflow) {
         super(parent, false);
         this.parent_workflow=parent_workflow;
         //--Set variables and init
         frame=parent;
     }
-    
-    
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,845 +59,1572 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        how_jButton1 = new javax.swing.JButton();            //Basic Panel
-        RNAfoldEditor = new javax.swing.JTabbedPane(); //Basic Panel
-        general_jPanel1 = new javax.swing.JPanel();          //Basic Panel
-        rename_jButton2 = new javax.swing.JButton();         //Basic Panel
-        name_jTextField1 = new javax.swing.JTextField();     //Basic Panel
-        name_jLabel1 = new javax.swing.JLabel();             //Basic Panel
-        reset_jButton3 = new javax.swing.JButton();          //Basic Panel
-        stop_jButton4 = new javax.swing.JButton();           //Basic Panel
-        run_jButton5 = new javax.swing.JButton();            //Basic Panel
-        close_jButton6 = new javax.swing.JButton();          //Basic Panel
+    
+        Menu_Buttons = new javax.swing.ButtonGroup();
+        docker_jButton = new javax.swing.JButton();
+        how_jButton = new javax.swing.JButton();
+        RNAfoldEditors2 = new javax.swing.JTabbedPane();
+        general_jPanel1 = new javax.swing.JPanel();
+        name_jLabel = new javax.swing.JLabel();
+        name_jTextField = new javax.swing.JTextField();
+        rename_jButton = new javax.swing.JButton();
+        reset_jButton = new javax.swing.JButton();
+        close_jButton = new javax.swing.JButton();
+        stop_jButton = new javax.swing.JButton();
+        run_jButton = new javax.swing.JButton();
         Default_Options_RButton = new javax.swing.JRadioButton();
-        General_Options_RButton = new javax.swing.JRadioButton();
-        Model_Details_RButton = new javax.swing.JRadioButton();
-        AO_GO_constraint_Box = new javax.swing.JCheckBox();
-        AO_GO_constraint_Box_Label = new javax.swing.JTextField();
-        AO_GO_canonicalBPonly_Box = new javax.swing.JCheckBox();
-        AO_GO_canonicalBPonly_Box_Label = new javax.swing.JTextField();
-        AO_GO_noconv_Box = new javax.swing.JCheckBox();
-        AO_GO_noconv_Box_Label = new javax.swing.JTextField();
-        AO_GO_noPS_Box = new javax.swing.JCheckBox();
-        AO_GO_noPS_Box_Label = new javax.swing.JTextField();
-        AO_ASaawsbiitcTMfeaasraciac_partfunc_Box = new javax.swing.JCheckBox();
-        AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value = new javax.swing.JSpinner();
-        AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label = new javax.swing.JTextField();
-        AO_ASaawsbiitcTMfeaasraciac_MEA_Box = new javax.swing.JCheckBox();
-        AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value = new javax.swing.JSpinner();
-        AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label = new javax.swing.JTextField();
-        AO_ASaawsbiitcTMfeaasraciac_circ_Box = new javax.swing.JCheckBox();
-        AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label = new javax.swing.JTextField();
-        AO_ASaawsbiitcTMfeaasraciac_gquad_Box = new javax.swing.JCheckBox();
-        AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label = new javax.swing.JTextField();
-        AO_MD_temp_Box = new javax.swing.JCheckBox();
-        AO_MD_temp_Box_Label = new javax.swing.JTextField();
-        AO_MD_noTetra_Box = new javax.swing.JCheckBox();
-        AO_MD_noTetra_Box_Label = new javax.swing.JTextField();
-        AO_MD_dangles_Box = new javax.swing.JCheckBox();
-        AO_MD_dangles_Box_Label = new javax.swing.JTextField();
-        AO_MD_noLP_Box = new javax.swing.JCheckBox();
-        AO_MD_noLP_Box_Label = new javax.swing.JTextField();
-        AO_MD_noGU_Box = new javax.swing.JCheckBox();
-        AO_MD_noGU_Box_Label = new javax.swing.JTextField();
-        AO_MD_noClosingGU_Box = new javax.swing.JCheckBox();
-        AO_MD_noClosingGU_Box_Label = new javax.swing.JTextField();
-        AO_MD_paramFile_Box = new javax.swing.JCheckBox();
-        AO_MD_paramFile_Box_Text = new javax.swing.JTextField();
+        Advanced_Options_RButton = new javax.swing.JRadioButton();
         AO_panel = new javax.swing.JPanel();
-        AO_ASaawsbiitcTMfeaasraciac_panel = new javax.swing.JPanel();
-        AO_GO_panel = new javax.swing.JPanel();
-        AO_MD_panel = new javax.swing.JPanel();
         AO_tabpanel = new javax.swing.JTabbedPane();
+        AO_G_Spanel = new javax.swing.JPanel();
+        AO_G__noPS_Box = new javax.swing.JCheckBox();
+        AO_G__layoutType_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_G__layoutType_EQUALSYMBOL_Box_BooValue = new javax.swing.JSpinner();
+        AO_G__noconv_Box = new javax.swing.JCheckBox();
+        AO_S_Spanel = new javax.swing.JPanel();
+        AO_S__maxBPspan_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue = new javax.swing.JSpinner();
+        AO_S__constraint_Box = new javax.swing.JCheckBox();
+        AO_S__canonicalBPonly_Box = new javax.swing.JCheckBox();
+        AO_S__enforceConstraint_Box = new javax.swing.JCheckBox();
+        AO_S__shape_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_S__shape_EQUALSYMBOL_Box_DirFile = new javax.swing.JButton();
+        AO_S__shape_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_S__shapeMethod_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_S__shapeMethod_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_S__shapeConversion_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_S__shapeConversion_EQUALSYMBOL_Box_List = new javax.swing.JComboBox();
+        AO_S__motif_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_S__motif_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_A_Spanel = new javax.swing.JPanel();
+        AO_A__partfunc_Box = new javax.swing.JCheckBox();
+        AO_A__partfunc_Box_IntValue = new javax.swing.JSpinner();
+        AO_A__MEA_Box = new javax.swing.JCheckBox();
+        AO_A__MEA_Box_IntValue = new javax.swing.JSpinner();
+        AO_A__pfScale_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue = new javax.swing.JSpinner();
+        AO_A__circ_Box = new javax.swing.JCheckBox();
+        AO_A__ImFeelingLucky_Box = new javax.swing.JCheckBox();
+        AO_A__bppmThreshold_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_A__bppmThreshold_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_A__gquad_Box = new javax.swing.JCheckBox();
+        AO_M_Spanel = new javax.swing.JPanel();
+        AO_M__temp_Box = new javax.swing.JCheckBox();
+        AO_M__temp_Box_DouValue = new javax.swing.JSpinner();
+        AO_M__temp_Box_Label = new javax.swing.JLabel();
+        AO_M__noTetra_Box = new javax.swing.JCheckBox();
+        AO_M__dangles_Box = new javax.swing.JCheckBox();
+        AO_M__dangles_Box_IntValue = new javax.swing.JSpinner();
+        AO_M__noLP_Box = new javax.swing.JCheckBox();
+        AO_M__noGU_Box = new javax.swing.JCheckBox();
+        AO_M__noClosingGU_Box = new javax.swing.JCheckBox();
+        AO_M__paramFile_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile = new javax.swing.JButton();
+        AO_M__paramFile_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_M__energyModel_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue = new javax.swing.JSpinner();
+        AO_M__betaScale_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue = new javax.swing.JSpinner();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-
-            how_jButton1.setText("?");
-            how_jButton1.setName("how_jButton1"); // NOI18N
-            how_jButton1.getAccessibleContext().setAccessibleDescription("Calculate minimum free energy secondary structures and partition function of RNAs");
-            how_jButton1.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    how_jButton1_ActionPerformed(evt);
-                }
-            });
-
-
-            name_jTextField1.setText("RNAfoldEditor");
-            name_jTextField1.setName("name_jTextField1"); // NOI18N
-            name_jTextField1.getAccessibleContext().setAccessibleDescription("");
-            name_jTextField1.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    name_jTextField1_ActionPerformed(evt);
-                }
-            });
-
-
-            rename_jButton2.setText("Rename");
-            rename_jButton2.setName("rename_jButton2"); // NOI18N
-            rename_jButton2.getAccessibleContext().setAccessibleDescription("Rename the box");
-            rename_jButton2.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    rename_jButton2_ActionPerformed(evt);
-                }
-            });
-
-
-            reset_jButton3.setText("Reset");
-            reset_jButton3.setName("reset_jButton3"); // NOI18N
-            reset_jButton3.getAccessibleContext().setAccessibleDescription("Reset default value");
-            reset_jButton3.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    reset_jButton3_ActionPerformed(evt);
-                }
-            });
-
-
-            stop_jButton4.setText("Stop");
-            stop_jButton4.setName("stop_jButton4"); // NOI18N
-            stop_jButton4.getAccessibleContext().setAccessibleDescription("Stop the program");
-            stop_jButton4.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    stop_jButton4_ActionPerformed(evt);
-                }
-            });
-
-
-            run_jButton5.setText("Run");
-            run_jButton5.setName("run_jButton5"); // NOI18N
-            run_jButton5.getAccessibleContext().setAccessibleDescription("Run the program");
-            run_jButton5.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    run_jButton5_ActionPerformed(evt);
-                }
-            });
-
-
-            close_jButton6.setText("Close");
-            close_jButton6.setName("close_jButton6"); // NOI18N
-            close_jButton6.getAccessibleContext().setAccessibleDescription("Close this window");
-            close_jButton6.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    close_jButton6_ActionPerformed(evt);
-                }
-            });
-
-
-        general_jPanel1.setPreferredSize(new java.awt.Dimension(459,400));
-        general_jPanel1.setName("general_jPanel1");
-
-            Default_Options_RButton.setText("Default Options");
-            Default_Options_RButton.setName("Default_Options_RButton"); // NOI18N
-            Default_Options_RButton.getAccessibleContext().setAccessibleDescription("Default_Options");
-            Default_Options_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Default_Options_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-            General_Options_RButton.setText("General Options");
-            General_Options_RButton.setName("General_Options_RButton"); // NOI18N
-            General_Options_RButton.getAccessibleContext().setAccessibleDescription("General_Options");
-            General_Options_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    General_Options_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-            Model_Details_RButton.setText("Model Details");
-            Model_Details_RButton.setName("Model_Details_RButton"); // NOI18N
-            Model_Details_RButton.getAccessibleContext().setAccessibleDescription("Model_Details");
-            Model_Details_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Model_Details_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-        AO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Advanced_Options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N        AO_panel.setName("AO_panel"); // NOI18N
-
-        AO_tabpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "AO_tabpanel"));
-        AO_tabpanel.setName("AO_tabpanel"); // NOI18N
-        AO_tabpanel.setPreferredSize(new java.awt.Dimension(280,280));
-        AO_tabpanel.getAccessibleContext().setAccessibleName("AO_tabpanel");
-        AO_tabpanel.addTab("General_Options", AO_GO_panel);
-        AO_tabpanel.addTab("Algorithms_Select_additional_algorithms_which_should_be_included_in_the_calculations._The_Minimum_free_energy_(MFE)_and_a_structure_representative_are_calculated_in_any_case.", AO_ASaawsbiitcTMfeaasraciac_panel);
-        AO_tabpanel.addTab("Model_Details", AO_MD_panel);
-
-        AO_GO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "General_Options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        AO_GO_panel.setName("AO_GO_panel"); // NOI18N
-        
-
-            AO_GO_constraint_Box.setText("constraint/-C");
-            AO_GO_constraint_Box.setName("AO_GO_constraint_Box"); // NOI18N
-            AO_GO_constraint_Box.getAccessibleContext().setAccessibleDescription("Calculate structures subject to constraints.");
-            AO_GO_constraint_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_GO_constraint_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_GO_constraint_Box_Label.setText("(default=off)");
-            AO_GO_constraint_Box_Label.setName("AO_GO_constraint_Box_Label"); // NOI18N
-            AO_GO_constraint_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_GO_constraint_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_GO_canonicalBPonly_Box.setText("canonicalBPonly");
-            AO_GO_canonicalBPonly_Box.setName("AO_GO_canonicalBPonly_Box"); // NOI18N
-            AO_GO_canonicalBPonly_Box.getAccessibleContext().setAccessibleDescription("Remove non-canonical base pairs from the structure constraint");
-            AO_GO_canonicalBPonly_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_GO_canonicalBPonly_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_GO_canonicalBPonly_Box_Label.setText("(default=off)");
-            AO_GO_canonicalBPonly_Box_Label.setName("AO_GO_canonicalBPonly_Box_Label"); // NOI18N
-            AO_GO_canonicalBPonly_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_GO_canonicalBPonly_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_GO_noconv_Box.setText("noconv");
-            AO_GO_noconv_Box.setName("AO_GO_noconv_Box"); // NOI18N
-            AO_GO_noconv_Box.getAccessibleContext().setAccessibleDescription("Do not automatically substitude nucleotide T with U");
-            AO_GO_noconv_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_GO_noconv_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_GO_noconv_Box_Label.setText("(default=off)");
-            AO_GO_noconv_Box_Label.setName("AO_GO_noconv_Box_Label"); // NOI18N
-            AO_GO_noconv_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_GO_noconv_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_GO_noPS_Box.setText("noPS");
-            AO_GO_noPS_Box.setName("AO_GO_noPS_Box"); // NOI18N
-            AO_GO_noPS_Box.getAccessibleContext().setAccessibleDescription("Do not produce postscript drawing of the mfe structure.");
-            AO_GO_noPS_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_GO_noPS_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_GO_noPS_Box_Label.setText("(default=off)");
-            AO_GO_noPS_Box_Label.setName("AO_GO_noPS_Box_Label"); // NOI18N
-            AO_GO_noPS_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_GO_noPS_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        AO_ASaawsbiitcTMfeaasraciac_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Algorithms_Select_additional_algorithms_which_should_be_included_in_the_calculations._The_Minimum_free_energy_(MFE)_and_a_structure_representative_are_calculated_in_any_case.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        AO_ASaawsbiitcTMfeaasraciac_panel.setName("AO_ASaawsbiitcTMfeaasraciac_panel"); // NOI18N
-        
-
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.setText("partfunc/-p");
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.setName("AO_ASaawsbiitcTMfeaasraciac_partfunc_Box"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.getAccessibleContext().setAccessibleDescription("Calculate the partition function and base pairing probability matrix.");
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label.setText("(default=`1')");
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label.setName("AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label.getAccessibleContext().setAccessibleDescription("(default=`1')");
-            AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box.setText("MEA");
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box.setName("AO_ASaawsbiitcTMfeaasraciac_MEA_Box"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box.getAccessibleContext().setAccessibleDescription("Calculate an MEA (maximum expected accuracy) structure, where the expected accuracy is computed from the pair probabilities: each base pair (i,j) gets a score 2*gamma*p_ij and the score of an unpaired base is given by the probability of not forming a pair.");
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_ASaawsbiitcTMfeaasraciac_MEA_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label.setText("(default=`1.') [=gamma]");
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label.setName("AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label.getAccessibleContext().setAccessibleDescription("(default=`1.') [=gamma]");
-            AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box.setText("circ/-c");
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box.setName("AO_ASaawsbiitcTMfeaasraciac_circ_Box"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box.getAccessibleContext().setAccessibleDescription("Assume a circular (instead of linear) RNA molecule.");
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_ASaawsbiitcTMfeaasraciac_circ_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label.setText("(default=off)");
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label.setName("AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box.setText("gquad/-g");
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box.setName("AO_ASaawsbiitcTMfeaasraciac_gquad_Box"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box.getAccessibleContext().setAccessibleDescription("Incoorporate G-Quadruplex formation into the structure prediction algorithm");
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_ASaawsbiitcTMfeaasraciac_gquad_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label.setText("(default=off)");
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label.setName("AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label"); // NOI18N
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        AO_MD_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Model_Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        AO_MD_panel.setName("AO_MD_panel"); // NOI18N
-        
-
-            AO_MD_temp_Box.setText("temp/-T");
-            AO_MD_temp_Box.setName("AO_MD_temp_Box"); // NOI18N
-            AO_MD_temp_Box.getAccessibleContext().setAccessibleDescription("Rescale energy parameters to a temperature of temp C.");
-            AO_MD_temp_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_temp_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_MD_temp_Box_Label.setText("Default is 37C. DOUBLE");
-            AO_MD_temp_Box_Label.setName("AO_MD_temp_Box_Label"); // NOI18N
-            AO_MD_temp_Box_Label.getAccessibleContext().setAccessibleDescription("Default is 37C. DOUBLE");
-            AO_MD_temp_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_MD_noTetra_Box.setText("noTetra/-4");
-            AO_MD_noTetra_Box.setName("AO_MD_noTetra_Box"); // NOI18N
-            AO_MD_noTetra_Box.getAccessibleContext().setAccessibleDescription("Do not include special tabulated stabilizing energies for tri-, tetra- and hexaloop hairpins. Mostly for testing.");
-            AO_MD_noTetra_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_noTetra_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_MD_noTetra_Box_Label.setText("(default=off)");
-            AO_MD_noTetra_Box_Label.setName("AO_MD_noTetra_Box_Label"); // NOI18N
-            AO_MD_noTetra_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_MD_noTetra_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_MD_dangles_Box.setText("dangles/-d");
-            AO_MD_dangles_Box.setName("AO_MD_dangles_Box"); // NOI18N
-            AO_MD_dangles_Box.getAccessibleContext().setAccessibleDescription("How to treat dangling end energies for bases adjacent to helices in free ends and multi-loops");
-            AO_MD_dangles_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_dangles_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_MD_dangles_Box_Label.setText("(default=`2')");
-            AO_MD_dangles_Box_Label.setName("AO_MD_dangles_Box_Label"); // NOI18N
-            AO_MD_dangles_Box_Label.getAccessibleContext().setAccessibleDescription("(default=`2')");
-            AO_MD_dangles_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_MD_noLP_Box.setText("noLP");
-            AO_MD_noLP_Box.setName("AO_MD_noLP_Box"); // NOI18N
-            AO_MD_noLP_Box.getAccessibleContext().setAccessibleDescription("Produce structures without lonely pairs (helices of length 1).");
-            AO_MD_noLP_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_noLP_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_MD_noLP_Box_Label.setText("(default=off)");
-            AO_MD_noLP_Box_Label.setName("AO_MD_noLP_Box_Label"); // NOI18N
-            AO_MD_noLP_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_MD_noLP_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_MD_noGU_Box.setText("noGU");
-            AO_MD_noGU_Box.setName("AO_MD_noGU_Box"); // NOI18N
-            AO_MD_noGU_Box.getAccessibleContext().setAccessibleDescription("Do not allow GU pairs");
-            AO_MD_noGU_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_noGU_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_MD_noGU_Box_Label.setText("(default=off)");
-            AO_MD_noGU_Box_Label.setName("AO_MD_noGU_Box_Label"); // NOI18N
-            AO_MD_noGU_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_MD_noGU_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_MD_noClosingGU_Box.setText("noClosingGU");
-            AO_MD_noClosingGU_Box.setName("AO_MD_noClosingGU_Box"); // NOI18N
-            AO_MD_noClosingGU_Box.getAccessibleContext().setAccessibleDescription("Do not allow GU pairs at the end of helices");
-            AO_MD_noClosingGU_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_noClosingGU_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            AO_MD_noClosingGU_Box_Label.setText("(default=off)");
-            AO_MD_noClosingGU_Box_Label.setName("AO_MD_noClosingGU_Box_Label"); // NOI18N
-            AO_MD_noClosingGU_Box_Label.getAccessibleContext().setAccessibleDescription("(default=off)");
-            AO_MD_noClosingGU_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            AO_MD_paramFile_Box.setText("paramFile/-P");
-            AO_MD_paramFile_Box.setName("AO_MD_paramFile_Box"); // NOI18N
-            AO_MD_paramFile_Box.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
-            AO_MD_paramFile_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    AO_MD_paramFile_Box_ActionPerformed(evt);
-                }
-            });
-
-
-    javax.swing.GroupLayout AO_panelLayout = new javax.swing.GroupLayout(AO_panel);
-    AO_panel.setLayout(AO_panelLayout);
-    AO_panelLayout.setHorizontalGroup(
-        AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AO_panelLayout.createSequentialGroup()
-            .addContainerGap()
-             .addComponent(AO_tabpanel)
-            .addContainerGap() // truc
-        )
-    );
-    AO_panelLayout.setVerticalGroup(
-        AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(AO_panelLayout.createSequentialGroup()
-            .addContainerGap()
-             .addComponent(AO_tabpanel)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout AO_ASaawsbiitcTMfeaasraciac_panelLayout = new javax.swing.GroupLayout(AO_ASaawsbiitcTMfeaasraciac_panel);
-    AO_ASaawsbiitcTMfeaasraciac_panel.setLayout(AO_ASaawsbiitcTMfeaasraciac_panelLayout);
-    AO_ASaawsbiitcTMfeaasraciac_panelLayout.setHorizontalGroup(
-        AO_ASaawsbiitcTMfeaasraciac_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AO_ASaawsbiitcTMfeaasraciac_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_MEA_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_circ_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_gquad_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    AO_ASaawsbiitcTMfeaasraciac_panelLayout.setVerticalGroup(
-        AO_ASaawsbiitcTMfeaasraciac_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(AO_ASaawsbiitcTMfeaasraciac_panelLayout.createSequentialGroup()
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_MEA_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_circ_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_gquad_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout AO_GO_panelLayout = new javax.swing.GroupLayout(AO_GO_panel);
-    AO_GO_panel.setLayout(AO_GO_panelLayout);
-    AO_GO_panelLayout.setHorizontalGroup(
-        AO_GO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AO_GO_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(AO_GO_constraint_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_constraint_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_GO_canonicalBPonly_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_canonicalBPonly_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_GO_noconv_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_noconv_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_GO_noPS_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_noPS_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    AO_GO_panelLayout.setVerticalGroup(
-        AO_GO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(AO_GO_panelLayout.createSequentialGroup()
-            .addComponent(AO_GO_constraint_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_constraint_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_canonicalBPonly_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_canonicalBPonly_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_noconv_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_noconv_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_noPS_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_GO_noPS_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout AO_MD_panelLayout = new javax.swing.GroupLayout(AO_MD_panel);
-    AO_MD_panel.setLayout(AO_MD_panelLayout);
-    AO_MD_panelLayout.setHorizontalGroup(
-        AO_MD_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AO_MD_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(AO_MD_temp_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_temp_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_MD_noTetra_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noTetra_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_MD_dangles_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_dangles_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_MD_noLP_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noLP_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_MD_noGU_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noGU_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_MD_noClosingGU_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noClosingGU_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(AO_MD_paramFile_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_paramFile_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    AO_MD_panelLayout.setVerticalGroup(
-        AO_MD_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(AO_MD_panelLayout.createSequentialGroup()
-            .addComponent(AO_MD_temp_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_temp_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noTetra_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noTetra_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_dangles_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_dangles_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noLP_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noLP_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noGU_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noGU_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noClosingGU_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_noClosingGU_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_paramFile_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(AO_MD_paramFile_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout AO_tabpanelLayout = new javax.swing.GroupLayout(AO_tabpanel);
-    AO_tabpanel.setLayout(AO_tabpanelLayout);
-    AO_tabpanelLayout.setHorizontalGroup(
-        AO_tabpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AO_tabpanelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addContainerGap()
-            .addContainerGap()
-            .addContainerGap() // truc
-        )
-    );
-    AO_tabpanelLayout.setVerticalGroup(
-        AO_tabpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(AO_tabpanelLayout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-        RNAfoldEditor.setPreferredSize(new java.awt.Dimension(459,400));
-        RNAfoldEditor.addTab("RNAfold Editor", general_jPanel1);
-        RNAfoldEditor.getAccessibleContext().setAccessibleName("RNAfold");
-        RNAfoldEditor.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                RNAfoldEditorComponentShown(evt);
+        how_jButton.setText("?");
+        how_jButton.setName("how_jButton"); // NOI18N
+        how_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                how_jButton_ActionPerformed(evt);
             }
         });
-    
+
+        docker_jButton.setText("Docker Editor");
+        docker_jButton.setName("docker_jButton"); // NOI18N
+        docker_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                docker_jButton_ActionPerformed(evt);
+            }
+        });
+
+        RNAfoldEditors2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                RNAfoldEditors2ComponentShown(evt);
+            }
+        });
+
+        general_jPanel1.setName("general_jPanel1");
+        general_jPanel1.setPreferredSize(new java.awt.Dimension(459, 640));
+
+        name_jLabel.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        name_jLabel.setText("Name");
+        name_jLabel.setName("name_jLabel"); // NOI18N
+
+        name_jTextField.setText("RNAfold");
+        name_jTextField.setName("name_jTextField"); // NOI18N
+        name_jTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_jTextField_ActionPerformed(evt);
+            }
+        });
+
+        rename_jButton.setText("Rename");
+        rename_jButton.setName("rename_jButton"); // NOI18N
+        rename_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rename_jButton_ActionPerformed(evt);
+            }
+        });
+
+        reset_jButton.setText("Reset");
+        reset_jButton.setName("reset_jButton"); // NOI18N
+        reset_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reset_jButton_ActionPerformed(evt);
+            }
+        });
+
+        close_jButton.setText("Close");
+        close_jButton.setName("close_jButton"); // NOI18N
+        close_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                close_jButton_ActionPerformed(evt);
+            }
+        });
+
+        stop_jButton.setText("Stop");
+        stop_jButton.setName("stop_jButton"); // NOI18N
+        stop_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stop_jButton_ActionPerformed(evt);
+            }
+        });
+
+        run_jButton.setText("Run");
+        run_jButton.setName("run_jButton"); // NOI18N
+        run_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                run_jButton_ActionPerformed(evt);
+            }
+        });
+
+        Menu_Buttons.add(Default_Options_RButton);
+        Default_Options_RButton.setText("Default Options");
+        Default_Options_RButton.setName("Default_Options_RButton"); // NOI18N
+        Default_Options_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Default_Options_RButton_ActionPerformed(evt);
+            }
+        });
+
+        Menu_Buttons.add(Advanced_Options_RButton);
+        Advanced_Options_RButton.setText("Advanced Options");
+        Advanced_Options_RButton.setName("Advanced_Options_RButton"); // NOI18N
+        Advanced_Options_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Advanced_Options_RButton_ActionPerformed(evt);
+            }
+        });
+
+        AO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Advanced_Options"));
+
+        AO_G__noPS_Box.setText("--noPS");
+        AO_G__noPS_Box.setName("AO_G__noPS_Box"); // NOI18N
+        AO_G__noPS_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_G__noPS_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_G__layoutType_EQUALSYMBOL_Box.setText("--layoutType=/-t");
+        AO_G__layoutType_EQUALSYMBOL_Box.setName("AO_G__layoutType_EQUALSYMBOL_Box"); // NOI18N
+        AO_G__layoutType_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_G__layoutType_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setModel(new javax.swing.SpinnerNumberModel(1, 0, 1, 1));
+        AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setName("AO_G__layoutType_EQUALSYMBOL_Box_BooValue"); // NOI18N
+        AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_G__layoutType_EQUALSYMBOL_Box_BooValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_G__layoutType_EQUALSYMBOL_Box_BooValue_StateChanged(evt);
+            }
+        });
+
+        AO_G__noconv_Box.setText("--noconv");
+        AO_G__noconv_Box.setName("AO_G__noconv_Box"); // NOI18N
+        AO_G__noconv_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_G__noconv_Box_ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AO_G_SpanelLayout = new javax.swing.GroupLayout(AO_G_Spanel);
+        AO_G_Spanel.setLayout(AO_G_SpanelLayout);
+        AO_G_SpanelLayout.setHorizontalGroup(
+            AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_G_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AO_G__noPS_Box)                    .addGroup(AO_G_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_G__layoutType_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_G__layoutType_EQUALSYMBOL_Box_BooValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AO_G__noconv_Box))
+                .addContainerGap())
+        );
+        AO_G_SpanelLayout.setVerticalGroup(
+            AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_G_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AO_G__noPS_Box)                .addContainerGap()
+                .addGroup(AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_G__layoutType_EQUALSYMBOL_Box)
+                    .addComponent(AO_G__layoutType_EQUALSYMBOL_Box_BooValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_G__noconv_Box)
+                .addContainerGap())
+        );
+
+        AO_G__noPS_Box.getAccessibleContext().setAccessibleDescription("Do not produce postscript drawing of the mfe structure.");
+        AO_G__layoutType_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Choose the layout algorithm. Simple radial layout if 0, or naview if 1");
+        AO_G__layoutType_EQUALSYMBOL_Box_BooValue.getAccessibleContext().setAccessibleDescription("Choose the layout algorithm. Simple radial layout if 0, or naview if 1");
+        AO_G__noconv_Box.getAccessibleContext().setAccessibleDescription("Do not automatically substitude nucleotide T with U");
+
+        AO_tabpanel.addTab("General", AO_G_Spanel);
+
+        AO_S__maxBPspan_EQUALSYMBOL_Box.setText("--maxBPspan=");
+        AO_S__maxBPspan_EQUALSYMBOL_Box.setName("AO_S__maxBPspan_EQUALSYMBOL_Box"); // NOI18N
+        AO_S__maxBPspan_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__maxBPspan_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setName("AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue"); // NOI18N
+        AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue_StateChanged(evt);
+            }
+        });
+
+        AO_S__constraint_Box.setText("--constraint/-C");
+        AO_S__constraint_Box.setName("AO_S__constraint_Box"); // NOI18N
+        AO_S__constraint_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__constraint_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__canonicalBPonly_Box.setText("--canonicalBPonly");
+        AO_S__canonicalBPonly_Box.setName("AO_S__canonicalBPonly_Box"); // NOI18N
+        AO_S__canonicalBPonly_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__canonicalBPonly_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__enforceConstraint_Box.setText("--enforceConstraint");
+        AO_S__enforceConstraint_Box.setName("AO_S__enforceConstraint_Box"); // NOI18N
+        AO_S__enforceConstraint_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__enforceConstraint_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__shape_EQUALSYMBOL_Box.setText("--shape=");
+        AO_S__shape_EQUALSYMBOL_Box.setName("AO_S__shape_EQUALSYMBOL_Box"); // NOI18N
+        AO_S__shape_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__shape_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.setText("DirFile");
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.setName("AO_S__shape_EQUALSYMBOL_Box_DirFile"); // NOI18N
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__shape_EQUALSYMBOL_Box_DirFile_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__shape_EQUALSYMBOL_Box_Text.setText("...");
+        AO_S__shape_EQUALSYMBOL_Box_Text.setName("AO_S__shape_EQUALSYMBOL_Box_Text"); // NOI18N
+        AO_S__shape_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
+        AO_S__shape_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                AO_S__shape_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        AO_S__shapeMethod_EQUALSYMBOL_Box.setText("--shapeMethod=/-k");
+        AO_S__shapeMethod_EQUALSYMBOL_Box.setName("AO_S__shapeMethod_EQUALSYMBOL_Box"); // NOI18N
+        AO_S__shapeMethod_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__shapeMethod_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setText("...");
+        AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setName("AO_S__shapeMethod_EQUALSYMBOL_Box_Text"); // NOI18N
+        AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
+        AO_S__shapeMethod_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                AO_S__shapeMethod_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        AO_S__shapeConversion_EQUALSYMBOL_Box.setText("--shapeConversion=");
+        AO_S__shapeConversion_EQUALSYMBOL_Box.setName("AO_S__shapeConversion_EQUALSYMBOL_Box"); // NOI18N
+        AO_S__shapeConversion_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__shapeConversion_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__shapeConversion_EQUALSYMBOL_Box_List.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "O", "C", "S", "L", "M" }));
+        AO_S__shapeConversion_EQUALSYMBOL_Box_List.setName("AO_S__shapeConversion_EQUALSYMBOL_Box_List"); // NOI18N
+        AO_S__shapeConversion_EQUALSYMBOL_Box_List.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__shapeConversion_EQUALSYMBOL_Box_List_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__motif_EQUALSYMBOL_Box.setText("--motif=");
+        AO_S__motif_EQUALSYMBOL_Box.setName("AO_S__motif_EQUALSYMBOL_Box"); // NOI18N
+        AO_S__motif_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__motif_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_S__motif_EQUALSYMBOL_Box_Text.setText("SEQUENCE,STRUCTURE,ENERGY");
+        AO_S__motif_EQUALSYMBOL_Box_Text.setName("AO_S__motif_EQUALSYMBOL_Box_Text"); // NOI18N
+        AO_S__motif_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
+        AO_S__motif_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                AO_S__motif_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AO_S_SpanelLayout = new javax.swing.GroupLayout(AO_S_Spanel);
+        AO_S_Spanel.setLayout(AO_S_SpanelLayout);
+        AO_S_SpanelLayout.setHorizontalGroup(
+            AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AO_S__constraint_Box)                    .addComponent(AO_S__canonicalBPonly_Box)                    .addComponent(AO_S__enforceConstraint_Box)                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_S__shape_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_S__shape_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_S__shape_EQUALSYMBOL_Box_DirFile))
+                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_S__shapeMethod_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_S__shapeMethod_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_S__shapeConversion_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_S__shapeConversion_EQUALSYMBOL_Box_List, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_S__motif_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_S__motif_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        AO_S_SpanelLayout.setVerticalGroup(
+            AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box)
+                    .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(AO_S__constraint_Box)                .addContainerGap()
+                .addComponent(AO_S__canonicalBPonly_Box)                .addContainerGap()
+                .addComponent(AO_S__enforceConstraint_Box)                .addContainerGap()
+                .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_S__shape_EQUALSYMBOL_Box)
+                    .addComponent(AO_S__shape_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AO_S__shape_EQUALSYMBOL_Box_DirFile))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_S__shapeMethod_EQUALSYMBOL_Box)
+                    .addComponent(AO_S__shapeMethod_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_S__shapeConversion_EQUALSYMBOL_Box)
+                    .addComponent(AO_S__shapeConversion_EQUALSYMBOL_Box_List, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_S__motif_EQUALSYMBOL_Box)
+                    .addComponent(AO_S__motif_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        AO_S__maxBPspan_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Set the maximum base pair span");
+        AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.getAccessibleContext().setAccessibleDescription("Set the maximum base pair span");
+        AO_S__constraint_Box.getAccessibleContext().setAccessibleDescription("Calculate structures subject to constraints.");
+        AO_S__canonicalBPonly_Box.getAccessibleContext().setAccessibleDescription("Remove non-canonical base pairs from the structure constraint");
+        AO_S__enforceConstraint_Box.getAccessibleContext().setAccessibleDescription("Enforce base pairs given by round brackets in structure constraint");
+        AO_S__shape_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
+        AO_S__shape_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
+        AO_S__shapeMethod_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Specify the method how to convert SHAPE reactivity data to pseudo energy contributions");
+        AO_S__shapeMethod_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Specify the method how to convert SHAPE reactivity data to pseudo energy contributions");
+        AO_S__shapeConversion_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Specify the method used to convert SHAPE reactivities to pairing probabilities when using the SHAPE approach of Zarringhalam et al.");
+        AO_S__shapeConversion_EQUALSYMBOL_Box_List.getAccessibleContext().setAccessibleDescription("Specify the method used to convert SHAPE reactivities to pairing probabilities when using the SHAPE approach of Zarringhalam et al.");
+        AO_S__motif_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Specify stabilizing effect of ligand binding to a particular sequence/structure motif.");
+        AO_S__motif_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Specify stabilizing effect of ligand binding to a particular sequence/structure motif.");
+
+        AO_tabpanel.addTab("Struct", AO_S_Spanel);
+
+        AO_A__partfunc_Box.setText("--partfunc/-p");
+        AO_A__partfunc_Box.setName("AO_A__partfunc_Box"); // NOI18N
+        AO_A__partfunc_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__partfunc_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_A__partfunc_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        AO_A__partfunc_Box_IntValue.setName("AO_A__partfunc_Box_IntValue"); // NOI18N
+        AO_A__partfunc_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_A__partfunc_Box_IntValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_A__partfunc_Box_IntValue_StateChanged(evt);
+            }
+        });
+
+        AO_A__MEA_Box.setText("--MEA");
+        AO_A__MEA_Box.setName("AO_A__MEA_Box"); // NOI18N
+        AO_A__MEA_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__MEA_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_A__MEA_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        AO_A__MEA_Box_IntValue.setName("AO_A__MEA_Box_IntValue"); // NOI18N
+        AO_A__MEA_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_A__MEA_Box_IntValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_A__MEA_Box_IntValue_StateChanged(evt);
+            }
+        });
+
+        AO_A__pfScale_EQUALSYMBOL_Box.setText("--pfScale=/-S");
+        AO_A__pfScale_EQUALSYMBOL_Box.setName("AO_A__pfScale_EQUALSYMBOL_Box"); // NOI18N
+        AO_A__pfScale_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__pfScale_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(1.07, 1.0, 1.2, 0.1));
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setName("AO_A__pfScale_EQUALSYMBOL_Box_DouValue"); // NOI18N
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_A__pfScale_EQUALSYMBOL_Box_DouValue_StateChanged(evt);
+            }
+        });
+
+        AO_A__circ_Box.setText("--circ/-c");
+        AO_A__circ_Box.setName("AO_A__circ_Box"); // NOI18N
+        AO_A__circ_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__circ_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_A__ImFeelingLucky_Box.setText("--ImFeelingLucky");
+        AO_A__ImFeelingLucky_Box.setName("AO_A__ImFeelingLucky_Box"); // NOI18N
+        AO_A__ImFeelingLucky_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__ImFeelingLucky_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_A__bppmThreshold_EQUALSYMBOL_Box.setText("--bppmThreshold=");
+        AO_A__bppmThreshold_EQUALSYMBOL_Box.setName("AO_A__bppmThreshold_EQUALSYMBOL_Box"); // NOI18N
+        AO_A__bppmThreshold_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__bppmThreshold_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setText("1e-5");
+        AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setName("AO_A__bppmThreshold_EQUALSYMBOL_Box_Text"); // NOI18N
+        AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
+        AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                AO_A__bppmThreshold_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        AO_A__gquad_Box.setText("--gquad/-g");
+        AO_A__gquad_Box.setName("AO_A__gquad_Box"); // NOI18N
+        AO_A__gquad_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_A__gquad_Box_ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AO_A_SpanelLayout = new javax.swing.GroupLayout(AO_A_Spanel);
+        AO_A_Spanel.setLayout(AO_A_SpanelLayout);
+        AO_A_SpanelLayout.setHorizontalGroup(
+            AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_A__partfunc_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_A__partfunc_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_A__MEA_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_A__MEA_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_A__pfScale_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_A__pfScale_EQUALSYMBOL_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AO_A__circ_Box)                    .addComponent(AO_A__ImFeelingLucky_Box)                    .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AO_A__gquad_Box))
+                .addContainerGap())
+        );
+        AO_A_SpanelLayout.setVerticalGroup(
+            AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_A__partfunc_Box)
+                    .addComponent(AO_A__partfunc_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_A__MEA_Box)
+                    .addComponent(AO_A__MEA_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_A__pfScale_EQUALSYMBOL_Box)
+                    .addComponent(AO_A__pfScale_EQUALSYMBOL_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(AO_A__circ_Box)                .addContainerGap()
+                .addComponent(AO_A__ImFeelingLucky_Box)                .addContainerGap()
+                .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box)
+                    .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_A__gquad_Box)
+                .addContainerGap())
+        );
+
+        AO_A__partfunc_Box.getAccessibleContext().setAccessibleDescription("Calculate the partition function and base pairing probability matrix.");
+        AO_A__partfunc_Box_IntValue.getAccessibleContext().setAccessibleDescription("Calculate the partition function and base pairing probability matrix.");
+        AO_A__MEA_Box.getAccessibleContext().setAccessibleDescription("Calculate an MEA (maximum expected accuracy) structure, where the expected accuracy is computed from the pair probabilities: each base pair (i,j) gets a score 2*gamma*p_ij and the score of an unpaired base is given by the probability of not forming a pair.");
+        AO_A__MEA_Box_IntValue.getAccessibleContext().setAccessibleDescription("Calculate an MEA (maximum expected accuracy) structure, where the expected accuracy is computed from the pair probabilities: each base pair (i,j) gets a score 2*gamma*p_ij and the score of an unpaired base is given by the probability of not forming a pair.");
+        AO_A__pfScale_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("In the calculation of the pf use scale*mfe as an estimate for the ensemble free energy (used to avoid overflows).");
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.getAccessibleContext().setAccessibleDescription("In the calculation of the pf use scale*mfe as an estimate for the ensemble free energy (used to avoid overflows).");
+        AO_A__circ_Box.getAccessibleContext().setAccessibleDescription("Assume a circular (instead of linear) RNA molecule.");
+        AO_A__ImFeelingLucky_Box.getAccessibleContext().setAccessibleDescription("Return exactly one stochastically backtracked structure");
+        AO_A__bppmThreshold_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Set the threshold for base pair probabilities included in the postscript output");
+        AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Set the threshold for base pair probabilities included in the postscript output");
+        AO_A__gquad_Box.getAccessibleContext().setAccessibleDescription("Incoorporate G-Quadruplex formation into the structure prediction algorithm");
+
+        AO_tabpanel.addTab("Algo", AO_A_Spanel);
+
+        AO_M__temp_Box.setText("--temp/-T");
+        AO_M__temp_Box.setName("AO_M__temp_Box"); // NOI18N
+        AO_M__temp_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__temp_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__temp_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(37.0, -200.0, 250, 1));
+        AO_M__temp_Box_DouValue.setName("AO_M__temp_Box_DouValue"); // NOI18N
+        AO_M__temp_Box_DouValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_M__temp_Box_DouValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_M__temp_Box_DouValue_StateChanged(evt);
+            }
+        });
+
+        AO_M__temp_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        AO_M__temp_Box_Label.setText("Default is 37C. DOUBLE");
+        AO_M__temp_Box_Label.setName("AO_M__temp_Box_Label"); // NOI18N
+
+        AO_M__noTetra_Box.setText("--noTetra/-4");
+        AO_M__noTetra_Box.setName("AO_M__noTetra_Box"); // NOI18N
+        AO_M__noTetra_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__noTetra_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__dangles_Box.setText("--dangles/-d");
+        AO_M__dangles_Box.setName("AO_M__dangles_Box"); // NOI18N
+        AO_M__dangles_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__dangles_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__dangles_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(2, null, null, 1));
+        AO_M__dangles_Box_IntValue.setName("AO_M__dangles_Box_IntValue"); // NOI18N
+        AO_M__dangles_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_M__dangles_Box_IntValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_M__dangles_Box_IntValue_StateChanged(evt);
+            }
+        });
+
+        AO_M__noLP_Box.setText("--noLP");
+        AO_M__noLP_Box.setName("AO_M__noLP_Box"); // NOI18N
+        AO_M__noLP_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__noLP_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__noGU_Box.setText("--noGU");
+        AO_M__noGU_Box.setName("AO_M__noGU_Box"); // NOI18N
+        AO_M__noGU_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__noGU_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__noClosingGU_Box.setText("--noClosingGU");
+        AO_M__noClosingGU_Box.setName("AO_M__noClosingGU_Box"); // NOI18N
+        AO_M__noClosingGU_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__noClosingGU_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__paramFile_EQUALSYMBOL_Box.setText("--paramFile=/-P");
+        AO_M__paramFile_EQUALSYMBOL_Box.setName("AO_M__paramFile_EQUALSYMBOL_Box"); // NOI18N
+        AO_M__paramFile_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__paramFile_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setText("DirFile");
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setName("AO_M__paramFile_EQUALSYMBOL_Box_DirFile"); // NOI18N
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__paramFile_EQUALSYMBOL_Box_DirFile_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__paramFile_EQUALSYMBOL_Box_Text.setText("paramfile");
+        AO_M__paramFile_EQUALSYMBOL_Box_Text.setName("AO_M__paramFile_EQUALSYMBOL_Box_Text"); // NOI18N
+        AO_M__paramFile_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
+        AO_M__paramFile_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                AO_M__paramFile_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        AO_M__energyModel_EQUALSYMBOL_Box.setText("--energyModel=/-e");
+        AO_M__energyModel_EQUALSYMBOL_Box.setName("AO_M__energyModel_EQUALSYMBOL_Box"); // NOI18N
+        AO_M__energyModel_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__energyModel_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 1));
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setName("AO_M__energyModel_EQUALSYMBOL_Box_IntValue"); // NOI18N
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_M__energyModel_EQUALSYMBOL_Box_IntValue_StateChanged(evt);
+            }
+        });
+
+        AO_M__betaScale_EQUALSYMBOL_Box.setText("--betaScale=/-e");
+        AO_M__betaScale_EQUALSYMBOL_Box.setName("AO_M__betaScale_EQUALSYMBOL_Box"); // NOI18N
+        AO_M__betaScale_EQUALSYMBOL_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__betaScale_EQUALSYMBOL_Box_ActionPerformed(evt);
+            }
+        });
+
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(1.0, null, null, 1.0d));
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setName("AO_M__betaScale_EQUALSYMBOL_Box_DouValue"); // NOI18N
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setPreferredSize(new java.awt.Dimension(115, 28));
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AO_M__betaScale_EQUALSYMBOL_Box_DouValue_StateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AO_M_SpanelLayout = new javax.swing.GroupLayout(AO_M_Spanel);
+        AO_M_Spanel.setLayout(AO_M_SpanelLayout);
+        AO_M_SpanelLayout.setHorizontalGroup(
+            AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_M__temp_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__temp_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__temp_Box_Label))
+                    .addComponent(AO_M__noTetra_Box)                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_M__dangles_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__dangles_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AO_M__noLP_Box)                    .addComponent(AO_M__noGU_Box)                    .addComponent(AO_M__noClosingGU_Box)                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_M__paramFile_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_DirFile))
+                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_M__energyModel_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__energyModel_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                        .addComponent(AO_M__betaScale_EQUALSYMBOL_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(AO_M__betaScale_EQUALSYMBOL_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        AO_M_SpanelLayout.setVerticalGroup(
+            AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_M__temp_Box)
+                    .addComponent(AO_M__temp_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AO_M__temp_Box_Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(AO_M__noTetra_Box)                .addContainerGap()
+                .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_M__dangles_Box)
+                    .addComponent(AO_M__dangles_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(AO_M__noLP_Box)                .addContainerGap()
+                .addComponent(AO_M__noGU_Box)                .addContainerGap()
+                .addComponent(AO_M__noClosingGU_Box)                .addContainerGap()
+                .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_M__paramFile_EQUALSYMBOL_Box)
+                    .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_DirFile))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_M__energyModel_EQUALSYMBOL_Box)
+                    .addComponent(AO_M__energyModel_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AO_M__betaScale_EQUALSYMBOL_Box)
+                    .addComponent(AO_M__betaScale_EQUALSYMBOL_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        AO_M__temp_Box.getAccessibleContext().setAccessibleDescription("Rescale energy parameters to a temperature of temp C.");
+        AO_M__temp_Box_DouValue.getAccessibleContext().setAccessibleDescription("Rescale energy parameters to a temperature of temp C.");
+        AO_M__noTetra_Box.getAccessibleContext().setAccessibleDescription("Do not include special tabulated stabilizing energies for tri-, tetra- and hexaloop hairpins. Mostly for testing.");
+        AO_M__dangles_Box.getAccessibleContext().setAccessibleDescription("How to treat dangling end energies for bases adjacent to helices in free ends and multi-loops");
+        AO_M__dangles_Box_IntValue.getAccessibleContext().setAccessibleDescription("How to treat dangling end energies for bases adjacent to helices in free ends and multi-loops");
+        AO_M__noLP_Box.getAccessibleContext().setAccessibleDescription("Produce structures without lonely pairs (helices of length 1).");
+        AO_M__noGU_Box.getAccessibleContext().setAccessibleDescription("Do not allow GU pairs");
+        AO_M__noClosingGU_Box.getAccessibleContext().setAccessibleDescription("Do not allow GU pairs at the end of helices");
+        AO_M__paramFile_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
+        AO_M__paramFile_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
+        AO_M__energyModel_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Rarely used option to fold sequences from the artificial ABCD... alphabet, where A pairs B, C−D etc. Use the energy parameters for GC (−e 1) or AU (−e 2) pairs.");
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.getAccessibleContext().setAccessibleDescription("Rarely used option to fold sequences from the artificial ABCD... alphabet, where A pairs B, C−D etc. Use the energy parameters for GC (−e 1) or AU (−e 2) pairs.");
+        AO_M__betaScale_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Set the scaling of the Boltzmann factors");
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.getAccessibleContext().setAccessibleDescription("Set the scaling of the Boltzmann factors");
+
+        AO_tabpanel.addTab("Model", AO_M_Spanel);
+
+        javax.swing.GroupLayout AO_panelLayout = new javax.swing.GroupLayout(AO_panel);
+        AO_panel.setLayout(AO_panelLayout);
+        AO_panelLayout.setHorizontalGroup(
+            AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
+                    .addComponent(AO_tabpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        AO_panelLayout.setVerticalGroup(
+            AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AO_panelLayout.createSequentialGroup()
+                .addComponent(AO_tabpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+
+        javax.swing.GroupLayout general_jPanel1Layout = new javax.swing.GroupLayout(general_jPanel1);
+        general_jPanel1.setLayout(general_jPanel1Layout);
+        general_jPanel1Layout.setHorizontalGroup(
+            general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addComponent(name_jLabel)
+                .addGap(18, 18, 18)
+                .addComponent(name_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(rename_jButton))
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addComponent(Default_Options_RButton)
+                .addGap(18, 18, 18)
+                .addComponent(Advanced_Options_RButton))
+            .addComponent(AO_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addComponent(reset_jButton)
+                .addGap(18, 18, 18)
+                .addComponent(stop_jButton)
+                .addGap(18, 18, 18)
+                .addComponent(run_jButton)
+                .addGap(18, 18, 18)
+                .addComponent(close_jButton))
+        );
+        general_jPanel1Layout.setVerticalGroup(
+            general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(name_jLabel)
+                    .addComponent(name_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rename_jButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Default_Options_RButton)
+                    .addComponent(Advanced_Options_RButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset_jButton)
+                    .addComponent(stop_jButton)
+                    .addComponent(run_jButton)
+                    .addComponent(close_jButton)))
+        );
+
+        name_jTextField.getAccessibleContext().setAccessibleDescription("");
+        rename_jButton.getAccessibleContext().setAccessibleDescription("");
+        reset_jButton.getAccessibleContext().setAccessibleDescription("");
+        close_jButton.getAccessibleContext().setAccessibleDescription("");
+        stop_jButton.getAccessibleContext().setAccessibleDescription("");
+        run_jButton.getAccessibleContext().setAccessibleDescription("");
+        Default_Options_RButton.getAccessibleContext().setAccessibleDescription("");
+        Advanced_Options_RButton.getAccessibleContext().setAccessibleDescription("");
+
+        RNAfoldEditors2.addTab("RNAfoldEditors", general_jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(how_jButton1))
-                    .addComponent(RNAfoldEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(docker_jButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(how_jButton))
+            .addComponent(RNAfoldEditors2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(how_jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(docker_jButton)
+                .addComponent(how_jButton)
+                   )
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RNAfoldEditor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(RNAfoldEditors2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        
-        
+
+        how_jButton.getAccessibleContext().setAccessibleDescription(".");
+        RNAfoldEditors2.getAccessibleContext().setAccessibleName("RNAfoldEditors");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RNAfoldEditorComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_RNAfoldEditorComponentShown
+    private void RNAfoldEditors2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_RNAfoldEditors2ComponentShown
         // TODO add your handling code here:
-    }//GEN-LAST:event_RNAfoldEditorComponentShown
+    }//GEN-LAST:event_RNAfoldEditors2ComponentShown
     
-    private void how_jButton1_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_help_jButton1_ActionPerformed
+    private void docker_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docker_jButton_ActionPerformed
+        // TODO add your handling code here:
+        dockerEditor dock = new dockerEditor(this.frame, false, properties);
+        dock.setVisible(true);
+    }//GEN-LAST:event_docker_jButton_ActionPerformed
+    
+    private void how_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_how_jButton_ActionPerformed
         // TODO add your handling code here:
         HelpEditor help = new HelpEditor(this.frame, false, properties);
         help.setVisible(true);
-    }//GEN-LAST:event_how_jButton1_ActionPerformed
-    
-    private void close_jButton6_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_jButton6_ActionPerformed
+    }//GEN-LAST:event_how_jButton_ActionPerformed
+
+    private void close_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_jButton_ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_close_jButton6_ActionPerformed
-    
-    private void run_jButton5_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_run_jButton5_ActionPerformed
+    }//GEN-LAST:event_close_jButton_ActionPerformed
+
+    private void run_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_run_jButton_ActionPerformed
         // TODO add your handling code here:
         if (this.properties.isSet("ClassName")) {
             this.parent_workflow.workflow.updateDependance();
             programs prog=new programs(parent_workflow.workbox.getCurrentWorkflows());
             prog.Run(properties);
         }
-    }//GEN-LAST:event_run_jButton5_ActionPerformed
-    
-    private void stop_jButton4_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stop_jButton4_ActionPerformed
+    }//GEN-LAST:event_run_jButton_ActionPerformed
+
+    private void stop_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stop_jButton_ActionPerformed
         // TODO add your handling code here:
         properties.put("Status", Config.status_nothing);
         properties.killThread();
-    }//GEN-LAST:event_stop_jButton4_ActionPerformed
-    
-    private void reset_jButton3_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_jButton3_ActionPerformed
+    }//GEN-LAST:event_stop_jButton_ActionPerformed
+
+    private void reset_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_jButton_ActionPerformed
         // TODO add your handling code here:
         properties.load();             //--reload current properties from file
         this.setProperties(properties);//--Update current field
         this.display(properties);
-    }//GEN-LAST:event_reset_jButton3_ActionPerformed
-    
-    private void rename_jButton2_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rename_jButton2_ActionPerformed
+    }//GEN-LAST:event_reset_jButton_ActionPerformed
+
+    private void rename_jButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rename_jButton_ActionPerformed
         // TODO add your handling code here:
-        properties.put("Name", this.name_jTextField1.getText());
-    }//GEN-LAST:event_rename_jButton2_ActionPerformed
-    
-    private void name_jTextField1_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_jTextField1_ActionPerformed
+        properties.put("Name", this.name_jTextField.getText());
+    }//GEN-LAST:event_rename_jButton_ActionPerformed
+
+    private void name_jTextField_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_jTextField_ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_jTextField1_ActionPerformed
+    }//GEN-LAST:event_name_jTextField_ActionPerformed
     
+
     private void Default_Options_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Default_Options_RButton_ActionPerformed
         // TODO add your handling code here:
+        if (properties.isSet(Default_Options_RButton.getName()) &&
+            properties.isSet(Advanced_Options_RButton.getName())
+        ){
+            properties.remove(Default_Options_RButton.getName());
+            Default_Options_RButton.setSelected(false);
+
+            properties.remove(Advanced_Options_RButton.getName());
+        }
         Util.buttonEventSpinner(properties,Default_Options_RButton,null);
+        menuFields(properties);
     }//GEN-LAST:event_Default_Options_RButton_ActionPerformed
 
-    private void General_Options_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_General_Options_RButton_ActionPerformed
+    private void Advanced_Options_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Advanced_Options_RButton_ActionPerformed
         // TODO add your handling code here:
-        Util.buttonEventSpinner(properties,General_Options_RButton,null);
-    }//GEN-LAST:event_General_Options_RButton_ActionPerformed
+        if (properties.isSet(Default_Options_RButton.getName()) &&
+            properties.isSet(Advanced_Options_RButton.getName())
+        ){
+            properties.remove(Default_Options_RButton.getName());
+            Default_Options_RButton.setSelected(false);
 
-    private void Model_Details_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Model_Details_RButton_ActionPerformed
-        // TODO add your handling code here:
-        Util.buttonEventSpinner(properties,Model_Details_RButton,null);
-    }//GEN-LAST:event_Model_Details_RButton_ActionPerformed
+            properties.remove(Advanced_Options_RButton.getName());
+        }
+        Util.buttonEventSpinner(properties,Advanced_Options_RButton,null);
+        menuFields(properties);
+    }//GEN-LAST:event_Advanced_Options_RButton_ActionPerformed
 
-    private void AO_GO_constraint_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_GO_constraint_Box_ActionPerformed
+    private void AO_G__noPS_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_G__noPS_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_GO_constraint_Box,null);
-    }//GEN-LAST:event_AO_GO_constraint_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_G__noPS_Box,null);
+    }//GEN-LAST:event_AO_G__noPS_Box_ActionPerformed
 
-    private void AO_GO_canonicalBPonly_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_GO_canonicalBPonly_Box_ActionPerformed
+    private void AO_G__layoutType_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_G__layoutType_EQUALSYMBOL_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_GO_canonicalBPonly_Box,null);
-    }//GEN-LAST:event_AO_GO_canonicalBPonly_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_G__layoutType_EQUALSYMBOL_Box,AO_G__layoutType_EQUALSYMBOL_Box_BooValue);
+    }//GEN-LAST:event_AO_G__layoutType_EQUALSYMBOL_Box_ActionPerformed
 
-    private void AO_GO_noconv_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_GO_noconv_Box_ActionPerformed
+    private void AO_G__layoutType_EQUALSYMBOL_Box_BooValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_G__layoutType_EQUALSYMBOL_Box_BooValue_StateChanged
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_GO_noconv_Box,null);
-    }//GEN-LAST:event_AO_GO_noconv_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_G__layoutType_EQUALSYMBOL_Box,AO_G__layoutType_EQUALSYMBOL_Box_BooValue);
+    }//GEN-LAST:event_AO_G__layoutType_EQUALSYMBOL_Box_BooValue_StateChanged
 
-    private void AO_GO_noPS_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_GO_noPS_Box_ActionPerformed
+    private void AO_G__noconv_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_G__noconv_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_GO_noPS_Box,null);
-    }//GEN-LAST:event_AO_GO_noPS_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_G__noconv_Box,null);
+    }//GEN-LAST:event_AO_G__noconv_Box_ActionPerformed
 
-    private void AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_ActionPerformed
+    private void AO_S__maxBPspan_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__maxBPspan_EQUALSYMBOL_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_ASaawsbiitcTMfeaasraciac_partfunc_Box,AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value);
-    }//GEN-LAST:event_AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_S__maxBPspan_EQUALSYMBOL_Box,AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue);
+    }//GEN-LAST:event_AO_S__maxBPspan_EQUALSYMBOL_Box_ActionPerformed
 
-    private void AO_ASaawsbiitcTMfeaasraciac_MEA_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_ASaawsbiitcTMfeaasraciac_MEA_Box_ActionPerformed
+    private void AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue_StateChanged
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_ASaawsbiitcTMfeaasraciac_MEA_Box,AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value);
-    }//GEN-LAST:event_AO_ASaawsbiitcTMfeaasraciac_MEA_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_S__maxBPspan_EQUALSYMBOL_Box,AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue);
+    }//GEN-LAST:event_AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue_StateChanged
 
-    private void AO_ASaawsbiitcTMfeaasraciac_circ_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_ASaawsbiitcTMfeaasraciac_circ_Box_ActionPerformed
+    private void AO_S__constraint_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__constraint_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_ASaawsbiitcTMfeaasraciac_circ_Box,null);
-    }//GEN-LAST:event_AO_ASaawsbiitcTMfeaasraciac_circ_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_S__constraint_Box,null);
+    }//GEN-LAST:event_AO_S__constraint_Box_ActionPerformed
 
-    private void AO_ASaawsbiitcTMfeaasraciac_gquad_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_ASaawsbiitcTMfeaasraciac_gquad_Box_ActionPerformed
+    private void AO_S__canonicalBPonly_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__canonicalBPonly_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_ASaawsbiitcTMfeaasraciac_gquad_Box,null);
-    }//GEN-LAST:event_AO_ASaawsbiitcTMfeaasraciac_gquad_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_S__canonicalBPonly_Box,null);
+    }//GEN-LAST:event_AO_S__canonicalBPonly_Box_ActionPerformed
 
-    private void AO_MD_temp_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_temp_Box_ActionPerformed
+    private void AO_S__enforceConstraint_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__enforceConstraint_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_MD_temp_Box,null);
-    }//GEN-LAST:event_AO_MD_temp_Box_ActionPerformed
+        Util.boxEventSpinner(properties,AO_S__enforceConstraint_Box,null);
+    }//GEN-LAST:event_AO_S__enforceConstraint_Box_ActionPerformed
 
-    private void AO_MD_noTetra_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_noTetra_Box_ActionPerformed
+    private void AO_S__shape_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__shape_EQUALSYMBOL_Box_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_MD_noTetra_Box,null);
-    }//GEN-LAST:event_AO_MD_noTetra_Box_ActionPerformed
+        Util.boxEventText(properties,AO_S__shape_EQUALSYMBOL_Box,AO_S__shape_EQUALSYMBOL_Box_Text);
+        if (properties.isSet(AO_S__shape_EQUALSYMBOL_Box.getName()))
+            AO_S__shape_EQUALSYMBOL_Box_DirFile.setEnabled(true);
+        else
+            AO_S__shape_EQUALSYMBOL_Box_DirFile.setEnabled(false);
+    }//GEN-LAST:event_AO_S__shape_EQUALSYMBOL_Box_ActionPerformed
 
-    private void AO_MD_dangles_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_dangles_Box_ActionPerformed
+    private void AO_S__shape_EQUALSYMBOL_Box_Text_FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AO_S__shape_EQUALSYMBOL_Box_Text_FocusLost
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_MD_dangles_Box,null);
-    }//GEN-LAST:event_AO_MD_dangles_Box_ActionPerformed
+        Util.boxEventText(properties,AO_S__shape_EQUALSYMBOL_Box,AO_S__shape_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_S__shape_EQUALSYMBOL_Box_Text_FocusLost
 
-    private void AO_MD_noLP_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_noLP_Box_ActionPerformed
+    private void AO_S__shape_EQUALSYMBOL_Box_DirFile_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__shape_EQUALSYMBOL_Box_DirFile_ActionPerformed
         // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_MD_noLP_Box,null);
-    }//GEN-LAST:event_AO_MD_noLP_Box_ActionPerformed
-
-    private void AO_MD_noGU_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_noGU_Box_ActionPerformed
-        // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_MD_noGU_Box,null);
-    }//GEN-LAST:event_AO_MD_noGU_Box_ActionPerformed
-
-    private void AO_MD_noClosingGU_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_noClosingGU_Box_ActionPerformed
-        // TODO add your handling code here:
-        Util.boxEventSpinner(properties,AO_MD_noClosingGU_Box,null);
-    }//GEN-LAST:event_AO_MD_noClosingGU_Box_ActionPerformed
-
-    private void AO_MD_paramFile_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_MD_paramFile_Box_ActionPerformed
-        // TODO add your handling code here:
-        Util.boxEventText(properties,AO_MD_paramFile_Box,AO_MD_paramFile_Box_Text);
-    }//GEN-LAST:event_AO_MD_paramFile_Box_ActionPerformed
+        JFileChooser d;
+        if (this.AO_S__shape_EQUALSYMBOL_Box_Text.getText().isEmpty()) {
+            d=new JFileChooser(config.getExplorerPath());
+        } else {
+            d=new JFileChooser(this.AO_S__shape_EQUALSYMBOL_Box_Text.getText());
+        }
+        d.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        d.setAcceptAllFileFilterUsed(false);
+        d.setMultiSelectionEnabled(false);
+        int result = d.showOpenDialog(this);
         
+        if (result==JFileChooser.APPROVE_OPTION) {
+            File dir = d.getSelectedFile();
+            
+            // Set the text
+            String s = dir.getAbsolutePath();
+            AO_S__shape_EQUALSYMBOL_Box_Text.setText(s);
+            properties.remove(AO_S__shape_EQUALSYMBOL_Box_Text.getName());
+            Util.boxEventText(properties,AO_S__shape_EQUALSYMBOL_Box,AO_S__shape_EQUALSYMBOL_Box_Text);
+        }
+    }//GEN-LAST:event_AO_S__shape_EQUALSYMBOL_Box_DirFile_ActionPerformed
+
+    private void AO_S__shapeMethod_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__shapeMethod_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_S__shapeMethod_EQUALSYMBOL_Box,AO_S__shapeMethod_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_S__shapeMethod_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_S__shapeMethod_EQUALSYMBOL_Box_Text_FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AO_S__shapeMethod_EQUALSYMBOL_Box_Text_FocusLost
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_S__shapeMethod_EQUALSYMBOL_Box,AO_S__shapeMethod_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_S__shapeMethod_EQUALSYMBOL_Box_Text_FocusLost
+
+    private void AO_S__shapeConversion_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__shapeConversion_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventComboBox(properties,AO_S__shapeConversion_EQUALSYMBOL_Box,AO_S__shapeConversion_EQUALSYMBOL_Box_List);
+    }//GEN-LAST:event_AO_S__shapeConversion_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_S__shapeConversion_EQUALSYMBOL_Box_List_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__shapeConversion_EQUALSYMBOL_Box_List_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventComboBox(properties,AO_S__shapeConversion_EQUALSYMBOL_Box,AO_S__shapeConversion_EQUALSYMBOL_Box_List);
+    }//GEN-LAST:event_AO_S__shapeConversion_EQUALSYMBOL_Box_List_ActionPerformed
+
+    private void AO_S__motif_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_S__motif_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_S__motif_EQUALSYMBOL_Box,AO_S__motif_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_S__motif_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_S__motif_EQUALSYMBOL_Box_Text_FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AO_S__motif_EQUALSYMBOL_Box_Text_FocusLost
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_S__motif_EQUALSYMBOL_Box,AO_S__motif_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_S__motif_EQUALSYMBOL_Box_Text_FocusLost
+
+    private void AO_A__partfunc_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__partfunc_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__partfunc_Box,AO_A__partfunc_Box_IntValue);
+    }//GEN-LAST:event_AO_A__partfunc_Box_ActionPerformed
+
+    private void AO_A__partfunc_Box_IntValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_A__partfunc_Box_IntValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__partfunc_Box,AO_A__partfunc_Box_IntValue);
+    }//GEN-LAST:event_AO_A__partfunc_Box_IntValue_StateChanged
+
+    private void AO_A__MEA_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__MEA_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__MEA_Box,AO_A__MEA_Box_IntValue);
+    }//GEN-LAST:event_AO_A__MEA_Box_ActionPerformed
+
+    private void AO_A__MEA_Box_IntValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_A__MEA_Box_IntValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__MEA_Box,AO_A__MEA_Box_IntValue);
+    }//GEN-LAST:event_AO_A__MEA_Box_IntValue_StateChanged
+
+    private void AO_A__pfScale_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__pfScale_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__pfScale_EQUALSYMBOL_Box,AO_A__pfScale_EQUALSYMBOL_Box_DouValue);
+    }//GEN-LAST:event_AO_A__pfScale_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_A__pfScale_EQUALSYMBOL_Box_DouValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_A__pfScale_EQUALSYMBOL_Box_DouValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__pfScale_EQUALSYMBOL_Box,AO_A__pfScale_EQUALSYMBOL_Box_DouValue);
+    }//GEN-LAST:event_AO_A__pfScale_EQUALSYMBOL_Box_DouValue_StateChanged
+
+    private void AO_A__circ_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__circ_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__circ_Box,null);
+    }//GEN-LAST:event_AO_A__circ_Box_ActionPerformed
+
+    private void AO_A__ImFeelingLucky_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__ImFeelingLucky_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__ImFeelingLucky_Box,null);
+    }//GEN-LAST:event_AO_A__ImFeelingLucky_Box_ActionPerformed
+
+    private void AO_A__bppmThreshold_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__bppmThreshold_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_A__bppmThreshold_EQUALSYMBOL_Box,AO_A__bppmThreshold_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_A__bppmThreshold_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_A__bppmThreshold_EQUALSYMBOL_Box_Text_FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AO_A__bppmThreshold_EQUALSYMBOL_Box_Text_FocusLost
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_A__bppmThreshold_EQUALSYMBOL_Box,AO_A__bppmThreshold_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_A__bppmThreshold_EQUALSYMBOL_Box_Text_FocusLost
+
+    private void AO_A__gquad_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_A__gquad_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_A__gquad_Box,null);
+    }//GEN-LAST:event_AO_A__gquad_Box_ActionPerformed
+
+    private void AO_M__temp_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__temp_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__temp_Box,AO_M__temp_Box_DouValue);
+    }//GEN-LAST:event_AO_M__temp_Box_ActionPerformed
+
+    private void AO_M__temp_Box_DouValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_M__temp_Box_DouValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__temp_Box,AO_M__temp_Box_DouValue);
+    }//GEN-LAST:event_AO_M__temp_Box_DouValue_StateChanged
+
+    private void AO_M__noTetra_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__noTetra_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__noTetra_Box,null);
+    }//GEN-LAST:event_AO_M__noTetra_Box_ActionPerformed
+
+    private void AO_M__dangles_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__dangles_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__dangles_Box,AO_M__dangles_Box_IntValue);
+    }//GEN-LAST:event_AO_M__dangles_Box_ActionPerformed
+
+    private void AO_M__dangles_Box_IntValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_M__dangles_Box_IntValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__dangles_Box,AO_M__dangles_Box_IntValue);
+    }//GEN-LAST:event_AO_M__dangles_Box_IntValue_StateChanged
+
+    private void AO_M__noLP_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__noLP_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__noLP_Box,null);
+    }//GEN-LAST:event_AO_M__noLP_Box_ActionPerformed
+
+    private void AO_M__noGU_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__noGU_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__noGU_Box,null);
+    }//GEN-LAST:event_AO_M__noGU_Box_ActionPerformed
+
+    private void AO_M__noClosingGU_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__noClosingGU_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__noClosingGU_Box,null);
+    }//GEN-LAST:event_AO_M__noClosingGU_Box_ActionPerformed
+
+    private void AO_M__paramFile_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__paramFile_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_M__paramFile_EQUALSYMBOL_Box,AO_M__paramFile_EQUALSYMBOL_Box_Text);
+        if (properties.isSet(AO_M__paramFile_EQUALSYMBOL_Box.getName()))
+            AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setEnabled(true);
+        else
+            AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setEnabled(false);
+    }//GEN-LAST:event_AO_M__paramFile_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_M__paramFile_EQUALSYMBOL_Box_Text_FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_AO_M__paramFile_EQUALSYMBOL_Box_Text_FocusLost
+        // TODO add your handling code here:
+        Util.boxEventText(properties,AO_M__paramFile_EQUALSYMBOL_Box,AO_M__paramFile_EQUALSYMBOL_Box_Text);
+    }//GEN-LAST:event_AO_M__paramFile_EQUALSYMBOL_Box_Text_FocusLost
+
+    private void AO_M__paramFile_EQUALSYMBOL_Box_DirFile_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__paramFile_EQUALSYMBOL_Box_DirFile_ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser d;
+        if (this.AO_M__paramFile_EQUALSYMBOL_Box_Text.getText().isEmpty()) {
+            d=new JFileChooser(config.getExplorerPath());
+        } else {
+            d=new JFileChooser(this.AO_M__paramFile_EQUALSYMBOL_Box_Text.getText());
+        }
+        d.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        d.setAcceptAllFileFilterUsed(false);
+        d.setMultiSelectionEnabled(false);
+        int result = d.showOpenDialog(this);
+        
+        if (result==JFileChooser.APPROVE_OPTION) {
+            File dir = d.getSelectedFile();
+            
+            // Set the text
+            String s = dir.getAbsolutePath();
+            AO_M__paramFile_EQUALSYMBOL_Box_Text.setText(s);
+            properties.remove(AO_M__paramFile_EQUALSYMBOL_Box_Text.getName());
+            Util.boxEventText(properties,AO_M__paramFile_EQUALSYMBOL_Box,AO_M__paramFile_EQUALSYMBOL_Box_Text);
+        }
+    }//GEN-LAST:event_AO_M__paramFile_EQUALSYMBOL_Box_DirFile_ActionPerformed
+
+    private void AO_M__energyModel_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__energyModel_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__energyModel_EQUALSYMBOL_Box,AO_M__energyModel_EQUALSYMBOL_Box_IntValue);
+    }//GEN-LAST:event_AO_M__energyModel_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_M__energyModel_EQUALSYMBOL_Box_IntValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_M__energyModel_EQUALSYMBOL_Box_IntValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__energyModel_EQUALSYMBOL_Box,AO_M__energyModel_EQUALSYMBOL_Box_IntValue);
+    }//GEN-LAST:event_AO_M__energyModel_EQUALSYMBOL_Box_IntValue_StateChanged
+
+    private void AO_M__betaScale_EQUALSYMBOL_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AO_M__betaScale_EQUALSYMBOL_Box_ActionPerformed
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__betaScale_EQUALSYMBOL_Box,AO_M__betaScale_EQUALSYMBOL_Box_DouValue);
+    }//GEN-LAST:event_AO_M__betaScale_EQUALSYMBOL_Box_ActionPerformed
+
+    private void AO_M__betaScale_EQUALSYMBOL_Box_DouValue_StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AO_M__betaScale_EQUALSYMBOL_Box_DouValue_StateChanged
+        // TODO add your handling code here:
+        Util.boxEventSpinner(properties,AO_M__betaScale_EQUALSYMBOL_Box,AO_M__betaScale_EQUALSYMBOL_Box_DouValue);
+    }//GEN-LAST:event_AO_M__betaScale_EQUALSYMBOL_Box_DouValue_StateChanged
     /*******************************************************************
     * Enabled Function
     *******************************************************************/
     
-    private void enabledFunction (boolean e) {
-        this.AO_GO_constraint_Box.setEnabled(e);
-        this.AO_GO_canonicalBPonly_Box.setEnabled(e);
-        this.AO_GO_noconv_Box.setEnabled(e);
-        this.AO_GO_noPS_Box.setEnabled(e);
-        this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.setEnabled(e);
-        if (properties.isSet(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.getName()) && e==true) {
-            this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.setEnabled(true);
+    private void enabledFunctionForGeneral(boolean e) {
+        this.AO_G__noPS_Box.setEnabled(e);
+        this.AO_G__layoutType_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_G__layoutType_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setEnabled(true);
         } else {
-            this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.setEnabled(false);
+            this.AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setEnabled(false);
         }
-        this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box.setEnabled(e);
-        if (properties.isSet(AO_ASaawsbiitcTMfeaasraciac_MEA_Box.getName()) && e==true) {
-            this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.setEnabled(true);
-        } else {
-            this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.setEnabled(false);
-        }
-        this.AO_ASaawsbiitcTMfeaasraciac_circ_Box.setEnabled(e);
-        this.AO_ASaawsbiitcTMfeaasraciac_gquad_Box.setEnabled(e);
-        this.AO_MD_temp_Box.setEnabled(e);
-        this.AO_MD_noTetra_Box.setEnabled(e);
-        this.AO_MD_dangles_Box.setEnabled(e);
-        this.AO_MD_noLP_Box.setEnabled(e);
-        this.AO_MD_noGU_Box.setEnabled(e);
-        this.AO_MD_noClosingGU_Box.setEnabled(e);
-        this.AO_MD_paramFile_Box.setEnabled(e);
-        if (properties.isSet(AO_MD_paramFile_Box.getName()) && e==true) {
-            this.AO_MD_paramFile_Box_Text.setEnabled(true);
-        } else {
-            this.AO_MD_paramFile_Box_Text.setEnabled(false);
-        }
+
+        this.AO_G__noconv_Box.setEnabled(e);
     }
     
+    private void enabledFunctionForStruct(boolean e) {
+        this.AO_S__maxBPspan_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_S__maxBPspan_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setEnabled(true);
+        } else {
+            this.AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setEnabled(false);
+        }
+
+        this.AO_S__constraint_Box.setEnabled(e);
+        this.AO_S__canonicalBPonly_Box.setEnabled(e);
+        this.AO_S__enforceConstraint_Box.setEnabled(e);
+        this.AO_S__shape_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_S__shape_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_S__shape_EQUALSYMBOL_Box_Text.setEnabled(true);
+            this.AO_S__shape_EQUALSYMBOL_Box_DirFile.setEnabled(true);
+        } else {
+            this.AO_S__shape_EQUALSYMBOL_Box_Text.setEnabled(false);
+            this.AO_S__shape_EQUALSYMBOL_Box_DirFile.setEnabled(false);
+        }
+
+        this.AO_S__shapeMethod_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_S__shapeMethod_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setEnabled(true);
+        } else {
+            this.AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+
+        this.AO_S__shapeConversion_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_S__shapeConversion_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_S__shapeConversion_EQUALSYMBOL_Box_List.setEnabled(true);
+        } else {
+            this.AO_S__shapeConversion_EQUALSYMBOL_Box_List.setEnabled(false);
+        }
+
+        this.AO_S__motif_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_S__motif_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_S__motif_EQUALSYMBOL_Box_Text.setEnabled(true);
+        } else {
+            this.AO_S__motif_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+
+    }
     
+    private void enabledFunctionForAlgo(boolean e) {
+        this.AO_A__partfunc_Box.setEnabled(e);
+        if (properties.isSet(AO_A__partfunc_Box.getName()) && e==true) {
+            this.AO_A__partfunc_Box_IntValue.setEnabled(true);
+        } else {
+            this.AO_A__partfunc_Box_IntValue.setEnabled(false);
+        }
+
+        this.AO_A__MEA_Box.setEnabled(e);
+        if (properties.isSet(AO_A__MEA_Box.getName()) && e==true) {
+            this.AO_A__MEA_Box_IntValue.setEnabled(true);
+        } else {
+            this.AO_A__MEA_Box_IntValue.setEnabled(false);
+        }
+
+        this.AO_A__pfScale_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_A__pfScale_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setEnabled(true);
+        } else {
+            this.AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setEnabled(false);
+        }
+
+        this.AO_A__circ_Box.setEnabled(e);
+        this.AO_A__ImFeelingLucky_Box.setEnabled(e);
+        this.AO_A__bppmThreshold_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_A__bppmThreshold_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setEnabled(true);
+        } else {
+            this.AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+
+        this.AO_A__gquad_Box.setEnabled(e);
+    }
+    
+    private void enabledFunctionForModel(boolean e) {
+        this.AO_M__temp_Box.setEnabled(e);
+        if (properties.isSet(AO_M__temp_Box.getName()) && e==true) {
+            this.AO_M__temp_Box_DouValue.setEnabled(true);
+        } else {
+            this.AO_M__temp_Box_DouValue.setEnabled(false);
+        }
+
+        this.AO_M__noTetra_Box.setEnabled(e);
+        this.AO_M__dangles_Box.setEnabled(e);
+        if (properties.isSet(AO_M__dangles_Box.getName()) && e==true) {
+            this.AO_M__dangles_Box_IntValue.setEnabled(true);
+        } else {
+            this.AO_M__dangles_Box_IntValue.setEnabled(false);
+        }
+
+        this.AO_M__noLP_Box.setEnabled(e);
+        this.AO_M__noGU_Box.setEnabled(e);
+        this.AO_M__noClosingGU_Box.setEnabled(e);
+        this.AO_M__paramFile_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_M__paramFile_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_M__paramFile_EQUALSYMBOL_Box_Text.setEnabled(true);
+            this.AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setEnabled(true);
+        } else {
+            this.AO_M__paramFile_EQUALSYMBOL_Box_Text.setEnabled(false);
+            this.AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setEnabled(false);
+        }
+
+        this.AO_M__energyModel_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_M__energyModel_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setEnabled(true);
+        } else {
+            this.AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setEnabled(false);
+        }
+
+        this.AO_M__betaScale_EQUALSYMBOL_Box.setEnabled(e);
+        if (properties.isSet(AO_M__betaScale_EQUALSYMBOL_Box.getName()) && e==true) {
+            this.AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setEnabled(true);
+        } else {
+            this.AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setEnabled(false);
+        }
+
+    }
+    
+
     /*******************************************************************
     * Update Saved Properties => usp_functions
     *******************************************************************/
-    
+
     private void updateSavedProperties(workflow_properties properties) {
         usp_valueANDtext (properties);
         usp_boxANDbutton (properties);
     }
     
     private void usp_valueANDtext (workflow_properties properties) {
-        if (this.properties.isSet(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.getName())){
-            this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.setValue(Integer.parseInt(this.properties.get(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.getName())));
-            this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.setEnabled(false);
+        if (properties.isSet(AO_G__layoutType_EQUALSYMBOL_Box_BooValue.getName())){
+            this.AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setValue(Integer.parseInt(properties.get(AO_G__layoutType_EQUALSYMBOL_Box_BooValue.getName())));
+            this.AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setEnabled(false);
         }
-        if (this.properties.isSet(AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.getName())){
-            this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.setValue(Integer.parseInt(this.properties.get(AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.getName())));
-            this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.setEnabled(false);
+        if (properties.isSet(AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.getName())){
+            this.AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setValue(Integer.parseInt(properties.get(AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.getName())));
+            this.AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setEnabled(false);
         }
-        if (this.properties.isSet(AO_MD_paramFile_Box_Text.getName())){
-            this.AO_MD_paramFile_Box_Text.setText(this.properties.get(AO_MD_paramFile_Box_Text.getName()));
-            this.AO_MD_paramFile_Box_Text.setEnabled(false);
+        if (properties.isSet(AO_A__partfunc_Box_IntValue.getName())){
+            this.AO_A__partfunc_Box_IntValue.setValue(Integer.parseInt(properties.get(AO_A__partfunc_Box_IntValue.getName())));
+            this.AO_A__partfunc_Box_IntValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_A__MEA_Box_IntValue.getName())){
+            this.AO_A__MEA_Box_IntValue.setValue(Integer.parseInt(properties.get(AO_A__MEA_Box_IntValue.getName())));
+            this.AO_A__MEA_Box_IntValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_A__pfScale_EQUALSYMBOL_Box_DouValue.getName())){
+            this.AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setValue(Double.parseDouble(properties.get(AO_A__pfScale_EQUALSYMBOL_Box_DouValue.getName())));
+            this.AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_M__temp_Box_DouValue.getName())){
+            this.AO_M__temp_Box_DouValue.setValue(Double.parseDouble(properties.get(AO_M__temp_Box_DouValue.getName())));
+            this.AO_M__temp_Box_DouValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_M__dangles_Box_IntValue.getName())){
+            this.AO_M__dangles_Box_IntValue.setValue(Integer.parseInt(properties.get(AO_M__dangles_Box_IntValue.getName())));
+            this.AO_M__dangles_Box_IntValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_M__energyModel_EQUALSYMBOL_Box_IntValue.getName())){
+            this.AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setValue(Integer.parseInt(properties.get(AO_M__energyModel_EQUALSYMBOL_Box_IntValue.getName())));
+            this.AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_M__betaScale_EQUALSYMBOL_Box_DouValue.getName())){
+            this.AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setValue(Double.parseDouble(properties.get(AO_M__betaScale_EQUALSYMBOL_Box_DouValue.getName())));
+            this.AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setEnabled(false);
+        }
+        if (properties.isSet(AO_S__shape_EQUALSYMBOL_Box_Text.getName())){
+            this.AO_S__shape_EQUALSYMBOL_Box_Text.setText(properties.get(AO_S__shape_EQUALSYMBOL_Box_Text.getName()));
+            this.AO_S__shape_EQUALSYMBOL_Box_DirFile.setEnabled(false);
+            this.AO_S__shape_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+        if (properties.isSet(AO_S__shapeMethod_EQUALSYMBOL_Box_Text.getName())){
+            this.AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setText(properties.get(AO_S__shapeMethod_EQUALSYMBOL_Box_Text.getName()));
+            this.AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+        if (properties.isSet(AO_S__motif_EQUALSYMBOL_Box_Text.getName())){
+            this.AO_S__motif_EQUALSYMBOL_Box_Text.setText(properties.get(AO_S__motif_EQUALSYMBOL_Box_Text.getName()));
+            this.AO_S__motif_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+        if (properties.isSet(AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.getName())){
+            this.AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setText(properties.get(AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.getName()));
+            this.AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+        if (properties.isSet(AO_M__paramFile_EQUALSYMBOL_Box_Text.getName())){
+            this.AO_M__paramFile_EQUALSYMBOL_Box_Text.setText(properties.get(AO_M__paramFile_EQUALSYMBOL_Box_Text.getName()));
+            this.AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setEnabled(false);
+            this.AO_M__paramFile_EQUALSYMBOL_Box_Text.setEnabled(false);
+        }
+        if (properties.isSet(AO_S__shapeConversion_EQUALSYMBOL_Box_List.getName())){
+            this.AO_S__shapeConversion_EQUALSYMBOL_Box_List.setSelectedItem(properties.get(AO_S__shapeConversion_EQUALSYMBOL_Box_List.getName()));
+            this.AO_S__shapeConversion_EQUALSYMBOL_Box_List.setEnabled(false);
         }
     }
     
     private void usp_boxANDbutton (workflow_properties properties) {
-        if (this.properties.isSet(AO_GO_constraint_Box.getName())){
-            this.AO_GO_constraint_Box.setSelected(true);
+        if (properties.isSet(AO_G__noPS_Box.getName())){
+            this.AO_G__noPS_Box.setSelected(true);
         }
-        if (this.properties.isSet(AO_GO_canonicalBPonly_Box.getName())){
-            this.AO_GO_canonicalBPonly_Box.setSelected(true);
+        if (properties.isSet(AO_G__layoutType_EQUALSYMBOL_Box.getName())){
+            this.AO_G__layoutType_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_G__layoutType_EQUALSYMBOL_Box_BooValue.setEnabled(true);
         }
-        if (this.properties.isSet(AO_GO_noconv_Box.getName())){
-            this.AO_GO_noconv_Box.setSelected(true);
+        if (properties.isSet(AO_G__noconv_Box.getName())){
+            this.AO_G__noconv_Box.setSelected(true);
         }
-        if (this.properties.isSet(AO_GO_noPS_Box.getName())){
-            this.AO_GO_noPS_Box.setSelected(true);
+        if (properties.isSet(AO_S__maxBPspan_EQUALSYMBOL_Box.getName())){
+            this.AO_S__maxBPspan_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue.setEnabled(true);
         }
-        if (this.properties.isSet(AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.getName())){
-            this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box.setSelected(true);
-            this.AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value.setEnabled(true);
+        if (properties.isSet(AO_S__constraint_Box.getName())){
+            this.AO_S__constraint_Box.setSelected(true);
         }
-        if (this.properties.isSet(AO_ASaawsbiitcTMfeaasraciac_MEA_Box.getName())){
-            this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box.setSelected(true);
-            this.AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value.setEnabled(true);
+        if (properties.isSet(AO_S__canonicalBPonly_Box.getName())){
+            this.AO_S__canonicalBPonly_Box.setSelected(true);
         }
-        if (this.properties.isSet(AO_ASaawsbiitcTMfeaasraciac_circ_Box.getName())){
-            this.AO_ASaawsbiitcTMfeaasraciac_circ_Box.setSelected(true);
+        if (properties.isSet(AO_S__enforceConstraint_Box.getName())){
+            this.AO_S__enforceConstraint_Box.setSelected(true);
         }
-        if (this.properties.isSet(AO_ASaawsbiitcTMfeaasraciac_gquad_Box.getName())){
-            this.AO_ASaawsbiitcTMfeaasraciac_gquad_Box.setSelected(true);
+        if (properties.isSet(AO_S__shape_EQUALSYMBOL_Box.getName())){
+            this.AO_S__shape_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_S__shape_EQUALSYMBOL_Box_DirFile.setEnabled(true);
+            this.AO_S__shape_EQUALSYMBOL_Box_Text.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_temp_Box.getName())){
-            this.AO_MD_temp_Box.setSelected(true);
+        if (properties.isSet(AO_S__shapeMethod_EQUALSYMBOL_Box.getName())){
+            this.AO_S__shapeMethod_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_S__shapeMethod_EQUALSYMBOL_Box_Text.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_noTetra_Box.getName())){
-            this.AO_MD_noTetra_Box.setSelected(true);
+        if (properties.isSet(AO_S__shapeConversion_EQUALSYMBOL_Box.getName())){
+            this.AO_S__shapeConversion_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_S__shapeConversion_EQUALSYMBOL_Box_List.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_dangles_Box.getName())){
-            this.AO_MD_dangles_Box.setSelected(true);
+        if (properties.isSet(AO_S__motif_EQUALSYMBOL_Box.getName())){
+            this.AO_S__motif_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_S__motif_EQUALSYMBOL_Box_Text.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_noLP_Box.getName())){
-            this.AO_MD_noLP_Box.setSelected(true);
+        if (properties.isSet(AO_A__partfunc_Box.getName())){
+            this.AO_A__partfunc_Box.setSelected(true);
+            this.AO_A__partfunc_Box_IntValue.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_noGU_Box.getName())){
-            this.AO_MD_noGU_Box.setSelected(true);
+        if (properties.isSet(AO_A__MEA_Box.getName())){
+            this.AO_A__MEA_Box.setSelected(true);
+            this.AO_A__MEA_Box_IntValue.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_noClosingGU_Box.getName())){
-            this.AO_MD_noClosingGU_Box.setSelected(true);
+        if (properties.isSet(AO_A__pfScale_EQUALSYMBOL_Box.getName())){
+            this.AO_A__pfScale_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setEnabled(true);
         }
-        if (this.properties.isSet(AO_MD_paramFile_Box.getName())){
-            this.AO_MD_paramFile_Box.setSelected(true);
-            this.AO_MD_paramFile_Box_Text.setEnabled(true);
+        if (properties.isSet(AO_A__circ_Box.getName())){
+            this.AO_A__circ_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_A__ImFeelingLucky_Box.getName())){
+            this.AO_A__ImFeelingLucky_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_A__bppmThreshold_EQUALSYMBOL_Box.getName())){
+            this.AO_A__bppmThreshold_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_A__bppmThreshold_EQUALSYMBOL_Box_Text.setEnabled(true);
+        }
+        if (properties.isSet(AO_A__gquad_Box.getName())){
+            this.AO_A__gquad_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_M__temp_Box.getName())){
+            this.AO_M__temp_Box.setSelected(true);
+            this.AO_M__temp_Box_DouValue.setEnabled(true);
+        }
+        if (properties.isSet(AO_M__noTetra_Box.getName())){
+            this.AO_M__noTetra_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_M__dangles_Box.getName())){
+            this.AO_M__dangles_Box.setSelected(true);
+            this.AO_M__dangles_Box_IntValue.setEnabled(true);
+        }
+        if (properties.isSet(AO_M__noLP_Box.getName())){
+            this.AO_M__noLP_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_M__noGU_Box.getName())){
+            this.AO_M__noGU_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_M__noClosingGU_Box.getName())){
+            this.AO_M__noClosingGU_Box.setSelected(true);
+        }
+        if (properties.isSet(AO_M__paramFile_EQUALSYMBOL_Box.getName())){
+            this.AO_M__paramFile_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setEnabled(true);
+            this.AO_M__paramFile_EQUALSYMBOL_Box_Text.setEnabled(true);
+        }
+        if (properties.isSet(AO_M__energyModel_EQUALSYMBOL_Box.getName())){
+            this.AO_M__energyModel_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setEnabled(true);
+        }
+        if (properties.isSet(AO_M__betaScale_EQUALSYMBOL_Box.getName())){
+            this.AO_M__betaScale_EQUALSYMBOL_Box.setSelected(true);
+            this.AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setEnabled(true);
         }
     }
     
@@ -906,7 +1632,7 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
     /*******************************************************************
      * Set the configuration properties for this object
      ******************************************************************/
-    
+
     @Override
     public void display(workflow_properties properties) {
         this.properties=properties;
@@ -927,16 +1653,16 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
         this.setAlwaysOnTop(true);
         this.setVisible(true);
     }
-    
+
     /*******************************************************************
      * Sets for Properties
      ******************************************************************/
-    
+
     /**
      * Set Properties
      * @param properties
      */
-    
+
     public void setProperties(workflow_properties properties) {
         this.properties=properties;
         setTitle(properties.getName());
@@ -947,41 +1673,46 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
         // Set the menu
         this.menuFields(properties);
     }
-    
+
     public void setProperties(String filename, String path) {
         workflow_properties tmp=new workflow_properties();
         tmp.load(filename, path);
         this.properties=tmp;
         setTitle(properties.getName());
     }
-    
+
     /*******************************************************************
      * Set With default program values present in properties file
      ******************************************************************/
-    
     private void defaultPgrmValues(workflow_properties properties) {
-        Util.getDefaultPgrmValues(properties,properties.isSet(Default_Options_RButton.getName()));
-    }
-        /*******************************************************************
-     * Set Menu fields
-     ******************************************************************/
-    
-    private void menuFields(workflow_properties properties) {
-        if (properties.isSet(Default_Options_RButton.getName())) {
-            Default_Options_RButton.setEnabled(true);
+        boolean b = true;
+        if (!(properties.isSet(Default_Options_RButton.getName()))
+        && !(properties.isSet(Advanced_Options_RButton.getName()))
+        ) {
+            b = false;
         }
-        else if (properties.isSet(General_Options_RButton.getName())) {
-            General_Options_RButton.setEnabled(true);
-        }
-        else if (properties.isSet(Model_Details_RButton.getName())) {
-            Model_Details_RButton.setEnabled(true);
-        }
+        
+        Util.getDefaultPgrmValues(properties,b);
     }
     
     /*******************************************************************
+     * Set Menu fields
+     ******************************************************************/
+
+    private void menuFields(workflow_properties properties) {
+        if (properties.isSet(Default_Options_RButton.getName())) {
+            Default_Options_RButton.setSelected(true);
+            enabledFunctionForGeneral(false);
+            enabledFunctionForStruct(false);
+            enabledFunctionForAlgo(false);
+            enabledFunctionForModel(false);
+        }
+    }
+
+    /*******************************************************************
      * Save Image
      ******************************************************************/
-    
+
     public void saveImage(String filename) {
         BufferedImage bi;
         try {
@@ -992,57 +1723,73 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             Config.log("Unable to save "+filename+" dialog image");
         }
     }
-        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton how_jButton1;           //Basic Panel
-        private javax.swing.JTabbedPane RNAfoldEditor; //Basic Panel
-        private javax.swing.JPanel general_jPanel1;         //Basic Panel
-        private javax.swing.JButton rename_jButton2;        //Basic Panel
-        private javax.swing.JTextField name_jTextField1;    //Basic Panel
-        private javax.swing.JLabel name_jLabel1;            //Basic Panel
-        private javax.swing.JButton reset_jButton3;         //Basic Panel
-        private javax.swing.JButton stop_jButton4;          //Basic Panel
-        private javax.swing.JButton run_jButton5;            //Basic Panel
-        private javax.swing.JButton close_jButton6;          //Basic Panel
-        private javax.swing.JRadioButton Default_Options_RButton;
-        private javax.swing.JRadioButton General_Options_RButton;
-        private javax.swing.JRadioButton Model_Details_RButton;
-        private javax.swing.JCheckBox AO_GO_constraint_Box;
-        private javax.swing.JTextField AO_GO_constraint_Box_Label;
-        private javax.swing.JCheckBox AO_GO_canonicalBPonly_Box;
-        private javax.swing.JTextField AO_GO_canonicalBPonly_Box_Label;
-        private javax.swing.JCheckBox AO_GO_noconv_Box;
-        private javax.swing.JTextField AO_GO_noconv_Box_Label;
-        private javax.swing.JCheckBox AO_GO_noPS_Box;
-        private javax.swing.JTextField AO_GO_noPS_Box_Label;
-        private javax.swing.JCheckBox AO_ASaawsbiitcTMfeaasraciac_partfunc_Box;
-        private javax.swing.JSpinner AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Value;
-        private javax.swing.JTextField AO_ASaawsbiitcTMfeaasraciac_partfunc_Box_Label;
-        private javax.swing.JCheckBox AO_ASaawsbiitcTMfeaasraciac_MEA_Box;
-        private javax.swing.JSpinner AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Value;
-        private javax.swing.JTextField AO_ASaawsbiitcTMfeaasraciac_MEA_Box_Label;
-        private javax.swing.JCheckBox AO_ASaawsbiitcTMfeaasraciac_circ_Box;
-        private javax.swing.JTextField AO_ASaawsbiitcTMfeaasraciac_circ_Box_Label;
-        private javax.swing.JCheckBox AO_ASaawsbiitcTMfeaasraciac_gquad_Box;
-        private javax.swing.JTextField AO_ASaawsbiitcTMfeaasraciac_gquad_Box_Label;
-        private javax.swing.JCheckBox AO_MD_temp_Box;
-        private javax.swing.JTextField AO_MD_temp_Box_Label;
-        private javax.swing.JCheckBox AO_MD_noTetra_Box;
-        private javax.swing.JTextField AO_MD_noTetra_Box_Label;
-        private javax.swing.JCheckBox AO_MD_dangles_Box;
-        private javax.swing.JTextField AO_MD_dangles_Box_Label;
-        private javax.swing.JCheckBox AO_MD_noLP_Box;
-        private javax.swing.JTextField AO_MD_noLP_Box_Label;
-        private javax.swing.JCheckBox AO_MD_noGU_Box;
-        private javax.swing.JTextField AO_MD_noGU_Box_Label;
-        private javax.swing.JCheckBox AO_MD_noClosingGU_Box;
-        private javax.swing.JTextField AO_MD_noClosingGU_Box_Label;
-        private javax.swing.JCheckBox AO_MD_paramFile_Box;
-        private javax.swing.JTextField AO_MD_paramFile_Box_Text;
-        private javax.swing.JPanel AO_panel;
-        private javax.swing.JPanel AO_ASaawsbiitcTMfeaasraciac_panel;
-        private javax.swing.JPanel AO_GO_panel;
-        private javax.swing.JPanel AO_MD_panel;
-        private javax.swing.JTabbedPane AO_tabpanel;
+    private javax.swing.JButton how_jButton;
+    private javax.swing.JButton docker_jButton;
+    private javax.swing.JTabbedPane RNAfoldEditors2;
+    private javax.swing.JPanel general_jPanel1;
+    private javax.swing.JLabel name_jLabel;
+    private javax.swing.JTextField name_jTextField;
+    private javax.swing.JButton rename_jButton;
+    private javax.swing.JButton reset_jButton;
+    private javax.swing.JButton close_jButton;
+    private javax.swing.JButton stop_jButton;
+    private javax.swing.JButton run_jButton;
+    private javax.swing.ButtonGroup Menu_Buttons;
+    private javax.swing.JRadioButton Default_Options_RButton;
+    private javax.swing.JRadioButton Advanced_Options_RButton;
+    private javax.swing.JPanel AO_panel;
+    private javax.swing.JTabbedPane AO_tabpanel;
+    private javax.swing.JPanel AO_G_Spanel;
+    private javax.swing.JCheckBox AO_G__noPS_Box;
+    private javax.swing.JCheckBox AO_G__layoutType_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_G__layoutType_EQUALSYMBOL_Box_BooValue;
+    private javax.swing.JCheckBox AO_G__noconv_Box;
+    private javax.swing.JPanel AO_S_Spanel;
+    private javax.swing.JCheckBox AO_S__maxBPspan_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue;
+    private javax.swing.JCheckBox AO_S__constraint_Box;
+    private javax.swing.JCheckBox AO_S__canonicalBPonly_Box;
+    private javax.swing.JCheckBox AO_S__enforceConstraint_Box;
+    private javax.swing.JCheckBox AO_S__shape_EQUALSYMBOL_Box;
+    private javax.swing.JButton AO_S__shape_EQUALSYMBOL_Box_DirFile;
+    private javax.swing.JTextField AO_S__shape_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_S__shapeMethod_EQUALSYMBOL_Box;
+    private javax.swing.JTextField AO_S__shapeMethod_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_S__shapeConversion_EQUALSYMBOL_Box;
+    private javax.swing.JComboBox AO_S__shapeConversion_EQUALSYMBOL_Box_List;
+    private javax.swing.JCheckBox AO_S__motif_EQUALSYMBOL_Box;
+    private javax.swing.JTextField AO_S__motif_EQUALSYMBOL_Box_Text;
+    private javax.swing.JPanel AO_A_Spanel;
+    private javax.swing.JCheckBox AO_A__partfunc_Box;
+    private javax.swing.JSpinner AO_A__partfunc_Box_IntValue;
+    private javax.swing.JCheckBox AO_A__MEA_Box;
+    private javax.swing.JSpinner AO_A__MEA_Box_IntValue;
+    private javax.swing.JCheckBox AO_A__pfScale_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_A__pfScale_EQUALSYMBOL_Box_DouValue;
+    private javax.swing.JCheckBox AO_A__circ_Box;
+    private javax.swing.JCheckBox AO_A__ImFeelingLucky_Box;
+    private javax.swing.JCheckBox AO_A__bppmThreshold_EQUALSYMBOL_Box;
+    private javax.swing.JTextField AO_A__bppmThreshold_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_A__gquad_Box;
+    private javax.swing.JPanel AO_M_Spanel;
+    private javax.swing.JCheckBox AO_M__temp_Box;
+    private javax.swing.JSpinner AO_M__temp_Box_DouValue;
+    private javax.swing.JLabel AO_M__temp_Box_Label;
+    private javax.swing.JCheckBox AO_M__noTetra_Box;
+    private javax.swing.JCheckBox AO_M__dangles_Box;
+    private javax.swing.JSpinner AO_M__dangles_Box_IntValue;
+    private javax.swing.JCheckBox AO_M__noLP_Box;
+    private javax.swing.JCheckBox AO_M__noGU_Box;
+    private javax.swing.JCheckBox AO_M__noClosingGU_Box;
+    private javax.swing.JCheckBox AO_M__paramFile_EQUALSYMBOL_Box;
+    private javax.swing.JButton AO_M__paramFile_EQUALSYMBOL_Box_DirFile;
+    private javax.swing.JTextField AO_M__paramFile_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_M__energyModel_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_M__energyModel_EQUALSYMBOL_Box_IntValue;
+    private javax.swing.JCheckBox AO_M__betaScale_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_M__betaScale_EQUALSYMBOL_Box_DouValue;
     // End of variables declaration//GEN-END:variables
-}
+    }
+

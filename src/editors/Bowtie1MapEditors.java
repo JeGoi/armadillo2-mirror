@@ -582,7 +582,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
             IDGSource_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(IDGSource_PanelLayout.createSequentialGroup()
                 .addComponent(IDG_main_panel, 352, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(0, 39, Short.MAX_VALUE))
             .addGroup(IDGSource_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(IDGSource_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -771,7 +771,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
                         .addComponent(O_SAM_samRG_box)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(O_SAM_samRG_text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         O_SAM_panelLayout.setVerticalGroup(
             O_SAM_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -779,7 +779,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
                 .addGroup(O_SAM_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(O_SAM_mapq_box)
                     .addComponent(O_SAM_mapq_value, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(O_SAM_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(O_SAM_samRG_box)
                     .addComponent(O_SAM_samRG_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1038,6 +1038,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
         });
 
         CM_I_u_box.setText("-u/--qupto");
+        CM_I_u_box.setName("CM_I_u_box"); // NOI18N
         CM_I_u_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CM_I_u_boxActionPerformed(evt);
@@ -1109,7 +1110,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_I_u_box)
                     .addComponent(CM_I_u_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CM_Input_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_I_5_box)
                     .addComponent(CM_I_5_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1517,7 +1518,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
         CM_R_BEST_OtherOptions_PanelLayout.setVerticalGroup(
             CM_R_BEST_OtherOptions_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CM_R_BEST_OtherOptions_PanelLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CM_R_BEST_OtherOptions_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CM_R_MMAJ_box)
                     .addComponent(CM_R_MMAJ_value, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1777,7 +1778,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(IDGSource_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TypeOfLib_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
+                    .addComponent(TypeOfLib_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -2531,13 +2532,12 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
     private void menuEvent(javax.swing.JRadioButton b){
         if (b==M_CM_button) {
             this.properties.put(b.getName(),b.isSelected());
-            if (properties.isSet(M_default_button))
-                this.properties.remove(M_default_button);
-        }
-        else if (b==M_default_button) {
+            if (properties.isSet(M_default_button.getName()))
+                this.properties.remove(M_default_button.getName());
+        } else if (b==M_default_button) {
             this.properties.put(b.getName(),b.isSelected());
-            if (properties.isSet(M_CM_button))
-                this.properties.remove(M_CM_button);
+            if (properties.isSet(M_CM_button.getName()))
+                this.properties.remove(M_CM_button.getName());
         }
         menuFields();
     }
@@ -2563,6 +2563,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
         
         if (properties.isSet(M_CM_button.getName())){
             this.M_CM_button.setSelected(true);
+            this.CM_TabPanel.setSelectedIndex(0);
             this.customMappingFields(true);
         } else {
             this.customMappingFields(false);
@@ -2646,7 +2647,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
         this.CM_I_solexa1DOT3Quals_box.setEnabled(e);
         this.CM_I_solexaQuals_box.setEnabled(e);
         this.CM_I_u_box.setEnabled(e);
-        if (properties.isSet(CM_I_u_box.getName()) && e==true)
+        if (this.properties.isSet(CM_I_u_box.getName()) && e==true)
             this.CM_I_u_value.setEnabled(true);
         else this.CM_I_u_value.setEnabled(false);
         this.CM_OO_seed_box.setEnabled(e);
@@ -2840,7 +2841,7 @@ public class Bowtie1MapEditors extends javax.swing.JDialog implements EditorInte
             this.CM_A_v_value.setEnabled(false);
         }
         if (this.properties.isSet(CM_C_snpfrac_value.getName())){
-            this.CM_C_snpfrac_value.setValue(Integer.parseInt(this.properties.get(CM_C_snpfrac_value.getName())));
+            this.CM_C_snpfrac_value.setValue(Double.parseDouble(this.properties.get(CM_C_snpfrac_value.getName())));
             this.CM_C_snpfrac_value.setEnabled(false);
         }
         if (this.properties.isSet(CM_C_snpphred_value.getName())){
