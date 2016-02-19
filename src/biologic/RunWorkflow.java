@@ -290,6 +290,9 @@ public class RunWorkflow implements Biologic, Serializable {
        return df.getRunWorkflowName(id);
     }
 
+    public String getFileNameId(int id) {
+        return "";
+    }
    
 
     @Override

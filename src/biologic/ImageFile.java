@@ -22,6 +22,7 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
 import java.io.Serializable;
 import workflows.workflow_properties;
 
@@ -42,17 +43,15 @@ public class ImageFile extends Text implements Serializable {
 
     public ImageFile(String filename) {super(filename);}
 
-    public void setFile(String filename) {
+    public void setImageFile(String filename) {
         this.setFilename(filename);
         this.setUnknownType("ImageFile");
         this.setText("ImageFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
 
-    public String getFile() {
+    public String getImageFile() {
         return this.getFilename();
     }
-
-    
 
     @Override
     public String toHtml() {
@@ -69,15 +68,23 @@ public class ImageFile extends Text implements Serializable {
         return toString();
     }
     
-    public static void saveImageFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveImageFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
-        SamFile f=new SamFile();
-        f.setSamFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b) properties.put("output_imagefile_id", f.getId());
-        else System.out.println("WARNING : Image file not saved");
+//        File fi=new File(s);
+//        if (fi.exists()) {
+            ImageFile f=new ImageFile();
+            f.setImageFile(s);
+            f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+            f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+            boolean b = f.saveToDatabase();
+            if (b){
+                p.put("output_imagefile_id", f.getId());
+                p.put("output_imagefile_fileName", s);
+            }
+            else System.out.println("WARNING : Image file not saved");
+//        } else {
+//            System.out.println("WARNING : Image file "+s+" not found");
+//        }
     }
 
 }

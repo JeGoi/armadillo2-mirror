@@ -78,14 +78,17 @@ public class EinvertedFile extends Text implements Serializable {
         return s;
     }
     
-    public static void saveEinvertedFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveEinvertedFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         EinvertedFile f=new EinvertedFile();
         f.setEinvertedFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_einvertedfile_id", f.getId());
+        if (b) {
+            p.put("output_einvertedfile_id", f.getId());
+            p.put("output_einvertedfile_fileName", s);
+        }
         else System.out.println("WARNING : einverted file not saved");
     }
 

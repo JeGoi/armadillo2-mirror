@@ -2862,6 +2862,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                 out.setType(type);
                                 Object bio=out.getBiologic();
                                 obj.getProperties().put("Description", ((Biologic)bio).getNameId(id));
+                                obj.getProperties().put("NameFromId", ((Biologic)bio).getNameId(id));
+                                obj.getProperties().put("FileNameFromId", ((Biologic)bio).getFileNameId(id));
                                 if (type.equals("Genome")) {
                                     Genome g=new Genome(id);
                                     workflow_properties t=new workflow_properties();

@@ -82,4 +82,8 @@ public class Ancestor extends Alignment implements Serializable,Biologic, Iterat
         return toString();
     }
 
+    public String getFileNameId(int id) {
+        return "";
+    }
+    
 }

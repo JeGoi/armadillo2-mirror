@@ -49,14 +49,17 @@ public class GenomeFile extends Text implements Serializable{
         return toString();
     }
     
-    public static void saveGenomeFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveGenomeFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         GenomeFile g = new GenomeFile();
         g.setGenomeFile(s);
         g.setName(s);
         g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
         boolean b = g.saveToDatabase();
-        if (b) properties.put("output_genomefile_id", g.getId());
+        if (b) {
+            p.put("output_genomefile_id", g.getId());
+            p.put("output_genomefile_fileName", s);
+        }
         else System.out.println("genome not saved");
     }
 

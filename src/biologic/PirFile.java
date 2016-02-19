@@ -69,14 +69,17 @@ public class PirFile extends Text implements Serializable{
         return b;
     }
     
-    public static void savePirFile (workflow_properties properties, String s, String pgrmName) {
+    public static void savePirFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         PirFile g = new PirFile();
         g.setPirFile(s);
         g.setName(s);
         g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
         boolean b = g.saveToDatabase();
-        if (b) properties.put("output_gcgfile_id", g.getId());
+        if (b){
+            p.put("output_pirfile_id", g.getId());
+            p.put("output_pirfile_fileName", s);
+        }
         else System.out.println("PirFile not saved");
     }
 

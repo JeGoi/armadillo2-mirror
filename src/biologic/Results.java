@@ -66,13 +66,13 @@ public class Results extends Unknown implements Serializable {
         return toString();
     }
 
-    public static void saveResultsPgrmOutput (workflow_properties properties, String outputPgrm, String pgrmName) {
+    public static void saveResultsPgrmOutput (workflow_properties p, String outputPgrm, String pgrmName) {
         Results text=new Results();
-        text.setText(properties.getName()+"_result\n"+outputPgrm+"\n");
+        text.setText(p.getName()+"_result\n"+outputPgrm+"\n");
         text.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         text.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = text.saveToDatabase();
-        if (b) properties.put("output_results_id", text.getId());
+        if (b) p.put("output_results_id", text.getId());
         else System.out.println("WARNING : results not saved");
     }
 

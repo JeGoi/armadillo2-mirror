@@ -518,6 +518,10 @@ public class MultipleTrees implements Biologic, Serializable {
         return df.getMultipleTreesName(id);
     }
     
+    public String getFileNameId(int id) {
+        return "";
+    }
+    
     public void setData(String data) {
         this.getTree().clear();
         Util u=new Util("temp.txt");

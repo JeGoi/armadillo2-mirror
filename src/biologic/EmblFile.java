@@ -69,14 +69,17 @@ public class EmblFile extends Text implements Serializable{
         return b;
     }
     
-    public static void saveEmblFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveEmblFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         EmblFile g = new EmblFile();
         g.setEmblFile(s);
         g.setName(s);
         g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
         boolean b = g.saveToDatabase();
-        if (b) properties.put("output_emblfile_id", g.getId());
+        if (b) {
+            p.put("output_emblfile_id", g.getId());
+            p.put("output_emblfile_fileName", s);
+        }
         else System.out.println("EmbleFile not saved");
     }
 

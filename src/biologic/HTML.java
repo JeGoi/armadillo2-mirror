@@ -22,7 +22,10 @@
 package biologic;
 
 import configuration.Util;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import workflows.workflow_properties;
 
 /**
  * This is really a mock for handling in the Armadillo Workflow
@@ -40,12 +43,36 @@ public class HTML extends Unknown implements Serializable {
     public HTML(int id) {
         super(id);
     }
+    
+    public String getHTMLFile(){
+        return this.getFilename();
+    }
+
+    
+    public void setHTML(String filename) {
+        this.setFilename(filename);
+        this.setUnknownType("HTML");
+    }
+
+    
+    public static void saveHTML (workflow_properties p, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        HTML f=new HTML();
+        f.setHTML(s);
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setName(Util.getFileNameAndExt(s)+" ("+Util.returnCurrentDateAndTime()+")");
+        boolean b = f.saveToDatabase();
+        if (b) {
+            p.put("output_html_id", f.getId());
+            p.put("output_html_fileName", f.getHTMLFile());
+        }
+        else System.out.println("WARNING : html file not saved");
+    }
 
     @Override
     public String getBiologicType() {
         return "HTML";
     }
-
     public String getExtendedString() {
         return toString();
     }

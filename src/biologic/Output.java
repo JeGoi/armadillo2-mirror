@@ -217,12 +217,18 @@ public class Output implements Biologic, Serializable {
         return df.getOutputName(id);
     }
 
+    public String getFileNameId(int id) {
+        return "";
+    }
+    
+
+    
     public void setName(String name) {}
     public void setNote(String note) {}
     public String getNote() {return "";}
     public void setData(String data) {}
 
-      public String getFasta() {
+    public String getFasta() {
        return "";
     }
 

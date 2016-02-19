@@ -69,14 +69,17 @@ public class GcgFile extends Text implements Serializable{
         return b;
     }
     
-    public static void saveGcgFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveGcgFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         GcgFile g = new GcgFile();
         g.setGcgFile(s);
         g.setName(s);
         g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
         boolean b = g.saveToDatabase();
-        if (b) properties.put("output_gcgfile_id", g.getId());
+        if (b){
+            p.put("output_gcgfile_id", g.getId());
+            p.put("output_gcgfile_fileName", s);
+        }
         else System.out.println("GcgFile not saved");
     }
 

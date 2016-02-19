@@ -593,6 +593,11 @@ import workflows.workflow_properties;
     public String getNameId(int id) {
         return df.getAlignmentName(id);
     }
+    
+    public String getFileNameId(int id) {
+        return "";
+    }
+    
 
     /**
      * This will delete all colonne containning the number of minimum Gap

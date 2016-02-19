@@ -75,14 +75,17 @@ public class DiffseqFile extends Text implements Serializable {
         return s;
     }
     
-    public static void saveDiffseqFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveDiffseqFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         DiffseqFile f=new DiffseqFile();
         f.setDiffseqFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_diffseqfile_id", f.getId());
+        if (b) {
+            p.put("output_diffseqfile_id", f.getId());
+            p.put("output_diffseqfile_fileName", s);
+        }
         else System.out.println("WARNING : Diffseq file not saved");
     }
 

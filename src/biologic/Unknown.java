@@ -291,6 +291,10 @@ public class Unknown implements Biologic, Iterator, Serializable {
         return df.getUnknownName(id);
     }
     
+    public String getFileNameId(int id) {
+        return df.getUnknownFileName(id);
+    }
+    
     public void setData(String data) {
         this.getUnknownST().setLength(0);
         this.getUnknownST().append(data);

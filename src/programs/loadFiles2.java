@@ -28,6 +28,7 @@ import biologic.Results;
 import biologic.SOLIDFile;
 import biologic.Text;
 import biologic.TextFile;
+import configuration.Util;
 import program.RunProgram;
 import workflows.workflow_properties;
 
@@ -120,19 +121,19 @@ public class loadFiles2 extends RunProgram {
             switch(type) {
                 case 0: TextFile txt=new TextFile();
                     txt.setFile(properties.get("inputname"));
-                    txt.setName(properties.get("inputname"));
+                    txt.setName(Util.getFileNameAndExt(properties.get("inputname")));
                     txt.saveToDatabase();
                     properties.put("output_textfile_id", txt.getId());
                     break;
                 case 1: SOLIDFile solid=new SOLIDFile();
                     solid.setSolidFile(properties.get("inputname"));
-                    solid.setName(properties.get("inputname"));
+                    solid.setName(Util.getFileNameAndExt(properties.get("inputname")));
                     solid.saveToDatabase();
                     properties.put("output_solidfile_id", solid.getId());
                     break;
                 case 2: FastaFile fasta=new FastaFile();
                     fasta.setFastaFile(properties.get("inputname"));
-                    fasta.setName(properties.get("inputname"));
+                    fasta.setName(Util.getFileNameAndExt(properties.get("inputname")));
                     fasta.saveToDatabase();
                     properties.put("output_fastafile_id", fasta.getId());
                     break;
@@ -149,14 +150,14 @@ public class loadFiles2 extends RunProgram {
                     // JG 2015
                 case 5: GenomeFile genomeFile=new GenomeFile();
                     genomeFile.setGenomeFile(properties.get("inputname"));
-                    genomeFile.setName(properties.get("inputname"));
+                    genomeFile.setName(Util.getFileNameAndExt(properties.get("inputname")));
                     genomeFile.saveToDatabase();
                     properties.put("output_genomefile_id", genomeFile.getId());
                     break;
                     // JG 2015
                 case 6: FastqFile fastqFile=new FastqFile();
                     fastqFile.setFastqFile(properties.get("inputname"));
-                    fastqFile.setName(properties.get("inputname"));
+                    fastqFile.setName(Util.getFileNameAndExt(properties.get("inputname")));
                     fastqFile.saveToDatabase();
                     properties.put("output_fastqfile_id", fastqFile.getId());
                     break;

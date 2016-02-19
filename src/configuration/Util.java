@@ -223,11 +223,13 @@ public class Util {
      * @return true if success
      */
     public static boolean deleteFile(String filename) {
-        System.out.println("Deleting "+filename);
         try {
             File outtree=new File(filename);
             if (outtree.exists()) outtree.delete();
-        } catch(Exception e) {return false;}
+        } catch(Exception e) {
+            System.out.println("Can't Delete "+filename);
+            return false;
+        }
         return true;
     }
     
@@ -246,7 +248,10 @@ public class Util {
                 }
                 return outtree.delete();
             }
-        } catch(Exception e) {return false;}
+        } catch(Exception e) {
+            System.out.println("Can't Delete "+directory);
+            return false;
+        }
         return false;
     }
     
@@ -724,6 +729,50 @@ public class Util {
             }
         }
         catch (Exception e) {
+            System.out.println("Error running command!");
+            System.out.println(e);
+        }
+        return str;
+    }
+    
+    /**
+     * From : http://www.jeffreythompson.org/blog/2012/05/29/easy-processing-illustrator-export-bonus-svg-export/
+     * Small function to execute external code
+     * @param commandToRun
+     * @param dir
+     */
+    public static ArrayList<String> runSilentUnixCommand(String commandToRun, String dir) {
+        ArrayList<String> str=new  ArrayList<String>();
+        File workingDir = new File("");          // where to do it - should be full path
+        String returnedValues;                    // value to return any results
+        
+        // run the command!
+        try {
+            String[] cmd=new String[10];
+            for (int i=0; i<10;i++) cmd[i]="";
+            cmd[0]=commandToRun;
+            
+            Process p = Runtime.getRuntime().exec(commandToRun, null);
+            int i = p.waitFor();
+            if (i == 0) {
+                BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                while ( (returnedValues = stdInput.readLine ()) != null) {
+                    str.add(returnedValues);
+                    //println(returnedValues);
+                }
+            }
+            else {
+                BufferedReader stdErr = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+                while ( (returnedValues = stdErr.readLine ()) != null) {
+                    str.add(returnedValues);
+                    //--Error to stdout
+                    System.out.println(commandToRun);
+                    System.out.println(returnedValues);
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println(commandToRun);
             System.out.println("Error running command!");
             System.out.println(e);
         }

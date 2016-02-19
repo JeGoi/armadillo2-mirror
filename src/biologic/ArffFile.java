@@ -75,14 +75,17 @@ public class ArffFile extends Text implements Serializable {
         return s;
     }
     
-    public static void saveArffFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveArffFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         ArffFile f=new ArffFile();
         f.setArffFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_arfffile_id", f.getId());
+        if (b){
+            p.put("output_arfffile_id", f.getId());
+            p.put("output_arfffile_fileName", s);
+        }
         else System.out.println("WARNING : Arff file not saved");
     }
 

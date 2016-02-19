@@ -924,7 +924,11 @@ public class Sequence implements Serializable, Biologic, Iterator  {
     public String getNameId(int id) {
         return df.getSequenceName(id);
     }
-
+    
+    public String getFileNameId(int id) {
+        return "";
+    }
+    
     public void setData(String data) {
         this.setSequence(data);
      }

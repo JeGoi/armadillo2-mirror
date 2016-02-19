@@ -41,8 +41,8 @@ public class FastaFile extends Text implements Serializable {
 
     public void setFastaFile(String filename) {
         this.setFilename(filename);
-        this.setUnknownType("Fasta");
-        this.setText("Fasta : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
+        this.setUnknownType("FastaFile");
+        this.setText("FastaFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
 
     public String getFastaFile() {
@@ -79,28 +79,17 @@ public class FastaFile extends Text implements Serializable {
         return s;
     }
     
-    public static void saveFastaFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveFastaFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
-        if (properties.isSet("THISISCLUSTERTEST") && s.equals("")) {
-            new File("./results/testZone/").mkdirs();
-            File f= new File("./results/testZone/INPUTS_OUTPUT_PROGRAMMENAME.fasta");
-            try {
-	        if (f.createNewFile()){
-                    System.out.println("File is created!");
-                }else{
-                    System.out.println("File already exists.");
-                }
-            } catch (IOException e) {
-	      e.printStackTrace();
-            }
-            s = Util.relativeToAbsoluteFilePath(f.getPath());
-        }
         FastaFile f=new FastaFile();
         f.setFastaFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(Util.getFileNameAndExt(s)+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_fastafile_id", f.getId());
+        if (b){
+            p.put("output_fastafile_id", f.getId());
+            p.put("output_fastafile_fileName", s);
+        }
         else System.out.println("WARNING : fasta file not saved");
     }
 

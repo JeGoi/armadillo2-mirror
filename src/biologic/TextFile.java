@@ -51,7 +51,7 @@ public class TextFile extends Text implements Serializable {
         this.setText("TextFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
 
-    public String getFile() {
+    public String getTextFile() {
         return this.getFilename();
     }
 
@@ -73,14 +73,17 @@ public class TextFile extends Text implements Serializable {
         }
     }
     
-    public static void saveTextFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveTextFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         TextFile t=new TextFile();
         t.setFile(s);
         t.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         t.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = t.saveToDatabase();
-        if (b) properties.put("output_textfile_id", t.getId());
+        if (b){
+            p.put("output_textfile_id", t.getId());
+            p.put("output_textfile_fileName", s);
+        }
         else System.out.println("Text not saved");
     }
     
@@ -88,7 +91,7 @@ public class TextFile extends Text implements Serializable {
         String s = "";
         for (int ids:v) {
             TextFile t =new TextFile(ids);
-            s = t.getFile();
+            s = t.getTextFile();
         }
         return s;
     }

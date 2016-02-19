@@ -55,21 +55,17 @@ public class SOLIDFile extends Text implements Serializable {
         return toString();
     }
     
-    public static int saveSolidFile (workflow_properties properties, String outputFile, String pgrmName) {
-        String s = "";
-        if (outputFile.matches("^\\.\\/.*")) {
-            File f = new File(outputFile);
-            s = f.getAbsolutePath();
-            s = s.replaceAll(File.separator+"\\."+File.separator,File.separator);
-        }
-        
-        if (s.equals("")) s = outputFile;
-        
+    public static int saveSolidFile (workflow_properties p, String s, String pgrmName) {
+        s = Util.relativeToAbsoluteFilePath(s);
         SOLIDFile so=new SOLIDFile();
         so.setSolidFile(s);
         so.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         so.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        so.saveToDatabase();
+        boolean b = so.saveToDatabase();
+        if (b){
+            p.put("output_solidfile_id", so.getId());
+            p.put("output_solidfile_fileName", s);
+        }
         return so.getId();
     }
 }

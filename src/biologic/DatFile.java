@@ -75,14 +75,17 @@ public class DatFile extends Text implements Serializable {
         return s;
     }
     
-    public static void saveDatFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveDatFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         DatFile f=new DatFile();
         f.setDatFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_datfile_id", f.getId());
+        if (b) {
+            p.put("output_datfile_id", f.getId());
+            p.put("output_datfile_fileName", s);
+        }
         else System.out.println("WARNING : Dat file not saved");
     }
 

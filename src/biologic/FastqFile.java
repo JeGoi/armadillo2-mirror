@@ -77,14 +77,17 @@ public class FastqFile extends Text implements Serializable{
     }
 
     
-    public static void saveFastqFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveFastqFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         FastqFile f=new FastqFile();
         f.setFastqFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_fastqfile_id", f.getId());
+        if (b) {
+            p.put("output_fastqfile_id", f.getId());
+            p.put("output_fastqfile_fileName", s);
+        }
         else System.out.println("WARNING : fastq file not saved");
     }
     

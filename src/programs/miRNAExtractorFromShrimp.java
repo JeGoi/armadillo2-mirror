@@ -80,7 +80,7 @@ public class miRNAExtractorFromShrimp extends RunProgram {
         TextFile tex=new TextFile(textfile_id);
 
         FastaFile text=new FastaFile();
-        text.setFastaFile(tex.getFile()+".shrimp.fasta");
+        text.setFastaFile(tex.getTextFile()+".shrimp.fasta");
         text.setName("Shrimp To Fasta output ("+Util.returnCurrentDateAndTime()+")");
         text.setNote("Shrimp To Fasta output ("+Util.returnCurrentDateAndTime()+")");
         text.saveToDatabase();
@@ -102,8 +102,8 @@ public class miRNAExtractorFromShrimp extends RunProgram {
           com[2]="-jar";
            com[3]="executable/mirna/mirna.jar";
            com[4]="-P";
-           com[5]=text.getFile();
-           com[6]=text.getFile()+".shrimp.fasta";
+           com[5]=text.getTextFile();
+           com[6]=text.getTextFile()+".shrimp.fasta";
            return com;
     }
 

@@ -47,12 +47,6 @@ public class FastQC extends RunProgram{
         return true;
     }
     
-    @Override
-    public void init_createInput() {
-        //voir comment faire pour récupéréer les outputs depuis ici. Il semble
-        // Set directory
-    }
-
     public String[] init_createCommandLine() {
         // ligne de commande fonctionnelle mais pas dynamique
         int fastqfile_id=properties.getInputID("FastqFile");
@@ -61,12 +55,6 @@ public class FastQC extends RunProgram{
         if (properties.isSet("Directory")) {
             outdir = properties.get("Directory");
         }
-        
-        // Comment test by JG 2015
-        //System.out.print("file.getFastqFileName() = \t"+file.getFastqFileName()+"\n");
-        //System.out.print("file.getFastqFile() = \t"+file.getFastqFile()+"\n");
-        //System.out.print("file.getName() = \t \t"+file.getName()+"\n");
-        //System.out.print("file \t \t"+file+"\n");
         
         //Recherche du nom sans extension pour le post_parseOutput
         outfile = file.getName();
@@ -84,17 +72,12 @@ public class FastQC extends RunProgram{
         com[1]="/C";
         com[2]=properties.getExecutable();
         com[3]=file.getFastqFile();
-        //com[2]=properties.getExecutable();
-        //com[3]=infile;
         com[4]="--outdir="+outdir;
         return com;
         
     }
      
     public void post_parseOutput() {
-       HTML h=new HTML(outdir);
-       h.setName("FASTQC results (HTML) for FASTQC");      
-       h.saveToDatabase();
-       properties.put("output_html_id", h.getId());
-    }  
+        HTML.saveHTML(properties, outdir, "FastQC");
+     }  
 }

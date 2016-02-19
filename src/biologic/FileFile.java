@@ -73,14 +73,17 @@ public class FileFile extends Text implements Serializable {
         return s;
     }
     
-    public static void saveFileFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveFileFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         FileFile f=new FileFile();
         f.setFileFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
         boolean b = f.saveToDatabase();
-        if (b) properties.put("output_filefile_id", f.getId());
+        if (b) {
+            p.put("output_filefile_id", f.getId());
+            p.put("output_filefile_fileName", s);
+        }
         else System.out.println("WARNING : file file not saved");
     }
 

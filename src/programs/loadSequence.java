@@ -105,7 +105,7 @@ public class loadSequence extends RunProgram {
       } 
       if (TextFileID!=0) {
           TextFile text=new TextFile(TextFileID);         
-          properties.put("inputname",text.getFile());
+          properties.put("inputname",text.getTextFile());
       } 
       if (TextID!=0) {
           Text text=new Text(TextID);

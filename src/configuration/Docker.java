@@ -76,7 +76,7 @@ public class Docker {
      * Test if docker program is installed
      */
     public static boolean isDockerHere() {
-        ArrayList<String> s = Util.runUnixCommand("docker --version","./");
+        ArrayList<String> s = Util.runSilentUnixCommand("docker --version","./");
         for (String st:s)
             if (st.contains("Docker version")) {
                 return true;
@@ -119,7 +119,7 @@ public class Docker {
             e.printStackTrace();
         }
         String c = "docker run -v "+localpath+":"+dockerpath+" --name "+name+" -di "+img;
-        ArrayList<String> sl = Util.runUnixCommand(c,"./");
+        ArrayList<String> sl = Util.runSilentUnixCommand(c,"./");
         if (sl.size()==1 && sl.get(0).matches("\\w+")) {
             return true;
         } else if (sl.size()>1 && sl.get(sl.size()-1).matches("\\w+")){
@@ -165,7 +165,7 @@ public class Docker {
     public static boolean isContainersAlreadyUsed(String name) {
         String c = "docker ps --filter \"name="+name+
                    "\" --format {{.Names}}";
-        ArrayList<String> ls = Util.runUnixCommand(c,"./");;
+        ArrayList<String> ls = Util.runSilentUnixCommand(c,"./");;
 //        if (ls.size()==1)
             for (String s:ls)
                 if (s.contains(name))
@@ -177,7 +177,7 @@ public class Docker {
      * Get docker images
      */
     public static ArrayList<String> getImages() {
-        ArrayList<String> s = Util.runUnixCommand("docker images","./");
+        ArrayList<String> s = Util.runSilentUnixCommand("docker images","./");
         ArrayList<String> l = new ArrayList<String>();
         for (String st : s)
             if (!(st.contains("REPOSITORY")))// && st.contains(kword))
@@ -190,7 +190,7 @@ public class Docker {
      */
     public static ArrayList<String> getActivesContainers() {
         String c = "docker ps --format {{.ID}}<>{{.Names}}<>{{.Image}}";
-        ArrayList<String> s = Util.runUnixCommand(c,"./");
+        ArrayList<String> s = Util.runSilentUnixCommand(c,"./");
         ArrayList<String> val = new ArrayList<String>();
         for(String sa:s)
             if (sa.contains(kword))
@@ -203,7 +203,7 @@ public class Docker {
      */
     public static ArrayList<String> getAllContainers() {
         String c = "docker ps -a --format {{.ID}}<>{{.Names}}<>{{.Image}}";
-        ArrayList<String> s = Util.runUnixCommand(c,"./");
+        ArrayList<String> s = Util.runSilentUnixCommand(c,"./");
         ArrayList<String> val = new ArrayList<String>();
         for(String sa:s)
             if (sa.contains(kword))
@@ -216,7 +216,7 @@ public class Docker {
      */
     public static ArrayList<String> getActivesContainersID() {
         String c = "docker ps --format {{.ID}}<>{{.Names}}";
-        ArrayList<String> s = Util.runUnixCommand(c,"./");
+        ArrayList<String> s = Util.runSilentUnixCommand(c,"./");
         ArrayList<String> val = new ArrayList<String>();
         for(String sa:s)
             if (sa.contains(kword))
@@ -229,7 +229,7 @@ public class Docker {
      */
     public static ArrayList<String> getAllContainersID() {
         String c = "docker ps -a --format {{.ID}}<>{{.Names}}";
-        ArrayList<String> s = Util.runUnixCommand(c,"./");
+        ArrayList<String> s = Util.runSilentUnixCommand(c,"./");
         ArrayList<String> val = new ArrayList<String>();
         for(String sa:s)
             if (sa.contains(kword))
@@ -244,9 +244,25 @@ public class Docker {
         if (l.isEmpty())
             return false;
         else if (stopContainers(l)){
-            String s = "docker rm "+l.toString().replaceAll("[\\[,\\]]"," ");
-            ArrayList<String> v = Util.runUnixCommand(s,"./");
-            return Util.equalArrayLists(v,l);
+            ArrayList<String> all = getAllContainersID();
+            ArrayList<String> p = new ArrayList<String>();
+            boolean b = false;
+            for (String sa : all) {
+                b = false;
+                for (String ls : l) {
+                    if (sa.contains(ls)) {
+                        b =true;
+                    }
+                }
+                if (b)
+                    p.add(sa);
+            }
+            if (p.size()>0) {
+                String s = "docker rm "+p.toString().replaceAll("[\\[,\\]]"," ");
+                ArrayList<String> v = Util.runSilentUnixCommand(s,"./");
+                return Util.equalArrayLists(v,p);
+            } else 
+                return true;
         } else
             return false;
     }
@@ -257,16 +273,32 @@ public class Docker {
     public static boolean cleanContainers(String s) {
         ArrayList<String> a = new ArrayList<String>();
         a.add(s);
-        return Docker.cleanContainers(a);
+        return cleanContainers(a);
     }
     
     /**
      * Stop docker Container List
      */
     private static boolean stopContainers(ArrayList<String> l) {
-        String s = "docker stop "+l.toString().replaceAll("[\\[,\\]]"," ");
-        ArrayList<String> v = Util.runUnixCommand(s,"./");
-        return Util.equalArrayLists(v,l);
+        ArrayList<String> ia  = getActivesContainersID();
+        ArrayList<String> p = new ArrayList<String>();
+        boolean b = false;
+        for (String sa : ia) {
+            b = false;
+            for (String ls : l) {
+                if (sa.contains(ls)) {
+                    b =true;
+                }
+            }
+            if (b)
+                p.add(sa);
+        }
+        if (p.size()>0) {
+            String s = "docker stop "+p.toString().replaceAll("[\\[,\\]]"," ");
+            ArrayList<String> v = Util.runSilentUnixCommand(s,"./");
+            return Util.equalArrayLists(v,p);
+        } else 
+            return true;
     }
     
     /**
@@ -280,11 +312,14 @@ public class Docker {
         ArrayList<String> ina = new ArrayList<String>();
         boolean b = false;
         for (String sa : all) {
+            b = false;
             for (String si : ia) {
                 if (sa.equals(si)) {
                     b =true;
                 }
             }
+            if (!b)
+                ina.add(sa);
         }
         if (ina.size()>0 && cleanContainers(ina)) return true;
         else return false;
@@ -307,7 +342,7 @@ public class Docker {
         }
         cleanContainers(cImg);
         for (String imgName:l) {
-            ArrayList<String> st = Util.runUnixCommand("docker rmi "+imgName,"./");
+            ArrayList<String> st = Util.runSilentUnixCommand("docker rmi "+imgName,"./");
             if (st.toString().contains("Error") && st.toString().contains("container")) {
                 System.out.println("This images is already used out of Armadillo");
             }
@@ -325,7 +360,7 @@ public class Docker {
                 + "&& docker exec -ti "+doName+" cp -r "+dd+" "+sd+" "
                 + "&& docker exec -ti "+doName+" chmod -R 777 "+sd+" "
                 ;
-        ArrayList<String> v = Util.runUnixCommand(s,"./");
+        ArrayList<String> v = Util.runSilentUnixCommand(s,"./");
         boolean b = false;
         if (v.isEmpty()){
             b = Util.copyDirectory(sd,sd+"_bd");

@@ -76,14 +76,18 @@ public class NbrfFile extends Text implements Serializable {
         return s;
     }
     
-    public static int saveNbrfFile (workflow_properties properties, String s, String pgrmName) {
+    public static void saveNbrfFile (workflow_properties p, String s, String pgrmName) {
         s = Util.relativeToAbsoluteFilePath(s);
         NbrfFile f=new NbrfFile();
         f.setNbrfFile(s);
         f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
         f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        f.saveToDatabase();
-        return f.getId();
+        boolean b=f.saveToDatabase();
+        if (b){
+            p.put("output_nbrffile_id", f.getId());
+            p.put("output_nbrffile_fileName", s);
+        }
+        else System.out.println("NbrfFile not saved");
     }
 
     @Override
