@@ -58,7 +58,7 @@ public class Bowtie2Index extends RunProgram{
         // File output directory
         if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
             properties.put("IDG_r_text",outputPath);
-            if (!Util.CreateDir(outputPath)) {
+            if (!Util.DirExists(outputPath) && !Util.CreateDir(outputPath)) {
                 setStatus(status_BadRequirements,"Can't create the directory.");
                 return false;
             }

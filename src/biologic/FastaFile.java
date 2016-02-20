@@ -74,7 +74,7 @@ public class FastaFile extends Text implements Serializable {
         String s = "";
         for (int ids:f) {
             FastaFile fas =new FastaFile(ids);
-            s = fas.getName();
+            s = fas.getFastaFile();
         }
         return s;
     }

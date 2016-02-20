@@ -167,11 +167,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     private boolean changed=false;
     
 ////////////////////////////////////////////////////////////////////////////////
-/// Workflow tested JG 2016
-    
-    private boolean tested=false;
-    
-////////////////////////////////////////////////////////////////////////////////
 /// Cut and Paste
     
     public Workflow CopyPaste_selection=new Workflow(); // Current CopyPaste Selection
@@ -7870,24 +7865,13 @@ public class armadillo_workflow extends PApplet implements ActionListener {
 //             thread.start();
     }
     
-    
 ////////////////////////////////////////////////////////////////////////////////
-/// Workflow tested JG 2016
-
-    /**
-     * @return the workflow test status
-     */
-    public boolean isATest() {
-        return tested;
-    }
+/// Amazing trick
+/// JG 2016
     
-    /**
-     * @param initialized the initialized to set
-     */
-    public void setTested(boolean tested) {
-        this.tested = tested;
+    public Workbox getWorkbox(){
+        return workbox;
     }
-
     
 } //End armadillo workflow
 

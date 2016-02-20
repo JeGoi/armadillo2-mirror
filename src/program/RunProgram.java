@@ -198,26 +198,24 @@ public class RunProgram implements runningThreadInterface {
     public void execute() {
         if (workbox.isWorkboxATest()) {// JG 2016
             properties.put("THISISCLUSTERTEST",true);
-            setStatus(status_running,"Initialization...");
+            setStatus(status_running,"Workflow Test in progress ...");
             try {
-                init_run();
+                if (init_runTest()) {
+                    do_runTest();
+                }
+                Docker.CleanContainerName(properties);
+                if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) {
+                    saveOutput(getStatus());
+                    post_runTest();
+                    setStatus(status_done,"");
+                }
             } catch (Exception ex) {
                 if (properties.getBoolean("debug")) ex.printStackTrace();
                 if (!cancel) {
-                    setStatus(status_error,"Error in running... \n"+ex.getMessage());
                     Docker.CleanContainerName(properties);
+                    setStatus(status_error,"Error in test running... \n"+ex.getMessage());
                 }
             }
-            setStatus(status_running, "\tRunning program...");
-            setStatus(status_running,"<-Program Output->");
-            do_runTest();
-            setStatus(status_running,"<-End Program Output ->");
-            msg("\tProgram Exit Value: "+getExitVal());
-            setStatus(status_running,"\tParsing outputs... ");
-            Docker.CleanContainerName(properties);
-            saveOutput(getStatus());
-            post_runTest();
-            setStatus(status_done,"");
         } else {
             runthread();
         }
@@ -711,6 +709,30 @@ public class RunProgram implements runningThreadInterface {
     }
     
     /**
+     * Test Zone
+     */
+    public boolean init_runTest() throws Exception {
+        if (getId()==0) {
+            this.saveToDatabase();
+        }
+        setStatus(status_idle,"");
+        if (!init_checkRequirements()) {
+            setStatus(status_BadRequirements,"Some requirements not found.");
+            return false;
+        }
+        init_createInput();
+        commandline = init_createCommandLine();
+        commandline = updateCommandLine(commandline);
+        properties.put("Commandline_Running", Util.toString(commandline));
+        if (Util.toString(commandline).indexOf("Not Set")==-1) {
+        } else if (!properties.getBoolean("InternalArmadilloApplication")&&!properties.getBoolean("WebServices")) {
+            Config.log("Warning: Not Set in commandline:"+Util.toString(commandline));
+            setStatus(status_warning,"Error: Not Set in commandline:"+properties.get("Commandline_Running"));
+        }
+        return true;
+    }
+    
+    /**
      * Test ZONE
      */
     public boolean do_runTest() {
@@ -730,8 +752,6 @@ public class RunProgram implements runningThreadInterface {
         int exitvalue=0;
         if (properties.isSet("NormalExitValue"))
             exitvalue=Integer.parseInt(properties.get("NormalExitValue"));
-        if (properties.isSet("TESTCommandLine"))
-            System.out.println(properties.get("TESTCommandLine"));
         properties.put("ExitValue", exitvalue);
         return true;
     }
@@ -740,10 +760,8 @@ public class RunProgram implements runningThreadInterface {
      */
     
     public void post_runTest() {
-        setStatus(status_running,"\tParsing outputs... ");
         saveOutput(getStatus());
         post_parseOutput();
-        setStatus(status_running,"\n******************************\n");
     }
     
     /**

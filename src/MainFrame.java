@@ -1247,7 +1247,7 @@ public class MainFrame extends javax.swing.JFrame implements WindowListener,
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-       workbox.getCurrentArmadilloWorkflow().resetState();
+        workbox.getCurrentArmadilloWorkflow().resetState();
         workbox.getCurrentArmadilloWorkflow().force_redraw=true;
         workbox.getCurrentArmadilloWorkflow().redraw();
     }//GEN-LAST:event_jMenuItem13ActionPerformed

@@ -49,9 +49,6 @@ public class Bowtie1Inspect extends RunProgram {
         if (GenomeRef.isEmpty()||s.equals("Unknown")) {
             setStatus(status_BadRequirements,"No Genome found.");
             return false;
-        } else if (!path.matches(".*\\.ebwt$")){
-            setStatus(status_BadRequirements,"Choose a file with .ebwt at the end");
-            return false;
         }
         return true;
     }

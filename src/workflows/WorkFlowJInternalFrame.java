@@ -30,8 +30,11 @@ import java.awt.Color;
 import java.awt.Frame;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.net.URL;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.ScrollPaneConstants;
@@ -454,7 +457,20 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         //--      Do not reset the state
         work.resetState();
         getSelectedWay(RunOptions_jComboBox);
-        Run();
+        
+        if (tested) {
+            File dir = new File("./tmp/cluster/");
+            if (!dir.exists())
+                dir.mkdir();
+        }
+
+        if (tested) {
+            String sb = "./tmp/cluster/export_num_workflow_before.txt";
+            database_workflow.updateCurrentWorkflow();
+            database_workflow.saveWorkflow(sb);
+        }
+            
+        this.Run();
     }//GEN-LAST:event_ExecuteAllWorkflow_jButtonActionPerformed
 
     private void ClearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearjButtonActionPerformed
@@ -578,15 +594,15 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
     private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
 
-   
-    public void setWorkflowName(String name,String tooltip) {   
+    
+    public void setWorkflowName(String name,String tooltip) {
         this.WorkflowsName.setText(name);
         this.setToolTipText(tooltip);
     }
-
+    
     @Deprecated
-    public void setWorkflowNote(String note) { 
-          //--Color
+    public void setWorkflowNote(String note) {
+        //--Color
 //          if (note.trim().equals("")||note.equals(defaultNoteString)) {
 //            this.jTextArea1.setForeground(Color.LIGHT_GRAY);
 //           } else {
@@ -594,22 +610,22 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
 //           }
 //           this.jTextArea1.setText(note);
     }
-
-     /**
+    
+    /**
      * Simple thread to cancel the run
      */
     public void StopSW() {
-
+        
         SwingWorker<Integer, Object> loadSwingWorker2=new SwingWorker<Integer, Object>() {
-
+            
             @Override
             protected Integer doInBackground() throws Exception {
-                   //--Some message...
-                    setProgress(0);
-                    if (program!=null) program.Stop();
+                //--Some message...
+                setProgress(0);
+                if (program!=null) program.Stop();
                 return 0;
             }
-
+            
             @Override
             public void process(List<Object> chunk) {
                 for (Object o:chunk) {
@@ -620,46 +636,62 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
                         } else {
 //                            loading.Message(s,"");
                         } //--End Unable
-                     } //--End instance of String
+                    } //--End instance of String
                 } //--End list of Object
             } //End process
-
+            
             @Override
             public void done() {
-                 JOptionPane.showMessageDialog(frame, "<html><b>Warning!</b><br><br>Execution was cancelled.<br>The system might be unstable.<br><b><br>You should save your work...</b></html>","Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(frame, "<html><b>Warning!</b><br><br>Execution was cancelled.<br>The system might be unstable.<br><b><br>You should save your work...</b></html>","Warning", JOptionPane.WARNING_MESSAGE);
             }
-
+            
         }; //End SwingWorker definition
-
+        
         loadSwingWorker2.addPropertyChangeListener(
-                 new PropertyChangeListener() {
+                new PropertyChangeListener() {
                     public  void propertyChange(PropertyChangeEvent evt) {
                         if ("progress".equals(evt.getPropertyName())) {
                             SwingWorker o = (SwingWorker)evt.getSource();
                             if (!o.isDone()) {
                                 int progress=(Integer)evt.getNewValue();
-                                 setProgress(progress);
+                                setProgress(progress);
                             }
                             else if (o.isDone()&&!o.isCancelled()) {
-                               //Handled in done() fucntion in SwingWorker
+                                //Handled in done() fucntion in SwingWorker
                             }
                         }//End progress update
-                 } //End populateNetworkPropertyChange
-                 });
+                    } //End populateNetworkPropertyChange
+                });
         //Finally. Show a load dialog :: Warning Work-In-Progress
-        MessageError("Stopping execution, please wait...","");        
+        MessageError("Stopping execution, please wait...","");
         loadSwingWorker2.execute();
     }
-
-
+    
+    
     /**
      * Execute a "Run" of the current workflow
      */
     public void Run() {
-         program=new programs(database_workflow);
-         program.Run();
-    }
+        program=new programs(database_workflow);
+        program.Run();
+        
+        if (tested) {
+            this.program=new programs(database_workflow);
+            workflow_properties properties = program.getRunningProperties();
+            this.preferences=new WorkFlowPreferenceJDialog(frame);
+            this.runworkflow=new RunWorkflow();
+            this.work.resetState();
+            this.work.force_redraw=true;
+            this.work.redraw();
+            this.jStatusMessage.setText("LocalCreateWorkflow: Done");
+            Message("LocalCreateWorkflow: Done","");
+            this.setProgress(0);
+            this.jStatusMessage.setText("Workflow Exportation in progress");
+        
+        }
 
+    }
+    
     /**
      * Run a particular program of the workflow
      * @param properties
@@ -668,13 +700,13 @@ public class WorkFlowJInternalFrame extends javax.swing.JInternalFrame {
         program=new programs(database_workflow);
         program.Run(properties);
     }
-
+    
     /**
      * Clear the Ouput Text of the current Workflow
      */
     public void ClearOuput() {
-         database_workflow.setWorkflows_outputText("");
-         this.Output_jTextArea.setText("");
+        database_workflow.setWorkflows_outputText("");
+        this.Output_jTextArea.setText("");
     }
 
 }

@@ -55,7 +55,7 @@ public class FastqFile extends Text implements Serializable{
         String s = "";
         for (int ids:f) {
             FastqFile fas =new FastqFile(ids);
-            s = fas.getName();
+            s = fas.getFastqFile();
         }
         return s;
     }
