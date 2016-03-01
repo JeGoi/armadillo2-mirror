@@ -36,6 +36,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -340,41 +342,29 @@ public class programs implements ActionListener {
     /**
      * Main Thread for Running Program in GUI mode
      */
-    private void runthread_Test() {
+    private void runthread_Test2() {
         done=false;          //reset state
-        //--1. creation of the running list
         final List<workflow_properties> queue=(List<workflow_properties>) Collections.synchronizedList(new LinkedList<workflow_properties>());
         for (workflow_properties tmp:run_workflow.getList()) queue.add(tmp);
         final int totalToRun=queue.size();
         timerunning=System.currentTimeMillis();
         running=true;
-        //--2. Clean Running Vector
-        //--Update every 10 sec...
         armadillo.startAutoUpdate();
-        
         RunningSwingWorker=new SwingWorker<Integer, String>()  {
-            
             @Override
             protected Integer doInBackground() throws Exception {
-                
                 while (!isCancelled()&&!cancel&&(queue.size()>0||isRunning())) {
-                    //CASE 1: Running queue object if no Running object
-                    
                     if (runningObject==null&&queue.size()>0) {
                         try {
-                            //Build a search String
                             if (!cancel) runningProperties=queue.remove(0);
+                            publish("Running "+runningProperties.getName()+"...\n");
                             if (Running(runningProperties)) {
-                                armadillo.workbox.addOutput("Running "+runningProperties.getName()+"...\n");
                             } else {
-                                if (armadillo.workflow.updateDependance()) {
-                                };
+                                if (armadillo.workflow.updateDependance()){};//DO NOTHING BUT WAIT SHYNCHRONISATION...
                                 armadillo.redraw();
                             }
                         } catch(Exception e1) {Config.log("Error : Program run unable to create >Running object (1) "+e1.getMessage());}
                     }
-                    
-                    //CASE 2: Running the current object...
                     if (runningObject!=null&&runningObject.isDone()) {
                         try {
                             setProgress(0);
@@ -387,28 +377,45 @@ public class programs implements ActionListener {
                             setProgress(0);
                             if (runningObject.getId()!=0) {
                                 runningObject.update();
+//                                System.out.println(runningObject.getInformation());
+//                                //TOPTOP
+//                                String str =runningProperties.getPropertiesToVarStringWithEOL();
+//                                //System.out.println("\""+str+"\"");
+//                                String line;
+//                                str = "\'"+str+"\'";
+//                                str = str.replaceAll(" ", "_____");
+//                                Process p = Runtime.getRuntime().exec("python ./cluster.py "+str+"");
+//                                BufferedReader bri = new BufferedReader
+//                                  (new InputStreamReader(p.getInputStream()));
+//                                BufferedReader bre = new BufferedReader
+//                                  (new InputStreamReader(p.getErrorStream()));
+//                                while ((line = bri.readLine()) != null) {
+//                                  System.out.println(line);
+//                                }
+//                                bri.close();
+//                                while ((line = bre.readLine()) != null) {
+//                                  System.out.println(line);
+//                                }
+//                                bre.close();
+//                                p.waitFor();
+//                                System.out.println("Done.");                                
                             } else {
+                                
                                 runningObject.saveToDatabase();
                             }
                         } catch(Exception e2) {Config.log("Error : Program Run Module unable to save to workflow (2) "+e2.getMessage());}
                         runningObject=null;
                     }
-                    //CASE 3: Normal operation, update the workflow if we just finish a step
                     if (runningObject==null) {
                         try {
-                            if (armadillo.workflow.updateDependance()) {
-                                //DO NOTHING BUT WAIT SHYNCHRONISATION...
-                            };
-                            //armadillo.force_redraw=true;
+                            if (armadillo.workflow.updateDependance()){};//DO NOTHING BUT WAIT SHYNCHRONISATION...
                             armadillo.redraw();
                             setProgress((totalToRun-queue.size())*100/totalToRun);
                         } catch(Exception e3) {Config.log("Error : Program run unable to normal update (3) "+e3.getMessage());}
                     }
-                    //CASE 4: Workflow is done
                     if (queue.size()==0&&runningObject==null) {
                         running=false;
                     }
-                    //CASE 5: We receive a  cancel call!
                     if (cancel) {
                         try {
                             queue.clear();
@@ -421,7 +428,6 @@ public class programs implements ActionListener {
                             }
                         } catch(Exception e5) {Config.log("Error : Program run unable to cancel (5) "+e5.getMessage());}
                     } //--End cancel
-                    //CASE 6: Update of the workflow receive (currently not active)
                     if (update) {
                         update=false;
                         try {
@@ -439,14 +445,13 @@ public class programs implements ActionListener {
             protected void process(List<String> chunks) {
                 for(String s:chunks) {
                     if (s.startsWith("Error")||s.startsWith("Cancelled")) {
-                        armadillo.workbox.MessageError(s, "");
+                        armadillo.workbox.MessageError("PreRun : "+s, "");
                     } else {
-                        armadillo.workbox.Message(s, "");
+                        //armadillo.workbox.Message("TestZone"+s, "");
                     }
                     workflows.setWorkflows_outputText(armadillo.workbox.getOutput());
                 }
             }
-            
             
             @Override
             protected void done(){
@@ -456,10 +461,10 @@ public class programs implements ActionListener {
                         runningObject.KillThread();
                     }
                     armadillo.workflow.updateDependance();
-                    work.saveWorkflowToDatabaseWOSW(workflows.getName()+" - Cancelled at "+Util.returnCurrentDateAndTime());
-                    run_workflow.getExecution_workflow_id().add(workflows.getId());
+                    //work.saveWorkflowToDatabaseWOSW(workflows.getName()+" - Cancelled at "+Util.returnCurrentDateAndTime());
+                    //run_workflow.getExecution_workflow_id().add(workflows.getId());
                     armadillo.workbox.setProgress(0);
-                    run_workflow.setName(workflows.getName()+" - Cancelled at "+Util.returnCurrentDateAndTime());
+                    //run_workflow.setName(workflows.getName()+" - Cancelled at "+Util.returnCurrentDateAndTime());
                     run_workflow.setCompleted(false);
                     run_workflow.saveToDatabase();
                     runningObject=null;
@@ -474,7 +479,6 @@ public class programs implements ActionListener {
                     timerunning=System.currentTimeMillis()-timerunning;
                     armadillo.workbox.setProgress(0);
                     run_workflow.setCompleted(false);
-                    run_workflow.setNote("PreRun Done "+armadillo.getName()+" in "+Util.msToString(timerunning)+"\n");
                     run_workflow.saveToDatabase();
                     runningObject=null;
                     armadillo.workflow.updateDependance();
@@ -484,11 +488,12 @@ public class programs implements ActionListener {
                     armadillo.redraw();
                     tool.reloadDatabaseTree();
                     setDone(true);
-                    String s = "./tmp/cluster/export_num_workflow_after.txt";
-                    workflows.updateCurrentWorkflow();
-                    workflows.saveWorkflow(s);
+                    work.resetState();
+//                    String wid = String.valueOf(workflows.getId());
+//                    String s = "./tmp/cluster/export_num_workflow_after"+wid+".txt";
+//                    workflows.updateCurrentWorkflow();
+//                    workflows.saveWorkflow(s);
                 }
-                
             }
             
         }; //End SwingWorker declaration
@@ -555,7 +560,13 @@ public class programs implements ActionListener {
                 Config.log(" -Object: "+properties.getName()+"");
                 Config.log(" -Started at "+Util.returnCurrentDateAndTime()+"");
                 Config.log("**************************************************************************************************************");
-                runthread();
+//                if (work.isWorkboxATest()) {
+//                    armadillo.workbox.addOutput("Workflow Test in progress ...\n");
+//                    runthread_Test();
+//                    armadillo.workbox.addOutput("Workflow Test done ...\n");
+//                } else {
+                    runthread();
+//                }
             } else {
                 runthread_text();
             }
@@ -591,23 +602,25 @@ public class programs implements ActionListener {
     public void execute() {
         if (armadillo.isInitialized()) {
             armadillo.workbox.ClearOutput();
-            if (work.isWorkboxATest())
-                runthread_Test();
-            else {
-                armadillo.workbox.addOutput("**************************************************************************************************************\n");
-                armadillo.workbox.addOutput(" Armadillo v"+config.get("version")+"\n");
-                armadillo.workbox.addOutput(" New Execution started \n");
-                armadillo.workbox.addOutput(" -Running "+armadillo.getName()+" workflow.\n");
-                armadillo.workbox.addOutput(" -Started at "+Util.returnCurrentDateAndTime()+"\n");
-                armadillo.workbox.addOutput("**************************************************************************************************************\n");
-                Config.log("**************************************************************************************************************");
-                Config.log(" Armadillo v"+config.get("version"));
-                Config.log(" New Execution started ");
-                Config.log(" -Running "+armadillo.getName()+" workflow.");
-                Config.log(" -Started at "+Util.returnCurrentDateAndTime()+"\n");
-                Config.log("**************************************************************************************************************");
+            armadillo.workbox.addOutput("**************************************************************************************************************\n");
+            armadillo.workbox.addOutput(" Armadillo v"+config.get("version")+"\n");
+            armadillo.workbox.addOutput(" New Execution started \n");
+            armadillo.workbox.addOutput(" -Running "+armadillo.getName()+" workflow.\n");
+            armadillo.workbox.addOutput(" -Started at "+Util.returnCurrentDateAndTime()+"\n");
+            armadillo.workbox.addOutput("**************************************************************************************************************\n");
+            Config.log("**************************************************************************************************************");
+            Config.log(" Armadillo v"+config.get("version"));
+            Config.log(" New Execution started ");
+            Config.log(" -Running "+armadillo.getName()+" workflow.");
+            Config.log(" -Started at "+Util.returnCurrentDateAndTime()+"\n");
+            Config.log("**************************************************************************************************************");
+//            if (work.isWorkboxATest()) {
+//                armadillo.workbox.addOutput("Workflow Test in progress ...\n");
+//                runthread_Test();
+//                armadillo.workbox.addOutput("Workflow Test done ...\n");
+//            } else {
                 runthread();
-            }
+//            }
         } else {
             publish_text("**************************************************************************************************************");
             publish_text(" Armadillo v"+config.get("version"));
@@ -1522,7 +1535,11 @@ public class programs implements ActionListener {
         workflows.setId(0); //--Reset ID for a new workflow
         boolean saved=workflows.saveToDatabase();
         if (saved) {
-            publish_text("Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")");
+            if (work.isWorkboxATest()) {
+                publish_text("PreRun Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")");
+            } else {
+                publish_text("Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")");
+            }            
         }
         return saved;
     }

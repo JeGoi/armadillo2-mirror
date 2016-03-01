@@ -32,30 +32,6 @@ public class BamFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getBamFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            BamFile b =new BamFile(ids);
-            s = b.getName();
-        }
-        return s;
-    }
-    
-    public static void saveBamFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        BamFile f=new BamFile();
-        f.setBamFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b){
-            p.put("output_bamfile_id", f.getId());
-            p.put("output_bamfile_fileName", s);
-        }
-        else System.out.println("WARNING : BAM file not saved");
-    }
-
-    
     @Override
     public String getBiologicType() {
         return "BamFile";

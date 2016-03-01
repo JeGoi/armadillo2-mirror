@@ -155,7 +155,7 @@ public class save_to_file extends RunProgram {
          TextFile unknown=new TextFile();
          unknown.setRunProgram_id(this.getId());
          unknown.setName(this.getName());
-         unknown.setFile(filename);
+         unknown.setTextFile(filename);
          unknown.saveToDatabase();
          properties.put("output_textfile_id", unknown.getId());
          this.setStatus(status_done, "");

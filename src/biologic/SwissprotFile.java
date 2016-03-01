@@ -31,15 +31,6 @@ public class SwissprotFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getSwissprotFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            SwissprotFile gen =new SwissprotFile(ids);
-            s = gen.getName();
-        }
-        return s;
-    }
-    
     @Override
     public String getBiologicType() {
         return "SwissprotFile";
@@ -69,18 +60,5 @@ public class SwissprotFile extends Text implements Serializable{
         return b;
     }
     
-    public static void saveSwissprotFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        SwissprotFile g = new SwissprotFile();
-        g.setSwissprotFile(s);
-        g.setName(s);
-        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
-        boolean b = g.saveToDatabase();
-        if (b){
-            p.put("output_swissprotfile_id", g.getId());
-            p.put("output_swissprotfile_fileName", s);
-        }
-        else System.out.println("SwissproteFile not saved");
-    }
 
 }

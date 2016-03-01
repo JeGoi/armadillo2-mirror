@@ -66,29 +66,6 @@ public class ChipsFile extends Text implements Serializable {
         return b;
     }
     
-    public static String getChipsFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            ChipsFile fas =new ChipsFile(ids);
-            s = fas.getName();
-        }
-        return s;
-    }
-    
-    public static void saveChipsFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        ChipsFile f=new ChipsFile();
-        f.setChipsFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b) {
-            p.put("output_chipsfile_id", f.getId());
-            p.put("output_chipsfile_fileName", s);
-        }
-        else System.out.println("WARNING : Chips file not saved");
-    }
-
     @Override
     public String getExtendedString() {
         return toString();

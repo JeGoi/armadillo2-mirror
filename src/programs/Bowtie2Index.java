@@ -69,7 +69,17 @@ public class Bowtie2Index extends RunProgram{
         if (fastaFile==0) {
             setStatus(status_BadRequirements,"No sequence found.");
             return false;
+        } else {
+            Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
+            fastaFile1 = FastaFile.getVectorFilePath(Fasta1);
+            outputPath = outputPath+File.separator+Util.getFileName(fastaFile1);
+            if (!Util.DirExists(outputPath) && !Util.CreateDir(outputPath)) {
+                setStatus(status_BadRequirements,"Can't create the specific directory.");
+                return false;
+            }
         }
+        
+        
         return true;
     }
     
@@ -80,12 +90,8 @@ public class Bowtie2Index extends RunProgram{
     @Override
     public String[] init_createCommandLine() {
         // Inputs
-        Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         String optionsChoosed = "";
-        
-        fastaFile1 = FastaFile.getFastaFilePath(Fasta1);
-        outputFile = Util.getFileName(fastaFile1);
-        outputFile = properties.get("IDG_r_text")+File.separator+outputFile;
+        outputFile = outputPath+File.separator+Util.getFileName(fastaFile1);
         
         if (properties.get("IG_AO_button").equals("true")){
             optionsChoosed = Util.findOptions(indexGenomeTab,properties);
@@ -105,7 +111,7 @@ public class Bowtie2Index extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        GenomeFile.saveGenomeFile(properties,outputFile,"Bowtie2_builder");
+        GenomeFile.saveFile(properties,outputFile,"Bowtie2_builder","GenomeFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie2_builder");
     }
     

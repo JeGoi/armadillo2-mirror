@@ -66,29 +66,6 @@ public class BananaFile extends Text implements Serializable {
         return b;
     }
     
-    public static String getBananaFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            BananaFile fas =new BananaFile(ids);
-            s = fas.getName();
-        }
-        return s;
-    }
-    
-    public static void saveBananaFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        BananaFile f=new BananaFile();
-        f.setBananaFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b){
-            p.put("output_bananafile_id", f.getId());
-            p.put("output_bananafile_fileName", f.getBananaFile());
-        }
-        else System.out.println("WARNING : Banana file not saved");
-    }
-
     @Override
     public String getExtendedString() {
         return toString();

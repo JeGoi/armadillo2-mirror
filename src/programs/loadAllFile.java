@@ -99,7 +99,7 @@ public class loadAllFile extends RunProgram {
        // 4. Text
        switch(type) {
            case 0: TextFile txt=new TextFile();
-                    txt.setFile(properties.get("inputname"));
+                    txt.setTextFile(properties.get("inputname"));
                     txt.setName(properties.get("inputname"));
                     txt.saveToDatabase();
                     properties.put("output_textfile_id", txt.getId());

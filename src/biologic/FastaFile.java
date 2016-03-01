@@ -70,29 +70,6 @@ public class FastaFile extends Text implements Serializable {
         return b;
     }
     
-    public static String getFastaFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            FastaFile fas =new FastaFile(ids);
-            s = fas.getFastaFile();
-        }
-        return s;
-    }
-    
-    public static void saveFastaFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        FastaFile f=new FastaFile();
-        f.setFastaFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(Util.getFileNameAndExt(s)+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b){
-            p.put("output_fastafile_id", f.getId());
-            p.put("output_fastafile_fileName", s);
-        }
-        else System.out.println("WARNING : fasta file not saved");
-    }
-
     @Override
     public String getExtendedString() {
         return toString();

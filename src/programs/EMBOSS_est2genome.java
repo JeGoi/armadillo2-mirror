@@ -108,15 +108,15 @@ public class EMBOSS_est2genome extends RunProgram {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
 
         Vector<Integer>FastaFile_1    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath1 = FastaFile.getFastaFilePath(FastaFile_1);
+        inputPath1 = FastaFile.getVectorFilePath(FastaFile_1);
         input1     = Util.getFileNameAndExt(inputPath1);
 
         Vector<Integer>EmblFile_2    = properties.getInputID("EmblFile",PortInputDOWN);
-        inputPath2 = EmblFile.getEmblFilePath(EmblFile_2);
+        inputPath2 = EmblFile.getVectorFilePath(EmblFile_2);
         input2     = Util.getFileNameAndExt(inputPath2);
 
         Vector<Integer>GenomeFile_3    = properties.getInputID("GenomeFile",PortInputUP);
-        inputPath3 = GenomeFile.getGenomeFilePath(GenomeFile_3);
+        inputPath3 = GenomeFile.getVectorFilePath(GenomeFile_3);
         input3     = Util.getFileNameAndExt(inputPath3);
 
         //INSERT YOUR TEST HERE
@@ -231,7 +231,7 @@ public class EMBOSS_est2genome extends RunProgram {
         ArrayList<String> a = new ArrayList<String>();
         a.add(doName);
         Docker.cleanContainers(a);
-        Est2genomeFile.saveEst2genomeFile(properties,output1,"EMBOSS_est2genome");
+        Est2genomeFile.saveFile(properties,output1,"EMBOSS_est2genome","Est2genomeFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_est2genome");
     }
 }

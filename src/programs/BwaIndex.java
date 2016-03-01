@@ -53,7 +53,7 @@ public class BwaIndex extends RunProgram{
         
         // Inputs
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
-        String s1 = Util.getFileName(FastaFile.getFastaFilePath(Fasta1));
+        String s1 = Util.getFileName(FastaFile.getVectorFilePath(Fasta1));
         
         if (Fasta1.isEmpty() || s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
@@ -68,8 +68,7 @@ public class BwaIndex extends RunProgram{
         // Input FastaFile
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         
-        
-        fastaFile1 = FastaFile.getFastaFilePath(Fasta1);
+        fastaFile1 = FastaFile.getVectorFilePath(Fasta1);
         outputFile = Util.getFileName(fastaFile1);
         
         if (properties.get("IDG_r_text").startsWith(".")) {
@@ -105,7 +104,7 @@ public class BwaIndex extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        GenomeFile.saveGenomeFile(properties,outputFile,"Bwa_indexer");
+        GenomeFile.saveFile(properties,outputFile,"Bwa_indexer","GenomeFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bwa_indexer");
     }
     

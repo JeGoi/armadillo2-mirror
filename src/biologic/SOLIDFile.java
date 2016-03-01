@@ -23,6 +23,7 @@ package biologic;
 import configuration.Util;
 import java.io.File;
 import java.io.Serializable;
+import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
@@ -55,17 +56,4 @@ public class SOLIDFile extends Text implements Serializable {
         return toString();
     }
     
-    public static int saveSolidFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        SOLIDFile so=new SOLIDFile();
-        so.setSolidFile(s);
-        so.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        so.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = so.saveToDatabase();
-        if (b){
-            p.put("output_solidfile_id", so.getId());
-            p.put("output_solidfile_fileName", s);
-        }
-        return so.getId();
-    }
 }

@@ -35,6 +35,8 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import editor.EditorInterface;
+import editor.EditorInterface;
+import editors.HelpEditor;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
 import java.io.*;

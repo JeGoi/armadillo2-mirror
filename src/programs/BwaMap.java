@@ -151,7 +151,7 @@ public class BwaMap extends RunProgram {
     
     private boolean checkGenomeRequirements() {
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
-        String s1 = Util.getFileName(GenomeFile.getGenomeFilePath(GenomeRef));
+        String s1 = Util.getFileName(GenomeFile.getVectorFilePath(GenomeRef));
         //Boolean Setting
         boolean b1 = properties.isSet("M_IDG_workflow_button");
         boolean b2 = properties.isSet("M_IDG_directory_button");
@@ -171,8 +171,8 @@ public class BwaMap extends RunProgram {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         
-        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
-        String s2 = Util.getFileName(FastqFile.getFastqFilePath(Fastq2));
+        String s1 = Util.getFileName(FastqFile.getVectorFilePath(Fastq1));
+        String s2 = Util.getFileName(FastqFile.getVectorFilePath(Fastq2));
         
         if (Fastq1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
@@ -191,8 +191,8 @@ public class BwaMap extends RunProgram {
         Vector<Integer>Bam1    = properties.getInputID("BamFile",PortInputUP);
         Vector<Integer>Bam2    = properties.getInputID("BamFile",PortInputDOWN);
         
-        String s1 = Util.getFileName(BamFile.getBamFilePath(Bam1));
-        String s2 = Util.getFileName(BamFile.getBamFilePath(Bam2));
+        String s1 = Util.getFileName(BamFile.getVectorFilePath(Bam1));
+        String s2 = Util.getFileName(BamFile.getVectorFilePath(Bam2));
                 
         if (Bam2.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence found.");
@@ -221,15 +221,15 @@ public class BwaMap extends RunProgram {
         Vector<Integer>Bam2      = properties.getInputID("BamFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
-        fastqFile1 = FastqFile.getFastqFilePath(Fastq1);
-        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqFilePath(Fastq2);
+        fastqFile1 = FastqFile.getVectorFilePath(Fastq1);
+        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getVectorFilePath(Fastq2);
         
-        bamFile1 = BamFile.getBamFilePath(Bam1);
-        if (!Bam2.isEmpty()) bamFile2 = BamFile.getBamFilePath(Bam2);
+        bamFile1 = BamFile.getVectorFilePath(Bam1);
+        if (!Bam2.isEmpty()) bamFile2 = BamFile.getVectorFilePath(Bam2);
         
         // Genome File source
         if (!GenomeRef.isEmpty()){
-            genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
+            genomeFile = GenomeFile.getVectorFilePath(GenomeRef);
             genomeFile = genomeFile.replaceAll("(\\.fa|\\.fasta)$","");
         } else {
             String genomeChoosed = properties.get("IDG_selected_ComboBox");
@@ -349,7 +349,7 @@ public class BwaMap extends RunProgram {
     */
     @Override
     public void post_parseOutput() {
-        SamFile.saveSamFile(properties,outputFile,"Bwa_map");
+        SamFile.saveFile(properties,outputFile,"Bwa_map","SamFile");
         
         String s = this.getPgrmOutput();
         if (!outputFileSE.equals("")) s+="\nintermediate files :"+outputFileSE+"\n";

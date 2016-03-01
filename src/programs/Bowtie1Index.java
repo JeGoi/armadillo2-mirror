@@ -87,7 +87,7 @@ public class Bowtie1Index extends RunProgram{
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         String optionsChoosed = "";
         
-        fastaFile1 = FastaFile.getFastaFilePath(Fasta1);
+        fastaFile1 = FastaFile.getVectorFilePath(Fasta1);
         outputFile = properties.get("IDG_r_text")+File.separator+Util.getFileName(fastaFile1);
         
         if (properties.get("IG_AO_button").equals("true")){
@@ -108,7 +108,7 @@ public class Bowtie1Index extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        GenomeFile.saveGenomeFile(properties,outputFile,"Bowtie1_Index");
+        GenomeFile.saveFile(properties,outputFile,"Bowtie1_Index","GenomeFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie1_Index");
     }
     

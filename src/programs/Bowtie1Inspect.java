@@ -42,11 +42,11 @@ public class Bowtie1Inspect extends RunProgram {
     @Override
     public boolean init_checkRequirements() {
         Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
-        
-        String path  = GenomeFile.getGenomeFilePath(GenomeRef);
-        String s     = Util.getFileName(path);
-        
-        if (GenomeRef.isEmpty()||s.equals("Unknown")) {
+        genomeFile = Util.getFileName(GenomeFile.getVectorFilePath(GenomeRef));
+        genomeFile = genomeFile.replaceAll("\\.\\d.ebwt$","");
+        genomeFile = genomeFile.replaceAll("\\.rev$","");
+
+        if (GenomeRef.isEmpty()||genomeFile.equals("Unknown")) {
             setStatus(status_BadRequirements,"No Genome found.");
             return false;
         }
@@ -55,16 +55,8 @@ public class Bowtie1Inspect extends RunProgram {
     
     @Override
     public String[] init_createCommandLine() {
-        
-        // Inputs
-        Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
-        String optionsChoosed    = "";
-        
-        genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
-        genomeFile = genomeFile.replaceAll("\\.\\d.ebwt$","");
-        genomeFile = genomeFile.replaceAll("\\.rev$","");
-        
         // Programme et options
+        String optionsChoosed    = "";
         if (properties.get("I_AO_button").equals("true")) {
             optionsChoosed = Util.findOptions(inspectTab,properties);
         }

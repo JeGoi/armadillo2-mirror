@@ -305,6 +305,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             
             setInitialized(true);
             System.out.println("Done initializing..."+(small_editor_mode?"small editor...":"main workflow builder..."));
+            
             force_redraw=true;
             redraw();
             
@@ -552,7 +553,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         for (String filename:workflow_properties.loadPropertieslisting(config.get("propertiesPath"))) {
             workflow_properties tmp=new workflow_properties();
             tmp.load(filename, config.get("propertiesPath"));
-            program.add(tmp);
+            if (!tmp.get("Name").equals("Cluster")) {
+                program.add(tmp);
+            }
         }
         
         workflow_properties rootnode=new workflow_properties();
@@ -1528,7 +1531,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         return createObject(obj,p);
     }
 ////////////////////////////////////////////////////////////////////////////////
-/// Verification fucntion
+/// Verification function
     
     /**
      * Count the number of begin object
@@ -2734,6 +2737,44 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             return null;
         }
         
+        public boolean testClusterPresence() {
+            for(int i=0; i<work.size();i++) {
+                workflow_object obj=work.get(i);
+                if (obj.getProperties().get("Name").equals("Cluster") &&
+                        obj.getProperties().get("ObjectType").equals("ScriptBig")
+                        ) {
+                    //--debug Config.log(obj.getName());
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public workflow_object getClusterObject() {
+            for(int i=0; i<work.size();i++) {
+                workflow_object obj=work.get(i);
+                if (obj.getProperties().get("Name").equals("Cluster") &&
+                        obj.getProperties().get("ObjectType").equals("ScriptBig")
+                        ) {
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+        public boolean isClusterActive() {
+            for(int i=0; i<work.size();i++) {
+                workflow_object obj=work.get(i);
+                if (obj.getProperties().get("Name").equals("Cluster") &&
+                        obj.getProperties().isSet("clusterEnabled")
+                        ) {
+                    //--debug Config.log(obj.getName());
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public Vector<workflow_object> findIf() {
             Vector<workflow_object>tmp=new Vector<workflow_object>();
             for(int i=0; i<work.size();i++) {
@@ -2921,7 +2962,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                     obj.getProperties().put("Output"+o.getProperties().get("outputType"), "True");
                                     obj.getProperties().put("outputType",o.getProperties().get("outputType"));
                                     
-//--Update the output connectors
+//                          --Update the output connectors
 //                           obj.updateConnectorType(1,o.getProperties().get("outputType"));
 //                           obj.updateConnectorType(2,o.getProperties().get("outputType"));
 //
@@ -2957,19 +2998,24 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                             for (workflow_object o:input) {
                                 //System.out.println("\t"+o);
                                 //--Special case for If (which might have more than 1 inputs...)
+                                String st = o.getProperties().getPropertiesToVarString();
                                 if (o instanceof workflow_object_if) {
                                     for (String ifo:o.getProperties().Outputed()) {
                                         String type=ifo.toLowerCase();
                                         int id=o.getProperties().getOutputID(type);
                                         for (workflow_connector c:findConnection(o,obj)) {
-                                            obj.getProperties().put("input_"+type+"_id"+c.number+(connector_next_indice[c.number]++),id);
+                                            int num = (connector_next_indice[c.number]++);
+                                            obj.getProperties().put("input_"+type+"_id"+c.number+num,id);
+                                            obj.getProperties().put("input_"+type+"_id"+c.number+num+"_properties",st);
                                         }
                                     }
                                 } else {
                                     String type=o.getProperties().get("outputType").toLowerCase();
                                     int id=o.getProperties().getOutputID(type);
                                     for (workflow_connector c:findConnection(o,obj)) {
-                                        obj.getProperties().put("input_"+type+"_id"+c.number+(connector_next_indice[c.number]++),id);
+                                        int num = (connector_next_indice[c.number]++);
+                                        obj.getProperties().put("input_"+type+"_id"+c.number+num,id);
+                                        obj.getProperties().put("input_"+type+"_id"+c.number+num+"_properties",st);
                                         //Config.log(o+"UpdateDependance : "+id+c);
                                         //--delete next input
                                         //obj.getProperties().remove("input_"+type+"_id"+c.number+(connector_next_indice[c.number]));
@@ -4967,8 +5013,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             super.invalidate();
             // - For debug
             //println(name);
-            
-            
             for (int i=0; i<Vertex_count;i++) {
                 Vertex[i].x+=x2;
                 Vertex[i].y+=y2;
@@ -4981,6 +5025,40 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             recalculatePosition();
         }
         
+        public void moveBack(int x2, int y2) {
+            super.reset();
+            super.invalidate();
+            float w=149;
+            float h=86;
+            
+            // -- Make the vertex needed
+            addVertex(x2, y2);
+            addVertex(x2+w,y2);
+            addVertex(x2+w, y2+h);
+            addVertex(x2, y2+h);
+            for (int i=0; i<Vertex_count;i++) {
+                //super.addPoint((int)Vertex[i].x,(int)Vertex[i].y);
+            }
+            //--Set new position in properties
+            properties.put("x",Vertex[0].x);
+            properties.put("y",Vertex[0].y);
+            
+            recalculatePosition();
+        }
+        
+        public void move(int x2, int y2) {
+            for (int i=0; i<Vertex_count;i++) {
+                Vertex[i].x=x2;
+                Vertex[i].y=y2;
+                super.addPoint((int)Vertex[i].x,(int)Vertex[i].y);
+            }
+            //--Set new position in properties
+            properties.put("x",Vertex[0].x);
+            properties.put("y",Vertex[0].y);
+            //--debug Config.log(properties.getProperties());
+            moveBack(x2,y2);
+            recalculatePosition();
+        }
         
         public boolean inside() {
             try {
@@ -7871,6 +7949,18 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     
     public Workbox getWorkbox(){
         return workbox;
+    }
+    
+    public workflow_properties getProperties(){
+        return properties;
+    }
+    
+    public Workflow getWorkFlow(){
+        return workflow;
+    }
+    
+    public armadillo_workflow getArmadilloWorkFlow(){
+        return current;
     }
     
 } //End armadillo workflow

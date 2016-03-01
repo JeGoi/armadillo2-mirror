@@ -109,6 +109,12 @@ public class workflow_properties extends Properties implements Comparable {
             //this.name=this.get("Name"); //Get this PropertiesName from file
             br.close();
             this.put("filename", filename);
+            
+            
+//            System.out.println("yes2yes2yes2yes");
+//            System.out.println(filename);
+            
+            
         } catch(Exception e) {
             if (debug) e.printStackTrace();
             Config.log("Error in loading properties from filename "+filename);
@@ -396,6 +402,38 @@ public class workflow_properties extends Properties implements Comparable {
             
         }
         return tmp.toString();
+    }
+    
+    /**
+     * Return a var String representation of the properties
+     * @return a String of this workflow_properties
+     */
+    public String getPropertiesToVarStringWithEOL() {
+        String tmp= "";
+        Enumeration<Object> e=this.keys();
+        tmp = this.getName()+"_____has_____"+this.size()+"_____key(s)<__n__>";
+        while(e.hasMoreElements()) {
+            String key=(String)e.nextElement();
+            tmp = tmp+key+"<__->__>"+get(key)+"<__n__>";
+            
+        }
+        return tmp;
+    }
+    
+    /**
+     * Return a String representation of the properties
+     * @return a String of this workflow_properties
+     */
+    public String getPropertiesToVarString() {
+        String tmp = "";
+        Enumeration<Object> e=this.keys();
+        tmp = this.getName()+"_____has_____"+this.size()+"_____key(s)<_____>";
+        while(e.hasMoreElements()) {
+            String key=(String)e.nextElement();
+            tmp = tmp+key+"<__->__>"+get(key)+"<_____>";
+            
+        }
+        return tmp;
     }
     
     public static String getPropertiesToString(Properties prop) {
@@ -692,7 +730,7 @@ public class workflow_properties extends Properties implements Comparable {
     }
     
     /**
-     * Normal fucntion to get the output in a program
+     * Normal function to get the output in a program
      * @param filter (ex. output_multipletrees_id)
      * @return
      */
@@ -702,9 +740,8 @@ public class workflow_properties extends Properties implements Comparable {
         return id.get(0);
     }
     
-    
     /**
-     * Normal fucntion to get the input in a program
+     * Normal function to get the input in a program
      * Example: .getInputID("input_multiplesequences_id");
      * @param filter (ex. input_multipletrees_id)
      *

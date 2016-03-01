@@ -8,6 +8,7 @@ package programs;
 
 import biologic.Results;
 import biologic.GenomeFile;
+import biologic.TextFile;
 import configuration.Util;
 import java.util.Vector;
 import program.RunProgram;
@@ -51,7 +52,7 @@ public class Bowtie2Inspect extends RunProgram {
         Vector<Integer> GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN);
         String optionsChoosed    = "";
         
-        genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
+        genomeFile = GenomeFile.getVectorFilePath(GenomeRef);
         if (genomeFile.matches("\\.\\d.bt2l?$")) {
             genomeFile = Util.getFileName(genomeFile);
             genomeFile = genomeFile.replaceAll("\\.\\d.bt2l?$","");
@@ -81,6 +82,7 @@ public class Bowtie2Inspect extends RunProgram {
     @Override
     public void post_parseOutput() {
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie2_Inspect");
+        //TextFile.saveTextFile(properties,this.getPgrmOutput(),"Bowtie2_Inspect");
     }
     
 }

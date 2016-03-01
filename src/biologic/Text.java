@@ -21,6 +21,7 @@
 
 package biologic;
 
+import configuration.Util;
 import java.io.Serializable;
 import workflows.workflow_properties;
 
@@ -82,6 +83,23 @@ public class Text extends Unknown implements Serializable {
          tmp.put("Description", this.getFilename());
          tmp.put("output_"+outputType.toLowerCase()+"_id", this.getId());
         return tmp;        
+    }
+    
+    public static void saveFile (workflow_properties p, String s, String pgrmName, String type) {
+        s = Util.relativeToAbsoluteFilePath(s);
+        Text f=new Text();
+        f.setFilename(s);
+        f.setName(Util.getFileNameAndExt(s)+" ("+Util.returnCurrentDateAndTime()+")");
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setText(type+" is here \n"+s+"\n\nSelected on: "+Util.returnCurrentDateAndTime()+"\nLoaded From program: "+pgrmName);
+        f.setUnknownType(type);
+        String typedb = type.toLowerCase();
+        boolean b = f.saveToDatabase();
+        if (b){
+            p.put("output_"+typedb+"_id", f.getId());
+            p.put("output_"+typedb+"_fileName", s);
+        }
+        else System.out.println(type+" file not saved");
     }
 
 }

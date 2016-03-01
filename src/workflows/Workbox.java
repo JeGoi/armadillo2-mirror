@@ -50,7 +50,7 @@ public class Workbox {
     /////////////////////////////////////////////////////////////////////////////
     /// Variables
     
-    private static WorkFlowJInternalFrame workbox=null;
+    private static WorkFlowJInternalFrame WorkFlowIntFrame=null;
     public static Toolbox toolbox;
     public static Frame frame;
     public static InformationJDialog loading;
@@ -83,7 +83,7 @@ public class Workbox {
             //                Config.log(p.toString());
             //            }
         }
-        if (workbox==null) {
+        if (WorkFlowIntFrame==null) {
             try {
                 toolbox=new Toolbox();
             } catch(Exception e) {Config.log("Unable to initialize Workbox->toolbox");}
@@ -91,9 +91,9 @@ public class Workbox {
                 //--Creation of the main armadillo_workflow 0bject
                 work=new armadillo_workflow();
                 database_workflow=new Workflows(work);
-                workbox=new WorkFlowJInternalFrame(frame, database_workflow);
+                WorkFlowIntFrame=new WorkFlowJInternalFrame(frame, database_workflow);
             } catch(Exception e) {
-                Config.log("Unable to initialize Workbox->workbox");
+                Config.log("Unable to initialize Workbox->WorkFlowIntFrame");
             }
         }
         this.getCurrentArmadilloWorkflow().setName(WorkflowName);
@@ -112,7 +112,7 @@ public class Workbox {
         if (project==null) {
             Workbox.project=project;
         }
-        workbox=new WorkFlowJInternalFrame(frame, workflow);
+        WorkFlowIntFrame=new WorkFlowJInternalFrame(frame, workflow);
     }
     
     ////////////////////////////////////////////////////////////////////////////
@@ -138,9 +138,9 @@ public class Workbox {
         database_workflow.workflow.workflow.selectAll();
         database_workflow.workflow.workflow.deleteSelected();
         getCurrentArmadilloWorkflow().setName("");
-        workbox.setWorkflowName("","");
+        WorkFlowIntFrame.setWorkflowName("","");
         database_workflow.setWorkflows_outputText("");
-        workbox.setOutput("");
+        WorkFlowIntFrame.setOutput("");
         database_workflow.setName("New Workflow - "+Util.returnCurrentDateAndTime());
         database_workflow.setDate_created(Util.returnCurrentDateAndTime());
         database_workflow.setNote("Created on "+Util.returnCurrentDateAndTime());
@@ -152,7 +152,7 @@ public class Workbox {
      * @return
      */
     public JInternalFrame getJInternalFrame() {
-        return workbox;
+        return WorkFlowIntFrame;
     }
     
     /**
@@ -177,7 +177,7 @@ public class Workbox {
     }
     
     public RunWorkflow getCurrentRunWorkflow() {
-        return workbox.runworkflow;
+        return WorkFlowIntFrame.runworkflow;
     }
     
     /**
@@ -201,14 +201,14 @@ public class Workbox {
      * Maximize the size of the workflow/script JInternalFrame
      */
     public void mazimizeSize() {
-        workbox.mazimizeSize();
+        WorkFlowIntFrame.mazimizeSize();
     }
     
     /**
      * Set the visible jPanel to the WorkflowJPanel and set the workflow visible
      */
     public void setScriptVisible() {
-        workbox.setScriptSelected(this.getCurrentArmadilloWorkflow().workflow);
+        WorkFlowIntFrame.setScriptSelected(this.getCurrentArmadilloWorkflow().workflow);
         setVisible(true);
     }
     
@@ -216,32 +216,32 @@ public class Workbox {
      * Set the visible jPanel to the ScriptJPanel and set the workflow visible
      */
     public void setWorkflowVisible() {
-        workbox.setWorkflowSelected();
+        WorkFlowIntFrame.setWorkflowSelected();
         this.getCurrentArmadilloWorkflow().redraw();
         setVisible(true);
     }
     
     
     public void addOutput(String t) {
-        if (workbox!=null) workbox.appendOutput(t);
+        if (WorkFlowIntFrame!=null) WorkFlowIntFrame.appendOutput(t);
     }
     
     public String getOutput() {
-        if (workbox!=null) {
+        if (WorkFlowIntFrame!=null) {
             return database_workflow.getWorkflows_outputText();
         } return "";
     }
     
     public void Message(String msg, String tooltip) {
-        if (workbox!=null) workbox.Message(msg, tooltip);
+        if (WorkFlowIntFrame!=null) WorkFlowIntFrame.Message(msg, tooltip);
     }
     
     public void MessageError(String msg, String tooltip) {
-        if (workbox!=null) workbox.MessageError(msg, tooltip);
+        if (WorkFlowIntFrame!=null) WorkFlowIntFrame.MessageError(msg, tooltip);
     }
     
     public void setProgress(int progress) {
-        if (workbox!=null) workbox.setProgress(progress);
+        if (WorkFlowIntFrame!=null) WorkFlowIntFrame.setProgress(progress);
     }
     
 //     /**
@@ -249,16 +249,16 @@ public class Workbox {
 //      * @param worker
 //      */
 //     public void setSwingWorker(SwingWorker worker) {
-//         if (workbox!=null) workbox.setSwingWorker(worker);
+//         if (WorkFlowIntFrame!=null) WorkFlowIntFrame.setSwingWorker(worker);
 //     }
     
     public boolean saveWorkflowAsTxt(String filename) {
 //
-//         workbox.database_workflow.updateCurrentWorkflow();
-//         boolean saved=workbox.database_workflow.saveWorkflow(filename);
+//         WorkFlowIntFrame.database_workflow.updateCurrentWorkflow();
+//         boolean saved=WorkFlowIntFrame.database_workflow.saveWorkflow(filename);
 //         if (saved) {
-//            workbox.Message("Successfully saved workflow to "+filename+" at ("+Util.returnCurrentDateAndTime()+")", "");
-//         } else workbox.MessageError("Unable to save workflow to "+filename, "");
+//            WorkFlowIntFrame.Message("Successfully saved workflow to "+filename+" at ("+Util.returnCurrentDateAndTime()+")", "");
+//         } else WorkFlowIntFrame.MessageError("Unable to save workflow to "+filename, "");
         this.saveWorkflowAsTxtSW(filename);
         return true;
     }
@@ -297,13 +297,19 @@ public class Workbox {
     public boolean saveWorkflowToDatabaseWOSW(String WorkflowName) {
         //--TO DO: Find why it bug!
         database_workflow.setName(WorkflowName);
-        workbox.Message("Saving workflow "+WorkflowName+" to database...","");
-        //workbox.database_workflow.updateCurrentWorkflow();
+        if (!WorkFlowIntFrame.isATest()){
+            WorkFlowIntFrame.Message("Saving workflow "+WorkflowName+" to database...","");
+        }
+        //WorkFlowIntFrame.database_workflow.updateCurrentWorkflow();
         database_workflow.setId(0); //--Reset ID for a new workflow
         boolean saved=database_workflow.saveToDatabase();
         if (saved) {
-            workbox.Message("Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")","");
-            workbox.setWorkflowName(database_workflow.getName(), "");
+            if (WorkFlowIntFrame.isATest()){
+                //WorkFlowIntFrame.Message("PreRun1 Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")","");
+            } else
+                WorkFlowIntFrame.Message("Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")","");
+            
+            WorkFlowIntFrame.setWorkflowName(database_workflow.getName(), "");
             toolbox.reloadCurrentWorkflowsTree(getCurrentArmadilloWorkflow());
         }
         return saved;
@@ -316,11 +322,11 @@ public class Workbox {
     }
     
     public boolean loadWorkflowFromDatabase(int id) {
-        //boolean loaded=workbox.database_workflow.loadFromDatabase(id);
+        //boolean loaded=WorkFlowIntFrame.database_workflow.loadFromDatabase(id);
 //         boolean loaded=
 //         if (loaded) {
-//            workbox.Message("Successfully loaded workflow from database...", "");
-//         } else workbox.MessageError("Unable to load workflow from database...", "");
+//            WorkFlowIntFrame.Message("Successfully loaded workflow from database...", "");
+//         } else WorkFlowIntFrame.MessageError("Unable to load workflow from database...", "");
         loadWorkflowFromDatabaseSW(id);
         return true;
     }
@@ -341,13 +347,13 @@ public class Workbox {
                 setProgress(75);
                 if (loaded) {
                     //--Update OutputText JTextArea...
-                    workbox.setOutput(database_workflow.getWorkflows_outputText());
+                    WorkFlowIntFrame.setOutput(database_workflow.getWorkflows_outputText());
                     //--SimpleGraph and DisplayLine
                     getCurrentArmadilloWorkflow().simplegraph=database_workflow.isSimpleGraph();
                     getCurrentArmadilloWorkflow().draw_grid=database_workflow.isDisplayLINE();
-                    workbox.setWorkflowName(database_workflow.getName(), "");
-                    workbox.setWorkflowNote(database_workflow.getNote());
-                    //Config.log(workbox.database_workflow.isDisplayLINE()+" "+workbox.database_workflow.isSimpleGraph());
+                    WorkFlowIntFrame.setWorkflowName(database_workflow.getName(), "");
+                    WorkFlowIntFrame.setWorkflowNote(database_workflow.getNote());
+                    //Config.log(WorkFlowIntFrame.database_workflow.isDisplayLINE()+" "+WorkFlowIntFrame.database_workflow.isSimpleGraph());
                     boolean success=database_workflow.StringToWorkflow(database_workflow.getWorkflow_in_txt());
                     setProgress(100);
                     if (success) {
@@ -376,9 +382,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -444,7 +450,7 @@ public class Workbox {
                     int workflow_id=df.getNextWorkflowsID()-1;
                     if (workflow_id>0) {
                         loadWorkflowFromDatabase(workflow_id);
-                        //workbox.getCurrentArmadilloWorkflow().setName(workflowname);
+                        //WorkFlowIntFrame.getCurrentArmadilloWorkflow().setName(workflowname);
                     }
                 }
                 return true;
@@ -455,9 +461,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -532,9 +538,9 @@ public class Workbox {
                     if (loaded) {
                         getCurrentArmadilloWorkflow().simplegraph=database_workflow.isSimpleGraph();
                         getCurrentArmadilloWorkflow().draw_grid=database_workflow.isDisplayLINE();
-                        workbox.setWorkflowName(database_workflow.getName(), "");
-                        workbox.setWorkflowNote(database_workflow.getNote());
-                        //Config.log(workbox.database_workflow.isDisplayLINE()+" "+workbox.database_workflow.isSimpleGraph());
+                        WorkFlowIntFrame.setWorkflowName(database_workflow.getName(), "");
+                        WorkFlowIntFrame.setWorkflowNote(database_workflow.getNote());
+                        //Config.log(WorkFlowIntFrame.database_workflow.isDisplayLINE()+" "+WorkFlowIntFrame.database_workflow.isSimpleGraph());
                         boolean success=database_workflow.StringToWorkflow(database_workflow.getWorkflow_in_txt());
                         getCurrentArmadilloWorkflow().workflow.updateDependance();
                         getCurrentArmadilloWorkflow().force_redraw=true;
@@ -553,9 +559,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -600,7 +606,7 @@ public class Workbox {
                 if (loaded) {
                     getCurrentArmadilloWorkflow().simplegraph=database_workflow.isSimpleGraph();
                     getCurrentArmadilloWorkflow().draw_grid=database_workflow.isDisplayLINE();
-                    workbox.setWorkflowName(database_workflow.getName(), "");
+                    WorkFlowIntFrame.setWorkflowName(database_workflow.getName(), "");
                     publish("Successfully loaded workflow from database...");
                     database_workflow.setId(0);
                     database_workflow.setName("Loaded from "+filename+" at "+Util.returnCurrentDateAndTime());
@@ -622,9 +628,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -672,7 +678,7 @@ public class Workbox {
                 if (loaded) {
                     getCurrentArmadilloWorkflow().simplegraph=database_workflow.isSimpleGraph();
                     getCurrentArmadilloWorkflow().draw_grid=database_workflow.isDisplayLINE();
-                    workbox.setWorkflowName(database_workflow.getName(), "");
+                    WorkFlowIntFrame.setWorkflowName(database_workflow.getName(), "");
                     publish("Successfully loaded workflow from database...");
                     database_workflow.setId(0);
                     database_workflow.setName("Loaded from "+filename+" at "+Util.returnCurrentDateAndTime());
@@ -694,9 +700,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -740,15 +746,18 @@ public class Workbox {
                 while(!saved&&retry!=0) {
                     setProgress(25);
                     //done in saveToDatabase
-                    //workbox.database_workflow.updateCurrentWorkflow();
-                    //workbox.database_workflow.setWorkflows_outputText(workbox.getOutput());
+                    //WorkFlowIntFrame.database_workflow.updateCurrentWorkflow();
+                    //WorkFlowIntFrame.database_workflow.setWorkflows_outputText(WorkFlowIntFrame.getOutput());
                     setProgress(50);
                     database_workflow.setId(0); //--Reset ID for a new workflow
                     saved=database_workflow.saveToDatabase();
                     setProgress(75);
                     if (saved) {
-                        publish("Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")");
-                        workbox.setWorkflowName(database_workflow.getName(), "");
+                        if (WorkFlowIntFrame.isATest())
+                            publish("PreRun2 Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")");
+                        else
+                            publish("Successfully saved workflow to database ("+Util.returnCurrentDateAndTime()+")");
+                        WorkFlowIntFrame.setWorkflowName(database_workflow.getName(), "");
                         toolbox.reloadDatabaseTree();
                         toolbox.reloadCurrentWorkflowsTree(getCurrentArmadilloWorkflow());
                         setProgress(100);
@@ -766,9 +775,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -826,9 +835,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -875,7 +884,7 @@ public class Workbox {
                 databaseFunction df=new databaseFunction();
                 if (saved&&df.SaveAs(newName)) {
                     getCurrentArmadilloWorkflow().setName(workflowname);
-                    workbox.setWorkflowName(workflowname, "");
+                    WorkFlowIntFrame.setWorkflowName(workflowname, "");
                     setProgress(90);
                     publish("Successfully saved workflow to "+newName+" at ("+Util.returnCurrentDateAndTime()+")");
                 } else publish("Unable to save workflow as "+newName+"...");
@@ -888,9 +897,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -953,9 +962,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -1008,9 +1017,9 @@ public class Workbox {
             protected void process(List<String> chunks) {
                 for (String data:chunks) {
                     if (data.startsWith("Error")||data.startsWith("Unable")) {
-                        workbox.MessageError(data,"");
+                        WorkFlowIntFrame.MessageError(data,"");
                     } else {
-                        workbox.Message(data,"");
+                        WorkFlowIntFrame.Message(data,"");
                     }
                 }
             }
@@ -1045,27 +1054,27 @@ public class Workbox {
     }
     
     public void ShowPreferences() {
-        workbox.preferences.display();
+        WorkFlowIntFrame.preferences.display();
     }
     
     public void Run() {
-        workbox.Run();
+        WorkFlowIntFrame.Run();
     }
     
     public void Run(workflow_properties properties) {
-        workbox.Run(properties);
+        WorkFlowIntFrame.Run(properties);
     }
     
     public void Stop() {
-        workbox.StopSW();
+        WorkFlowIntFrame.StopSW();
     }
     
     public void ClearOutput() {
-        workbox.ClearOuput();
+        WorkFlowIntFrame.ClearOuput();
     }
     
     public void setRunWorkflow(RunWorkflow run) {
-        workbox.setRunWorkflow(run);
+        WorkFlowIntFrame.setRunWorkflow(run);
     }
     
     /**
@@ -1090,14 +1099,18 @@ public class Workbox {
      * @return the workflow test status
      */
     public boolean isWorkboxATest() {
-        return workbox.isATest();
+        return WorkFlowIntFrame.isATest();
     }
     
     /**
      * @param initialized the initialized to set
      */
     public void setWorkboxAsTest(boolean tested) {
-        workbox.setTested(tested);
+        WorkFlowIntFrame.setTested(tested);
+    }
+    
+    public WorkFlowJInternalFrame getWorkFlowJInternalFrame(){
+        return WorkFlowIntFrame;
     }
     
 }

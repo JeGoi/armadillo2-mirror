@@ -134,13 +134,13 @@ public class miRdup extends RunProgram {
     public boolean init_checkRequirements() {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
         Vector<Integer>TextFile_1    = properties.getInputID("TextFile",PortInputDOWN);
-        inputPath1 = TextFile.getTextFilePath(TextFile_1);
+        inputPath1 = TextFile.getVectorFilePath(TextFile_1);
         input1     = Util.getFileName(inputPath1);
         Vector<Integer>FastaFile_2    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath2 = FastaFile.getFastaFilePath(FastaFile_2);
+        inputPath2 = FastaFile.getVectorFilePath(FastaFile_2);
         input2     = Util.getFileName(inputPath2);
         Vector<Integer>FastaFile_3    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath3 = FastaFile.getFastaFilePath(FastaFile_3);
+        inputPath3 = FastaFile.getVectorFilePath(FastaFile_3);
         input3     = Util.getFileName(inputPath3);
 
         //INSERT YOUR TEST HERE
@@ -199,7 +199,7 @@ public class miRdup extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        TextFile.saveTextFile(properties,output1,"miRdup");
+        TextFile.saveFile(properties,output1,"miRdup","TextFile");
         //ArffFile.saveArffFile(properties,output2,"miRdup");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"miRdup");
     }

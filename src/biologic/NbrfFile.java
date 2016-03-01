@@ -67,28 +67,30 @@ public class NbrfFile extends Text implements Serializable {
         return b;
     }
     
-    public static String getNbrfFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            NbrfFile fas =new NbrfFile(ids);
-            s = fas.getName();
-        }
-        return s;
-    }
+//    public static String getNbrfFilePath(Vector<Integer> f){
+//        String s = "";
+//        for (int ids:f) {
+//            if (ids!=0) {
+//                NbrfFile fas =new NbrfFile(ids);
+//                s = fas.getFilename();
+//            }
+//        }
+//        return s;
+//    }
     
-    public static void saveNbrfFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        NbrfFile f=new NbrfFile();
-        f.setNbrfFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b=f.saveToDatabase();
-        if (b){
-            p.put("output_nbrffile_id", f.getId());
-            p.put("output_nbrffile_fileName", s);
-        }
-        else System.out.println("NbrfFile not saved");
-    }
+//    public static void saveNbrfFile (workflow_properties p, String s, String pgrmName) {
+//        s = Util.relativeToAbsoluteFilePath(s);
+//        NbrfFile f=new NbrfFile();
+//        f.setNbrfFile(s);
+//        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+//        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
+//        boolean b=f.saveToDatabase();
+//        if (b){
+//            p.put("output_nbrffile_id", f.getId());
+//            p.put("output_nbrffile_fileName", s);
+//        }
+//        else System.out.println("NbrfFile not saved");
+//    }
 
     @Override
     public String getExtendedString() {

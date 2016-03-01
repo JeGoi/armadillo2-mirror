@@ -41,7 +41,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Set;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import workflows.Workbox;
@@ -196,29 +200,28 @@ public class RunProgram implements runningThreadInterface {
      * Main function to call
      */
     public void execute() {
-        if (workbox.isWorkboxATest()) {// JG 2016
-            properties.put("THISISCLUSTERTEST",true);
-            setStatus(status_running,"Workflow Test in progress ...");
-            try {
-                if (init_runTest()) {
-                    do_runTest();
-                }
-                Docker.CleanContainerName(properties);
-                if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) {
-                    saveOutput(getStatus());
-                    post_runTest();
-                    setStatus(status_done,"");
-                }
-            } catch (Exception ex) {
-                if (properties.getBoolean("debug")) ex.printStackTrace();
-                if (!cancel) {
-                    Docker.CleanContainerName(properties);
-                    setStatus(status_error,"Error in test running... \n"+ex.getMessage());
-                }
-            }
-        } else {
-            runthread();
-        }
+//        if (workbox.isWorkboxATest()) {// JG 2016
+//            properties.put("THISISCLUSTERTEST",true);
+//            try {
+//                if (init_runTest()) {
+//                    do_runTest();
+//                }
+//                Docker.CleanContainerName(properties);
+//                if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound) {
+//                    saveOutput(getStatus());
+//                    post_runTest();
+//                    setStatus(status_done,"");
+//                }
+//            } catch (Exception ex) {
+//                if (properties.getBoolean("debug")) ex.printStackTrace();
+//                if (!cancel) {
+//                    Docker.CleanContainerName(properties);
+//                    setStatus(status_error,"Error in test running... \n"+ex.getMessage());
+//                }
+//            }
+//        } else {
+        runthread();
+//        }
         //--Note: removed since its handle in the programs class
         //if (properties.getBoolean("NoThread")) while(!isDone()){}
     }
@@ -319,7 +322,6 @@ public class RunProgram implements runningThreadInterface {
      * Standard thread definition with various level of overriding
      */
     protected void runthread() {
-        
         thread=new Thread(){
             
             @Override
@@ -332,20 +334,18 @@ public class RunProgram implements runningThreadInterface {
                     setStatus(status_running,"Initialization...");
                     if (init_run()&&!isInterrupted()) {
                         // JG 2015 Start
-                        setStatus(status_running, "\tRunning program...");
-                        
-                        // Print the command line
-                        //String s = Util.toString(commandline);
-                        //if (!s.contains("Not Set")) System.out.println(s);
-                        
-                        setStatus(status_running,"<-Program Output->");
-                        // JG 2015 End
-                        if (do_run()&&!isInterrupted()) {
-                            // JG 2015 Start
+                        boolean test = workbox.isWorkboxATest();
+                        if (test) {
+                            if (do_runTest()&&!isInterrupted()) {
+                                // JG 2015 Start
+                                setStatus(status_running,"<-End Program Output ->");
+                                msg("\tProgram Exit Value: "+getExitVal());
+                            }
+                        } else if (do_run()&&!isInterrupted()) {
                             setStatus(status_running,"<-End Program Output ->");
                             msg("\tProgram Exit Value: "+getExitVal());
-                            // JG 2015 End
                         }
+                        // JG 2015 End
                     }
                     //--Note: work Even if not set because We return 0...
                     //setStatus(getStatus(), "Total running time: "+Util.msToString(getRunningTime()));
@@ -416,7 +416,7 @@ public class RunProgram implements runningThreadInterface {
                         //if (!s.contains("Not Set")) System.out.println(s);
                         
                         setStatus(status_running,"<-Program Output->");
-
+                        
                         if (do_run_withoutWait()&&!isInterrupted()) {
                             setStatus(status_running,"<-End Program Output ->");
                             msg("\tProgram Exit Value: "+getExitVal());
@@ -430,10 +430,10 @@ public class RunProgram implements runningThreadInterface {
                         if (getStatus()!=status_error&&getStatus()!=status_BadRequirements&&getStatus()!=status_runningclassnotfound&&getStatus()!=status_programnotfound)
                             // Cool closed to status done !
                             saveOutput(getStatus());
-                            // We can make the post run
-                            post_run();
-                            // We can change the status to status_done
-                            setStatus(status_done,"");
+                        // We can make the post run
+                        post_run();
+                        // We can change the status to status_done
+                        setStatus(status_done,"");
                     }
                     
                 } catch (Exception ex) {
@@ -640,6 +640,8 @@ public class RunProgram implements runningThreadInterface {
      * @throws Exception
      */
     public boolean do_run() throws Exception {
+        setStatus(status_running, "\tRunning program...");
+        setStatus(status_running,"<-Program Output->");
         //--Run the thread and catch stdout and stderr
         ProcessBuilder pb=new ProcessBuilder(commandline);
         if (properties.isSet("RunningDirectory")) {
@@ -661,7 +663,8 @@ public class RunProgram implements runningThreadInterface {
                     //--IF MAC_OSX, group option if UseRuntimeMacOSX
                     String cmdm="";
                     for (int i=0; i<commandline.length;i++) {
-                        cmdm+=commandline[i]+" ";
+                        if (!commandline[i].equals(""))
+                            cmdm+=commandline[i]+" ";
                     }
                     commandline=new String[1];
                     commandline[0]=cmdm;
@@ -709,59 +712,206 @@ public class RunProgram implements runningThreadInterface {
     }
     
     /**
-     * Test Zone
-     */
-    public boolean init_runTest() throws Exception {
-        if (getId()==0) {
-            this.saveToDatabase();
-        }
-        setStatus(status_idle,"");
-        if (!init_checkRequirements()) {
-            setStatus(status_BadRequirements,"Some requirements not found.");
-            return false;
-        }
-        init_createInput();
-        commandline = init_createCommandLine();
-        commandline = updateCommandLine(commandline);
-        properties.put("Commandline_Running", Util.toString(commandline));
-        if (Util.toString(commandline).indexOf("Not Set")==-1) {
-        } else if (!properties.getBoolean("InternalArmadilloApplication")&&!properties.getBoolean("WebServices")) {
-            Config.log("Warning: Not Set in commandline:"+Util.toString(commandline));
-            setStatus(status_warning,"Error: Not Set in commandline:"+properties.get("Commandline_Running"));
-        }
-        return true;
-    }
-    
-    /**
      * Test ZONE
      */
-    public boolean do_runTest() {
+    public boolean do_runTest() throws IOException, InterruptedException {
         //--Test August 2011 - For Mac OS X
         if ((config.getBoolean("MacOSX")||SystemUtils.IS_OS_MAC_OSX)) {
-            String cmdm="";
-            String execution_type=properties.get("RuntimeMacOSX");
-            if (execution_type.startsWith("runtime")) {
-                for (int i=0; i<commandline.length;i++) {
-                    cmdm+=commandline[i]+" ";
-                }
-                commandline=new String[1];
-                commandline[0]=cmdm;
-            }
-            properties.put("Commandline_Running",Util.toString(commandline));
+            macOSX_cmd_Modifications();
         }
-        int exitvalue=0;
-        if (properties.isSet("NormalExitValue"))
-            exitvalue=Integer.parseInt(properties.get("NormalExitValue"));
-        properties.put("ExitValue", exitvalue);
+        
+        //Get general properties
+        //Script link
+        String script          = "./cluster.py";
+        //Local properties and remove space in String EOL
+        String commands = get_commands();
+        String[] stab = {"-test ","-prepare ","-send ","-launch ","-waitResults ", "-importResults "};
+        boolean b = true;
+        int i     = 0;
+        boolean bLocal = false;
+        
+        while (b && i<stab.length) {
+            String cmd = stab[i]+""+commands;
+            String[] outputScript = call_Python_Process(script,cmd);
+//            Print output command line
+//            if (!outputScript[0].equals(""))
+//                System.out.println("outputScript[0]>"+outputScript[0]);
+//            if (!outputScript[1].equals(""))
+//                System.out.println("outputScript[1]>"+outputScript[1]);
+            
+            // -test values
+            if (i==0) {
+                if (outputScript[0].matches(".*NotAbleToDoItOnCluster.*")){
+                    setStatus(status_running, "\tNot able to found the program online");
+                    b = false;
+                    bLocal = true;
+                } else if (outputScript[0].matches(".* password:.*")){
+                    setStatus(status_error, "\tNot able to connect to the server please. Test your connexion");
+                    b = false;
+                    bLocal = true;
+                } else if (outputScript[0].matches(".*ClusterPgrmName<>(\\w+)<>ClusterPWD<>(.+)<>")) {
+                    Pattern pattern = Pattern.compile(".*ClusterPgrmName<>(\\w+)<>ClusterPWD<>(.+)<>");
+                    Matcher match   = pattern.matcher(outputScript[0]);
+                    String name = "";
+                    String pwd  = "";
+                    if (match.find()) {
+                        name = match.group(1);
+                        pwd  = match.group(2);
+                    }
+                    properties.put("ClusterPgrmName",name);
+                    properties.put("ClusterPWD",pwd);
+                    commands=get_commands();
+                    setStatus(status_running, "\tRunning program on cluster...");
+                    setStatus(status_running,"\t<-Program Cluster Status->");
+                }
+            }
+            
+            // -prepare values
+            if (i==1){
+                if (outputScript[0].matches(".*Files Prepared.*")){
+                    setStatus(status_running,"\t<-Files prepared->");
+                } else {
+                    setStatus(status_error,"Files can't be prepared");
+                    b = false;
+                }
+            }
+            
+            // -send values
+            if (i==2){
+                if (outputScript[0].matches(".*Files Sended.*")){
+                    setStatus(status_running,"\t<-Files sended->");
+                } else {
+                    setStatus(status_error,"Files can't be send on the server, please test it manually");
+                    b = false;
+                }
+            }
+            
+            // -launch values
+            if (i==3){
+                if (outputScript[0].matches(".*bash executed.*")){
+                    setStatus(status_running,"\t<-Bash file is executed->");
+                } else {
+                    setStatus(status_error,"Bash files can't be executed on cluster");
+                    b = false;
+                }
+            }
+            
+            // -waitResults values
+            if (i==4){
+                if (outputScript[0].matches(".*results downloaded.*")){
+                    setStatus(status_running,"\t<-Results downloaded from server->");
+                } else {
+                    setStatus(status_error,"Results Files not found, try later");
+                    b = false;
+                }
+            }
+            
+            // -uploadResults in Armadillo
+            if (i==5){
+                if ((outputScript[0].matches(".*<_____>STDOUT<_____>(.*)<_____>STDERROR<_____>(.+)"))){
+                    Pattern pattern = Pattern.compile(".*<_____>STDOUT<_____>(.*)<_____>STDERROR<_____>(.+)");
+                    Matcher match   = pattern.matcher(outputScript[0]);
+                    String name = "";
+                    String pwd  = "";
+                    if (match.find()) {
+                        name = match.group(1);
+                        pwd  = match.group(2);
+                    }
+                    Hashtable<String,String> h = new Hashtable<String,String>() {{
+                        put("<_____>","<>");
+                        put("<__->__>","->");
+                        put("<__n__>","\n");
+                        put("_____"," ");
+                    }};
+                    String[] tab = h.keySet().toArray(new String[h.keySet().size()]);
+                    for(int z=0;z<tab.length;z++) {
+                        name = name.replaceAll(tab[z],h.get(tab[z]));
+                        pwd  = pwd.replaceAll(tab[z],h.get(tab[z]));
+                    }
+                    properties.put("SDOUT",name);
+                    properties.put("STDERROR",pwd);
+                    outputText.add(name+"\n");
+                    outputText.add(pwd+"\n");
+                    setStatus(status_running,"\t<-Intergretated in Armadillo->");
+                    b = false;
+                } else {
+                    setStatus(status_error,"Results Files not found, try later");
+                    b = false;
+                }
+            }
+            if (b) i++;
+        }
+        
+        if (bLocal) {
+            setStatus(status_running, "\tRunning will run local machine...");
+            try {
+                if (do_run()) {
+                    setStatus(status_running,"\t<-End Program Output ->");
+                    msg("\tProgram Exit Value: "+getExitVal());
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(RunProgram.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else  {
+            int exitvalue=0;
+            if (properties.isSet("NormalExitValue"))
+                exitvalue=Integer.parseInt(properties.get("NormalExitValue"));
+            properties.put("ExitValue", exitvalue);
+        }
         return true;
     }
-    /**
-     * Test ZONE
-     */
     
-    public void post_runTest() {
-        saveOutput(getStatus());
-        post_parseOutput();
+    
+    private String get_commands() {
+        workflow_properties p2 = workbox.getWorkFlowJInternalFrame().getProperties();
+        String clusterAA       = " -clus "+p2.get("ClusterAccessAddress");
+        String str =properties.getPropertiesToVarStringWithEOL();
+        str = "\'"+str+"\'";
+        str = str.replaceAll(" ", "_____");
+        String commands = " -obj "+str+clusterAA;
+        return commands;
+    }
+    
+    
+    private void macOSX_cmd_Modifications() {
+        String cmdm="";
+        String execution_type=properties.get("RuntimeMacOSX");
+        if (execution_type.startsWith("runtime")) {
+            for (int i=0; i<commandline.length;i++) {
+                cmdm+=commandline[i]+" ";
+            }
+            commandline=new String[1];
+            commandline[0]=cmdm;
+        }
+        properties.put("Commandline_Running",Util.toString(commandline));
+    }
+    
+    private String[] call_Python_Process(String script, String commands)
+            throws IOException, InterruptedException {
+        //System.out.println("Commands>"+commands);
+        String STDoutput = "";
+        String STDError  = "";
+        
+        Process p = Runtime.getRuntime().exec("python "+script+" "+commands);
+        BufferedReader bri = new BufferedReader
+                    (new InputStreamReader(p.getInputStream()));
+        BufferedReader bre = new BufferedReader
+                    (new InputStreamReader(p.getErrorStream()));
+        String line = "";
+
+        // Check Output
+        while ((line = bri.readLine()) != null) {
+            STDoutput += line;
+        }
+        bri.close();
+        while ((line = bre.readLine()) != null) {
+            STDError += line;
+        }
+        bre.close();
+        p.waitFor();
+        
+        String[] tab = {STDoutput,STDError};
+        return tab;
     }
     
     /**
@@ -1289,45 +1439,45 @@ public class RunProgram implements runningThreadInterface {
         } catch(Exception e) {}
         return s;
     }
-        // JG 2015
-        // Added to find the exact stdout of the program
-        //
-        public String getPgrmOutput (){
-            String s = getOutputText();
-            String t = "";
-            String lines[] = s.split("\\r?\\n|\\r");
-            
-            int start = 0;
-            int end   = 0;
-            int out   = 0;
-            
-            boolean b = false;
-            int i = 0;
-            for (i =0; i<lines.length && b==false ;i++){
-                if (lines[i].contains("<-Program Output->")) start = i+1; b=true;
-            }
-            String seq = "";
-            if (out>end+1) {
-                end = out;
-            }
-            for (i = start; i< lines.length;i++){
-                String l = lines[i];
-                if ( !(
+    // JG 2015
+    // Added to find the exact stdout of the program
+    //
+    public String getPgrmOutput (){
+        String s = getOutputText();
+        String t = "";
+        String lines[] = s.split("\\r?\\n|\\r");
+        
+        int start = 0;
+        int end   = 0;
+        int out   = 0;
+        
+        boolean b = false;
+        int i = 0;
+        for (i =0; i<lines.length && b==false ;i++){
+            if (lines[i].contains("<-Program Output->")) start = i+1; b=true;
+        }
+        String seq = "";
+        if (out>end+1) {
+            end = out;
+        }
+        for (i = start; i< lines.length;i++){
+            String l = lines[i];
+            if ( !(
                     l.contains("<-End Program Output ->")||
                     l.contains("Program Exit Value")||
                     l.contains("Parsing outputs...")||
                     l.matches("^>.*")||
                     l.matches("^[A-Z]*$")
                     )) {
-                    t = t+lines[i]+System.lineSeparator();
-                }
-                
-                if (l.matches("^>.*"))seq = l+System.lineSeparator();
-                if (l.matches("^[A-Z]*$"))seq=seq+l+System.lineSeparator();
+                t = t+lines[i]+System.lineSeparator();
             }
-            t+=seq;
-            return t;
+            
+            if (l.matches("^>.*"))seq = l+System.lineSeparator();
+            if (l.matches("^[A-Z]*$"))seq=seq+l+System.lineSeparator();
         }
+        t+=seq;
+        return t;
+    }
     
     ////////////////////////////////////////////////////////////////////////////
     // HELPER FUNCTIONS
@@ -1508,7 +1658,7 @@ public class RunProgram implements runningThreadInterface {
     };
     
     /*
-     * Docker initialisation
+    * Docker initialisation
     */
     public boolean dockerInit(String localpath, String dockerpath, String name, String img) {
         if (Docker.isDockerHere()) {
@@ -1533,5 +1683,5 @@ public class RunProgram implements runningThreadInterface {
         }
         return true;
     }
-
+    
 }

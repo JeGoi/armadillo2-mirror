@@ -66,29 +66,6 @@ public class WekaModelFile extends Text implements Serializable {
         return b;
     }
     
-    public static String getWekaModelFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            WekaModelFile fas =new WekaModelFile(ids);
-            s = fas.getName();
-        }
-        return s;
-    }
-    
-    public static void saveWekaModelFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        WekaModelFile f=new WekaModelFile();
-        f.setWekaModelFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b){
-            p.put("output_wekamodelfile_id", f.getId());
-            p.put("output_wekamodelfile_fileName", s);
-        }
-        else System.out.println("WekaModel file not saved");
-    }
-
     @Override
     public String getExtendedString() {
         return toString();

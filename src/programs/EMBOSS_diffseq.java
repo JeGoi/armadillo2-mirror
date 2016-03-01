@@ -75,11 +75,11 @@ public class EMBOSS_diffseq extends RunProgram {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
 
         Vector<Integer>FastaFile_1    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath1 = FastaFile.getFastaFilePath(FastaFile_1);
+        inputPath1 = FastaFile.getVectorFilePath(FastaFile_1);
         input1     = Util.getFileNameAndExt(inputPath1);
 
         Vector<Integer>FastaFile_2    = properties.getInputID("FastaFile",PortInputUP);
-        inputPath2 = FastaFile.getFastaFilePath(FastaFile_2);
+        inputPath2 = FastaFile.getVectorFilePath(FastaFile_2);
         input2     = Util.getFileNameAndExt(inputPath2);
 
         //INSERT YOUR TEST HERE
@@ -181,7 +181,7 @@ public class EMBOSS_diffseq extends RunProgram {
         ArrayList<String> a = new ArrayList<String>();
         a.add(doName);
         Docker.cleanContainers(a);
-        FastaFile.saveFastaFile(properties,output1,"EMBOSS_diffseq");
+        FastaFile.saveFile(properties,output1,"EMBOSS_diffseq","FastaFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_diffseq");
     }
 }

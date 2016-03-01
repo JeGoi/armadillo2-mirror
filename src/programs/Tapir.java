@@ -79,11 +79,11 @@ public class Tapir extends RunProgram {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
 
         Vector<Integer>FastaFile_1    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath1 = FastaFile.getFastaFilePath(FastaFile_1);
+        inputPath1 = FastaFile.getVectorFilePath(FastaFile_1);
         input1     = Util.getFileName(inputPath1);
 
         Vector<Integer>FastaFile_2    = properties.getInputID("FastaFile",PortInputUP);
-        inputPath2 = FastaFile.getFastaFilePath(FastaFile_2);
+        inputPath2 = FastaFile.getVectorFilePath(FastaFile_2);
         input2     = Util.getFileName(inputPath2);
 
         //INSERT YOUR TEST HERE
@@ -164,7 +164,7 @@ public class Tapir extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        TextFile.saveTextFile(properties,output1,"Tapir");
+        TextFile.saveFile(properties,output1,"Tapir","TextFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Tapir");
         Util.deleteDir(outputPath+File.separator+"INPUTS");
         ArrayList<String> a = new ArrayList<String>();

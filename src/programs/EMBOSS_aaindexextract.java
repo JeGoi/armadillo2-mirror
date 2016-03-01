@@ -64,7 +64,7 @@ public class EMBOSS_aaindexextract extends RunProgram {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
 
         Vector<Integer>FileFile_1    = properties.getInputID("FileFile",PortInputDOWN);
-        inputPath1 = FileFile.getFileFilePath(FileFile_1);
+        inputPath1 = FileFile.getVectorFilePath(FileFile_1);
         input1     = Util.getFileNameAndExt(inputPath1);
 
         //INSERT YOUR TEST HERE
@@ -151,8 +151,6 @@ public class EMBOSS_aaindexextract extends RunProgram {
         if (!b1) setStatus(status_BadRequirements,"Docker Files Copy Failed");
         boolean b2 = Util.copyDirectory(doSharedFolder+"EMBOSS_aaindexextract","./results/EMBOSS/data/EMBOSS_aaindexextract");
         if (!b2) setStatus(status_BadRequirements,"Saved Files Copy Failed");
-        //SAMPLE OF OUTPUT as SAMFILE
-        //SamFile.saveSamFile(properties,output1,"EMBOSS_aaindexextract");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_aaindexextract");
     }
 }

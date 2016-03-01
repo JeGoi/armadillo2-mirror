@@ -136,8 +136,8 @@ public class Bowtie2Map extends RunProgram {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputUP);
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
-        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
-        String s2 = Util.getFileName(FastqFile.getFastqFilePath(Fastq2));
+        String s1 = Util.getFileName(FastqFile.getVectorFilePath(Fastq1));
+        String s2 = Util.getFileName(FastqFile.getVectorFilePath(Fastq2));
         
         // In case program is started without edition
         pgrmStartWithoutEdition(Fastq2);
@@ -201,12 +201,12 @@ public class Bowtie2Map extends RunProgram {
         Vector<Integer>Fastq2    = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>GenomeRef = properties.getInputID("GenomeFile",PortInputDOWN2);
         
-        fastqFile1 = FastqFile.getFastqFilePath(Fastq1);
-        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getFastqFilePath(Fastq2);
+        fastqFile1 = FastqFile.getVectorFilePath(Fastq1);
+        if (!Fastq2.isEmpty()) fastqFile2 = FastqFile.getVectorFilePath(Fastq2);
         
         // Genome File source
         if (!GenomeRef.isEmpty()){
-            genomeFile = GenomeFile.getGenomeFilePath(GenomeRef);
+            genomeFile = GenomeFile.getVectorFilePath(GenomeRef);
             genomeFile = genomeFile.replaceAll("\\.\\d\\.bt2l?$","");
             genomeFile = genomeFile.replaceAll("\\.rev$","");
         } else {
@@ -346,7 +346,7 @@ public class Bowtie2Map extends RunProgram {
     */
     @Override
     public void post_parseOutput() {
-        SamFile.saveSamFile(properties,outputFile,"Bowtie2_map");
+        SamFile.saveFile(properties,outputFile,"Bowtie2_map","SamFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bowtie2_map");
     }
     

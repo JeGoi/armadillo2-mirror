@@ -31,15 +31,6 @@ public class EmblFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getEmblFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            EmblFile gen =new EmblFile(ids);
-            s = gen.getName();
-        }
-        return s;
-    }
-    
     @Override
     public String getBiologicType() {
         return "EmblFile";
@@ -69,18 +60,4 @@ public class EmblFile extends Text implements Serializable{
         return b;
     }
     
-    public static void saveEmblFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        EmblFile g = new EmblFile();
-        g.setEmblFile(s);
-        g.setName(s);
-        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
-        boolean b = g.saveToDatabase();
-        if (b) {
-            p.put("output_emblfile_id", g.getId());
-            p.put("output_emblfile_fileName", s);
-        }
-        else System.out.println("EmbleFile not saved");
-    }
-
 }

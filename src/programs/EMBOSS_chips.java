@@ -70,7 +70,7 @@ public class EMBOSS_chips extends RunProgram {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
 
         Vector<Integer>FastaFile_1    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath1 = FastaFile.getFastaFilePath(FastaFile_1);
+        inputPath1 = FastaFile.getVectorFilePath(FastaFile_1);
         input1     = Util.getFileNameAndExt(inputPath1);
 
         //INSERT YOUR TEST HERE
@@ -159,7 +159,7 @@ public class EMBOSS_chips extends RunProgram {
         ArrayList<String> a = new ArrayList<String>();
         a.add(doName);
         Docker.cleanContainers(a);
-        ChipsFile.saveChipsFile(properties,output1,"EMBOSS_chips");
+        ChipsFile.saveFile(properties,output1,"EMBOSS_chips","ChipsFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_chips");
     }
 }

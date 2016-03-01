@@ -111,11 +111,11 @@ public class Cutadapt extends RunProgram {
     
     private boolean checkFastaRequirements() {
         Vector<Integer>Fasta1    = properties.getInputID("FastaFile",PortInputDOWN);
-        String s1 = Util.getFileName(FastaFile.getFastaFilePath(Fasta1));
+        String s1 = Util.getFileName(FastaFile.getVectorFilePath(Fasta1));
         if (Fasta1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence 1 found.");
             return false;
-        } else if (!Fasta1.isEmpty()&&!FastaFile.isFastaFile(FastaFile.getFastaFilePath(Fasta1))){
+        } else if (!Fasta1.isEmpty()&&!FastaFile.isFastaFile(FastaFile.getVectorFilePath(Fasta1))){
             setStatus(status_BadRequirements,"Sequence1 is not a fasta file.");
             return false;
         }
@@ -124,11 +124,11 @@ public class Cutadapt extends RunProgram {
     
     private boolean checkFastqRequirements() {
         Vector<Integer>Fastq1    = properties.getInputID("FastqFile",PortInputDOWN);
-        String s1 = Util.getFileName(FastqFile.getFastqFilePath(Fastq1));
+        String s1 = Util.getFileName(FastqFile.getVectorFilePath(Fastq1));
         if (Fastq1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence 1 found.");
             return false;
-        } else if (!Fastq1.isEmpty()&&!FastqFile.isFastqFile(FastqFile.getFastqFilePath(Fastq1))){
+        } else if (!Fastq1.isEmpty()&&!FastqFile.isFastqFile(FastqFile.getVectorFilePath(Fastq1))){
             setStatus(status_BadRequirements,"Sequence1 is not a fastq file.");
             return false;
         }
@@ -137,18 +137,19 @@ public class Cutadapt extends RunProgram {
     
     @Override
     public String[] init_createCommandLine() {
+        // TO IMPROVE REMOVE THE DOUBLE INPUTS VECTOR REQ AND HERE
         // Inputs
         Vector<Integer>Fastq1 = properties.getInputID("FastqFile",PortInputDOWN);
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         
         if (!Fastq1.isEmpty()){
-            fileRead1  = FastqFile.getFastqFilePath(Fastq1);
+            fileRead1  = FastqFile.getVectorFilePath(Fastq1);
             outputFile = outPutPath+File.separator+Util.getFileName(fileRead1)+".fastq";
             outputFileTSO += ".fastq";
             outputFileTLO += ".fastq";
             outputFileUO  += ".fastq";
         } else {
-            fileRead1 = FastaFile.getFastaFilePath(Fasta1);
+            fileRead1 = FastaFile.getVectorFilePath(Fasta1);
             outputFile = outPutPath+File.separator+Util.getFileName(fileRead1)+".fasta";
             outputFileTSO += ".fasta";
             outputFileTLO += ".fasta";
@@ -215,11 +216,11 @@ public class Cutadapt extends RunProgram {
     @Override
     public void post_parseOutput() {
         if (outputFile.matches(".*\\.fastq$")){
-            FastqFile.saveFastqFile(properties,outputFile,"CutAdapt");
+            FastqFile.saveFile(properties,outputFile,"CutAdapt","FastqFile");
         } else if (outputFile.matches(".*\\.fasta$")) {
-            FastaFile.saveFastaFile(properties,outputFile,"CutAdapt");
+            FastaFile.saveFile(properties,outputFile,"CutAdapt","FastaFile");
         } else if (outputFile.matches(".*\\.txt$")) {
-            TextFile.saveTextFile(properties,outputFile,"CutAdapt");
+            TextFile.saveFile(properties,outputFile,"CutAdapt","TextFile");
         }
         
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"CutAdapt");

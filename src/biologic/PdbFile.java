@@ -32,15 +32,6 @@ public class PdbFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getPdbFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            PdbFile gen =new PdbFile(ids);
-            s = gen.getName();
-        }
-        return s;
-    }
-    
     @Override
     public String getBiologicType() {
         return "PdbFile";
@@ -70,18 +61,18 @@ public class PdbFile extends Text implements Serializable{
         return b;
     }
     
-    public static void savePdbFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        PdbFile g = new PdbFile();
-        g.setPdbFile(s);
-        g.setName(s);
-        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
-        boolean b = g.saveToDatabase();
-        if (b){
-            p.put("output_pdbfile_id", g.getId());
-            p.put("output_pdbfile_fileName", s);
-        }
-        else System.out.println("PdbFile not saved");
-    }
+//    public static void savePdbFile (workflow_properties p, String s, String pgrmName) {
+//        s = Util.relativeToAbsoluteFilePath(s);
+//        PdbFile g = new PdbFile();
+//        g.setPdbFile(s);
+//        g.setName(s);
+//        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
+//        boolean b = g.saveToDatabase();
+//        if (b){
+//            p.put("output_pdbfile_id", g.getId());
+//            p.put("output_pdbfile_fileName", s);
+//        }
+//        else System.out.println("PdbFile not saved");
+//    }
 
 }

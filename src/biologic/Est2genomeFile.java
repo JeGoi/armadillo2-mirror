@@ -69,29 +69,6 @@ public class Est2genomeFile extends Text implements Serializable {
         return b;
     }
     
-    public static String getEst2genomeFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            Est2genomeFile fas =new Est2genomeFile(ids);
-            s = fas.getName();
-        }
-        return s;
-    }
-    
-    public static void saveEst2genomeFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        Est2genomeFile f=new Est2genomeFile();
-        f.setEst2genomeFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b) {
-            p.put("output_est2genomefile_id", f.getId());
-            p.put("output_est2genomefile_fileName", s);
-        }
-        else System.out.println("WARNING : est2genome file not saved");
-    }
-
     @Override
     public String getExtendedString() {
         return toString();

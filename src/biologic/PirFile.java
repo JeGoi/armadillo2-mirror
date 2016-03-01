@@ -31,15 +31,6 @@ public class PirFile extends Text implements Serializable{
         return this.getFilename();
     }
     
-    public static String getPirFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            PirFile gen =new PirFile(ids);
-            s = gen.getName();
-        }
-        return s;
-    }
-    
     @Override
     public String getBiologicType() {
         return "PirFile";
@@ -69,18 +60,18 @@ public class PirFile extends Text implements Serializable{
         return b;
     }
     
-    public static void savePirFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        PirFile g = new PirFile();
-        g.setPirFile(s);
-        g.setName(s);
-        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
-        boolean b = g.saveToDatabase();
-        if (b){
-            p.put("output_pirfile_id", g.getId());
-            p.put("output_pirfile_fileName", s);
-        }
-        else System.out.println("PirFile not saved");
-    }
+//    public static void savePirFile (workflow_properties p, String s, String pgrmName) {
+//        s = Util.relativeToAbsoluteFilePath(s);
+//        PirFile g = new PirFile();
+//        g.setPirFile(s);
+//        g.setName(s);
+//        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
+//        boolean b = g.saveToDatabase();
+//        if (b){
+//            p.put("output_pirfile_id", g.getId());
+//            p.put("output_pirfile_fileName", s);
+//        }
+//        else System.out.println("PirFile not saved");
+//    }
 
 }

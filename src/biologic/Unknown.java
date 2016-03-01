@@ -373,4 +373,15 @@ public class Unknown implements Biologic, Iterator, Serializable {
         return tmp;
     }
     
+    public static String getVectorFilePath(Vector<Integer> f){
+        String s = "";
+        for (int ids:f) {
+            if (ids!=0) {
+                Unknown fas =new Unknown(ids);
+                s = fas.getFilename();
+            }
+        }
+        return s;
+    }
+    
 }

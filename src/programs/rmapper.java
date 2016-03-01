@@ -78,7 +78,7 @@ public class rmapper extends RunProgram {
         FastaFile fasta=new FastaFile(fastafile_id);
         TextFile text=new TextFile();
         text.setRunProgram_id(this.getId());
-        text.setFile(fasta.getFastaFile()+".out");
+        text.setTextFile(fasta.getFastaFile()+".out");
         text.setName("Shrimp rmapper output ("+Util.returnCurrentDateAndTime()+")");
         text.setNote("Shrimp rmapper output ("+Util.returnCurrentDateAndTime()+")");
         text.saveToDatabase();

@@ -24,20 +24,12 @@ public class GenomeFile extends Text implements Serializable{
 
     public void setGenomeFile(String filename) {
         this.setFilename(filename);
+        this.setName(Util.getFileNameAndExt(filename));
         this.setUnknownType("GenomeFile");
         this.setText("GenomeFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
     public String getGenomeFile(){
         return this.getFilename();
-    }
-    
-    public static String getGenomeFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            GenomeFile gen =new GenomeFile(ids);
-            s = gen.getName();
-        }
-        return s;
     }
     
     @Override
@@ -49,18 +41,4 @@ public class GenomeFile extends Text implements Serializable{
         return toString();
     }
     
-    public static void saveGenomeFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        GenomeFile g = new GenomeFile();
-        g.setGenomeFile(s);
-        g.setName(s);
-        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
-        boolean b = g.saveToDatabase();
-        if (b) {
-            p.put("output_genomefile_id", g.getId());
-            p.put("output_genomefile_fileName", s);
-        }
-        else System.out.println("genome not saved");
-    }
-
 }

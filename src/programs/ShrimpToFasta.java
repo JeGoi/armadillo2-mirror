@@ -73,7 +73,7 @@ public class ShrimpToFasta extends RunProgram {
         int textfile_id=properties.getInputID("TextFile");
         TextFile tex=new TextFile(textfile_id);
         
-        FastaFile.saveFastaFile (properties,tex.getTextFile()+".shrimp.fasta","Shrimp To Fasta");
+        FastaFile.saveFile(properties,tex.getTextFile()+".shrimp.fasta","Shrimp To Fasta","FastaFile");
     }
     
     @Override

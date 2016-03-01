@@ -25,12 +25,13 @@ public class FastqFile extends Text implements Serializable{
     public void setFastqFile(String filename) {
         this.setFilename(filename);
         this.setUnknownType("FastqFile");
-        //--Note: we have a properties in the Fastq file
         this.setText("Fastq : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
+    
     public String getFastqFile(){
         return this.getFilename();
     }
+    
     public static String[] getFastqFileExtension() {
         String[] t = {".fastq",".fq"};
         return t;
@@ -41,7 +42,8 @@ public class FastqFile extends Text implements Serializable{
         String   t  = ts[0];
         if (ts.length>1) t = String.join("<>",ts);
         return t;
-    }    
+    }
+    
     public static boolean isFastqFile(String s){
         boolean b = false;
         String ext = s.substring(s.lastIndexOf("."),s.length());
@@ -49,15 +51,6 @@ public class FastqFile extends Text implements Serializable{
             if (ext.equals(sT))
                 b = true;
         return b;
-    }
-    
-    public static String getFastqFilePath(Vector<Integer> f){
-        String s = "";
-        for (int ids:f) {
-            FastqFile fas =new FastqFile(ids);
-            s = fas.getFastqFile();
-        }
-        return s;
     }
     
     public static int sameFastqFileName (String s1,String s2) {
@@ -76,21 +69,6 @@ public class FastqFile extends Text implements Serializable{
         return b;
     }
 
-    
-    public static void saveFastqFile (workflow_properties p, String s, String pgrmName) {
-        s = Util.relativeToAbsoluteFilePath(s);
-        FastqFile f=new FastqFile();
-        f.setFastqFile(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-        boolean b = f.saveToDatabase();
-        if (b) {
-            p.put("output_fastqfile_id", f.getId());
-            p.put("output_fastqfile_fileName", s);
-        }
-        else System.out.println("WARNING : fastq file not saved");
-    }
-    
     @Override
     public String getBiologicType() {
         return "FastqFile";

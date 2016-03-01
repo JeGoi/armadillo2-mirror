@@ -81,7 +81,7 @@ public class EMBOSS_einverted extends RunProgram {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
 
         Vector<Integer>FastaFile_1    = properties.getInputID("FastaFile",PortInputDOWN);
-        inputPath1 = FastaFile.getFastaFilePath(FastaFile_1);
+        inputPath1 = FastaFile.getVectorFilePath(FastaFile_1);
         input1     = Util.getFileNameAndExt(inputPath1);
 
         //INSERT YOUR TEST HERE
@@ -172,8 +172,8 @@ public class EMBOSS_einverted extends RunProgram {
         ArrayList<String> a = new ArrayList<String>();
         a.add(doName);
         Docker.cleanContainers(a);
-        EinvertedFile.saveEinvertedFile(properties,output1,"EMBOSS_einverted");
-        FastaFile.saveFastaFile(properties,output2,"EMBOSS_einverted");
+        EinvertedFile.saveFile(properties,output1,"EMBOSS_einverted","EinvertedFile");
+        FastaFile.saveFile(properties,output2,"EMBOSS_einverted","FastaFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_einverted");
     }
 }
