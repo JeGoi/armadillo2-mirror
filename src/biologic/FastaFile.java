@@ -39,44 +39,13 @@ public class FastaFile extends Text implements Serializable {
     public FastaFile(int id) {super(id);}
     public FastaFile(String filename) {super(filename);}
 
-    public void setFastaFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("FastaFile");
-        this.setText("FastaFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getFastaFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getFastaFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {".fasta",".fa",".fna",".csfasta",".csfa",".gifasta"};
         return t;
     }
     
-    public static String getFastaFileExtensionString() {
-        String[] ts = getFastaFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isFastaFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getFastaFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "FastaFile";
     }
-
 }

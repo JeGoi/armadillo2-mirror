@@ -31,49 +31,39 @@ import workflows.workflow_properties;
  * This is really a mock for handling in the Armadillo Workflow
  *
  * @author Etienne Lord
+ * @author JG 2016
  */
 public class HTML extends Unknown implements Serializable {
 
-    public HTML() {super();}
-
-    public HTML(String filename) {
-        super(filename);
-    }
-
-    public HTML(int id) {
-        super(id);
-    }
+    public HTML()                {super();}
+    public HTML(String filename) {super(filename);}
+    public HTML(int id)          {super(id);}
     
-    public String getHTMLFile(){
-        return this.getFilename();
+    public String[] getExtensionTab() {
+        String[] t = {".htm",".html"};
+        return t;
     }
 
-    
-    public void setHTML(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("HTML");
-    }
-
-    
-    public static void saveHTML (workflow_properties p, String s, String pgrmName) {
+    public static void saveFile (workflow_properties p, String s, String pgrmName, String type) {
         s = Util.relativeToAbsoluteFilePath(s);
-        HTML f=new HTML();
-        f.setHTML(s);
-        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        Text f=new Text();
+        f.setFilename(s);
         f.setName(Util.getFileNameAndExt(s)+" ("+Util.returnCurrentDateAndTime()+")");
+        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
+        f.setText(type+" is here \n"+s+"\n\nSelected on: "+Util.returnCurrentDateAndTime()+"\nLoaded From program: "+pgrmName);
+        f.setUnknownType(type);
+        String typedb = type.toLowerCase();
         boolean b = f.saveToDatabase();
-        if (b) {
-            p.put("output_html_id", f.getId());
-            p.put("output_html_fileName", f.getHTMLFile());
+        if (b){
+            p.put("output_"+typedb+"_id", f.getId());
+            p.put("output_"+typedb+"_fileName", s);
         }
-        else System.out.println("WARNING : html file not saved");
+        else System.out.println(type+" file not saved");
     }
 
+    
     @Override
     public String getBiologicType() {
         return "HTML";
-    }
-    public String getExtendedString() {
-        return toString();
     }
 }

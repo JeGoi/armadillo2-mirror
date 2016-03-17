@@ -95,7 +95,7 @@ public class eutils extends RunProgram {
         if (TextFileID_DOWN.size()>0) {
             //--Load the textFile into an Unknown structure
             TextFile tx=new TextFile(TextFileID_DOWN.get(0));
-            inputDOWN=new Unknown(tx.getTextFile());
+            inputDOWN=new Unknown(tx.getFile());
         }
         if (TextID_DOWN.size()>0) {
             inputDOWN=new Unknown(TextID_DOWN.get(0));
@@ -106,7 +106,7 @@ public class eutils extends RunProgram {
         //--Input UP for list
         if (TextFileID_UP.size()>0) {
             TextFile tx=new TextFile(TextFileID_UP.get(0));
-            inputUP=new Unknown(tx.getTextFile());
+            inputUP=new Unknown(tx.getFile());
         }
         if (TextID_UP.size()>0) {
             inputUP=new Unknown(TextID_UP.get(0));

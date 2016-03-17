@@ -22,42 +22,13 @@ public class EmblFile extends Text implements Serializable{
     public EmblFile(int id)           {super(id);}
     public EmblFile(String filename)  {super(filename);}
 
-    public void setEmblFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("EmblFile");
-        this.setText("EmblFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-    public String getEmblFile(){
-        return this.getFilename();
+    public String[] getExtensionTab() {
+        String[] t = {".embl",".em"};
+        return t;
     }
     
     @Override
     public String getBiologicType() {
         return "EmblFile";
     }
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
-    public static String[] getEmblFileExtensionTab() {
-        String[] t = {".embl",".em"};
-        return t;
-    }
-    
-    public static String getEmblFileExtensionString() {
-        String[] ts = getEmblFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isEmblFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getEmblFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
 }

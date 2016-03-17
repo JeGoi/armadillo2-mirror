@@ -38,41 +38,11 @@ public class Est2genomeFile extends Text implements Serializable {
     public Est2genomeFile(int id) {super(id);}
     public Est2genomeFile(String filename) {super(filename);}
 
-    public void setEst2genomeFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Est2genome");
-        this.setText("Est2genome : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getEst2genomeFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getEst2genomeFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {".est2genome"};
         return t;
     }
     
-    public static String getEst2genomeFileExtensionString() {
-        String[] ts = getEst2genomeFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isEst2genomeFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getEst2genomeFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "Est2genomeFile";

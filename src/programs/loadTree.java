@@ -95,7 +95,7 @@ public class loadTree extends RunProgram {
       int ResultsID=properties.getInputID("Results");
       if (TextFileID!=0) {
           TextFile text=new TextFile(TextFileID);
-          properties.put("inputname",text.getTextFile());
+          properties.put("inputname",text.getFile());
       }
       if (TextID!=0) {
           Text text=new Text(TextID);
@@ -129,15 +129,4 @@ public class loadTree extends RunProgram {
        properties.put("output_multipletrees_id", trees.getId());
        
     }
-
-    
-    
-
-  
-
-    
-   
-
-
-
 }

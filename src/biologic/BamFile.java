@@ -21,23 +21,13 @@ public class BamFile extends Text implements Serializable{
     public BamFile(int id)            {super(id);}
     public BamFile(String filename)   {super(filename);}
     
-    public void setBamFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("BamFile");
-        //--Note: we have a properties in the Fastq file
-        this.setText("BamFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-    
-    public String getBamFile(){
-        return this.getFilename();
+    public String[] getExtensionTab() {
+        String[] t = {".bam"};
+        return t;
     }
     
     @Override
     public String getBiologicType() {
         return "BamFile";
-    }
-    @Override
-    public String getExtendedString() {
-        return toString();
     }
 }

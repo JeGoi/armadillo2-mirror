@@ -57,7 +57,7 @@ public class Workbox {
     public static InformationJDialog loading2; //Avoid deadlock...
     public static Project project;
     public static Config config=new Config();
-    public static armadillo_workflow work=null;
+    public static armadillo_workflow armadillo_workflow=null;
     //=new armadillo_workflow();--Debug
     
     //--This ultimately hold the reference to the current armadillo_workflow...
@@ -89,8 +89,8 @@ public class Workbox {
             } catch(Exception e) {Config.log("Unable to initialize Workbox->toolbox");}
             try {
                 //--Creation of the main armadillo_workflow 0bject
-                work=new armadillo_workflow();
-                database_workflow=new Workflows(work);
+                armadillo_workflow = new armadillo_workflow();
+                database_workflow  = new Workflows(armadillo_workflow);
                 WorkFlowIntFrame=new WorkFlowJInternalFrame(frame, database_workflow);
             } catch(Exception e) {
                 Config.log("Unable to initialize Workbox->WorkFlowIntFrame");
@@ -168,7 +168,7 @@ public class Workbox {
      * @return The Armadillo_workflow
      */
     public armadillo_workflow getCurrentArmadilloWorkflow() {
-        return work;
+        return armadillo_workflow;
     }
     
     
@@ -851,20 +851,20 @@ public class Workbox {
         }; //End SwingWorker declaration
         
         infoSwingWorker.addPropertyChangeListener(
-            new PropertyChangeListener() {
-                public  void propertyChange(PropertyChangeEvent evt) {
-                    if ("progress".equals(evt.getPropertyName())) {
-                        SwingWorker o = (SwingWorker)evt.getSource();
-                        if (!o.isDone()) {
-                            int progress=(Integer)evt.getNewValue();
-                            loading.setProgress(progress);
-                        }
-                        else if (o.isDone()&&!o.isCancelled()) {
-                            //Handled in done() fucntion in SwingWorker
-                        }
-                    }//End progress update
-                } //End populateNetworkPropertyChange
-            });
+                new PropertyChangeListener() {
+                    public  void propertyChange(PropertyChangeEvent evt) {
+                        if ("progress".equals(evt.getPropertyName())) {
+                            SwingWorker o = (SwingWorker)evt.getSource();
+                            if (!o.isDone()) {
+                                int progress=(Integer)evt.getNewValue();
+                                loading.setProgress(progress);
+                            }
+                            else if (o.isDone()&&!o.isCancelled()) {
+                                //Handled in done() fucntion in SwingWorker
+                            }
+                        }//End progress update
+                    } //End populateNetworkPropertyChange
+                });
         loading=new InformationJDialog(frame, false, infoSwingWorker, "Saving workflow as txt to "+filename);
         loading.setProgress(0); //Put 0% as the start progress
         loading.Message("Saving workflow...", "");

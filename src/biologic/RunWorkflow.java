@@ -59,7 +59,7 @@ public class RunWorkflow implements Biologic, Serializable {
         loadFromDatabase(id);
     }
 
- ////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 /// Database function
 
 
@@ -118,7 +118,8 @@ public class RunWorkflow implements Biologic, Serializable {
     public boolean loadFromFile(String filename) {
         return false;
     }
-    ////////////////////////////////////////////////////////////////////////////////
+    
+////////////////////////////////////////////////////////////////////////
 /// Iterator
 
     Vector<Integer>next=new Vector<Integer>();
@@ -151,8 +152,8 @@ public class RunWorkflow implements Biologic, Serializable {
         return df.existsRunWorkflow(id);
     }
 
-    ////////////////////////////////////////////////////////////////////////////
-    /// Getter / Setter
+////////////////////////////////////////////////////////////////////////
+/// Getter / Setter
 
     /**
      * @return the list
@@ -266,7 +267,6 @@ public class RunWorkflow implements Biologic, Serializable {
         this.note = note;
     }
 
-
     /**
      * Return return a new workflow_properties()...
      * @return 
@@ -284,8 +284,6 @@ public class RunWorkflow implements Biologic, Serializable {
         return 0;
     }
 
-   
-
     public String getNameId(int id) {
        return df.getRunWorkflowName(id);
     }
@@ -294,7 +292,6 @@ public class RunWorkflow implements Biologic, Serializable {
         return "";
     }
    
-
     @Override
     public String toString() {
         String str="Workflow execution of "+this.getName()+" was "+(isCompleted()?"completed":"not completed")+"\nTotal execution "+this.getExecution_workflow_id().size()+"\n";
@@ -304,7 +301,6 @@ public class RunWorkflow implements Biologic, Serializable {
         return str;
     }
 
-
     public String toHtml() {
         return toString();
     }
@@ -313,7 +309,7 @@ public class RunWorkflow implements Biologic, Serializable {
        
      }
 
-      public String getFasta() {
+    public String getFasta() {
        return "";
     }
 
@@ -346,6 +342,4 @@ public class RunWorkflow implements Biologic, Serializable {
     public Biologic getParent() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
-    
 }

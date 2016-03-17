@@ -27,33 +27,16 @@ import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
- * This is really a mock for handling in the Armadillo Workflow
- * (in fact, we just save the blastDB filename into the
- *  filename field
  * @author Etienne Lord
+ * @since  2010
+ * @author JG
+ * @since  2016
  */
 public class TextFile extends Text implements Serializable {
 
-    public TextFile() {super();}
-
-    public TextFile(String filename) {
-        super(filename);
-    }
-
-    public TextFile(int id) {
-        super(id);
-    }
-
-    public void setTextFile(String filename) {
-        this.setFilename(filename);
-        this.setName("TextFile - "+filename);
-        this.setUnknownType("TextFile");
-        this.setText("TextFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getTextFile() {
-        return this.getFilename();
-    }
+    public TextFile()                {super();}
+    public TextFile(String filename) {super(filename);}
+    public TextFile(int id)          {super(id);}
 
     @Override
     public String getBiologicType() {

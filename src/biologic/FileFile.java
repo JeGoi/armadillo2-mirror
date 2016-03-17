@@ -38,36 +38,16 @@ public class FileFile extends Text implements Serializable {
     public FileFile(int id) {super(id);}
     public FileFile(String filename) {super(filename);}
 
-    public void setFileFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("File");
-        this.setText("File : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getFileFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getFileFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {""};
         return t;
     }
     
-    public static String getFileFileExtensionString() {
-        String[] ts = getFileFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isFileFile(String s){
+    @Override
+    public boolean asItAGoodExtension(String s){
         return true;
     }
     
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "FileFile";

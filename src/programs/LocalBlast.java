@@ -147,7 +147,7 @@ public class LocalBlast extends RunProgram {
         com[3]="-query";
         com[4]="query.txt";
         com[5]="-db";
-        com[6]="\""+db.getBlastDB()+"\"";
+        com[6]="\""+db.getFile()+"\"";
         com[7]="-out";
         com[8]="\""+properties.get("outfile")+"\"";
         if (properties.isSet("num_descriptions")) {

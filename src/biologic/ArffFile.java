@@ -35,44 +35,13 @@ public class ArffFile extends Text implements Serializable {
     public ArffFile(int id) {super(id);}
     public ArffFile(String filename) {super(filename);}
 
-    public void setArffFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Arff");
-        this.setText("Arff : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getArffFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getArffFileExtensionTab() {
-        String[] t = {".profile"};
+    public String[] getExtensionTab() {
+        String[] t = {".arff"};
         return t;
     }
     
-    public static String getArffFileExtensionString() {
-        String[] ts = getArffFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isArffFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getArffFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "ArffFile";
     }
-
 }

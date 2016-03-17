@@ -21,6 +21,7 @@
 
 package biologic;
 
+import java.io.File;
 import configuration.Util;
 import java.io.Serializable;
 import workflows.workflow_properties;
@@ -30,19 +31,15 @@ import workflows.workflow_properties;
 /**
  * Common Text REturn by a Program
  * @author Etienne Lord
- * @since 2010
+ * @since  2010
+ * @author JG
+ * @since  2016
  */
 public class Text extends Unknown implements Serializable {
 
-    public Text() {}
-
-    public Text(String filename) {
-        super(filename);
-    }
-
-    public Text(int id) {
-        super(id);
-    }
+    public Text()                {}
+    public Text(int id)          {super(id);}
+    public Text(String filename) {super(filename);}
 
     public void setText(String text) {
         StringBuilder st=new StringBuilder();
@@ -69,19 +66,19 @@ public class Text extends Unknown implements Serializable {
 
     public workflow_properties getProperties() {
         workflow_properties tmp=new workflow_properties();
-         String outputType="Text";
-         tmp.setName(outputType);
-         tmp.put("colorMode","GREEN");
-         tmp.put("defaultColor","GREEN");
-         tmp.put("Output"+outputType, "True");
-         tmp.put("outputType", outputType);
-         tmp.put("Connector1Output","True");
-         tmp.put("Connector0Output", "True");
-         tmp.put("Connector0Conditional", "True");
-         tmp.put("ObjectType", "OutputDatabase");
-         tmp.put("editorClass", "editors.OutputEditor");
-         tmp.put("Description", this.getFilename());
-         tmp.put("output_"+outputType.toLowerCase()+"_id", this.getId());
+        String outputType="Text";
+        tmp.setName(outputType);
+        tmp.put("colorMode","GREEN");
+        tmp.put("defaultColor","GREEN");
+        tmp.put("Output"+outputType, "True");
+        tmp.put("outputType", outputType);
+        tmp.put("Connector1Output","True");
+        tmp.put("Connector0Output", "True");
+        tmp.put("Connector0Conditional", "True");
+        tmp.put("ObjectType", "OutputDatabase");
+        tmp.put("editorClass", "editors.OutputEditor");
+        tmp.put("Description", this.getFilename());
+        tmp.put("output_"+outputType.toLowerCase()+"_id", this.getId());
         return tmp;        
     }
     
@@ -101,5 +98,35 @@ public class Text extends Unknown implements Serializable {
         }
         else System.out.println(type+" file not saved");
     }
+    
+    public void setFile (String filename, String type) {
+        String s = Util.relativeToAbsoluteFilePath(filename);
+        this.setFilename(s);
+        this.setUnknownType(type);
+        this.setText(type+" : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
+    }
+    
+    public String[] getExtensionTab() {
+        String[] t = {"Text"};
+        return t;
+    }
 
+    public String getExtensionString() {
+        String[] ts = getExtensionTab();
+        String   t  = ts[0];
+        if (ts.length>1) t = String.join("<>",ts);
+        return t;
+    }
+
+    public boolean asItAGoodExtension(String s){
+        boolean b = false;
+        for (String sT:this.getExtensionTab())
+            if (s.endsWith(sT))
+                b = true;
+        return b;
+    }
+    
+    public String getFile(){
+        return this.getFilename();
+    }
 }

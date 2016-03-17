@@ -35,44 +35,13 @@ public class BananaFile extends Text implements Serializable {
     public BananaFile(int id) {super(id);}
     public BananaFile(String filename) {super(filename);}
 
-    public void setBananaFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Banana");
-        this.setText("Banana : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getBananaFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getBananaFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {".profile"};
         return t;
     }
     
-    public static String getBananaFileExtensionString() {
-        String[] ts = getBananaFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isBananaFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getBananaFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "BananaFile";
     }
-
 }

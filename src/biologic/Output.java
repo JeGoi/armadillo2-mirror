@@ -51,9 +51,9 @@ public class Output implements Biologic, Serializable {
         this.setTypeid(b.getId());
     }
 
-     public boolean loadFromFile(String filename) {
-         return false;
-     }
+    public boolean loadFromFile(String filename) {
+        return false;
+    }
 
     //////////////////////////////////////////////////////////////////////////////
   /// Database function
@@ -176,9 +176,9 @@ public class Output implements Biologic, Serializable {
      * @return
      */
     public Biologic getBiologic() {
-     Classdata c=new Classdata("biologic."+this.getType());
-     if (c==null) System.out.println(this.getType());
-     Object o=c.newObject();
+        Classdata c=new Classdata("biologic."+this.getType());
+        if (c==null) System.out.println(this.getType());
+        Object o=c.newObject();
         if (o==null) return null;
         //--Load Object
         if (this.getTypeid()>0) {
@@ -220,8 +220,6 @@ public class Output implements Biologic, Serializable {
     public String getFileNameId(int id) {
         return "";
     }
-    
-
     
     public void setName(String name) {}
     public void setNote(String note) {}

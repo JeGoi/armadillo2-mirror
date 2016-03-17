@@ -29,20 +29,19 @@ import workflows.workflow_properties;
 /**
  * @author JG 2016
  */
-public class ChipsFile extends Text implements Serializable {
+public class CsvFile extends Text implements Serializable {
 
-    public ChipsFile() {super();}
-    public ChipsFile(int id) {super(id);}
-    public ChipsFile(String filename) {super(filename);}
+    public CsvFile() {super();}
+    public CsvFile(int id) {super(id);}
+    public CsvFile(String filename) {super(filename);}
 
     public String[] getExtensionTab() {
-        String[] t = {".chips"};
+        String[] t = {".csv"};
         return t;
     }
     
     @Override
     public String getBiologicType() {
-        return "ChipsFile";
+        return "CsvFile";
     }
-
 }

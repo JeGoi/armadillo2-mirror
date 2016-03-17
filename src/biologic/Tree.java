@@ -65,19 +65,12 @@ public class Tree implements Biologic, Iterator, Serializable {
     
     public static databaseFunction df=new databaseFunction();
     
-    public Tree() {}
+    public Tree()                {}
+    public Tree(int id)          {this.loadFromDatabase(id);}
+    public Tree(String filename) {this.loadFromFile(filename);}
     
-    public Tree(int id) {
-        this.loadFromDatabase(id);
-    }
-    
-    
-    public Tree(String filename) {
-        this.loadFromFile(filename);
-    }
-    
-    ////////////////////////////////////////////////////////////////////////////////
-    // Database function
+    ////////////////////////////////////////////////////////////////////
+    /// Database function
     
     public boolean loadFromDatabase(int id) {
         Tree newtree=df.getTree(id);
@@ -116,7 +109,7 @@ public class Tree implements Biologic, Iterator, Serializable {
         return true;
     }
     
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
 /// Iterator
     
     Vector<Integer>next=new Vector<Integer>();
@@ -149,16 +142,13 @@ public class Tree implements Biologic, Iterator, Serializable {
         return df.existsTree(id);
     }
     
-    //////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
     // Tree functions
     
     public boolean replaceSequenceIdWithNames() {
         //--Construct hashmap
-        
-        
         Pattern find_sequence=Pattern.compile("AZ([0-9]*)");
         Matcher m=find_sequence.matcher(tree);
-        
         while(m.find()) {
             try {
                 Sequence sequence=new Sequence(Integer.valueOf(m.group(1)));
@@ -168,40 +158,7 @@ public class Tree implements Biologic, Iterator, Serializable {
                     treeAbbreviate=treeAbbreviate.replace(group, sequence.getAbbreviate());
                 }
             } catch(Exception e) {}
-            
         }
-//
-//          HashMap<String,String>replaceSequenceIDwithName=new HashMap<String,String>();
-//          HashMap<String,String>replaceSequenceIDwithAbbreviate=new HashMap<String,String>();
-//
-//          // CASE 1. We have an alignment (NORMAL CASE)
-//          if (alignment_id!=0) {
-//               InfoAlignment info=new InfoAlignment(alignment_id);
-//               for (int i=0; i<info.getSequence_id().size(); i++) {
-//                  int id_sequence=info.getSequence_id().get(i);
-//                  //int id_original=info.getOriginalSequence_id().get(i);
-//                  InfoSequence s=new InfoSequence(id_sequence);
-//                  //Config.log(s.getName());
-//                  replaceSequenceIDwithName.put("AZ"+id_sequence+":", s.getName()+":");
-//                  replaceSequenceIDwithAbbreviate.put("AZ"+id_sequence+":", s.getAbbreviate()+":");
-//            }
-//          }
-//          else if (multiplesequences_id!=0) {
-//                 InfoMultipleSequences info=new InfoMultipleSequences(multiplesequences_id);
-//               for (int i=0; i<info.getNbSequence(); i++) {
-//                  int id_sequence=info.getSequences().get(i).getId();
-//                  InfoSequence s=new InfoSequence(id_sequence);
-//                  replaceSequenceIDwithName.put("AZ"+id_sequence+":", s.getName()+":");
-//                  replaceSequenceIDwithAbbreviate.put("AZ"+id_sequence+":", s.getAbbreviate()+":");
-//            }
-//          } else return false;
-//
-//          //--Replace sequence_id with name (should be abbreviation?)
-//          for (String key:replaceSequenceIDwithName.keySet()) {
-//              tree=tree.replaceAll(key, replaceSequenceIDwithName.get(key));
-//              treeAbbreviate=treeAbbreviate.replaceAll(key, replaceSequenceIDwithAbbreviate.get(key));
-//          }
-//         return true;
         return true;
     }
     
@@ -346,7 +303,6 @@ public class Tree implements Biologic, Iterator, Serializable {
     public void setTreeSequenceID(String treeSequenceID) {
         this.treeSequenceID = treeSequenceID;
     }
-    
     
     public boolean outputNewickWithSequenceID(String filename) {
         try {

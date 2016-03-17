@@ -22,23 +22,13 @@ public class GenomeFile extends Text implements Serializable{
     public GenomeFile(int id)           {super(id);}
     public GenomeFile(String filename)  {super(filename);}
 
-    public void setGenomeFile(String filename) {
-        this.setFilename(filename);
-        this.setName(Util.getFileNameAndExt(filename));
-        this.setUnknownType("GenomeFile");
-        this.setText("GenomeFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-    public String getGenomeFile(){
-        return this.getFilename();
+    public String[] getExtensionTab() {
+        String[] t = {".edt",".gct",".res",".atr",".gff",".asn",".fna",".gbk",".gff",".gtf",".ebwt",".bt2"};
+        return t;
     }
     
     @Override
     public String getBiologicType() {
         return "GenomeFile";
     }
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
-    
 }

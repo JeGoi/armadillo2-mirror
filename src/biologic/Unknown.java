@@ -141,6 +141,7 @@ public class Unknown implements Biologic, Iterator, Serializable {
     }
     
     ////////////////////////////////////////////////////////////////////////////
+    /// OUTPUT
     
     public boolean Output(String filename) {
         try {
@@ -184,8 +185,6 @@ public class Unknown implements Biologic, Iterator, Serializable {
     public void setRunProgram_id(int runProgram_id) {
         this.runProgram_id = runProgram_id;
     }
-    
-    
     
     /**
      * @return the note

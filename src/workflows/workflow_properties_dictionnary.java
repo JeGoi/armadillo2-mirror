@@ -84,16 +84,27 @@ public class workflow_properties_dictionnary extends SecurityManager {
     public static final String NotSet="Not Set";
     public final static String[] colorMode={"BLUE","RED","GREEN","ORANGE","PURPLE","CYAN"};
     //--This represent the input-output type (this need to be loaded in config...)
-    public static String[] InputOutputType={"Sequence","MultipleSequences",
-        "Tree","RootedTree","UnrootedTree","Alignment","Genome",
-        "MultipleTrees","Matrix","List",
-        "Unknown","Ancestor",
-        "TextFile","ImageFile","Database","Position","BlastDB",
-        "Phylip_Seqboot","Phylip_Distance",
-        "BlastHit","Blast","HTML",
-        "FastaFile","SOLIDFile","MAF","MAQ",
-        "FastqFile","GenomeFile",// JG 2015
-        "Text", "OutputText", "Results","File"};
+    public static String[] InputOutputType={
+        "Alignment","Ancestor","ArffFile",
+        "BamFile","BananaFile","Blast","BlastDB","BlastHit",
+        "ChipsFile","CsvFile",
+        "DatFile","Database","DiffseqFile",
+        "EinvertedFile","EmblFile","Est2genomeFile",
+        "FastaFile","FastqFile","FileFile","File",
+        "GcgFile","Genome","GenomeFile",
+        "HTML",
+        "ImageFile",
+        "List",
+        "MAF","MAQ","MultipleSequences","MultipleTrees","Matrix",
+        "NbrfFile",
+        "OutputText",
+        "PdbFile","Phylip_Seqboot","Phylip_Distance","PirFile","Position",
+        "Results","RootedTree",
+        "Sequence","SOLIDFile","SamFile","SwissprotFile",
+        "Text","TextFile","Tree",
+        "Unknown","UnrootedTree",
+        "WekaModelFile"
+    };
     public static HashMap<String,String> lowercaseInputOutputType=new HashMap<String,String>(); // Match between lowercase type (used in workflow_properties) and actual InputOutputType
     
     //--This represent ObjectType
@@ -229,6 +240,10 @@ public class workflow_properties_dictionnary extends SecurityManager {
             //--If
             keyword.put("modeSide", isBoolean);
             
+            //JG2016
+            keyword.put("OneConnectorOnlyFor", isText); // Accept only one connector ex: 2<>3<>4
+            keyword.put("defaultPgrmValues", isText);   // Default programs values
+            keyword.put("SolelyConnectors", isText);    // Solely Connectors (other connectors are blocked if this one is selected) ex: 2<>3<>4
             //--Connector
             for (int i=0; i<5; i++) {
                 //--Type

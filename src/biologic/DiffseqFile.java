@@ -35,44 +35,13 @@ public class DiffseqFile extends Text implements Serializable {
     public DiffseqFile(int id) {super(id);}
     public DiffseqFile(String filename) {super(filename);}
 
-    public void setDiffseqFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Diffseq");
-        this.setText("Diffseq : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getDiffseqFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getDiffseqFileExtensionTab() {
-        String[] t = {".txt",".diffseq"};
+    public String[] getExtensionTab() {
+        String[] t = {".diffseq"};
         return t;
     }
     
-    public static String getDiffseqFileExtensionString() {
-        String[] ts = getDiffseqFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isDiffseqFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getDiffseqFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "DiffseqFile";
     }
-
 }

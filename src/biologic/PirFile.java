@@ -22,56 +22,13 @@ public class PirFile extends Text implements Serializable{
     public PirFile(int id)           {super(id);}
     public PirFile(String filename)  {super(filename);}
 
-    public void setPirFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("PirFile");
-        this.setText("PirFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-    public String getPirFile(){
-        return this.getFilename();
+    public String[] getExtensionTab() {
+        String[] t = {".pir"};
+        return t;
     }
     
     @Override
     public String getBiologicType() {
         return "PirFile";
     }
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
-    public static String[] getPirFileExtensionTab() {
-        String[] t = {".pir"};
-        return t;
-    }
-    
-    public static String getPirFileExtensionString() {
-        String[] ts = getPirFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isPirFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getPirFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-//    public static void savePirFile (workflow_properties p, String s, String pgrmName) {
-//        s = Util.relativeToAbsoluteFilePath(s);
-//        PirFile g = new PirFile();
-//        g.setPirFile(s);
-//        g.setName(s);
-//        g.setNote(pgrmName+". Created on "+Util.returnCurrentDateAndTime());
-//        boolean b = g.saveToDatabase();
-//        if (b){
-//            p.put("output_pirfile_id", g.getId());
-//            p.put("output_pirfile_fileName", s);
-//        }
-//        else System.out.println("PirFile not saved");
-//    }
-
 }

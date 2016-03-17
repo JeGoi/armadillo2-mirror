@@ -35,44 +35,13 @@ public class WekaModelFile extends Text implements Serializable {
     public WekaModelFile(int id) {super(id);}
     public WekaModelFile(String filename) {super(filename);}
 
-    public void setWekaModelFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("WekaModelFile");
-        this.setText("WekaModelFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getWekaModelFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getWekaModelFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {".model",".modelOutput"};
         return t;
     }
     
-    public static String getWekaModelFileExtensionString() {
-        String[] ts = getWekaModelFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isWekaModelFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getWekaModelFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "WekaModelFile";
     }
-
 }

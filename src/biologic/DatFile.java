@@ -35,44 +35,13 @@ public class DatFile extends Text implements Serializable {
     public DatFile(int id) {super(id);}
     public DatFile(String filename) {super(filename);}
 
-    public void setDatFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Dat");
-        this.setText("Dat : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getDatFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getDatFileExtensionTab() {
-        String[] t = {".txt",".dat"};
+    public String[] getExtensionTab() {
+        String[] t = {".dat"};
         return t;
     }
     
-    public static String getDatFileExtensionString() {
-        String[] ts = getDatFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isDatFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getDatFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "DatFile";
     }
-
 }

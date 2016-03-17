@@ -26,15 +26,8 @@ package programs;
 ///
 /// Etienne Lord 2010
 
-import biologic.Alignment;
 import biologic.FastaFile;
-import biologic.MultipleSequences;
-import biologic.Results;
-import biologic.SOLIDFile;
-import biologic.Sequence;
-import biologic.Text;
 import biologic.TextFile;
-import biologic.Tree;
 import configuration.Util;
 import program.RunProgram;
 import workflows.workflow_properties;
@@ -66,16 +59,6 @@ public class ShrimpToFasta extends RunProgram {
         
     }
     
-    
-    @Override
-    public void post_parseOutput() {
-        int text_id=properties.getInputID("TextFile");
-        int textfile_id=properties.getInputID("TextFile");
-        TextFile tex=new TextFile(textfile_id);
-        
-        FastaFile.saveFile(properties,tex.getTextFile()+".shrimp.fasta","Shrimp To Fasta","FastaFile");
-    }
-    
     @Override
     public String[] init_createCommandLine() {
         int textfile_id=properties.getInputID("TextFile");
@@ -91,11 +74,17 @@ public class ShrimpToFasta extends RunProgram {
         com[2]="-jar";
         com[3]="executable/mirna/mirna.jar";
         com[4]="-P";
-        com[5]=text.getTextFile();
-        com[6]=text.getTextFile()+".shrimp.fasta";
+        com[5]=text.getFile();
+        com[6]=text.getFile()+".shrimp.fasta";
         return com;
     }
     
+    @Override
+    public void post_parseOutput() {
+        int textfile_id=properties.getInputID("TextFile");
+        TextFile tex=new TextFile(textfile_id);
+        FastaFile.saveFile(properties,tex.getFile()+".shrimp.fasta","Shrimp To Fasta","FastaFile");
+    }
     
     
     @Override
@@ -114,5 +103,4 @@ public class ShrimpToFasta extends RunProgram {
         final muscle other = (muscle) obj;
         return true;
     }
-    
 }

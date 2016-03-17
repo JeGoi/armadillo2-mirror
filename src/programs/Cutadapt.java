@@ -115,9 +115,6 @@ public class Cutadapt extends RunProgram {
         if (Fasta1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence 1 found.");
             return false;
-        } else if (!Fasta1.isEmpty()&&!FastaFile.isFastaFile(FastaFile.getVectorFilePath(Fasta1))){
-            setStatus(status_BadRequirements,"Sequence1 is not a fasta file.");
-            return false;
         }
         return true;
     }
@@ -127,9 +124,6 @@ public class Cutadapt extends RunProgram {
         String s1 = Util.getFileName(FastqFile.getVectorFilePath(Fastq1));
         if (Fastq1.isEmpty()||s1.equals("Unknown")||s1.equals("")) {
             setStatus(status_BadRequirements,"No sequence 1 found.");
-            return false;
-        } else if (!Fastq1.isEmpty()&&!FastqFile.isFastqFile(FastqFile.getVectorFilePath(Fastq1))){
-            setStatus(status_BadRequirements,"Sequence1 is not a fastq file.");
             return false;
         }
         return true;

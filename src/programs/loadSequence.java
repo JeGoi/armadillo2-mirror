@@ -101,11 +101,11 @@ public class loadSequence extends RunProgram {
 
       if (FastaFileID!=0) {
           FastaFile text=new FastaFile(FastaFileID);
-          properties.put("inputname",text.getFastaFile());
+          properties.put("inputname",text.getFile());
       } 
       if (TextFileID!=0) {
           TextFile text=new TextFile(TextFileID);         
-          properties.put("inputname",text.getTextFile());
+          properties.put("inputname",text.getFile());
       } 
       if (TextID!=0) {
           Text text=new Text(TextID);

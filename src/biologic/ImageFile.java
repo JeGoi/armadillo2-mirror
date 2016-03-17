@@ -36,37 +36,22 @@ import workflows.workflow_properties;
  */
 public class ImageFile extends Text implements Serializable {
 
-    public ImageFile() {super();}
-
-    public ImageFile(int id) {
-        super(id);
-    }
-
+    public ImageFile()                {super();}
+    public ImageFile(int id)          {super(id);}
     public ImageFile(String filename) {super(filename);}
-
-    public void setImageFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("ImageFile");
-        this.setText("ImageFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getImageFile() {
-        return this.getFilename();
-    }
 
     @Override
     public String toHtml() {
         return "<img src='"+this.getFilename()+"'></img>";
-        
+    }
+    
+    public String[] getExtensionTab() {
+        String[] t = {".png",".jpg",".jpeg"};
+        return t;
     }
     
     @Override
     public String getBiologicType() {
         return "ImageFile";
     }
-
-    public String getExtendedString() {
-        return toString();
-    }
-    
 }

@@ -48,7 +48,6 @@ import processing.core.*;
 import processing.pdf.*;
 import editor.propertiesEditorJDialog;
 import biologic.seqclasses.CommentsSequenceJDialog;
-
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -57,21 +56,14 @@ import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetListener;
 import java.awt.event.*;
 import java.util.*;
-
-//--From the frame conversion
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-
 import editor.propertiesEditorBox;
 import editors.AlignmentEditor;
 import editors.BiologicEditor;
 import editors.BlastViewEditor;
 import editors.SimplePhyloEditor;
-import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import javax.swing.BoxLayout;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -82,6 +74,16 @@ import program.UseAlternativeExecutableJDialog;
 import programs.forester;
 import tools.Toolbox;
 import tools.AddCommentsBiologicJDialog;
+//Useless Import
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BoxLayout;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 
 
 
@@ -106,97 +108,89 @@ import tools.AddCommentsBiologicJDialog;
  */
 public class armadillo_workflow extends PApplet implements ActionListener {
     
-////////////////////////////////////////////////////////////////////////////////
-/// Variables
+    ////////////////////////////////////////////////////////////////////////////
+    /// Variables
+    public armadillo_workflow armadillo_workflow=this; //--Pointer on itself for some access
     
-    public armadillo_workflow current=this; //--Pointer on itself for some access
-//-- Database (for workflow saving and item)
-    
-////////////////////////////////////////////////////////////////////////////////
-//-- Properties and editor
+    ////////////////////////////////////////////////////////////////////////////
+    //-- Properties and editor
     public workflow_image filedata=new workflow_image(); //Hold all the icon
     private workflow_properties properties=new workflow_properties();
     private static Menu program_menu=null;
-    
-    Config config=new Config();
-    
     public Workbox workbox=new Workbox();
     public propertiesEditorBox propertieseditorbox;
     public ConnectorInfoBox connectorinfobox;
+    Config config=new Config();
     JInternalFrame parent;
     
-////////////////////////////////////////////////////////////////////////////////
-//--GUI VARIABLE
-    PImage workflow_background=null;         // Background workflow image created in draw
+    ////////////////////////////////////////////////////////////////////////////
+    //--GUI VARIABLE
     public Workflow workflow;                // Workflow object
+    public int click_x=0;                    //--Clicked x position (needed for input )
+    public int click_y=0;                    //--Clicked y postion
+    public int images_counter=0;             //--Counter for the image snapshot
+    private int hashCount=0;                 // Unique number if we need a hashcode
+    public int idebug=1;                     //--Debug flag for special function
+    public static SimplePhyloEditor simplephylo;
+    PImage workflow_background=null;         // Background workflow image created in draw
     PFont smallfont,font,boldfont;           // Fonts
     PShape armadillo;                        // Logo Armadillo 0.1
     PGraphics bufConnectorEdge;              // Back buffer for Arrow selection
-    private int hashCount=0;                 // Unique number if we need a hashcode
     InformationJDialog loading;              // Use getHashcode();
     PopupMenu popupObject;                   // Popup Menu
-    public static int count=0;
-    public static SimplePhyloEditor simplephylo;
-    public int click_x=0;                   //--Clicked x position (needed for input )
-    public int click_y=0;                   //--Clicked y postion
-    public int images_counter=0;            //--Counter for the image snapshot
     Button button;
-    public int idebug=1;                        //--Debug flag for special function
     
-    
-////////////////////////////////////////////////////////////////////////////////
-//--Flag
+    ////////////////////////////////////////////////////////////////////////////
+    //--Flag
     public boolean small_editor_mode=false;
     public boolean name_displayed=false;
-    public boolean debug=false;      // Debug version (true or false)
-    public boolean force_redraw=false;// Might be needed if we need to redraw
-    public boolean force_nodraw=false;// Might be needed if we nned
-    public boolean save_image=false;  // To save the current workflow as an image
+    public boolean debug=false;           // Debug version (true or false)
+    public boolean force_redraw=false;    // Might be needed if we need to redraw
+    public boolean force_nodraw=false;    // Might be needed if we need
+    public boolean save_image=false;      // To save the current workflow as an image
     public boolean save_image_pdf=false;  // To save the current workflow as an pdf
-    public boolean draw_grid=true;    // Do we draw a grid?
-    public boolean simplegraph=false; // Do we draw as simple graph
+    public boolean draw_grid=true;        // Do we draw a grid?
+    public boolean simplegraph=false;     // Do we draw as simple graph
+    private String save_image_filename="";//Name of filename to save to an image
+    public boolean initialized=false;     // Flag to know if we have run setup (graphic mode) or not(text mode)
+    private boolean movingFlag=false;     // Flag Set if we are moving (we don't draw to back buffer)
     
-    private String save_image_filename="";  //Name of filename to save to an image
-    
-    public boolean initialized=false;   // Flag to know if we have run setup (graphic mode) or not(text mode)
-    private boolean movingFlag=false;     // Flag Set if we are moving (we don't drwa to back buffer)
-    
-////////////////////////////////////////////////////////////////////////////////
-/// Workflow changed
-    
+    ////////////////////////////////////////////////////////////////////////////
+    /// Workflow changed
     private boolean changed=false;
     
-////////////////////////////////////////////////////////////////////////////////
-/// Cut and Paste
-    
+    ////////////////////////////////////////////////////////////////////////////
+    /// Cut and Paste
     public Workflow CopyPaste_selection=new Workflow(); // Current CopyPaste Selection
     public int Paste_count=0;                           // Number of Copy/Paste Done
     public workflow_object Popup_selection;             // Selection in Popup
     public boolean Popup_Out=false;                     // Flag to catch Popup
     private boolean auto_update=false;                  // Flag for updating the drawing aread
     public LinkedList<Workflows>UndoRedo=new LinkedList<Workflows>(); //In development
-// To save the "object" state of the workflow - January 2011
+    
+    /// To save the "object" state of the workflow - January 2011
     public HashMap<workflow_object, workflow_properties> state=new HashMap<workflow_object,workflow_properties>();
     
-// color space
-    int color_red=color(255,186,185);
-    int color_cyan=color(180,238,255); //--Aread (cyan)
-    int color_green=color(224,253,183); //--Aread (green)
-    int color_blue=color(168,199,255); //--Aread (blue)
-    int color_purple=color(210,194,235); //--Aread (purple)
-    int color_black=color(180,180,180); //--Aread (black)
-    int color_orange=color(255,193,140);//--Aread (orange)
-    
-    int red_border=color(190,75,72); //--red border
-    int green_border=color(152,185,84); //--green border
-    int cyan_border=color(70,170,197); //--cyan border
+    ////////////////////////////////////////////////////////////////////////////
+    /// color space
+    int color_red    =color(255,186,185); //--Aread (red)
+    int color_cyan   =color(180,238,255); //--Aread (cyan)
+    int color_green  =color(224,253,183); //--Aread (green)
+    int color_blue   =color(168,199,255); //--Aread (blue)
+    int color_purple =color(210,194,235); //--Aread (purple)
+    int color_black  =color(180,180,180); //--Aread (black)
+    int color_orange =color(255,193,140); //--Aread (orange)
+    /// color border
+    int red_border   =color(190,75,72);  //--red border
+    int cyan_border  =color(70,170,197); //--cyan border
+    int green_border =color(152,185,84); //--green border
+    int blue_border  =color(74,126,187); //--blue border
     int purple_border=color(125,96,160); //--purple border
-    int blue_border=color(74,126,187); //--blue border
+    int black_border =color(0);          //--black border
     int orange_border=color(246,146,64); //--orange border
-    int black_border=color(0); //--black border
     
-////////////////////////////////////////////////////////////////////////////////
-/// Main Setup function
+    ////////////////////////////////////////////////////////////////////////////
+    /// Main Setup function
     
     /**
      * public default constructor
@@ -205,8 +199,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         workflow=new Workflow(); //--Note: this is the Workflow support object and not
         workflow.setArmadillo(this); //--Set pointer to the armadillo_workflow
     }
-    
-    
     
     /**
      * Applet Setup :: Called by init()
@@ -223,7 +215,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 size(490,140);        //--Small editor size
                 //--Warning, se resize function also
                 bufConnectorEdge=createGraphics(490, 140, JAVA2D);
-                
             } else {
                 System.out.println("Waiting for workflow to initialize...");
                 if (config.isSet("workflow_w")&&config.isSet("workflow_h")){
@@ -245,8 +236,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                     bufConnectorEdge=createGraphics(2000,600,  JAVA2D);
                     Config.log("Initialisation of workflow with size (2000,600)");
                 }
-                
-                
             }   //--Normal size
         } catch(Exception e) {
             e.printStackTrace();
@@ -313,10 +302,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             System.out.println("Fatal exception. Please restart.");
             System.out.println(e.getMessage()+"\n"+e.getLocalizedMessage());
             Config.log(e.getMessage()+"\n"+e.getLocalizedMessage());
-            
         }
     }
-    
     
     private void createPopup(workflow_object selection) {
         
@@ -515,7 +502,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
         add(popupObject); // add popup menu to applet
         
-        
         //enableEvents(AWTEvent.MOUSE_EVENT_MASK);
         //--See below for Event
     }
@@ -553,7 +539,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         for (String filename:workflow_properties.loadPropertieslisting(config.get("propertiesPath"))) {
             workflow_properties tmp=new workflow_properties();
             tmp.load(filename, config.get("propertiesPath"));
-            if (!tmp.get("Name").equals("Cluster")) {
+            if (!tmp.get("ObjectType").equals("Cluster")) {
                 program.add(tmp);
             }
         }
@@ -591,7 +577,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         for (Menu lnode:list) menu.add(lnode);
         return menu;
     }
-    
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -777,7 +762,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
     }
     
-    
     public void convertToFor(workflow_object obj) {
         workflow_properties prop=obj.getProperties();
         if (prop.get("ObjectType").equals("Program")) {
@@ -846,9 +830,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             String path=jf.getSelectedFile().getPath();
             config.setExplorerPath(path);
             config.Save();
-            if (filename.toLowerCase().endsWith("pdf")) {
+            if (filename.toLowerCase().endsWith("pdf"))
                 workbox.getCurrentArmadilloWorkflow().savePDF(filename);
-            } else
+            else
                 workbox.getCurrentArmadilloWorkflow().saveImage(filename);
         }
     }
@@ -894,7 +878,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             force_redraw=true;
             redraw();
             workbox.Message("Successfull rename of "+name,"");
-            
         }
     }
     
@@ -918,9 +901,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
     }
     
-///////////////////////////////////////////////////////////////////////////////
-/// Initialization override and saving as image
-    
+    ////////////////////////////////////////////////////////////////////////////
+    /// Initialization override and saving as image
     
     /**
      * This is the preferred way to initialize the Main Workflow since we can have
@@ -945,7 +927,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             workflow_object o=workflow.work.get(i);
             this.workflow.RemoveAllConnection(o);
             if (!o.getProperties().get("ObjectType").equals("Program")) {
-                this.workflow.delete(o);
+                if (!isCluster(o))
+                    this.workflow.delete(o);
             } else {
                 //--Verify if we have the name to remove duplicate
                 if (obj_names.containsKey(o.getName())) {
@@ -958,7 +941,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                     o.y=y;
                     x+=200;
                     if (x>500) {
-                        x=100;
+                        x =100;
                         y+=100;
                     }
                     obj_names.put(o.getName(), 1);
@@ -1009,11 +992,10 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         redraw();
     }
     
-    
     /**
      * Save the object state before using the PDF
      */
-    public void saveandresetState(){
+    public void saveAndResetState(){
         //--1. Clear the state Vector
         state.clear();
         for (workflow_object obj:workflow.work) {
@@ -1046,17 +1028,13 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         //super.setName(name);
     }
     
-    
-    
     @Override
     public String getName() {
         return this.workflow.name;
     }
     
-    
-    
-////////////////////////////////////////////////////////////////////////////////
-/// SET SMALL EDITOR MODE
+    ////////////////////////////////////////////////////////////////////////////
+    /// SET SMALL EDITOR MODE
     
     /**
      * Set this workflow as a small editor
@@ -1068,9 +1046,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         this.name_displayed=false;
     }
     
-    
-////////////////////////////////////////////////////////////////////////////////
-/// Main drawing functions
+    ////////////////////////////////////////////////////////////////////////////
+    /// Main drawing functions
     
     @Override
     public void draw() {
@@ -1086,14 +1063,14 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             //  pdf.nextPage();
             
             //--Reset state -- Required since no transparent image in pdf!
-            saveandresetState();
+            saveAndResetState();
         }
         //--Reset any selection if saving...
-        if (save_image||save_image_pdf) workflow.selectNone();
+        if (save_image||save_image_pdf)
+            workflow.selectNone();
         
-        if (auto_update) special_draw();
-        
-        
+        if (auto_update)
+            special_draw();
         
         //if (auto_update) return; //--For now, don't update...
         if (!force_nodraw) {
@@ -1113,13 +1090,15 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 //CASE 1. Small_editor_mode
                 if (small_editor_mode) {
                     if (draw_grid) {
-                        for (int x=10; x<=width; x+=10) line(x, 10, x, height-10);
-                        for (int y=10; y<=height; y+=10) line(10, y, width-10, y);
+                        for (int x=10; x<=width; x+=10)
+                            line(x, 10, x, height-10);
+                        for (int y=10; y<=height; y+=10)
+                            line(10, y, width-10, y);
                     }
                     shape(armadillo,15,5,armadillo.width/10, armadillo.height/10);
                 } else {
                     // CASE 2. Normal mode
-                    // Added January 2011 - Stroke weight change each 50;
+                     // Added January 2011 - Stroke weight change each 50;
                     int maxheight=(height%10==0?height-10:height-10-(height%10));
                     int maxwidth=(width%10==0?width-10:width-10-(width%10));
                     strokeWeight(0.5f);
@@ -1165,19 +1144,22 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             workflow.draw();
             //-- Save workflow image?
             if (save_image) {
-                
-                PGraphics img = createGraphics((int)(width/2.0f), (int)(height/2.0f),JAVA2D);
-                img.background(255);
                 //PGraphics save_img=createGraphics((int)this.max_object_width()+50, (int)this.max_object_height()+50,this.JAVA2D);
                 //save_img.image(get(), 0, 0);
-                img.image(get(),0,0,(int)width/2.0f, (int)height/2.0f);
                 if (getSave_filename().endsWith("jpg")||getSave_filename().endsWith("jpeg")) {
                     System.out.println("Saving jpg...");
-                    saveBytes(getSave_filename(), bufferImage(get(0, 0, width, height)));
-                } else {
-                    save(getSave_filename());
+                    /// Fixed 2016
+                    /// JG 2016
+                    //PImage srcimg = get(0, 0, width, height);
+                    //srcimg.save(getSave_filename());
                 }
-                img.save(getSave_filename()+".thumb.png");
+                /// Also work simply with :
+                save(getSave_filename());
+                // To create thumbs ?
+//                PGraphics img = createGraphics((int)(width/2.0f), (int)(height/2.0f),JAVA2D);
+//                img.background(255);
+//                img.image(get(),0,0,(int)width/2.0f, (int)height/2.0f);
+//                img.save(getSave_filename()+".thumb.png");
                 save_image=false;
             }
             if (save_image_pdf) {
@@ -1247,7 +1229,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         redraw();
     }
     
-    ///////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     /// DataPath
     
     @Override
@@ -1255,8 +1237,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         return config.get("dataPath")+File.separator+filename;
     }
     
-////////////////////////////////////////////////////////////////////////////////
-/// Mouse Function
+    ////////////////////////////////////////////////////////////////////////////
+    /// Mouse Function
     
     @Override
     public void mouseDragged() {
@@ -1352,15 +1334,24 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         redraw();
     } //End mouse moved
     
-    
-    
-////////////////////////////////////////////////////////////////////////////////
-/// Object creation
+    ////////////////////////////////////////////////////////////////////////////
+    /// Workflow creation
     
     /**
-     * This is a special fucntion for the workflow_preview
-     * This destroy all object and create this one
-     * @param obj
+     * This is a function for the workflow_preview
+     * @param workflow_properties
+     */
+    public workflow_object createObjectWorkflow(workflow_properties obj) {
+        workflow_object tmp=createObject(obj);
+        //We can used the workflow even if it is not a graphic workflow...
+        if (isInitialized()) {
+            force_redraw=true;
+            redraw();
+        }
+        return tmp;
+    }
+    /**
+     * This will update a workflow_object
      */
     public workflow_object updateWorkflow(workflow_properties obj) {
         //--Get current x and y position if foung
@@ -1383,9 +1374,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     }
     
     /**
-     * This is a special fucntion for the workflow_preview
-     * This destroy all object and create this one
-     * @param obj
+     * This will update the current workflow_object
      */
     public void updateCurrentWorkflow(workflow_properties obj) {
         //--Get current x and y position if foung
@@ -1416,25 +1405,25 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         force_redraw=true;
         redraw();
     }
-    /**
-     * This is a special function for the workflow_preview
-     * This create the obj without destroying other object
-     * @param obj
-     */
-    public workflow_object createObjectWorkflow(workflow_properties obj) {
-        workflow_object tmp=createObject(obj);
-        //We can used the workflow even if it is not a graphic workflow...
-        if (isInitialized()) {
-            force_redraw=true;
-            redraw();
-        }
-        return tmp;
-    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////
+    /// Object creation on the workflow
     
     /**
-     * Class used to put new object on the workflow
+     * Classes used to add new object on the workflow
      * @param object_name (String)
      */
+    //With default position
+    public workflow_object createObject(workflow_properties obj) {
+        Point p=new Point(obj.getInt("x"),obj.getInt("y"));
+        if (p.x==0&&p.y==0||p.x<0||p.y<0) {
+            p.x=135;
+            p.y=20;
+        }
+        return createObject(obj,p);
+    }
+    //With specific Point position
     public workflow_object createObject(workflow_properties obj, Point location) {
         //System.out.println(obj);
         setChanged(true);
@@ -1467,6 +1456,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 tmp=new workflow_object_script(obj,(int)location.getX(), (int)location.getY());
             } else if (obj.get("ObjectType").equals("ScriptBig")) {
                 tmp=new workflow_object_script_big(obj,(int)location.getX(), (int)location.getY());
+            } else if (obj.get("ObjectType").equals("Cluster")) {
+                tmp=new workflow_object_script_big(obj,(int)location.getX(), (int)location.getY());
             } else if (obj.get("ObjectType").equals("Output")) {
                 tmp=workflow.createOutput_Object(obj,(int)location.getX(), (int)location.getY());
             } else if (obj.get("ObjectType").equals("OutputDatabase")) {
@@ -1482,56 +1473,14 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
         return tmp;
     }
-    /**
-     * This will create the specified variable on the workflow or update it.
-     * @param name
-     * @param value
-     * @param visible
-     * @return
-     */
-    public workflow_properties setVariable(String name, String value, boolean visible) {
-        workflow_properties tmp=null;
-        //1. Find possible variable
-        
-        //2. No variable found in the workflow, add one...
-        tmp.setName("Undefined Variable");
-        tmp.put("colorMode","GREEN");
-        tmp.put("defaultColor","GREEN");
-        tmp.put("Output"+"Text", "True");
-        tmp.put("outputType", "Text");
-        tmp.put("InputAll","Connector0");
-        tmp.put("Connector1Output", "True");
-        //tmp.put("Connector0Conditional", "True");
-        tmp.put("ObjectType", "Variable");
-        //tmp.put("output_"+"variable"+"_id", id);
-        tmp.put("EditorClassName","editors.VariableEditor");
-        
-        return tmp;
-    }
-    
-    /**
-     * Class used to put new object on the workflow
-     *
-     */
+    //With specific coordonates (x,y)
     public workflow_object createObject(workflow_properties obj, int x, int y) {
         Point p=new Point(x,y);
         return createObject(obj,p);
     }
     
-    /**
-     * Class used to put new object on the workflow
-     * @param object_name (String)
-     */
-    public workflow_object createObject(workflow_properties obj) {
-        Point p=new Point(obj.getInt("x"),obj.getInt("y"));
-        if (p.x==0&&p.y==0||p.x<0||p.y<0) {
-            p.x=135;
-            p.y=20;
-        }
-        return createObject(obj,p);
-    }
-////////////////////////////////////////////////////////////////////////////////
-/// Verification function
+    ////////////////////////////////////////////////////////////////////////////
+    /// Verification function
     
     /**
      * Count the number of begin object
@@ -1548,8 +1497,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         return i;
     }
     
-////////////////////////////////////////////////////////////////////////////////
-/// Drag and drop
+    ////////////////////////////////////////////////////////////////////////////
+    /// Drag and drop
     
     DropTarget dt = new DropTarget(this, new DropTargetListener() {
         public void dragEnter(DropTargetDragEvent event) {event.acceptDrag(DnDConstants.ACTION_COPY);}
@@ -1584,14 +1533,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                 if (filename.endsWith("fasta")||
                                         filename.endsWith("fa")||
                                         filename.endsWith("phy")||
-                                        filename.endsWith("phylip")||
-                                        filename.endsWith("bt2")||    // JG 2015
-                                        filename.endsWith("bwt")||    // JG 2015
-                                        filename.endsWith("pac")||    // JG 2015
-                                        filename.endsWith("sam")||    // JG 2015
-                                        filename.endsWith("fastq")||  // JG 2015
-                                        filename.endsWith("fq")       // JG 2015
-                                        
+                                        filename.endsWith("phylip")
                                         ) {
                                     StandardInputSequenceJDialog jd=new StandardInputSequenceJDialog(frame, filename,"Import file", "");
                                     jd.setVisible(true);
@@ -1723,8 +1665,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                 createObject(tmp, newloc);
                                 count++;
                             } catch(Exception e) {Config.log("Error drag and drop to workflow object : "+object_string);}
-                        }
-                        else
+                        } else {
                             //--Output database
                             for (String s:workflow_properties_dictionnary.InputOutputType) {
                                 if (object_string.startsWith(s)) {
@@ -1761,6 +1702,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                                     } catch(Exception e) {Config.log("Error drag and drop to workflow object : "+object_string);}
                                 }
                             }
+                        }
                     }
                 } catch (Exception e) {e.printStackTrace();}
                 force_redraw=true;
@@ -1770,11 +1712,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                 
             }
             Toolbox tool=new Toolbox();
-            tool.reloadCurrentWorkflowsTree(current);
+            tool.reloadCurrentWorkflowsTree(armadillo_workflow);
         } //--End drop
-    }
-            
-    );
+    });
     
     /**
      * Create a workflow properties for the specified type
@@ -1846,7 +1786,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     }
     
     /**
-     * Simple thread to load file (sequences, multiplesequences, alignment) into the project
+     * Simple thread to load sequences (sequences, multiplesequences, alignment) into the project
      */
     protected void loadSequences(final File file, final String groupname, final String note, final Point loc, final String type) {
         final LinkedList<File> toLoad=new LinkedList<File>();
@@ -1932,9 +1872,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         loadSwingWorker2.execute();
     }
     
-    
     /**
-     * Simple thread to load file (sequences, multiplesequences, alignment) into the project
+     * Simple thread to load tree file into the project
      */
     protected void loadTree(final File file, final String groupname, final String note, final Point loc) {
         final LinkedList<File> toLoad=new LinkedList<File>();
@@ -2004,7 +1943,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     }
     
     /**
-     * Simple thread to load file (sequences, multiplesequences, alignment) into the project
+     * Simple thread to load file text file into the project
      */
     protected void loadTextFile(final File file, final Point loc) {
         final LinkedList<File> toLoad=new LinkedList<File>();
@@ -2071,8 +2010,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
     }
     
     
-////////////////////////////////////////////////////////////////////////////////
-/// Various functions
+    ////////////////////////////////////////////////////////////////////////////
+    /// Various functions
     
     /**
      * Function to return a unique number
@@ -2113,7 +2052,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         Paste_count=0;
         
         for (workflow_object obj:this.workflow.work) {
-            if (obj.selected) {
+            if (obj.selected && !isCluster(obj)) {
                 CopyPaste_selection.work.add(obj);
             }
         }
@@ -2165,15 +2104,14 @@ public class armadillo_workflow extends PApplet implements ActionListener {
 //                Config.log(dest+" "+dest_connector);
             }
         }
-        
     }
     
     /**
      * Handle keypressed: presently only in debug mode
      */
     
-////////////////////////////////////////////////////////////////////////////////
-/// Keyboard
+    ////////////////////////////////////////////////////////////////////////////
+    /// Keyboard
     
     @Override
     public void keyPressed(KeyEvent arg0) {
@@ -2188,28 +2126,37 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             case KeyEvent.VK_RIGHT  :
                 workbox.loadNextWorkflow();
                 break;
-                //--Snapshot (fast screenshot)
+                
+            //--Snapshot (fast screenshot)
             case KeyEvent.VK_F1  :
-                while(Util.FileExists(Config.currentPath+File.separator+"image"+images_counter+".png")) images_counter++;
-                System.out.println("saving "+Config.currentPath+File.separator+"image"+images_counter+".png");
-                saveImage(Config.currentPath+File.separator+"image"+images_counter+".png");
+                String path = Config.currentPath+File.separator+"image_"+images_counter+"_.png";
+                while(Util.FileExists(path)){
+                    images_counter++;
+                    path.replaceAll("_\\d+_.png","_"+images_counter+"_.png");
+                }
+                System.out.println("Saving "+path);
+                saveImage(path);
                 images_counter++;
                 break;
-                //--Decompose component
+                
+            //--Decompose component
             case KeyEvent.VK_F2  :
                 decompose();
                 break;
                 
-                //--Display edge informations
+            //--Display edge informations
             case KeyEvent.VK_SPACE:  workflow.displayEdge(); break;
-                //--Delete current selection
+            //--Delete current selection
             case KeyEvent.VK_DELETE: workflow.deleteSelected();break;
             case KeyEvent.VK_BACK_SPACE: workflow.deleteSelected();break;
-                //--CTRL-A (Select All Objects)
+                
+            //--CTRL-A (Select All Objects)
             case KeyEvent.VK_A :
-                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)workflow.selectAll();
+                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)
+                    workflow.selectAll();
                 break;
-                //--Ctrl-Ins (Copy)
+                
+            //--Ctrl-Ins (Copy)
             case KeyEvent.VK_INSERT:
                 if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
                     //--Save selection into buffer
@@ -2221,50 +2168,49 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                     pasteSelection();
                 }
                 break;
-                //--Ctrl-C (Copy)
+                
+            //--Ctrl-C (Copy)
             case KeyEvent.VK_C:
-                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
+                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)
                     //--Save selection into buffer
                     copySelection();
-                }
                 break;
-                //--Ctrl-V (Paste)
+                
+            //--Ctrl-V (Paste)
             case KeyEvent.VK_V:
-                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
-                    //--Save selection into buffer
+                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)
                     pasteSelection();
-                }
                 break;
-                //--Ctrl-S (Save current workflow)
+                
+            //--Ctrl-S (Save current workflow)
             case KeyEvent.VK_S:
                 if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
-                    //--Save workflow
                     workbox.getCurrentWorkflows().setId(0);
                     workbox.saveWorkflowToDatabase("Saved on "+Util.returnCurrentDateAndTime());
                 }
                 break;
-                //--CTRL-N (New workflow)
+                
+            //--CTRL-N (New workflow)
             case KeyEvent.VK_N :
-                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
+                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)
                     workbox.newWorkflow();
-                }
-                break;
-                //--CTRL-P (Test, save pdf)
-            case KeyEvent.VK_P :
-                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
-                    this.SaveWorkflowPDF();
-                    
-                }
                 break;
                 
-                //--CTRL-Z (Undo) - Deta
+            //--CTRL-P (Test, save pdf)
+            case KeyEvent.VK_P :
+                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)
+                    this.SaveWorkflowPDF();
+                break;
+                
+            //--CTRL-Z (Undo) - Beta
             case KeyEvent.VK_Z :
                 if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)workflow.Undo();
                 break;
+            
+            //--CTRL-R (Run Worflow)
             case KeyEvent.VK_R :
-                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0) {
+                if ((arg0.getModifiers() & InputEvent.CTRL_MASK) !=0)
                     workbox.Run();
-                }
                 break;
         }
         redraw();
@@ -2272,8 +2218,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         if (debug) Config.log("keycode: "+keycode+"keyEvent: "+arg0);
     }
     
-////////////////////////////////////////////////////////////////////////////////
-/// Various helper (getter/setter)
+    ////////////////////////////////////////////////////////////////////////////
+    /// Various helper (getter/setter)
     
     /**
      * @return the save_filename
@@ -2318,33 +2264,76 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         this.changed = changed;
     }
     
+    ////////////////////////////////////////////////////////////////////////////
+    /// Other dialog
+    
     /**
-     * saveasjpg taken from http://wiki.processing.org/index.php/Save_as_JPEG
-     * @author Yonas Sandbæk
+     * Thiis place a special flag in the rendering loop to draw only what is neccessary...
      */
-    byte[] bufferImage(PImage srcimg) {
-//  ByteArrayOutputStream out = new ByteArrayOutputStream();
-//  BufferedImage img = new BufferedImage(srcimg.width, srcimg.height, 2);
-//  img = (BufferedImage) createImage(srcimg.width,srcimg.height);
-//  for (int i = 0; i < srcimg.width; i++)
-//    for (int j = 0; j < srcimg.height; j++)
-//      img.setRGB(i, j, srcimg.pixels[j * srcimg.width + i]);
-//  try {
-//    JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-//    JPEGEncodeParam encpar = encoder.getDefaultJPEGEncodeParam(img);
-//
-//    encpar.setQuality(1.0f, false);
-//    encoder.setJPEGEncodeParam(encpar);
-//    encoder.encode(img);
-//  }
-//  catch (Exception ie) {
-//    System.out.println(ie);
-//  }
-//  return out.toByteArray();
-        System.out.println("Deprecated save to jpeg");
-        return null;
+    public void startAutoUpdate() {
+        auto_update=true;
+        //runthread();
     }
     
+    public void stopAutoUpdate() {
+        auto_update=false;
+    }
+    
+    /**
+     * Note: This was an attempt to update the workflow at some define point
+     * but, unfortunately, it make the whole program sllloooowwww....
+     */
+    public void runthread() {
+//             Thread thread=new Thread(){
+//             long count=System.currentTimeMillis();
+//
+//             @Override
+//             public void run() {
+//                try {
+//                  while(auto_update) {
+//                    //--Update each second..
+//                       if ((System.currentTimeMillis()-count)%5000==0) {
+//                        force_redraw=true;
+//                        redraw();
+//                       }
+//
+//                  }
+//                } catch(Exception e){}
+//             }
+//             };
+//             System.out.println ("Starting thread");
+//             thread.start();
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    /// Amazing trick
+    /// JG 2016
+    
+    public Workbox getWorkbox(){
+        return workbox;
+    }
+    
+    public workflow_properties getProperties(){
+        return properties;
+    }
+    
+    public Workflow getWorkFlow(){
+        return workflow;
+    }
+    
+    public boolean isCluster(workflow_object tmp){
+        if (tmp.getProperties().isSet("ObjectType")) {
+            String s = tmp.getProperties().get("ObjectType");
+            if (s.equals("Cluster"))
+                return true;
+        }
+        return false;
+    }
+
+    
+    ////////////////////////////////////////////////////////////////////////////
+    /// CLASSES
+    ////////////////////////////////////////////////////////////////////////////
     
     /**
      * Simple vertex class used by the workflow_object for position and detection
@@ -2366,7 +2355,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
         
     }
-    
     
     /**
      * The main workflow representation
@@ -2581,8 +2569,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
 //        } catch(Exception e) {e.printStackTrace();return false;}
 //    }
         
-////////////////////////////////////////////////////////////////////////////////
-// Some functions by Alix and Etienne for tree building
+        ////////////////////////////////////////////////////////////////////////
+        // Some functions by Alix and Etienne for tree building
         
         public int get_nb_workflow_object(){
             return work.size();
@@ -2741,7 +2729,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             for(int i=0; i<work.size();i++) {
                 workflow_object obj=work.get(i);
                 if (obj.getProperties().get("Name").equals("Cluster") &&
-                        obj.getProperties().get("ObjectType").equals("ScriptBig")
+                        obj.getProperties().get("ObjectType").equals("Cluster")
                         ) {
                     //--debug Config.log(obj.getName());
                     return true;
@@ -2754,7 +2742,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             for(int i=0; i<work.size();i++) {
                 workflow_object obj=work.get(i);
                 if (obj.getProperties().get("Name").equals("Cluster") &&
-                        obj.getProperties().get("ObjectType").equals("ScriptBig")
+                        obj.getProperties().get("ObjectType").equals("Cluster")
                         ) {
                     return obj;
                 }
@@ -3616,7 +3604,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             
             for (int i=work.size()-1;i>-1;i--) {
                 workflow_object tmp=(workflow_object)work.get(i);
-                if (tmp.selected) delete(tmp);
+                if (tmp.selected && !isCluster(tmp)) {
+                    delete(tmp);
+                }
             }
             //--Delete all selected connection
             for (int i=work_connection.size()-1;i>-1;i--) {
@@ -3625,7 +3615,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             }
             if (!Config.library_mode) {
                 Toolbox tool=new Toolbox();
-                tool.reloadCurrentWorkflowsTree(current);
+                tool.reloadCurrentWorkflowsTree(armadillo_workflow);
             }
             //--Update the dependance.
             this.updateDependance();
@@ -3859,8 +3849,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         public void selectAll() {
             for (int i=0;i<work.size(); i++) {
                 workflow_object tmp=(workflow_object)work.get(i);
-                tmp.selected=true;
-                
+                if (!isCluster(tmp))
+                    tmp.selected=true;
             }
             for (int i=0; i<work_connection.size();i++) {
                 workflow_connector_edge tmp=(workflow_connector_edge)work_connection.get(i);
@@ -3872,7 +3862,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             for (int i=0;i<work.size(); i++) {
                 workflow_object tmp=(workflow_object)work.get(i);
                 tmp.selected=false;
-                
             }
             for (int i=0; i<work_connection.size();i++) {
                 workflow_connector_edge tmp=(workflow_connector_edge)work_connection.get(i);
@@ -3883,8 +3872,8 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         public void inverseSelection() {
             for (int i=0;i<work.size(); i++) {
                 workflow_object tmp=(workflow_object)work.get(i);
-                tmp.selected=!tmp.selected;
-                
+                if (!isCluster(tmp))
+                    tmp.selected=!tmp.selected;
             }
             for (int i=0; i<work_connection.size();i++) {
                 workflow_connector_edge tmp=(workflow_connector_edge)work_connection.get(i);
@@ -3901,10 +3890,10 @@ public class armadillo_workflow extends PApplet implements ActionListener {
             //CASE 1: We already have a selection and it is a workflow_object
             if (selected!=null) {
                 if (selected instanceof workflow_object) {
-                    
                     for (int i=0;i<work.size(); i++) {
                         workflow_object tmp=(workflow_object)work.get(i);
-                        if (tmp.selected||tmp.moving) tmp.featureTranslate(px,py);
+                        if ((tmp.selected||tmp.moving)&&!isCluster(tmp))
+                            tmp.featureTranslate(px,py);
                     }
                     //((workflow_object)selected).featureTranslate(px,py);
                 }
@@ -4544,7 +4533,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
     }
     
-    
     /**
      * This represent a Edge (connection) between to workflow_connector
      * In reality, we use this object to draw an Arrow
@@ -4880,16 +4868,11 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
     } //End class
     
-    
     /**
      * Idealement, une representation graphique est seulement une suite de feature
-     *
      * Chaque feature une methode drawFeature. Cette partie du code provient de :
-     *
      * using-awt-s-polygon-class-to-test-for-insideness taken from http://processinghacks.com/hacks:using-awt-s-polygon-class-to-test-for-insideness
      * author Andreas Kuberle
-     *
-     *
      */
     public class workflow_object extends java.awt.Polygon {
         // A la base, la fearure n'est qu'un poligon former de vertex
@@ -5897,11 +5880,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
                     }
                 }
             }
-            
-            
-            //--Detect object over
-            
-            
         }
         
         public void drawProgress(int progress) {
@@ -5920,26 +5898,9 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         public String getName() {
             return properties.getName();
         }
-        
-        /**
-         *
-         * @param object_name
-         * @return true if success
-         */
-//  public boolean loadProperties(String object_name) {
-//      //Try to load the properties for this object
-//      //If not found, we assign defaultProgram.properties
-//      //if(!properties.loadFromDatabase(object_name)) {
-//      //   properties.loadFromDatabase("Program");
-//      //} else Config.log(properties.getProperties());
-//      properties.setName(properties.getName()+"_"+this.hashCode());
-//      return true;
-//  }
-        
-        
     }//End workflow_object
     
-    class workflow_object_script extends workflow_object {
+    class workflow_object_script            extends workflow_object {
         
         public workflow_object_script(workflow_properties obj) {
             super();
@@ -6054,7 +6015,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
     } //--End script
     
-    class workflow_object_script_big extends workflow_object {
+    class workflow_object_script_big        extends workflow_object {
         
         public workflow_object_script_big(workflow_properties obj) {
             super();
@@ -6223,8 +6184,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
     } //--End script_big
     
-    
-    class workflow_object_BeginEnd extends workflow_object {
+    class workflow_object_BeginEnd          extends workflow_object {
         
         public workflow_object_BeginEnd(workflow_properties obj) {
             super();
@@ -6377,842 +6337,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
         
     }
-    
-    /**
-     * This represent an output object
-     * used to represent one type of output
-     */
-    class workflow_object_output extends workflow_object {
-        
-        float step=1;        //Current step for animation
-        float stepNb=20;     //Number of step
-        pvertex source;       //Source Spline vertex
-        pvertex destination; //Destination Spline vertex
-        String description="";
-        
-        ////////////////////////////////////////////////////////////////////////////
-        /// Constants
-        final static int Output_LEFT=0;
-        final static int Output_RIGHT=1;
-        
-        ////////////////////////////////////////////////////////////////////////////
-        /// Default constructor for other objects
-        
-        public workflow_object_output() {}
-        
-        ////////////////////////////////////////////////////////////////////////////
-        /// Normal default constructor
-        
-        public workflow_object_output(String outputType, int x, int y) {
-            super();
-            //--Set the object properties
-            properties.setName(outputType);
-            properties.put("colorMode","GREEN");
-            properties.put("defaultColor","GREEN");
-            properties.put("Output"+outputType, "True");
-            properties.put("outputType", outputType);
-            properties.put("Connector1Output","True");
-            properties.put("ObjectType", "Output");
-            properties.put("editorClass", "editors.OutputEditor");
-            //this.outputType=outputType;
-            Vertex=new pvertex[4];
-            connection=new workflow_connector[2];
-            // -- Weight and height
-            float w = 61;
-            float h = 14;
-            // -- Make the vertex needed
-            addVertex(x, y);
-            addVertex(x+w,y);
-            addVertex(x+w, y+h);
-            addVertex(x, y+h);
-            // -Create the connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i]=new workflow_connector(this);
-            }
-            // - Calculate their position
-            recalculatePosition();
-        }
-        
-        
-        public workflow_object_output(workflow_properties properties, int x, int y) {
-            super();
-            this.properties=properties;
-            Vertex=new pvertex[4];
-            connection=new workflow_connector[2];
-            // -- Weight and height
-            float w = 61;
-            float h = 14;
-            // -- Make the vertex needed
-            addVertex(x, y);
-            addVertex(x+w,y);
-            addVertex(x+w, y+h);
-            addVertex(x, y+h);
-            // -Create the connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i]=new workflow_connector(this);
-            }
-            // - Calculate their position
-            recalculatePosition();
-        }
-        
-        @Override
-        public void drawFeature(){
-            if (properties.getBoolean("NoDraw")) return;
-            // - Inside of object
-            boolean inside=inside();
-            //-- Draw shape this draw a very basic shape in case we don't have the image
-            //-- Note also used for the inside procedure...
-            strokeWeight(0.1f);
-            noStroke();
-            noFill();
-            beginShape(QUADS);
-            for(int i=0;i<Vertex_count;i++){
-                vertex(Vertex[i].x,Vertex[i].y);
-            }
-            endShape();
-            
-            PImage displayImage=null;
-            
-            //--default color
-            int color_border=red_border;
-            int color_object=color_red;
-            
-            if (inside||selected) {
-                displayImage=(PImage)filedata.get("link_black.png");
-                color_border=black_border;
-                color_object=color_black;
-            } else if (properties.getOutputID(properties.get("outputType"))==0) {
-                displayImage=(PImage)filedata.get("link_cyan.png");
-                color_border=cyan_border;
-                color_object=color_cyan;
-            } else {
-                if (properties.get("colorMode").equals("RED")) {
-                    displayImage=(PImage)filedata.get("link_red.png");
-                    color_border=red_border;
-                    color_object=color_red;
-                }
-                if (properties.get("colorMode").equals("BLUE")) {
-                    displayImage=(PImage)filedata.get("link_blue.png");
-                    color_border=blue_border;
-                    color_object=color_blue;
-                }
-                if (properties.get("colorMode").equals("ORANGE")) {
-                    displayImage=(PImage)filedata.get("link_orange.png");
-                    color_border=orange_border;
-                    color_object=color_orange;
-                }
-                if (properties.get("colorMode").equals("GREEN"))  {
-                    displayImage=(PImage)filedata.get("link_green.png");
-                    color_border=green_border;
-                    color_object=color_green;
-                }
-                if (displayImage==null) {
-                    displayImage=(PImage)filedata.get("link_green.png");
-                    color_border=green_border;
-                    color_object=color_green;
-                }
-            }
-            
-            //if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
-            fill(170); //--shadow
-            stroke(170);
-            rect(this.x-(61/2),this.y+2,59,18,0,0,4,4);
-            strokeWeight(1.2f);
-            stroke(color_border);
-            fill(color_object); //--Aread (green)
-            rect(this.x-(61/2),this.y,61,18,4,4,4,4);
-            strokeWeight(0.5f);
-            
-// - draw connector
-            for (int i=0; i<connection.length;i++) {
-                if (i==Output_RIGHT) connection[i].drawFeature();
-            }
-            // - draw text
-            fill(0);
-            textAlign(CENTER);
-            textFont(smallfont);
-            text(properties.getName(), (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+2);
-            fill(128);
-            textFont(font);
-            
-            //--Detect object over
-            if (inside) {
-                if (time_over==0) {
-                    time_over=System.currentTimeMillis();
-                }
-            } else {
-                time_over=0;
-                description="";
-            }
-            String type=properties.get("outputType");
-            int output_id=properties.getInt("output_"+type.toLowerCase()+"_id");
-            
-            
-            
-            if (inside&&output_id>0&&(System.currentTimeMillis()-time_over)>10) {
-                fill(0);
-                textFont(font);
-                Output output=new Output();
-                output.setType(type);
-                //--This will try to load the description
-                //--Update: No, must be done in updateDependance
-//        if (description.isEmpty()) description=output.getBiologic().getNameId(output_id);
-                if (properties.isSet("Description")) description=properties.get("Description");
-                if (description==null) description="";
-                float w = textWidth(description) + 10;
-                float h = textAscent() + textDescent() + 4;
-                fill (0xff79D1F0);
-                stroke(255);
-                //stroke(0xff79D1F0);
-                rectMode(CORNER);
-                rect (mouseX-w/2, mouseY - h/2, w, h);
-                fill(0);
-                textAlign(CENTER, CENTER);
-                text(description,mouseX,mouseY);
-            }
-            
-        }
-        
-        /**
-         * Calculate object_connector location
-         */
-        @Override
-        public void recalculatePosition() {
-            properties.put("x", Vertex[0].x); //Thit is the left-top corner
-            properties.put("y", Vertex[0].y);
-            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
-            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
-            //-- Initialise Connector
-            for (int i=0; i<connection.length; i++) {
-                switch(i) {
-                    case Output_LEFT : updateConnector(connection[i],i,this.x-35,this.y+2,null);
-                    break;
-                    case Output_RIGHT: updateConnector(connection[i],i,this.x+30,this.y+2,null);
-                    break;
-                }
-            }
-        }
-        
-        @Override
-        public String getName() {
-            return properties.get("outputType");
-        }
-        
-    }
-    
-    
-    /**
-     * Bigger object
-     */
-    class workflow_object_output_big extends workflow_object_output {
-        
-        public workflow_object_output_big(String outputType, int x, int y) {
-            super();
-            properties.setName(outputType);
-            properties.put("colorMode","GREEN");
-            properties.put("defaultColor","GREEN");
-            properties.put("Output"+outputType, "True");
-            properties.put("outputType", outputType);
-            properties.put("Connector1Output","True");
-            properties.put("ObjectType", "Output");
-            properties.put("editorClass", "editors.OutputEditor");
-            Vertex=new pvertex[4];
-            connection=new workflow_connector[2];
-            //-- Object w and h
-            float w=61;
-            float h=21;
-            // -- Make the vertex needed
-            addVertex(x, y);
-            addVertex(x+w,y);
-            addVertex(x+w, y+h);
-            addVertex(x, y+h);
-            // -Create the connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i]=new workflow_connector(this);
-            }
-            // - Calculate their position
-            recalculatePosition();
-            
-        }
-        
-        public workflow_object_output_big(workflow_properties properties, int x, int y) {
-            super();
-            this.properties=properties;
-            Vertex=new pvertex[4];
-            connection=new workflow_connector[2];
-            //-- Object w and h
-            float w=61;
-            float h=21;
-            // -- Make the vertex needed
-            addVertex(x, y);
-            addVertex(x+w,y);
-            addVertex(x+w, y+h);
-            addVertex(x, y+h);
-            // -Create the connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i]=new workflow_connector(this);
-            }
-            // - Calculate their position
-            recalculatePosition();
-            
-        }
-        
-        @Override
-        public void drawFeature(){
-            if (properties.getBoolean("NoDraw")) return;
-            boolean inside=inside();
-            strokeWeight(0.1f);
-            noStroke();
-            noFill();
-            beginShape(QUADS);
-            for(int i=0;i<Vertex_count;i++){
-                vertex(Vertex[i].x,Vertex[i].y);
-            }
-            endShape();
-            
-            
-            PImage displayImage=null;
-            //--default color
-            int color_border=red_border;
-            int color_object=color_red;
-            
-            if (inside||selected) {
-                displayImage=(PImage)filedata.get("link_big_black.png");
-                color_border=black_border;
-                color_object=color_black;
-            } else if (properties.getOutputID(properties.get("outputType"))==0) {
-                displayImage=(PImage)filedata.get("link_big_cyan.png");
-                color_border=cyan_border;
-                color_object=color_cyan;
-            } else {
-                if (properties.get("colorMode").equals("RED")) {
-                    displayImage=(PImage)filedata.get("link_big_red.png");
-                    color_border=red_border;
-                    color_object=color_red;
-                }
-                if (properties.get("colorMode").equals("BLUE")) {
-                    displayImage=(PImage)filedata.get("link_big_blue.png");
-                    color_border=blue_border;
-                    color_object=color_blue;
-                }
-                if (properties.get("colorMode").equals("ORANGE")){
-                    displayImage=(PImage)filedata.get("link_big_orange.png");
-                    color_border=orange_border;
-                    color_object=color_orange;
-                }
-                if (properties.get("colorMode").equals("GREEN")) {
-                    displayImage=(PImage)filedata.get("link_big_green.png");
-                    color_border=green_border;
-                    color_object=color_green;
-                }
-                if (displayImage==null) {
-                    displayImage=(PImage)filedata.get("link_big_green.png");
-                    color_border=green_border;
-                    color_object=color_green;
-                }
-                
-            }
-            //if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
-            
-            ////--Forth
-            fill(170); //--shadow
-            stroke(170);
-            rect(x-(59/2),this.y,59,26,0,0,4,4);
-            fill(color_object);
-            stroke(color_border);
-            strokeWeight(1.2f);
-            rect(x-(61/2),this.y,61,26,4,4,4,4);
-            strokeWeight(0.5f);
-            
-            
-            
-            
-            // - draw connector
-            for (int i=0; i<connection.length;i++) {
-                if (i==Output_RIGHT) connection[i].drawFeature();
-            }
-            // - draw text
-            fill(0);
-            textAlign(CENTER);
-            textFont(smallfont);
-            String name=properties.getName();
-            String name0="";
-            String name1="";
-            if (name.startsWith("Multiple")) {
-                name0="Multiple";
-                name1=name.substring(8);
-            } else {
-                name0=name.substring(0,name.length()/2);
-                name1=name.substring(name.length()/2);
-            }
-            text(name0, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y-2);
-            text(name1, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+8);
-            fill(128);
-            textFont(font);
-            //--Detect object over
-            if (inside) {
-                if (time_over==0) {
-                    time_over=System.currentTimeMillis();
-                }
-            } else {
-                time_over=0;
-                description="";
-            }
-            String type=properties.get("outputType");
-            int output_id=properties.getInt("output_"+type.toLowerCase()+"_id");
-            if (inside&&output_id>0&&(System.currentTimeMillis()-time_over)>10) {
-                fill(0);
-                textFont(font);
-                Output output=new Output();
-                output.setType(type);
-                //--This will try to load the description
-                //No: must be done in update dependance
-//        if (description.isEmpty()) description=output.getBiologic().getNameId(output_id);
-                if (properties.isSet("Description")) description=properties.get("Description");
-                if (description==null) description="";
-                float w = textWidth(description) + 10;
-                float h = textAscent() + textDescent() + 4;
-                fill (0xff79D1F0);
-                stroke(255);
-                //stroke(0xff79D1F0);
-                rectMode(CORNER);
-                rect (mouseX-w/2, mouseY - h/2, w, h);
-                fill(0);
-                textAlign(CENTER, CENTER);
-                text(description,mouseX,mouseY);
-            }
-        }
-        
-        /**
-         * Calculate object_connector location
-         */
-        @Override
-        public void recalculatePosition() {
-            properties.put("x", Vertex[0].x); //Thit is the left-top corner
-            properties.put("y", Vertex[0].y);
-            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
-            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
-            //-- Initialise Connector
-            for (int i=0; i<connection.length; i++) {
-                connection[i].parent=this;
-                switch(i) {
-                    case Output_LEFT : updateConnector(connection[i],i,this.x-35,this.y+2,null);
-                    break;
-                    case Output_RIGHT: updateConnector(connection[i],i,this.x+28,this.y+2,null);
-                    break;
-                }
-            }
-            
-        }
-        
-    }
-    
-    /**
-     * Bigger object
-     */
-    public class workflow_object_variable extends workflow_object_output {
-        
-        public workflow_object_variable (workflow_properties properties, int x, int y) {
-            super();
-            this.properties=properties;
-            Vertex=new pvertex[4];
-            connection=new workflow_connector[2];
-            //--Object width and height (to do load from bitmap/properties?)
-            int x2=x;
-            int y2=y;
-            float w=159;
-            float h=33;
-            // -- Make the vertex needed
-            addVertex(x2, y2);
-            addVertex(x2+w,y2);
-            addVertex(x2+w,y2+h);
-            addVertex(x2, y2+h);
-            // -Create the connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i]=new workflow_connector(this);
-            }
-            recalculatePosition();
-            
-        }
-        
-        @Override
-        public void drawFeature(){
-            //--Draw the object on screen?
-            if (properties.getBoolean("NoDraw")) return;
-            //--Load information
-            
-            
-            //--Load the flag
-            boolean inside=inside();
-            
-            //--Actual draw
-            strokeWeight(0.1f);
-            noStroke();
-            noFill();
-            
-            beginShape(QUADS);
-            for(int i=0;i<Vertex_count;i++){
-                vertex(Vertex[i].x,Vertex[i].y);
-            }
-            endShape();
-            
-            
-            
-            PImage displayImage=null;
-            if (inside()||selected) {
-                displayImage=(PImage)filedata.get("big_black.png");
-            } else if (properties.get("Description").equals("Undefined")) {
-                displayImage=(PImage)filedata.get("big_blue.png");
-            } else if (properties.get("Description").equals("For each")) {
-                displayImage=(PImage)filedata.get("big_green.png");
-            }
-            else {
-                if (properties.get("colorMode").equals("RED")) displayImage=(PImage)filedata.get("big_red.png");
-                if (properties.get("colorMode").equals("BLUE"))displayImage=(PImage)filedata.get("big_blue.png");
-                if (properties.get("colorMode").equals("ORANGE"))displayImage=(PImage)filedata.get("big_orange.png");
-                if (properties.get("colorMode").equals("GREEN"))displayImage=(PImage)filedata.get("big_green.png");
-                if (displayImage==null) displayImage=(PImage)filedata.get("big_red.png");
-            }
-            if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
-            // - draw connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i].drawFeature();
-            }
-            // - draw text
-            fill(0);
-            textAlign(CENTER);
-            textFont(font);
-            String name=properties.getName();
-            String name1=properties.getDescription();
-            //Clip name
-            name1=(name1.length()>30?name1.substring(0, 30)+"...":name1);
-            text(name, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y-5);
-            textFont(smallfont);
-            text(name1, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+8);
-            fill(128);
-            textFont(font);
-            
-            //--Detect object over
-            if (inside) {
-                if (time_over==0) {
-                    time_over=System.currentTimeMillis();
-                }
-            } else {
-                time_over=0;
-                description="";
-            }
-            if (description.isEmpty()) {
-                String type=properties.get("outputType");
-                int type_id=properties.getInt("output_"+type.toLowerCase()+"_id");
-                Output out=new Output();
-                out.setType(type);
-                
-                if (type_id==0) {
-                    description="Undefined";
-                    if (properties.isSet("ForObjectID")) {
-                        int count=0;
-                        Object[] o=properties.keySet().toArray();
-                        for (int i=0; i<o.length; i++) {
-                            Object k=o[i];
-                            if (((String)k).startsWith("For_")) count++;
-                        }
-                        
-//                 for (Object o:properties.keySet()) {
-//                     if (((String)o).startsWith("For_")) count++;
-//                 }
-                        description="For each for "+count+" "+type;
-                    }
-                    //--Handle For loop here...
-                } else {
-                    //description= out.getBiologic().getNameId(type_id);
-                    if (properties.isSet("Description")) description=properties.get("Description");
-                }
-            }
-            if (inside&&description.length()>0&&(System.currentTimeMillis()-time_over)>10) {
-                fill(0);
-                textFont(font);
-                float w = textWidth(description) + 10;
-                float h = textAscent() + textDescent() + 4;
-                fill (0xff79D1F0);
-                stroke(255);
-                rectMode(CORNER);
-                rect (mouseX-w/2, mouseY - h/2, w, h);
-                fill(0);
-                textAlign(CENTER, CENTER);
-                text(description,mouseX,mouseY);
-            }
-        }
-        
-        /**
-         * Calculate object_connector location
-         */
-        @Override
-        public void recalculatePosition() {
-            properties.put("x", Vertex[0].x); //Thit is the left-top corner
-            properties.put("y", Vertex[0].y);
-            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
-            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
-            //-- Initialise Connector
-            
-            for (int i=0; i<connection.length; i++) {
-                connection[i].parent=this;
-                switch(i) {
-                    case Output_LEFT : updateConnector(connection[i], i, this.x-88, this.y+10, null);
-                    break;
-                    case Output_RIGHT: updateConnector(connection[i], i, this.x+79, this.y+10, null);
-                    break;
-                }
-            }
-        }
-    }
-    
-    
-    /**
-     * Bigger object
-     */
-    public class workflow_object_output_database extends workflow_object_output {
-        
-        public workflow_object_output_database (workflow_properties properties, int x, int y) {
-            super();
-            this.properties=properties;
-            //--Hack for new genome
-            if (properties.get("outputType").equals("Genome")) {
-                Genome g=new Genome(properties.getInt("output_genome_id"));
-                workflow_properties t=new workflow_properties();
-                t.deserializeFromString(g.getText());
-                properties.put("inputname",t.get("inputname"));
-                properties.put("inputname2",t.get("inputname2"));
-                properties.put("type",t.get("type"));
-                properties.put("name",t.get("name"));
-                properties.put("Description",t.get("Description"));
-            }
-            
-            Vertex=new pvertex[4];
-            connection=new workflow_connector[2];
-            //--Object width and height (to do load from bitmap/properties?)
-            int x2=x;
-            int y2=y;
-            float w=159;
-            float h=33;
-            // -- Make the vertex needed
-            addVertex(x2, y2);
-            addVertex(x2+w,y2);
-            addVertex(x2+w,y2+h);
-            addVertex(x2, y2+h);
-            // -Create the connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i]=new workflow_connector(this);
-            }
-            recalculatePosition();
-            
-        }
-        
-        @Override
-        public void drawFeature(){
-            //--Draw the object on screen?
-            if (properties.getBoolean("NoDraw")) return;
-            //--Load information
-            
-            
-            //--Load the flag
-            boolean inside=inside();
-            
-            //--Actual draw
-            strokeWeight(0.1f);
-            noStroke();
-            noFill();
-            
-            beginShape(QUADS);
-            for(int i=0;i<Vertex_count;i++){
-                vertex(Vertex[i].x,Vertex[i].y);
-            }
-            endShape();
-            
-            
-            
-            PImage displayImage=null;
-            //--default color
-            int color_border=red_border;
-            int color_object=color_red;
-            
-            if (inside()||selected) {
-                displayImage=(PImage)filedata.get("big_black.png");
-                color_border=black_border;
-                color_object=color_black;
-            } else if (properties.get("Description").equals("Undefined")) {
-                displayImage=(PImage)filedata.get("big_blue.png");
-                color_border=blue_border;
-                color_object=color_blue;
-                
-            } else if (properties.get("Description").equals("For each")) {
-                displayImage=(PImage)filedata.get("big_green.png");
-                color_border=green_border;
-                color_object=color_green;
-            }
-            else {
-                if (properties.get("colorMode").equals("RED")) {
-                    displayImage=(PImage)filedata.get("big_red.png");
-                    color_border=red_border;
-                    color_object=color_red;
-                }
-                if (properties.get("colorMode").equals("BLUE")){
-                    displayImage=(PImage)filedata.get("big_blue.png");
-                    color_border=blue_border;
-                    color_object=color_blue;
-                }
-                if (properties.get("colorMode").equals("ORANGE")){
-                    displayImage=(PImage)filedata.get("big_orange.png");
-                    color_border=orange_border;
-                    color_object=color_orange;
-                }
-                if (properties.get("colorMode").equals("GREEN")){
-                    displayImage=(PImage)filedata.get("big_green.png");
-                    color_border=green_border;
-                    color_object=color_green;
-                }
-                if (displayImage==null) {
-                    displayImage=(PImage)filedata.get("big_red.png");
-                    color_border=red_border;
-                    color_object=color_red;
-                }
-            }
-            //if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
-            //-*-New vectorial object
-            fill(170); //--shadow 100
-            stroke(170);
-            rect(this.x-(158/2),this.y+3,158,35,0,0,4,4);
-            strokeWeight(1.2f);
-            stroke(color_border); //--green border
-            fill(color_object); //--Aread (green)
-            rect(this.x-(160/2),this.y,160,35,4,4,4,4);
-            strokeWeight(0.1f);
-            
-            // - draw connector
-            for (int i=0; i<connection.length;i++) {
-                connection[i].drawFeature();
-            }
-            
-            if ( properties.isSet("AggregateObjectID")) {
-                //--Add paralel information here
-                noFill();
-                strokeWeight(2.0f);
-                stroke(128);
-                strokeCap(ROUND);
-                rect(this.x-100, this.y-25, 200, 75);
-                strokeWeight(0.1f);
-                fill(0);
-                textAlign(CENTER);
-                textFont(boldfont);
-                text("Parallel section (Aggregate)",this.x,this.y-10);
-                textFont(font);
-                fill(0);
-                
-            } else if (properties.isSet("ForObjectID")) {
-                //description="For each for "+count+" "+type;
-                //--Add paralel information here
-                noFill();
-                strokeWeight(2.0f);
-                stroke(128);
-                strokeCap(ROUND);
-                rect(this.x-100, this.y-25, 200, 75);
-                strokeWeight(0.1f);
-                fill(0);
-                textAlign(CENTER);
-                textFont(boldfont);
-                text("Parallel section (Repetition)",this.x,this.y-10);
-                textFont(font);
-                fill(0);
-            }
-            
-            // - draw text
-            fill(0);
-            textAlign(CENTER);
-            textFont(font);
-            String name=properties.getName();
-            String name1=properties.getDescription();
-            //Clip name
-            name1=(name1.length()>30?name1.substring(0, 30)+"...":name1);
-            text(name, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y-5);
-            textFont(smallfont);
-            text(name1, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+8);
-            fill(128);
-            textFont(font);
-            
-            //--Detect object over
-            if (inside) {
-                if (time_over==0) {
-                    time_over=System.currentTimeMillis();
-                }
-            } else {
-                time_over=0;
-                description="";
-            }
-            if (description.isEmpty()) {
-                String type=properties.get("outputType");
-                int type_id=properties.getInt("output_"+type.toLowerCase()+"_id");
-                Output out=new Output();
-                out.setType(type);
-                
-                if (type_id==0) {
-                    description="Undefined";
-                    // JG 2015 Doubt
-                    if (properties.isSet("ForObjectID")) {
-                        int count=0;
-                        Object[] o=properties.keySet().toArray();
-                        for (int i=0; i<o.length; i++) {
-                            Object k=o[i];
-                            if (((String)k).startsWith("For_")) count++;
-                        }
-                        
-//                 for (Object o:properties.keySet()) {
-//                     if (((String)o).startsWith("For_")) count++;
-//                 }
-                        description="For each for "+count+" "+type;
-                    }
-                    //--Handle For loop here...
-                } else {
-                    //description= out.getBiologic().getNameId(type_id);
-                    if (properties.isSet("Description")) description=properties.get("Description");
-                }
-            }
-            if (inside&&description.length()>0&&(System.currentTimeMillis()-time_over)>10) {
-                fill(0);
-                textFont(font);
-                float w = textWidth(description) + 10;
-                float h = textAscent() + textDescent() + 4;
-                fill (0xff79D1F0);
-                stroke(255);
-                rectMode(CORNER);
-                rect (mouseX-w/2, mouseY - h/2, w, h);
-                fill(0);
-                textAlign(CENTER, CENTER);
-                text(description,mouseX,mouseY);
-            }
-        }
-        
-        /**
-         * Calculate object_connector location
-         */
-        @Override
-        public void recalculatePosition() {
-            properties.put("x", Vertex[0].x); //Thit is the left-top corner
-            properties.put("y", Vertex[0].y);
-            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
-            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
-            //-- Initialise Connector
-            
-            for (int i=0; i<connection.length; i++) {
-                connection[i].parent=this;
-                switch(i) {
-                    case Output_LEFT : updateConnector(connection[i], i, this.x-88, this.y+10, null);
-                    break;
-                    case Output_RIGHT: updateConnector(connection[i], i, this.x+79, this.y+10, null);
-                    break;
-                }
-            }
-        }
-    }
-    
     
     public class workflow_object_aggregator extends workflow_object {
         public int x1,y1,x2,y2;
@@ -7429,8 +6553,7 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
     } //End aggregator_object
     
-    
-    class workflow_object_if extends workflow_object {
+    class workflow_object_if                extends workflow_object {
         
         public workflow_object_if(workflow_properties obj_properties) {
             super();
@@ -7831,6 +6954,834 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         
         
     }
+
+    /**
+     * This represent an output object
+     * used to represent one type of output
+     */
+    class workflow_object_output            extends workflow_object {
+        
+        float step=1;        //Current step for animation
+        float stepNb=20;     //Number of step
+        pvertex source;       //Source Spline vertex
+        pvertex destination; //Destination Spline vertex
+        String description="";
+        
+        ////////////////////////////////////////////////////////////////////////////
+        /// Constants
+        final static int Output_LEFT=0;
+        final static int Output_RIGHT=1;
+        
+        ////////////////////////////////////////////////////////////////////////////
+        /// Default constructor for other objects
+        
+        public workflow_object_output() {}
+        
+        ////////////////////////////////////////////////////////////////////////////
+        /// Normal default constructor
+        
+        public workflow_object_output(String outputType, int x, int y) {
+            super();
+            //--Set the object properties
+            properties.setName(outputType);
+            properties.put("colorMode","GREEN");
+            properties.put("defaultColor","GREEN");
+            properties.put("Output"+outputType, "True");
+            properties.put("outputType", outputType);
+            properties.put("Connector1Output","True");
+            properties.put("ObjectType", "Output");
+            properties.put("editorClass", "editors.OutputEditor");
+            //this.outputType=outputType;
+            Vertex=new pvertex[4];
+            connection=new workflow_connector[2];
+            // -- Weight and height
+            float w = 61;
+            float h = 14;
+            // -- Make the vertex needed
+            addVertex(x, y);
+            addVertex(x+w,y);
+            addVertex(x+w, y+h);
+            addVertex(x, y+h);
+            // -Create the connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i]=new workflow_connector(this);
+            }
+            // - Calculate their position
+            recalculatePosition();
+        }
+        
+        
+        public workflow_object_output(workflow_properties properties, int x, int y) {
+            super();
+            this.properties=properties;
+            Vertex=new pvertex[4];
+            connection=new workflow_connector[2];
+            // -- Weight and height
+            float w = 61;
+            float h = 14;
+            // -- Make the vertex needed
+            addVertex(x, y);
+            addVertex(x+w,y);
+            addVertex(x+w, y+h);
+            addVertex(x, y+h);
+            // -Create the connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i]=new workflow_connector(this);
+            }
+            // - Calculate their position
+            recalculatePosition();
+        }
+        
+        @Override
+        public void drawFeature(){
+            if (properties.getBoolean("NoDraw")) return;
+            // - Inside of object
+            boolean inside=inside();
+            //-- Draw shape this draw a very basic shape in case we don't have the image
+            //-- Note also used for the inside procedure...
+            strokeWeight(0.1f);
+            noStroke();
+            noFill();
+            beginShape(QUADS);
+            for(int i=0;i<Vertex_count;i++){
+                vertex(Vertex[i].x,Vertex[i].y);
+            }
+            endShape();
+            
+            PImage displayImage=null;
+            
+            //--default color
+            int color_border=red_border;
+            int color_object=color_red;
+            
+            if (inside||selected) {
+                displayImage=(PImage)filedata.get("link_black.png");
+                color_border=black_border;
+                color_object=color_black;
+            } else if (properties.getOutputID(properties.get("outputType"))==0) {
+                displayImage=(PImage)filedata.get("link_cyan.png");
+                color_border=cyan_border;
+                color_object=color_cyan;
+            } else {
+                if (properties.get("colorMode").equals("RED")) {
+                    displayImage=(PImage)filedata.get("link_red.png");
+                    color_border=red_border;
+                    color_object=color_red;
+                }
+                if (properties.get("colorMode").equals("BLUE")) {
+                    displayImage=(PImage)filedata.get("link_blue.png");
+                    color_border=blue_border;
+                    color_object=color_blue;
+                }
+                if (properties.get("colorMode").equals("ORANGE")) {
+                    displayImage=(PImage)filedata.get("link_orange.png");
+                    color_border=orange_border;
+                    color_object=color_orange;
+                }
+                if (properties.get("colorMode").equals("GREEN"))  {
+                    displayImage=(PImage)filedata.get("link_green.png");
+                    color_border=green_border;
+                    color_object=color_green;
+                }
+                if (displayImage==null) {
+                    displayImage=(PImage)filedata.get("link_green.png");
+                    color_border=green_border;
+                    color_object=color_green;
+                }
+            }
+            
+            //if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
+            fill(170); //--shadow
+            stroke(170);
+            rect(this.x-(61/2),this.y+2,59,18,0,0,4,4);
+            strokeWeight(1.2f);
+            stroke(color_border);
+            fill(color_object); //--Aread (green)
+            rect(this.x-(61/2),this.y,61,18,4,4,4,4);
+            strokeWeight(0.5f);
+            
+// - draw connector
+            for (int i=0; i<connection.length;i++) {
+                if (i==Output_RIGHT) connection[i].drawFeature();
+            }
+            // - draw text
+            fill(0);
+            textAlign(CENTER);
+            textFont(smallfont);
+            text(properties.getName(), (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+2);
+            fill(128);
+            textFont(font);
+            
+            //--Detect object over
+            if (inside) {
+                if (time_over==0) {
+                    time_over=System.currentTimeMillis();
+                }
+            } else {
+                time_over=0;
+                description="";
+            }
+            String type=properties.get("outputType");
+            int output_id=properties.getInt("output_"+type.toLowerCase()+"_id");
+            
+            
+            
+            if (inside&&output_id>0&&(System.currentTimeMillis()-time_over)>10) {
+                fill(0);
+                textFont(font);
+                Output output=new Output();
+                output.setType(type);
+                //--This will try to load the description
+                //--Update: No, must be done in updateDependance
+//        if (description.isEmpty()) description=output.getBiologic().getNameId(output_id);
+                if (properties.isSet("Description")) description=properties.get("Description");
+                if (description==null) description="";
+                float w = textWidth(description) + 10;
+                float h = textAscent() + textDescent() + 4;
+                fill (0xff79D1F0);
+                stroke(255);
+                //stroke(0xff79D1F0);
+                rectMode(CORNER);
+                rect (mouseX-w/2, mouseY - h/2, w, h);
+                fill(0);
+                textAlign(CENTER, CENTER);
+                text(description,mouseX,mouseY);
+            }
+            
+        }
+        
+        /**
+         * Calculate object_connector location
+         */
+        @Override
+        public void recalculatePosition() {
+            properties.put("x", Vertex[0].x); //Thit is the left-top corner
+            properties.put("y", Vertex[0].y);
+            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
+            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
+            //-- Initialise Connector
+            for (int i=0; i<connection.length; i++) {
+                switch(i) {
+                    case Output_LEFT : updateConnector(connection[i],i,this.x-35,this.y+2,null);
+                    break;
+                    case Output_RIGHT: updateConnector(connection[i],i,this.x+30,this.y+2,null);
+                    break;
+                }
+            }
+        }
+        
+        @Override
+        public String getName() {
+            return properties.get("outputType");
+        }
+        
+    }
+
+    /**
+     * Bigger object
+     */
+    class workflow_object_output_big             extends workflow_object_output {
+        
+        public workflow_object_output_big(String outputType, int x, int y) {
+            super();
+            properties.setName(outputType);
+            properties.put("colorMode","GREEN");
+            properties.put("defaultColor","GREEN");
+            properties.put("Output"+outputType, "True");
+            properties.put("outputType", outputType);
+            properties.put("Connector1Output","True");
+            properties.put("ObjectType", "Output");
+            properties.put("editorClass", "editors.OutputEditor");
+            Vertex=new pvertex[4];
+            connection=new workflow_connector[2];
+            //-- Object w and h
+            float w=61;
+            float h=21;
+            // -- Make the vertex needed
+            addVertex(x, y);
+            addVertex(x+w,y);
+            addVertex(x+w, y+h);
+            addVertex(x, y+h);
+            // -Create the connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i]=new workflow_connector(this);
+            }
+            // - Calculate their position
+            recalculatePosition();
+            
+        }
+        
+        public workflow_object_output_big(workflow_properties properties, int x, int y) {
+            super();
+            this.properties=properties;
+            Vertex=new pvertex[4];
+            connection=new workflow_connector[2];
+            //-- Object w and h
+            float w=61;
+            float h=21;
+            // -- Make the vertex needed
+            addVertex(x, y);
+            addVertex(x+w,y);
+            addVertex(x+w, y+h);
+            addVertex(x, y+h);
+            // -Create the connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i]=new workflow_connector(this);
+            }
+            // - Calculate their position
+            recalculatePosition();
+            
+        }
+        
+        @Override
+        public void drawFeature(){
+            if (properties.getBoolean("NoDraw")) return;
+            boolean inside=inside();
+            strokeWeight(0.1f);
+            noStroke();
+            noFill();
+            beginShape(QUADS);
+            for(int i=0;i<Vertex_count;i++){
+                vertex(Vertex[i].x,Vertex[i].y);
+            }
+            endShape();
+            
+            
+            PImage displayImage=null;
+            //--default color
+            int color_border=red_border;
+            int color_object=color_red;
+            
+            if (inside||selected) {
+                displayImage=(PImage)filedata.get("link_big_black.png");
+                color_border=black_border;
+                color_object=color_black;
+            } else if (properties.getOutputID(properties.get("outputType"))==0) {
+                displayImage=(PImage)filedata.get("link_big_cyan.png");
+                color_border=cyan_border;
+                color_object=color_cyan;
+            } else {
+                if (properties.get("colorMode").equals("RED")) {
+                    displayImage=(PImage)filedata.get("link_big_red.png");
+                    color_border=red_border;
+                    color_object=color_red;
+                }
+                if (properties.get("colorMode").equals("BLUE")) {
+                    displayImage=(PImage)filedata.get("link_big_blue.png");
+                    color_border=blue_border;
+                    color_object=color_blue;
+                }
+                if (properties.get("colorMode").equals("ORANGE")){
+                    displayImage=(PImage)filedata.get("link_big_orange.png");
+                    color_border=orange_border;
+                    color_object=color_orange;
+                }
+                if (properties.get("colorMode").equals("GREEN")) {
+                    displayImage=(PImage)filedata.get("link_big_green.png");
+                    color_border=green_border;
+                    color_object=color_green;
+                }
+                if (displayImage==null) {
+                    displayImage=(PImage)filedata.get("link_big_green.png");
+                    color_border=green_border;
+                    color_object=color_green;
+                }
+                
+            }
+            //if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
+            
+            ////--Forth
+            fill(170); //--shadow
+            stroke(170);
+            rect(x-(59/2),this.y,59,26,0,0,4,4);
+            fill(color_object);
+            stroke(color_border);
+            strokeWeight(1.2f);
+            rect(x-(61/2),this.y,61,26,4,4,4,4);
+            strokeWeight(0.5f);
+            
+            
+            
+            
+            // - draw connector
+            for (int i=0; i<connection.length;i++) {
+                if (i==Output_RIGHT) connection[i].drawFeature();
+            }
+            // - draw text
+            fill(0);
+            textAlign(CENTER);
+            textFont(smallfont);
+            String name=properties.getName();
+            String name0="";
+            String name1="";
+            if (name.startsWith("Multiple")) {
+                name0="Multiple";
+                name1=name.substring(8);
+            } else {
+                name0=name.substring(0,name.length()/2);
+                name1=name.substring(name.length()/2);
+            }
+            text(name0, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y-2);
+            text(name1, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+8);
+            fill(128);
+            textFont(font);
+            //--Detect object over
+            if (inside) {
+                if (time_over==0) {
+                    time_over=System.currentTimeMillis();
+                }
+            } else {
+                time_over=0;
+                description="";
+            }
+            String type=properties.get("outputType");
+            int output_id=properties.getInt("output_"+type.toLowerCase()+"_id");
+            if (inside&&output_id>0&&(System.currentTimeMillis()-time_over)>10) {
+                fill(0);
+                textFont(font);
+                Output output=new Output();
+                output.setType(type);
+                //--This will try to load the description
+                //No: must be done in update dependance
+//        if (description.isEmpty()) description=output.getBiologic().getNameId(output_id);
+                if (properties.isSet("Description")) description=properties.get("Description");
+                if (description==null) description="";
+                float w = textWidth(description) + 10;
+                float h = textAscent() + textDescent() + 4;
+                fill (0xff79D1F0);
+                stroke(255);
+                //stroke(0xff79D1F0);
+                rectMode(CORNER);
+                rect (mouseX-w/2, mouseY - h/2, w, h);
+                fill(0);
+                textAlign(CENTER, CENTER);
+                text(description,mouseX,mouseY);
+            }
+        }
+        
+        /**
+         * Calculate object_connector location
+         */
+        @Override
+        public void recalculatePosition() {
+            properties.put("x", Vertex[0].x); //Thit is the left-top corner
+            properties.put("y", Vertex[0].y);
+            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
+            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
+            //-- Initialise Connector
+            for (int i=0; i<connection.length; i++) {
+                connection[i].parent=this;
+                switch(i) {
+                    case Output_LEFT : updateConnector(connection[i],i,this.x-35,this.y+2,null);
+                    break;
+                    case Output_RIGHT: updateConnector(connection[i],i,this.x+28,this.y+2,null);
+                    break;
+                }
+            }
+            
+        }
+        
+    }
+
+    public class workflow_object_variable        extends workflow_object_output {
+        
+        public workflow_object_variable (workflow_properties properties, int x, int y) {
+            super();
+            this.properties=properties;
+            Vertex=new pvertex[4];
+            connection=new workflow_connector[2];
+            //--Object width and height (to do load from bitmap/properties?)
+            int x2=x;
+            int y2=y;
+            float w=159;
+            float h=33;
+            // -- Make the vertex needed
+            addVertex(x2, y2);
+            addVertex(x2+w,y2);
+            addVertex(x2+w,y2+h);
+            addVertex(x2, y2+h);
+            // -Create the connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i]=new workflow_connector(this);
+            }
+            recalculatePosition();
+            
+        }
+        
+        @Override
+        public void drawFeature(){
+            //--Draw the object on screen?
+            if (properties.getBoolean("NoDraw")) return;
+            //--Load information
+            
+            
+            //--Load the flag
+            boolean inside=inside();
+            
+            //--Actual draw
+            strokeWeight(0.1f);
+            noStroke();
+            noFill();
+            
+            beginShape(QUADS);
+            for(int i=0;i<Vertex_count;i++){
+                vertex(Vertex[i].x,Vertex[i].y);
+            }
+            endShape();
+            
+            
+            
+            PImage displayImage=null;
+            if (inside()||selected) {
+                displayImage=(PImage)filedata.get("big_black.png");
+            } else if (properties.get("Description").equals("Undefined")) {
+                displayImage=(PImage)filedata.get("big_blue.png");
+            } else if (properties.get("Description").equals("For each")) {
+                displayImage=(PImage)filedata.get("big_green.png");
+            }
+            else {
+                if (properties.get("colorMode").equals("RED")) displayImage=(PImage)filedata.get("big_red.png");
+                if (properties.get("colorMode").equals("BLUE"))displayImage=(PImage)filedata.get("big_blue.png");
+                if (properties.get("colorMode").equals("ORANGE"))displayImage=(PImage)filedata.get("big_orange.png");
+                if (properties.get("colorMode").equals("GREEN"))displayImage=(PImage)filedata.get("big_green.png");
+                if (displayImage==null) displayImage=(PImage)filedata.get("big_red.png");
+            }
+            if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
+            // - draw connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i].drawFeature();
+            }
+            // - draw text
+            fill(0);
+            textAlign(CENTER);
+            textFont(font);
+            String name=properties.getName();
+            String name1=properties.getDescription();
+            //Clip name
+            name1=(name1.length()>30?name1.substring(0, 30)+"...":name1);
+            text(name, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y-5);
+            textFont(smallfont);
+            text(name1, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+8);
+            fill(128);
+            textFont(font);
+            
+            //--Detect object over
+            if (inside) {
+                if (time_over==0) {
+                    time_over=System.currentTimeMillis();
+                }
+            } else {
+                time_over=0;
+                description="";
+            }
+            if (description.isEmpty()) {
+                String type=properties.get("outputType");
+                int type_id=properties.getInt("output_"+type.toLowerCase()+"_id");
+                Output out=new Output();
+                out.setType(type);
+                
+                if (type_id==0) {
+                    description="Undefined";
+                    if (properties.isSet("ForObjectID")) {
+                        int count=0;
+                        Object[] o=properties.keySet().toArray();
+                        for (int i=0; i<o.length; i++) {
+                            Object k=o[i];
+                            if (((String)k).startsWith("For_")) count++;
+                        }
+                        
+//                 for (Object o:properties.keySet()) {
+//                     if (((String)o).startsWith("For_")) count++;
+//                 }
+                        description="For each for "+count+" "+type;
+                    }
+                    //--Handle For loop here...
+                } else {
+                    //description= out.getBiologic().getNameId(type_id);
+                    if (properties.isSet("Description")) description=properties.get("Description");
+                }
+            }
+            if (inside&&description.length()>0&&(System.currentTimeMillis()-time_over)>10) {
+                fill(0);
+                textFont(font);
+                float w = textWidth(description) + 10;
+                float h = textAscent() + textDescent() + 4;
+                fill (0xff79D1F0);
+                stroke(255);
+                rectMode(CORNER);
+                rect (mouseX-w/2, mouseY - h/2, w, h);
+                fill(0);
+                textAlign(CENTER, CENTER);
+                text(description,mouseX,mouseY);
+            }
+        }
+        
+        /**
+         * Calculate object_connector location
+         */
+        @Override
+        public void recalculatePosition() {
+            properties.put("x", Vertex[0].x); //Thit is the left-top corner
+            properties.put("y", Vertex[0].y);
+            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
+            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
+            //-- Initialise Connector
+            
+            for (int i=0; i<connection.length; i++) {
+                connection[i].parent=this;
+                switch(i) {
+                    case Output_LEFT : updateConnector(connection[i], i, this.x-88, this.y+10, null);
+                    break;
+                    case Output_RIGHT: updateConnector(connection[i], i, this.x+79, this.y+10, null);
+                    break;
+                }
+            }
+        }
+    }
+
+    public class workflow_object_output_database extends workflow_object_output {
+        
+        public workflow_object_output_database (workflow_properties properties, int x, int y) {
+            super();
+            this.properties=properties;
+            //--Hack for new genome
+            if (properties.get("outputType").equals("Genome")) {
+                Genome g=new Genome(properties.getInt("output_genome_id"));
+                workflow_properties t=new workflow_properties();
+                t.deserializeFromString(g.getText());
+                properties.put("inputname",t.get("inputname"));
+                properties.put("inputname2",t.get("inputname2"));
+                properties.put("type",t.get("type"));
+                properties.put("name",t.get("name"));
+                properties.put("Description",t.get("Description"));
+            }
+            
+            Vertex=new pvertex[4];
+            connection=new workflow_connector[2];
+            //--Object width and height (to do load from bitmap/properties?)
+            int x2=x;
+            int y2=y;
+            float w=159;
+            float h=33;
+            // -- Make the vertex needed
+            addVertex(x2, y2);
+            addVertex(x2+w,y2);
+            addVertex(x2+w,y2+h);
+            addVertex(x2, y2+h);
+            // -Create the connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i]=new workflow_connector(this);
+            }
+            recalculatePosition();
+            
+        }
+        
+        @Override
+        public void drawFeature(){
+            //--Draw the object on screen?
+            if (properties.getBoolean("NoDraw")) return;
+            //--Load information
+            
+            
+            //--Load the flag
+            boolean inside=inside();
+            
+            //--Actual draw
+            strokeWeight(0.1f);
+            noStroke();
+            noFill();
+            
+            beginShape(QUADS);
+            for(int i=0;i<Vertex_count;i++){
+                vertex(Vertex[i].x,Vertex[i].y);
+            }
+            endShape();
+            
+            
+            
+            PImage displayImage=null;
+            //--default color
+            int color_border=red_border;
+            int color_object=color_red;
+            
+            if (inside()||selected) {
+                displayImage=(PImage)filedata.get("big_black.png");
+                color_border=black_border;
+                color_object=color_black;
+            } else if (properties.get("Description").equals("Undefined")) {
+                displayImage=(PImage)filedata.get("big_blue.png");
+                color_border=blue_border;
+                color_object=color_blue;
+                
+            } else if (properties.get("Description").equals("For each")) {
+                displayImage=(PImage)filedata.get("big_green.png");
+                color_border=green_border;
+                color_object=color_green;
+            }
+            else {
+                if (properties.get("colorMode").equals("RED")) {
+                    displayImage=(PImage)filedata.get("big_red.png");
+                    color_border=red_border;
+                    color_object=color_red;
+                }
+                if (properties.get("colorMode").equals("BLUE")){
+                    displayImage=(PImage)filedata.get("big_blue.png");
+                    color_border=blue_border;
+                    color_object=color_blue;
+                }
+                if (properties.get("colorMode").equals("ORANGE")){
+                    displayImage=(PImage)filedata.get("big_orange.png");
+                    color_border=orange_border;
+                    color_object=color_orange;
+                }
+                if (properties.get("colorMode").equals("GREEN")){
+                    displayImage=(PImage)filedata.get("big_green.png");
+                    color_border=green_border;
+                    color_object=color_green;
+                }
+                if (displayImage==null) {
+                    displayImage=(PImage)filedata.get("big_red.png");
+                    color_border=red_border;
+                    color_object=color_red;
+                }
+            }
+            //if (displayImage!=null) image(displayImage,this.x-(displayImage.width/2), this.y-2);
+            //-*-New vectorial object
+            fill(170); //--shadow 100
+            stroke(170);
+            rect(this.x-(158/2),this.y+3,158,35,0,0,4,4);
+            strokeWeight(1.2f);
+            stroke(color_border); //--green border
+            fill(color_object); //--Aread (green)
+            rect(this.x-(160/2),this.y,160,35,4,4,4,4);
+            strokeWeight(0.1f);
+            
+            // - draw connector
+            for (int i=0; i<connection.length;i++) {
+                connection[i].drawFeature();
+            }
+            
+            if ( properties.isSet("AggregateObjectID")) {
+                //--Add paralel information here
+                noFill();
+                strokeWeight(2.0f);
+                stroke(128);
+                strokeCap(ROUND);
+                rect(this.x-100, this.y-25, 200, 75);
+                strokeWeight(0.1f);
+                fill(0);
+                textAlign(CENTER);
+                textFont(boldfont);
+                text("Parallel section (Aggregate)",this.x,this.y-10);
+                textFont(font);
+                fill(0);
+                
+            } else if (properties.isSet("ForObjectID")) {
+                //description="For each for "+count+" "+type;
+                //--Add paralel information here
+                noFill();
+                strokeWeight(2.0f);
+                stroke(128);
+                strokeCap(ROUND);
+                rect(this.x-100, this.y-25, 200, 75);
+                strokeWeight(0.1f);
+                fill(0);
+                textAlign(CENTER);
+                textFont(boldfont);
+                text("Parallel section (Repetition)",this.x,this.y-10);
+                textFont(font);
+                fill(0);
+            }
+            
+            // - draw text
+            fill(0);
+            textAlign(CENTER);
+            textFont(font);
+            String name=properties.getName();
+            String name1=properties.getDescription();
+            //Clip name
+            name1=(name1.length()>30?name1.substring(0, 30)+"...":name1);
+            text(name, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y-5);
+            textFont(smallfont);
+            text(name1, (Vertex[1].x-Vertex[0].x)/2+Vertex[0].x, (Vertex[2].y-Vertex[0].y)/2+Vertex[0].y+8);
+            fill(128);
+            textFont(font);
+            
+            //--Detect object over
+            if (inside) {
+                if (time_over==0) {
+                    time_over=System.currentTimeMillis();
+                }
+            } else {
+                time_over=0;
+                description="";
+            }
+            if (description.isEmpty()) {
+                String type=properties.get("outputType");
+                int type_id=properties.getInt("output_"+type.toLowerCase()+"_id");
+                Output out=new Output();
+                out.setType(type);
+                
+                if (type_id==0) {
+                    description="Undefined";
+                    // JG 2015 Doubt
+                    if (properties.isSet("ForObjectID")) {
+                        int count=0;
+                        Object[] o=properties.keySet().toArray();
+                        for (int i=0; i<o.length; i++) {
+                            Object k=o[i];
+                            if (((String)k).startsWith("For_")) count++;
+                        }
+                        
+//                 for (Object o:properties.keySet()) {
+//                     if (((String)o).startsWith("For_")) count++;
+//                 }
+                        description="For each for "+count+" "+type;
+                    }
+                    //--Handle For loop here...
+                } else {
+                    //description= out.getBiologic().getNameId(type_id);
+                    if (properties.isSet("Description")) description=properties.get("Description");
+                }
+            }
+            if (inside&&description.length()>0&&(System.currentTimeMillis()-time_over)>10) {
+                fill(0);
+                textFont(font);
+                float w = textWidth(description) + 10;
+                float h = textAscent() + textDescent() + 4;
+                fill (0xff79D1F0);
+                stroke(255);
+                rectMode(CORNER);
+                rect (mouseX-w/2, mouseY - h/2, w, h);
+                fill(0);
+                textAlign(CENTER, CENTER);
+                text(description,mouseX,mouseY);
+            }
+        }
+        
+        /**
+         * Calculate object_connector location
+         */
+        @Override
+        public void recalculatePosition() {
+            properties.put("x", Vertex[0].x); //Thit is the left-top corner
+            properties.put("y", Vertex[0].y);
+            this.x=PApplet.parseInt(Vertex[0].x+(Vertex[1].x-Vertex[0].x)/2);
+            this.y=PApplet.parseInt(Vertex[0].y+(Vertex[1].y-Vertex[0].y)/2);
+            //-- Initialise Connector
+            
+            for (int i=0; i<connection.length; i++) {
+                connection[i].parent=this;
+                switch(i) {
+                    case Output_LEFT : updateConnector(connection[i], i, this.x-88, this.y+10, null);
+                    break;
+                    case Output_RIGHT: updateConnector(connection[i], i, this.x+79, this.y+10, null);
+                    break;
+                }
+            }
+        }
+    }
+    
     /**
      * Selection object
      */
@@ -7901,67 +7852,6 @@ public class armadillo_workflow extends PApplet implements ActionListener {
         }
     }
     
-    
-////////////////////////////////////////////////////////////////////////////////
-/// Other dialog
-    
-    /**
-     * Thiis place a special flag in the rendering loop to draw only what is neccessary...
-     */
-    public void startAutoUpdate() {
-        auto_update=true;
-        //runthread();
-    }
-    
-    public void stopAutoUpdate() {
-        auto_update=false;
-    }
-    
-    /**
-     * Note: This was an attempt to update the workflow at some define point
-     * but, unfortunately, it make the whole program sllloooowwww....
-     */
-    public void runthread() {
-//             Thread thread=new Thread(){
-//             long count=System.currentTimeMillis();
-//
-//             @Override
-//             public void run() {
-//                try {
-//                  while(auto_update) {
-//                    //--Update each second..
-//                       if ((System.currentTimeMillis()-count)%5000==0) {
-//                        force_redraw=true;
-//                        redraw();
-//                       }
-//
-//                  }
-//                } catch(Exception e){}
-//             }
-//             };
-//             System.out.println ("Starting thread");
-//             thread.start();
-    }
-    
-////////////////////////////////////////////////////////////////////////////////
-/// Amazing trick
-/// JG 2016
-    
-    public Workbox getWorkbox(){
-        return workbox;
-    }
-    
-    public workflow_properties getProperties(){
-        return properties;
-    }
-    
-    public Workflow getWorkFlow(){
-        return workflow;
-    }
-    
-    public armadillo_workflow getArmadilloWorkFlow(){
-        return current;
-    }
     
 } //End armadillo workflow
 

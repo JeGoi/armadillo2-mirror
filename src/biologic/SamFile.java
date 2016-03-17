@@ -35,23 +35,13 @@ public class SamFile extends Text implements Serializable {
     public SamFile(int id) {super(id);}
     public SamFile(String filename) {super(filename);}
 
-    public void setSamFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("SamFile");
-        this.setText("SamFile : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
+    public String[] getExtensionTab() {
+        String[] t = {".sam"};
+        return t;
     }
     
-    public String getSamFile() {
-        return this.getFilename();
-    }
-
     @Override
     public String getBiologicType() {
         return "SamFile";
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
     }
 }

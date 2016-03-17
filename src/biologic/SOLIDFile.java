@@ -46,14 +46,4 @@ public class SOLIDFile extends Text implements Serializable {
         this.setUnknownType("Solid Reads File");
         this.setText("Solid Reads File : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
     }
-
-    public String getSolidFile() {
-        return this.getFilename();
-    }
-
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
-    
 }

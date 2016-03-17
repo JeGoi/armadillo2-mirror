@@ -71,13 +71,13 @@ public class FastQC extends RunProgram{
         com[0]="cmd.exe";
         com[1]="/C";
         com[2]=properties.getExecutable();
-        com[3]=file.getFastqFile();
+        com[3]=file.getFile();
         com[4]="--outdir="+outdir;
         return com;
         
     }
      
     public void post_parseOutput() {
-        HTML.saveHTML(properties, outdir, "FastQC");
+        HTML.saveFile(properties,outdir, "FastQC", "FastQC");
      }  
 }

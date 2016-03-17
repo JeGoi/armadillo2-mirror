@@ -36,69 +36,13 @@ public class NbrfFile extends Text implements Serializable {
     public NbrfFile(int id) {super(id);}
     public NbrfFile(String filename) {super(filename);}
 
-    public void setNbrfFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Nbrf");
-        this.setText("Nbrf : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getNbrfFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getNbrfFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {".nbrf"};
         return t;
     }
     
-    public static String getNbrfFileExtensionString() {
-        String[] ts = getNbrfFileExtensionTab();
-        String t = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isNbrfFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getNbrfFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-//    public static String getNbrfFilePath(Vector<Integer> f){
-//        String s = "";
-//        for (int ids:f) {
-//            if (ids!=0) {
-//                NbrfFile fas =new NbrfFile(ids);
-//                s = fas.getFilename();
-//            }
-//        }
-//        return s;
-//    }
-    
-//    public static void saveNbrfFile (workflow_properties p, String s, String pgrmName) {
-//        s = Util.relativeToAbsoluteFilePath(s);
-//        NbrfFile f=new NbrfFile();
-//        f.setNbrfFile(s);
-//        f.setNote(pgrmName+"_stats ("+Util.returnCurrentDateAndTime()+")");
-//        f.setName(pgrmName+" ("+Util.returnCurrentDateAndTime()+")");
-//        boolean b=f.saveToDatabase();
-//        if (b){
-//            p.put("output_nbrffile_id", f.getId());
-//            p.put("output_nbrffile_fileName", s);
-//        }
-//        else System.out.println("NbrfFile not saved");
-//    }
-
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "NbrfFile";
     }
-
 }

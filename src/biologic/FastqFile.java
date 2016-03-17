@@ -22,35 +22,9 @@ public class FastqFile extends Text implements Serializable{
     public FastqFile(int id)            {super(id);}
     public FastqFile(String filename)   {super(filename);}
     
-    public void setFastqFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("FastqFile");
-        this.setText("Fastq : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-    
-    public String getFastqFile(){
-        return this.getFilename();
-    }
-    
     public static String[] getFastqFileExtension() {
         String[] t = {".fastq",".fq"};
         return t;
-    }
-    
-    public static String getFastqFileExtensionString() {
-        String[] ts = getFastqFileExtension();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isFastqFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getFastqFileExtension())
-            if (ext.equals(sT))
-                b = true;
-        return b;
     }
     
     public static int sameFastqFileName (String s1,String s2) {
@@ -72,9 +46,5 @@ public class FastqFile extends Text implements Serializable{
     @Override
     public String getBiologicType() {
         return "FastqFile";
-    }
-    @Override
-    public String getExtendedString() {
-        return toString();
     }
 }

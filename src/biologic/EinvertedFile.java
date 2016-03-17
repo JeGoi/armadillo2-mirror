@@ -27,10 +27,7 @@ import java.util.Vector;
 import workflows.workflow_properties;
 
 /**
- *
- * @author Etienne Lord
  * @author JG 2016
- * 
  */
 public class EinvertedFile extends Text implements Serializable {
 
@@ -38,44 +35,13 @@ public class EinvertedFile extends Text implements Serializable {
     public EinvertedFile(int id) {super(id);}
     public EinvertedFile(String filename) {super(filename);}
 
-    public void setEinvertedFile(String filename) {
-        this.setFilename(filename);
-        this.setUnknownType("Einverted");
-        this.setText("Einverted : "+filename+"\nSelected on: "+Util.returnCurrentDateAndTime());
-    }
-
-    public String getEinvertedFile() {
-        return this.getFilename();
-    }
-    
-    public static String[] getEinvertedFileExtensionTab() {
+    public String[] getExtensionTab() {
         String[] t = {".einverted"};
         return t;
     }
     
-    public static String getEinvertedFileExtensionString() {
-        String[] ts = getEinvertedFileExtensionTab();
-        String   t  = ts[0];
-        if (ts.length>1) t = String.join("<>",ts);
-        return t;
-    }
-    
-    public static boolean isEinvertedFile(String s){
-        boolean b = false;
-        String ext = s.substring(s.lastIndexOf("."),s.length());
-        for (String sT:getEinvertedFileExtensionTab())
-            if (ext.equals(sT))
-                b = true;
-        return b;
-    }
-    
-    @Override
-    public String getExtendedString() {
-        return toString();
-    }
     @Override
     public String getBiologicType() {
         return "EinvertedFile";
     }
-
 }
