@@ -8,50 +8,10 @@
 
 package programs;
 
-import biologic.Sample;
+
 import biologic.Results;
-import biologic.Output;
-import biologic.Phylip_Distance;
-import biologic.FastqFile;
-import biologic.UnrootedTree;
-import biologic.InfoSequence;
-import biologic.Biologic;
-import biologic.ImageFile;
-import biologic.Model;
-import biologic.OutputText;
-import biologic.MultipleAlignments;
-import biologic.InfoAlignment;
 import biologic.FastaFile;
-import biologic.Alignment;
-import biologic.MultipleTrees;
-import biologic.Outgroup;
-import biologic.InfoMultipleSequences;
-import biologic.DataSet;
-import biologic.BamFile;
-import biologic.HTML;
-import biologic.RootedTree;
-import biologic.Text;
-import biologic.SOLIDFile;
-import biologic.GenomeFile;
-import biologic.Phylip_Seqboot;
-import biologic.Blast;
-import biologic.BlastHit;
-import biologic.SamFile;
-import biologic.Matrix;
-import biologic.Unknown;
-import biologic.Workflows;
-import biologic.Genome;
-import biologic.Ancestor;
-import biologic.MultipleSequences;
 import biologic.Input;
-import biologic.ListSequence;
-import biologic.ProteinAlignment;
-import biologic.Phylip;
-import biologic.BlastDB;
-import biologic.RunWorkflow;
-import biologic.Sequence;
-import biologic.Tree;
-import biologic.PositionToSequence;
 import biologic.TextFile;
 import configuration.Util;
 import java.io.File;
@@ -133,13 +93,13 @@ public class miRdup extends RunProgram {
     @Override
     public boolean init_checkRequirements() {
         // TEST INPUT VARIABLES HERE les ports sont PortInputUp, PortInputDOWN, PortInputDOWN2
-        Vector<Integer>TextFile_1    = properties.getInputID("TextFile",PortInputDOWN);
+        Vector<Integer>TextFile_1    = properties.getInputID("TextFile",PortInputUP);
         inputPath1 = TextFile.getVectorFilePath(TextFile_1);
         input1     = Util.getFileName(inputPath1);
         Vector<Integer>FastaFile_2    = properties.getInputID("FastaFile",PortInputDOWN);
         inputPath2 = FastaFile.getVectorFilePath(FastaFile_2);
         input2     = Util.getFileName(inputPath2);
-        Vector<Integer>FastaFile_3    = properties.getInputID("FastaFile",PortInputDOWN);
+        Vector<Integer>FastaFile_3    = properties.getInputID("FastaFile",PortInputDOWN2);
         inputPath3 = FastaFile.getVectorFilePath(FastaFile_3);
         input3     = Util.getFileName(inputPath3);
 
@@ -184,6 +144,7 @@ public class miRdup extends RunProgram {
         com[1]="/C";      // Windows will de remove if another os is used
         com[2]=properties.getExecutable();
         com[3]=options;
+        
         return com;
     }
 

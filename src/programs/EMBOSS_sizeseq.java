@@ -99,7 +99,8 @@ public class EMBOSS_sizeseq extends RunProgram {
         // TEST Docker initialisation
         doName = Docker.getContainersVal(doName);
         if (!dockerInit(outputPath,doSharedFolder,doName,doImage)) {
-            Docker.cleanContainers(doName);
+            Docker.cleanContainer(doName);
+            setStatus(status_BadRequirements,"Not able to initiate docker container");
             return false;
         } else {
             properties.put("DOCKERName",doName);
@@ -154,10 +155,8 @@ public class EMBOSS_sizeseq extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        Util.deleteDir(outputPath+File.separator+"INPUTS");
-        ArrayList<String> a = new ArrayList<String>();
-        a.add(doName);
-        Docker.cleanContainers(a);
+        Util.deleteDir(inputPath);
+        Docker.cleanContainer(doName);
         FastaFile.saveFile(properties,output1,"EMBOSS_sizeseq","FastaFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_sizeseq");
     }

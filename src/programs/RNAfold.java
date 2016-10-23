@@ -94,7 +94,7 @@ public class RNAfold extends RunProgram {
         // TEST Docker initialisation
         doName = Docker.getContainersVal(doName);
         if (!dockerInit(outputPath,doSharedFolder,doName,doImage)) {
-            Docker.cleanContainers(doName);
+            Docker.cleanContainer(doName);
             return false;
         } else {
             properties.put("DOCKERName",doName);

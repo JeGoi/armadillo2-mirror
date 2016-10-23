@@ -59,7 +59,7 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-    
+
         Menu_Buttons = new javax.swing.ButtonGroup();
         docker_jButton = new javax.swing.JButton();
         how_jButton = new javax.swing.JButton();
@@ -88,8 +88,8 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
         AO_S__canonicalBPonly_Box = new javax.swing.JCheckBox();
         AO_S__enforceConstraint_Box = new javax.swing.JCheckBox();
         AO_S__shape_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
-        AO_S__shape_EQUALSYMBOL_Box_DirFile = new javax.swing.JButton();
         AO_S__shape_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_S__shape_EQUALSYMBOL_Box_DirFile = new javax.swing.JButton();
         AO_S__shapeMethod_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
         AO_S__shapeMethod_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
         AO_S__shapeConversion_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
@@ -119,22 +119,14 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
         AO_M__noGU_Box = new javax.swing.JCheckBox();
         AO_M__noClosingGU_Box = new javax.swing.JCheckBox();
         AO_M__paramFile_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
-        AO_M__paramFile_EQUALSYMBOL_Box_DirFile = new javax.swing.JButton();
         AO_M__paramFile_EQUALSYMBOL_Box_Text = new javax.swing.JTextField();
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile = new javax.swing.JButton();
         AO_M__energyModel_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
         AO_M__energyModel_EQUALSYMBOL_Box_IntValue = new javax.swing.JSpinner();
         AO_M__betaScale_EQUALSYMBOL_Box = new javax.swing.JCheckBox();
         AO_M__betaScale_EQUALSYMBOL_Box_DouValue = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        how_jButton.setText("?");
-        how_jButton.setName("how_jButton"); // NOI18N
-        how_jButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                how_jButton_ActionPerformed(evt);
-            }
-        });
 
         docker_jButton.setText("Docker Editor");
         docker_jButton.setName("docker_jButton"); // NOI18N
@@ -144,13 +136,21 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
+        how_jButton.setText("?");
+        how_jButton.setName("how_jButton"); // NOI18N
+        how_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                how_jButton_ActionPerformed(evt);
+            }
+        });
+
         RNAfoldEditors2.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 RNAfoldEditors2ComponentShown(evt);
             }
         });
 
-        general_jPanel1.setName("general_jPanel1");
+        general_jPanel1.setName("general_jPanel1"); // NOI18N
         general_jPanel1.setPreferredSize(new java.awt.Dimension(459, 640));
 
         name_jLabel.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
@@ -265,7 +265,8 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             .addGroup(AO_G_SpanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AO_G__noPS_Box)                    .addGroup(AO_G_SpanelLayout.createSequentialGroup()
+                    .addComponent(AO_G__noPS_Box)
+                    .addGroup(AO_G_SpanelLayout.createSequentialGroup()
                         .addComponent(AO_G__layoutType_EQUALSYMBOL_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_G__layoutType_EQUALSYMBOL_Box_BooValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -276,7 +277,8 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AO_G_SpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(AO_G__noPS_Box)                .addContainerGap()
+                .addComponent(AO_G__noPS_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AO_G_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_G__layoutType_EQUALSYMBOL_Box)
                     .addComponent(AO_G__layoutType_EQUALSYMBOL_Box_BooValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -341,20 +343,20 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
-        AO_S__shape_EQUALSYMBOL_Box_DirFile.setText("DirFile");
-        AO_S__shape_EQUALSYMBOL_Box_DirFile.setName("AO_S__shape_EQUALSYMBOL_Box_DirFile"); // NOI18N
-        AO_S__shape_EQUALSYMBOL_Box_DirFile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AO_S__shape_EQUALSYMBOL_Box_DirFile_ActionPerformed(evt);
-            }
-        });
-
         AO_S__shape_EQUALSYMBOL_Box_Text.setText("...");
         AO_S__shape_EQUALSYMBOL_Box_Text.setName("AO_S__shape_EQUALSYMBOL_Box_Text"); // NOI18N
         AO_S__shape_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
         AO_S__shape_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 AO_S__shape_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.setText("--shape=");
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.setName("AO_S__shape_EQUALSYMBOL_Box_DirFile"); // NOI18N
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_S__shape_EQUALSYMBOL_Box_DirFile_ActionPerformed(evt);
             }
         });
 
@@ -419,7 +421,10 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
                         .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(AO_S__constraint_Box)                    .addComponent(AO_S__canonicalBPonly_Box)                    .addComponent(AO_S__enforceConstraint_Box)                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
+                    .addComponent(AO_S__constraint_Box)
+                    .addComponent(AO_S__canonicalBPonly_Box)
+                    .addComponent(AO_S__enforceConstraint_Box)
+                    .addGroup(AO_S_SpanelLayout.createSequentialGroup()
                         .addComponent(AO_S__shape_EQUALSYMBOL_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_S__shape_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,21 +452,21 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
                     .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box)
                     .addComponent(AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
-                .addComponent(AO_S__constraint_Box)                .addContainerGap()
-                .addComponent(AO_S__canonicalBPonly_Box)                .addContainerGap()
-                .addComponent(AO_S__enforceConstraint_Box)                .addContainerGap()
+                .addComponent(AO_S__constraint_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_S__canonicalBPonly_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_S__enforceConstraint_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_S__shape_EQUALSYMBOL_Box)
                     .addComponent(AO_S__shape_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AO_S__shape_EQUALSYMBOL_Box_DirFile))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
                 .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_S__shapeMethod_EQUALSYMBOL_Box)
                     .addComponent(AO_S__shapeMethod_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
                 .addGroup(AO_S_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_S__shapeConversion_EQUALSYMBOL_Box)
                     .addComponent(AO_S__shapeConversion_EQUALSYMBOL_Box_List, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -478,8 +483,8 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
         AO_S__canonicalBPonly_Box.getAccessibleContext().setAccessibleDescription("Remove non-canonical base pairs from the structure constraint");
         AO_S__enforceConstraint_Box.getAccessibleContext().setAccessibleDescription("Enforce base pairs given by round brackets in structure constraint");
         AO_S__shape_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
-        AO_S__shape_EQUALSYMBOL_Box_DirFile.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
         AO_S__shape_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
+        AO_S__shape_EQUALSYMBOL_Box_DirFile.getAccessibleContext().setAccessibleDescription("Use SHAPE reactivity data to guide structure predictions");
         AO_S__shapeMethod_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Specify the method how to convert SHAPE reactivity data to pseudo energy contributions");
         AO_S__shapeMethod_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Specify the method how to convert SHAPE reactivity data to pseudo energy contributions");
         AO_S__shapeConversion_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Specify the method used to convert SHAPE reactivities to pairing probabilities when using the SHAPE approach of Zarringhalam et al.");
@@ -531,7 +536,7 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
-        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(1.07, 1.0, 1.2, 0.1));
+        AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(1.07d, 1.0d, 1.2d, 0.1d));
         AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setName("AO_A__pfScale_EQUALSYMBOL_Box_DouValue"); // NOI18N
         AO_A__pfScale_EQUALSYMBOL_Box_DouValue.setPreferredSize(new java.awt.Dimension(115, 28));
         AO_A__pfScale_EQUALSYMBOL_Box_DouValue.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -600,7 +605,9 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
                         .addComponent(AO_A__pfScale_EQUALSYMBOL_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_A__pfScale_EQUALSYMBOL_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(AO_A__circ_Box)                    .addComponent(AO_A__ImFeelingLucky_Box)                    .addGroup(AO_A_SpanelLayout.createSequentialGroup()
+                    .addComponent(AO_A__circ_Box)
+                    .addComponent(AO_A__ImFeelingLucky_Box)
+                    .addGroup(AO_A_SpanelLayout.createSequentialGroup()
                         .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -615,19 +622,18 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
                     .addComponent(AO_A__partfunc_Box)
                     .addComponent(AO_A__partfunc_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
                 .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_A__MEA_Box)
                     .addComponent(AO_A__MEA_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
                 .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_A__pfScale_EQUALSYMBOL_Box)
                     .addComponent(AO_A__pfScale_EQUALSYMBOL_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
-                .addComponent(AO_A__circ_Box)                .addContainerGap()
-                .addComponent(AO_A__ImFeelingLucky_Box)                .addContainerGap()
+                .addComponent(AO_A__circ_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_A__ImFeelingLucky_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AO_A_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box)
                     .addComponent(AO_A__bppmThreshold_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -658,7 +664,7 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
-        AO_M__temp_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(37.0, -200.0, 250, 1));
+        AO_M__temp_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(37.0d, -200.0d, 250.0d, 1.0d));
         AO_M__temp_Box_DouValue.setName("AO_M__temp_Box_DouValue"); // NOI18N
         AO_M__temp_Box_DouValue.setPreferredSize(new java.awt.Dimension(115, 28));
         AO_M__temp_Box_DouValue.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -728,20 +734,20 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
-        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setText("DirFile");
-        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setName("AO_M__paramFile_EQUALSYMBOL_Box_DirFile"); // NOI18N
-        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AO_M__paramFile_EQUALSYMBOL_Box_DirFile_ActionPerformed(evt);
-            }
-        });
-
         AO_M__paramFile_EQUALSYMBOL_Box_Text.setText("paramfile");
         AO_M__paramFile_EQUALSYMBOL_Box_Text.setName("AO_M__paramFile_EQUALSYMBOL_Box_Text"); // NOI18N
         AO_M__paramFile_EQUALSYMBOL_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
         AO_M__paramFile_EQUALSYMBOL_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 AO_M__paramFile_EQUALSYMBOL_Box_Text_FocusLost(evt);
+            }
+        });
+
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setText("--paramFile=/-P");
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.setName("AO_M__paramFile_EQUALSYMBOL_Box_DirFile"); // NOI18N
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AO_M__paramFile_EQUALSYMBOL_Box_DirFile_ActionPerformed(evt);
             }
         });
 
@@ -753,7 +759,7 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
-        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 1));
+        AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setModel(new javax.swing.SpinnerNumberModel());
         AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setName("AO_M__energyModel_EQUALSYMBOL_Box_IntValue"); // NOI18N
         AO_M__energyModel_EQUALSYMBOL_Box_IntValue.setPreferredSize(new java.awt.Dimension(115, 28));
         AO_M__energyModel_EQUALSYMBOL_Box_IntValue.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -770,7 +776,7 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             }
         });
 
-        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(1.0, null, null, 1.0d));
+        AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setModel(new javax.swing.SpinnerNumberModel(1.0d, null, null, 1.0d));
         AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setName("AO_M__betaScale_EQUALSYMBOL_Box_DouValue"); // NOI18N
         AO_M__betaScale_EQUALSYMBOL_Box_DouValue.setPreferredSize(new java.awt.Dimension(115, 28));
         AO_M__betaScale_EQUALSYMBOL_Box_DouValue.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -792,11 +798,15 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
                         .addComponent(AO_M__temp_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(AO_M__temp_Box_Label))
-                    .addComponent(AO_M__noTetra_Box)                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                    .addComponent(AO_M__noTetra_Box)
+                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
                         .addComponent(AO_M__dangles_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_M__dangles_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(AO_M__noLP_Box)                    .addComponent(AO_M__noGU_Box)                    .addComponent(AO_M__noClosingGU_Box)                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
+                    .addComponent(AO_M__noLP_Box)
+                    .addComponent(AO_M__noGU_Box)
+                    .addComponent(AO_M__noClosingGU_Box)
+                    .addGroup(AO_M_SpanelLayout.createSequentialGroup()
                         .addComponent(AO_M__paramFile_EQUALSYMBOL_Box)
                         .addGap(18, 18, 18)
                         .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -821,22 +831,23 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
                     .addComponent(AO_M__temp_Box_DouValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AO_M__temp_Box_Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
-                .addComponent(AO_M__noTetra_Box)                .addContainerGap()
+                .addComponent(AO_M__noTetra_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_M__dangles_Box)
                     .addComponent(AO_M__dangles_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
-                .addComponent(AO_M__noLP_Box)                .addContainerGap()
-                .addComponent(AO_M__noGU_Box)                .addContainerGap()
-                .addComponent(AO_M__noClosingGU_Box)                .addContainerGap()
+                .addComponent(AO_M__noLP_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_M__noGU_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AO_M__noClosingGU_Box)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_M__paramFile_EQUALSYMBOL_Box)
                     .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AO_M__paramFile_EQUALSYMBOL_Box_DirFile))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addContainerGap()
                 .addGroup(AO_M_SpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AO_M__energyModel_EQUALSYMBOL_Box)
                     .addComponent(AO_M__energyModel_EQUALSYMBOL_Box_IntValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -856,8 +867,8 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
         AO_M__noGU_Box.getAccessibleContext().setAccessibleDescription("Do not allow GU pairs");
         AO_M__noClosingGU_Box.getAccessibleContext().setAccessibleDescription("Do not allow GU pairs at the end of helices");
         AO_M__paramFile_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
-        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
         AO_M__paramFile_EQUALSYMBOL_Box_Text.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
+        AO_M__paramFile_EQUALSYMBOL_Box_DirFile.getAccessibleContext().setAccessibleDescription("Read energy parameters from paramfile, instead of using the default parameter set.");
         AO_M__energyModel_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Rarely used option to fold sequences from the artificial ABCD... alphabet, where A pairs B, C−D etc. Use the energy parameters for GC (−e 1) or AU (−e 2) pairs.");
         AO_M__energyModel_EQUALSYMBOL_Box_IntValue.getAccessibleContext().setAccessibleDescription("Rarely used option to fold sequences from the artificial ABCD... alphabet, where A pairs B, C−D etc. Use the energy parameters for GC (−e 1) or AU (−e 2) pairs.");
         AO_M__betaScale_EQUALSYMBOL_Box.getAccessibleContext().setAccessibleDescription("Set the scaling of the Boltzmann factors");
@@ -871,18 +882,16 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AO_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-                    .addComponent(AO_tabpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AO_tabpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         AO_panelLayout.setVerticalGroup(
             AO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AO_panelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(AO_tabpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
 
         javax.swing.GroupLayout general_jPanel1Layout = new javax.swing.GroupLayout(general_jPanel1);
         general_jPanel1.setLayout(general_jPanel1Layout);
@@ -948,21 +957,21 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(docker_jButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(how_jButton))
             .addComponent(RNAfoldEditors2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(docker_jButton)
-                .addComponent(how_jButton)
-                   )
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(docker_jButton)
+                    .addComponent(how_jButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RNAfoldEditors2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        docker_jButton.getAccessibleContext().setAccessibleDescription("Access to the docker editor");
         how_jButton.getAccessibleContext().setAccessibleDescription(".");
         RNAfoldEditors2.getAccessibleContext().setAccessibleName("RNAfoldEditors");
 
@@ -1702,10 +1711,18 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
     private void menuFields(workflow_properties properties) {
         if (properties.isSet(Default_Options_RButton.getName())) {
             Default_Options_RButton.setSelected(true);
+            Advanced_Options_RButton.setSelected(false);
             enabledFunctionForGeneral(false);
             enabledFunctionForStruct(false);
             enabledFunctionForAlgo(false);
             enabledFunctionForModel(false);
+        } else if (properties.isSet(Advanced_Options_RButton.getName())) {
+            Default_Options_RButton.setSelected(false);
+            Advanced_Options_RButton.setSelected(true);
+            enabledFunctionForGeneral(true);
+            enabledFunctionForStruct(true);
+            enabledFunctionForAlgo(true);
+            enabledFunctionForModel(true);
         }
     }
 
@@ -1725,71 +1742,71 @@ public class RNAfoldEditors extends javax.swing.JDialog implements EditorInterfa
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton how_jButton;
-    private javax.swing.JButton docker_jButton;
+    private javax.swing.JPanel AO_A_Spanel;
+    private javax.swing.JCheckBox AO_A__ImFeelingLucky_Box;
+    private javax.swing.JCheckBox AO_A__MEA_Box;
+    private javax.swing.JSpinner AO_A__MEA_Box_IntValue;
+    private javax.swing.JCheckBox AO_A__bppmThreshold_EQUALSYMBOL_Box;
+    private javax.swing.JTextField AO_A__bppmThreshold_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_A__circ_Box;
+    private javax.swing.JCheckBox AO_A__gquad_Box;
+    private javax.swing.JCheckBox AO_A__partfunc_Box;
+    private javax.swing.JSpinner AO_A__partfunc_Box_IntValue;
+    private javax.swing.JCheckBox AO_A__pfScale_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_A__pfScale_EQUALSYMBOL_Box_DouValue;
+    private javax.swing.JPanel AO_G_Spanel;
+    private javax.swing.JCheckBox AO_G__layoutType_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_G__layoutType_EQUALSYMBOL_Box_BooValue;
+    private javax.swing.JCheckBox AO_G__noPS_Box;
+    private javax.swing.JCheckBox AO_G__noconv_Box;
+    private javax.swing.JPanel AO_M_Spanel;
+    private javax.swing.JCheckBox AO_M__betaScale_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_M__betaScale_EQUALSYMBOL_Box_DouValue;
+    private javax.swing.JCheckBox AO_M__dangles_Box;
+    private javax.swing.JSpinner AO_M__dangles_Box_IntValue;
+    private javax.swing.JCheckBox AO_M__energyModel_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_M__energyModel_EQUALSYMBOL_Box_IntValue;
+    private javax.swing.JCheckBox AO_M__noClosingGU_Box;
+    private javax.swing.JCheckBox AO_M__noGU_Box;
+    private javax.swing.JCheckBox AO_M__noLP_Box;
+    private javax.swing.JCheckBox AO_M__noTetra_Box;
+    private javax.swing.JCheckBox AO_M__paramFile_EQUALSYMBOL_Box;
+    private javax.swing.JButton AO_M__paramFile_EQUALSYMBOL_Box_DirFile;
+    private javax.swing.JTextField AO_M__paramFile_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_M__temp_Box;
+    private javax.swing.JSpinner AO_M__temp_Box_DouValue;
+    private javax.swing.JLabel AO_M__temp_Box_Label;
+    private javax.swing.JPanel AO_S_Spanel;
+    private javax.swing.JCheckBox AO_S__canonicalBPonly_Box;
+    private javax.swing.JCheckBox AO_S__constraint_Box;
+    private javax.swing.JCheckBox AO_S__enforceConstraint_Box;
+    private javax.swing.JCheckBox AO_S__maxBPspan_EQUALSYMBOL_Box;
+    private javax.swing.JSpinner AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue;
+    private javax.swing.JCheckBox AO_S__motif_EQUALSYMBOL_Box;
+    private javax.swing.JTextField AO_S__motif_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_S__shapeConversion_EQUALSYMBOL_Box;
+    private javax.swing.JComboBox AO_S__shapeConversion_EQUALSYMBOL_Box_List;
+    private javax.swing.JCheckBox AO_S__shapeMethod_EQUALSYMBOL_Box;
+    private javax.swing.JTextField AO_S__shapeMethod_EQUALSYMBOL_Box_Text;
+    private javax.swing.JCheckBox AO_S__shape_EQUALSYMBOL_Box;
+    private javax.swing.JButton AO_S__shape_EQUALSYMBOL_Box_DirFile;
+    private javax.swing.JTextField AO_S__shape_EQUALSYMBOL_Box_Text;
+    private javax.swing.JPanel AO_panel;
+    private javax.swing.JTabbedPane AO_tabpanel;
+    private javax.swing.JRadioButton Advanced_Options_RButton;
+    private javax.swing.JRadioButton Default_Options_RButton;
+    private javax.swing.ButtonGroup Menu_Buttons;
     private javax.swing.JTabbedPane RNAfoldEditors2;
+    private javax.swing.JButton close_jButton;
+    private javax.swing.JButton docker_jButton;
     private javax.swing.JPanel general_jPanel1;
+    private javax.swing.JButton how_jButton;
     private javax.swing.JLabel name_jLabel;
     private javax.swing.JTextField name_jTextField;
     private javax.swing.JButton rename_jButton;
     private javax.swing.JButton reset_jButton;
-    private javax.swing.JButton close_jButton;
-    private javax.swing.JButton stop_jButton;
     private javax.swing.JButton run_jButton;
-    private javax.swing.ButtonGroup Menu_Buttons;
-    private javax.swing.JRadioButton Default_Options_RButton;
-    private javax.swing.JRadioButton Advanced_Options_RButton;
-    private javax.swing.JPanel AO_panel;
-    private javax.swing.JTabbedPane AO_tabpanel;
-    private javax.swing.JPanel AO_G_Spanel;
-    private javax.swing.JCheckBox AO_G__noPS_Box;
-    private javax.swing.JCheckBox AO_G__layoutType_EQUALSYMBOL_Box;
-    private javax.swing.JSpinner AO_G__layoutType_EQUALSYMBOL_Box_BooValue;
-    private javax.swing.JCheckBox AO_G__noconv_Box;
-    private javax.swing.JPanel AO_S_Spanel;
-    private javax.swing.JCheckBox AO_S__maxBPspan_EQUALSYMBOL_Box;
-    private javax.swing.JSpinner AO_S__maxBPspan_EQUALSYMBOL_Box_IntValue;
-    private javax.swing.JCheckBox AO_S__constraint_Box;
-    private javax.swing.JCheckBox AO_S__canonicalBPonly_Box;
-    private javax.swing.JCheckBox AO_S__enforceConstraint_Box;
-    private javax.swing.JCheckBox AO_S__shape_EQUALSYMBOL_Box;
-    private javax.swing.JButton AO_S__shape_EQUALSYMBOL_Box_DirFile;
-    private javax.swing.JTextField AO_S__shape_EQUALSYMBOL_Box_Text;
-    private javax.swing.JCheckBox AO_S__shapeMethod_EQUALSYMBOL_Box;
-    private javax.swing.JTextField AO_S__shapeMethod_EQUALSYMBOL_Box_Text;
-    private javax.swing.JCheckBox AO_S__shapeConversion_EQUALSYMBOL_Box;
-    private javax.swing.JComboBox AO_S__shapeConversion_EQUALSYMBOL_Box_List;
-    private javax.swing.JCheckBox AO_S__motif_EQUALSYMBOL_Box;
-    private javax.swing.JTextField AO_S__motif_EQUALSYMBOL_Box_Text;
-    private javax.swing.JPanel AO_A_Spanel;
-    private javax.swing.JCheckBox AO_A__partfunc_Box;
-    private javax.swing.JSpinner AO_A__partfunc_Box_IntValue;
-    private javax.swing.JCheckBox AO_A__MEA_Box;
-    private javax.swing.JSpinner AO_A__MEA_Box_IntValue;
-    private javax.swing.JCheckBox AO_A__pfScale_EQUALSYMBOL_Box;
-    private javax.swing.JSpinner AO_A__pfScale_EQUALSYMBOL_Box_DouValue;
-    private javax.swing.JCheckBox AO_A__circ_Box;
-    private javax.swing.JCheckBox AO_A__ImFeelingLucky_Box;
-    private javax.swing.JCheckBox AO_A__bppmThreshold_EQUALSYMBOL_Box;
-    private javax.swing.JTextField AO_A__bppmThreshold_EQUALSYMBOL_Box_Text;
-    private javax.swing.JCheckBox AO_A__gquad_Box;
-    private javax.swing.JPanel AO_M_Spanel;
-    private javax.swing.JCheckBox AO_M__temp_Box;
-    private javax.swing.JSpinner AO_M__temp_Box_DouValue;
-    private javax.swing.JLabel AO_M__temp_Box_Label;
-    private javax.swing.JCheckBox AO_M__noTetra_Box;
-    private javax.swing.JCheckBox AO_M__dangles_Box;
-    private javax.swing.JSpinner AO_M__dangles_Box_IntValue;
-    private javax.swing.JCheckBox AO_M__noLP_Box;
-    private javax.swing.JCheckBox AO_M__noGU_Box;
-    private javax.swing.JCheckBox AO_M__noClosingGU_Box;
-    private javax.swing.JCheckBox AO_M__paramFile_EQUALSYMBOL_Box;
-    private javax.swing.JButton AO_M__paramFile_EQUALSYMBOL_Box_DirFile;
-    private javax.swing.JTextField AO_M__paramFile_EQUALSYMBOL_Box_Text;
-    private javax.swing.JCheckBox AO_M__energyModel_EQUALSYMBOL_Box;
-    private javax.swing.JSpinner AO_M__energyModel_EQUALSYMBOL_Box_IntValue;
-    private javax.swing.JCheckBox AO_M__betaScale_EQUALSYMBOL_Box;
-    private javax.swing.JSpinner AO_M__betaScale_EQUALSYMBOL_Box_DouValue;
+    private javax.swing.JButton stop_jButton;
     // End of variables declaration//GEN-END:variables
     }
 

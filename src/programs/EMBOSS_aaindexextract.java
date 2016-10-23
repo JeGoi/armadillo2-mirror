@@ -94,7 +94,7 @@ public class EMBOSS_aaindexextract extends RunProgram {
         // TEST Docker initialisation
         doName = Docker.getContainersVal(doName);
         if (!dockerInit(outputPath,doSharedFolder,doName,doImage)) {
-            Docker.cleanContainers(doName);
+            Docker.cleanContainer(doName);
             return false;
         } else {
             properties.put("DOCKERName",doName);
@@ -143,14 +143,12 @@ public class EMBOSS_aaindexextract extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        Util.deleteDir(outputPath+File.separator+"INPUTS");
-        ArrayList<String> a = new ArrayList<String>();
-        a.add(doName);
-        Docker.cleanContainers(a);
         boolean b1 = Docker.copyDockerDirToSharedDir("/usr/share/EMBOSS/data/",doSharedFolder+"EMBOSS_aaindexextract",doName);
         if (!b1) setStatus(status_BadRequirements,"Docker Files Copy Failed");
         boolean b2 = Util.copyDirectory(doSharedFolder+"EMBOSS_aaindexextract","./results/EMBOSS/data/EMBOSS_aaindexextract");
         if (!b2) setStatus(status_BadRequirements,"Saved Files Copy Failed");
+        Util.deleteDir(inputPath);
+        Docker.cleanContainer(doName);
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_aaindexextract");
     }
 }

@@ -270,7 +270,7 @@ public class Docker {
     /**
      * Clean (stop and remove) Docker Containers List
      */
-    public static boolean cleanContainers(String s) {
+    public static boolean cleanContainer(String s) {
         ArrayList<String> a = new ArrayList<String>();
         a.add(s);
         return cleanContainers(a);
@@ -374,7 +374,7 @@ public class Docker {
     
     public static boolean CleanContainerName(workflow_properties properties) {
         if (properties.isSet("DOCKERName")) {
-            return cleanContainers(properties.get("DOCKERName"));
+            return cleanContainer(properties.get("DOCKERName"));
         }
         return true;
     }

@@ -7,7 +7,7 @@
 package programs;
 
 import biologic.FastaFile;
-import biologic.GenomeFile;
+import biologic.TextFile;
 import biologic.Results;
 import biologic.Text;
 import configuration.Util;
@@ -42,15 +42,6 @@ public class miRcheck extends RunProgram{
     
     @Override
     public boolean init_checkRequirements() {
-        // File output directory
-        if (properties.get("IDG_r_text").equals("") || !properties.isSet("IDG_r_text")) {
-            properties.put("IDG_r_text",outputPath);
-            if (!Util.CreateDir(outputPath)) {
-                setStatus(status_BadRequirements,"Directory can not be created");
-                return false;
-            }
-        }
-        
         // Inputs
         Vector<Integer>Fasta1 = properties.getInputID("FastaFile",PortInputDOWN);
         String s1 = Util.getFileName(FastaFile.getVectorFilePath(Fasta1));
@@ -77,8 +68,8 @@ public class miRcheck extends RunProgram{
             File outfile = new File(properties.get("IDG_r_text"));
             String abs = outfile.getAbsolutePath();
             abs = abs.replaceAll(File.separator+"\\."+File.separator,File.separator);
-            outputFile = abs+File.separator+outputFile+".fasta";
-        } else outputFile = properties.get("IDG_r_text")+File.separator+outputFile+".fasta";
+            outputFile = abs+File.separator+outputFile+".txt";
+        } else outputFile = properties.get("IDG_r_text")+File.separator+outputFile+".txt";
         
         if (!outputFile.equals(fastaFile1)) {
             boolean b1 = Util.copy(fastaFile1,outputFile);
@@ -105,8 +96,8 @@ public class miRcheck extends RunProgram{
     
     @Override
     public void post_parseOutput() {
-        GenomeFile.saveFile(properties,outputFile,"Bwa Indexer","GenomeFile");
-        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"Bwa Indexer");
+        TextFile.saveFile(properties,outputFile,"miRcheck","TextFile");
+        Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"miRcheck");
     }
     
     

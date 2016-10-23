@@ -102,7 +102,7 @@ public class EMBOSS_banana extends RunProgram {
         // TEST Docker initialisation
         doName = Docker.getContainersVal(doName);
         if (!dockerInit(outputPath,doSharedFolder,doName,doImage)) {
-            Docker.cleanContainers(doName);
+            Docker.cleanContainer(doName);
             return false;
         } else {
             properties.put("DOCKERName",doName);
@@ -157,10 +157,8 @@ public class EMBOSS_banana extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        Util.deleteDir(outputPath+File.separator+"INPUTS");
-        ArrayList<String> a = new ArrayList<String>();
-        a.add(doName);
-        Docker.cleanContainers(a);
+        Util.deleteDir(inputPath);
+        Docker.cleanContainer(doName);
         BananaFile.saveFile(properties,output1,"EMBOSS_banana","BananaFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_banana");
     }

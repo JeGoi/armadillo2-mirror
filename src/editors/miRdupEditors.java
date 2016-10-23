@@ -59,26 +59,31 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-    
-        how_jButton = new javax.swing.JButton();            //Basic Panel
-        miRdupEditors = new javax.swing.JTabbedPane(); //Basic Panel
-        general_jPanel1 = new javax.swing.JPanel();          //Basic Panel
-        rename_jButton = new javax.swing.JButton();         //Basic Panel
-        name_jTextField = new javax.swing.JTextField();     //Basic Panel
-        name_jLabel = new javax.swing.JLabel();             //Basic Panel
-        reset_jButton = new javax.swing.JButton();          //Basic Panel
-        stop_jButton = new javax.swing.JButton();           //Basic Panel
-        run_jButton = new javax.swing.JButton();            //Basic Panel
-        close_jButton = new javax.swing.JButton();          //Basic Panel
+
+        SelectOption = new javax.swing.ButtonGroup();
+        how_jButton = new javax.swing.JButton();
+        miRdupEditors = new javax.swing.JTabbedPane();
+        general_jPanel1 = new javax.swing.JPanel();
+        name_jLabel = new javax.swing.JLabel();
+        name_jTextField = new javax.swing.JTextField();
+        rename_jButton = new javax.swing.JButton();
         Default_Options_RButton = new javax.swing.JRadioButton();
         Train_Valid_and_Pred_RButton = new javax.swing.JRadioButton();
         Training_Section_RButton = new javax.swing.JRadioButton();
         Validation_Section_RButton = new javax.swing.JRadioButton();
         Prediction_Section_RButton = new javax.swing.JRadioButton();
+        O_panel = new javax.swing.JPanel();
+        O_tabpanel = new javax.swing.JTabbedPane();
+        O_C_panel = new javax.swing.JPanel();
+        O_C_r_Box = new javax.swing.JCheckBox();
+        O_C_r_Box_DirFile = new javax.swing.JTextField();
+        O_C_r_Box_Label = new javax.swing.JLabel();
+        O_C_r_Box_Dir = new javax.swing.JButton();
+        O_TO_panel = new javax.swing.JPanel();
         O_TO_k_Box = new javax.swing.JCheckBox();
-        O_TO_k_Box_Dir = new javax.swing.JButton();
         O_TO_k_Box_DirFiles = new javax.swing.JTextField();
         O_TO_k_Box_Label = new javax.swing.JLabel();
+        O_TO_k_Box_Dir = new javax.swing.JButton();
         O_TO_m_Box = new javax.swing.JCheckBox();
         O_TO_m_Box_DirRep = new javax.swing.JTextField();
         O_TO_m_Box_Dir = new javax.swing.JButton();
@@ -90,10 +95,12 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         O_TO_s_Box_Text = new javax.swing.JTextField();
         O_TO_v_Box = new javax.swing.JCheckBox();
         O_TO_v_Box_Text = new javax.swing.JTextField();
+        O_VO_panel = new javax.swing.JPanel();
         O_VO_c_Box = new javax.swing.JCheckBox();
         O_VO_c_Box_Text = new javax.swing.JTextField();
         O_VO_p_Box = new javax.swing.JCheckBox();
         O_VO_p_Box_Text = new javax.swing.JTextField();
+        O_PO_panel = new javax.swing.JPanel();
         O_PO_predict_Box = new javax.swing.JCheckBox();
         O_PO_predict_Box_Text = new javax.swing.JTextField();
         O_PO_u_Box = new javax.swing.JCheckBox();
@@ -104,672 +111,679 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         O_PO_f_Box_Text = new javax.swing.JTextField();
         O_PO_i_Box = new javax.swing.JCheckBox();
         O_PO_i_Box_Text = new javax.swing.JTextField();
-        O_C_r_Box = new javax.swing.JCheckBox();
-        O_C_r_Box_DirFile = new javax.swing.JTextField();
-        O_C_r_Box_Dir = new javax.swing.JButton();
-        O_C_r_Box_Label = new javax.swing.JLabel();
-        O_tabpanel = new javax.swing.JTabbedPane();
-        O_C_panel = new javax.swing.JPanel();
-        O_panel = new javax.swing.JPanel();
-        O_PO_panel = new javax.swing.JPanel();
-        O_TO_panel = new javax.swing.JPanel();
-        O_VO_panel = new javax.swing.JPanel();
+        reset_jButton = new javax.swing.JButton();
+        stop_jButton = new javax.swing.JButton();
+        run_jButton = new javax.swing.JButton();
+        close_jButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        how_jButton.setText("?");
+        how_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                how_jButton_ActionPerformed(evt);
+            }
+        });
 
-            how_jButton.setText("?");
-            how_jButton.setName("how_jButton"); // NOI18N
-            how_jButton.getAccessibleContext().setAccessibleDescription("Computational prediction of the localization of microRNAs within their pre-miRNA");
-            how_jButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    how_jButton_ActionPerformed(evt);
-                }
-            });
-
-
-            name_jTextField.setText("miRdupEditors");
-            name_jTextField.setName("name_jTextField"); // NOI18N
-            name_jTextField.getAccessibleContext().setAccessibleDescription("");
-            name_jTextField.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    name_jTextField_ActionPerformed(evt);
-                }
-            });
-
-
-            rename_jButton.setText("Rename");
-            rename_jButton.setName("rename_jButton"); // NOI18N
-            rename_jButton.getAccessibleContext().setAccessibleDescription("Rename the box");
-            rename_jButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    rename_jButton_ActionPerformed(evt);
-                }
-            });
-
-
-            reset_jButton.setText("Reset");
-            reset_jButton.setName("reset_jButton"); // NOI18N
-            reset_jButton.getAccessibleContext().setAccessibleDescription("Reset default value");
-            reset_jButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    reset_jButton_ActionPerformed(evt);
-                }
-            });
-
-
-            stop_jButton.setText("Stop");
-            stop_jButton.setName("stop_jButton"); // NOI18N
-            stop_jButton.getAccessibleContext().setAccessibleDescription("Stop the program");
-            stop_jButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    stop_jButton_ActionPerformed(evt);
-                }
-            });
-
-
-            run_jButton.setText("Run");
-            run_jButton.setName("run_jButton"); // NOI18N
-            run_jButton.getAccessibleContext().setAccessibleDescription("Run the program");
-            run_jButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    run_jButton_ActionPerformed(evt);
-                }
-            });
-
-
-            close_jButton.setText("Close");
-            close_jButton.setName("close_jButton"); // NOI18N
-            close_jButton.getAccessibleContext().setAccessibleDescription("Close this window");
-            close_jButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    close_jButton_ActionPerformed(evt);
-                }
-            });
-
-
-            Default_Options_RButton.setText("Default Options");
-            Default_Options_RButton.setName("Default_Options_RButton"); // NOI18N
-            Default_Options_RButton.getAccessibleContext().setAccessibleDescription("Default_Options_RButton");
-            Default_Options_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Default_Options_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-            Train_Valid_and_Pred_RButton.setText("Train Valid and Pred");
-            Train_Valid_and_Pred_RButton.setName("Train_Valid_and_Pred_RButton"); // NOI18N
-            Train_Valid_and_Pred_RButton.getAccessibleContext().setAccessibleDescription("Train_Valid_and_Pred_RButton");
-            Train_Valid_and_Pred_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Train_Valid_and_Pred_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-            Training_Section_RButton.setText("Training Section");
-            Training_Section_RButton.setName("Training_Section_RButton"); // NOI18N
-            Training_Section_RButton.getAccessibleContext().setAccessibleDescription("Training_Section_RButton");
-            Training_Section_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Training_Section_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-            Validation_Section_RButton.setText("Validation Section");
-            Validation_Section_RButton.setName("Validation_Section_RButton"); // NOI18N
-            Validation_Section_RButton.getAccessibleContext().setAccessibleDescription("Validation_Section_RButton");
-            Validation_Section_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Validation_Section_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-            Prediction_Section_RButton.setText("Prediction Section");
-            Prediction_Section_RButton.setName("Prediction_Section_RButton"); // NOI18N
-            Prediction_Section_RButton.getAccessibleContext().setAccessibleDescription("Prediction_Section_RButton");
-            Prediction_Section_RButton.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    Prediction_Section_RButton_ActionPerformed(evt);
-                }
-            });
-
-
-        O_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N        O_panel.setName("O_panel"); // NOI18N
-
-        O_tabpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "O_tabpanel"));
-
-        O_TO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Training_Options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        O_TO_panel.setName("O_TO_panel"); // NOI18N
-        
-
-            O_TO_k_Box.setText("k");
-            O_TO_k_Box.setName("O_TO_k_Box"); // NOI18N
-            O_TO_k_Box.getAccessibleContext().setAccessibleDescription("Species keyword. Used to train on a portion of miRbase instead on all miRbase ex: Metazoa, Primates, Nematoda, Viridiplantae, monocotyledons");
-            O_TO_k_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_k_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_TO_k_Box_DirFiles.setName("O_TO_k_Box_DirFiles"); // NOI18N
-            O_TO_k_Box_DirFiles.getAccessibleContext().setAccessibleDescription("Species keyword. Used to train on a portion of miRbase instead on all miRbase ex: Metazoa, Primates, Nematoda, Viridiplantae, monocotyledons");
-            O_TO_k_Box_DirFiles.setText("Metazoa, Primates, Nematoda, Viridiplantae, monocotyledons");
-            O_TO_k_Box_DirFiles.setPreferredSize(new java.awt.Dimension(220, 27));
-            
-
-            O_TO_k_Box_Dir.setText("O_TO_k_Box");
-            O_TO_k_Box_Dir.setName("O_TO_k_Box_Dir"); // NOI18N
-            O_TO_k_Box_Dir.getAccessibleContext().setAccessibleDescription("Species keyword. Used to train on a portion of miRbase instead on all miRbase ex: Metazoa, Primates, Nematoda, Viridiplantae, monocotyledons");
-            O_TO_k_Box_Dir.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_k_Box_Dir_ActionPerformed(evt);
-                }
-            });
-
-
-            O_TO_k_Box_Label.setText("Default: all miRbase (option -k all, already set)");
-            O_TO_k_Box_Label.setName("O_TO_k_Box_Label"); // NOI18N
-            O_TO_k_Box_Label.getAccessibleContext().setAccessibleDescription("Default: all miRbase (option -k all, already set)");
-            O_TO_k_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-
-            O_TO_m_Box.setText("m");
-            O_TO_m_Box.setName("O_TO_m_Box"); // NOI18N
-            O_TO_m_Box.getAccessibleContext().setAccessibleDescription("Matures miRNAs file, in FASTA format. Submit it if you are offline (no internet connexion) or if you want to train on your own sequences. Be careful to have the same sequences names than the hairpin precursors file.");
-            O_TO_m_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_m_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            O_TO_m_Box_Dir.setText("O_TO_m_Box");
-            O_TO_m_Box_Dir.setName("O_TO_m_Box_Dir"); // NOI18N
-            O_TO_m_Box_Dir.getAccessibleContext().setAccessibleDescription("Matures miRNAs file, in FASTA format. Submit it if you are offline (no internet connexion) or if you want to train on your own sequences. Be careful to have the same sequences names than the hairpin precursors file.");
-            O_TO_m_Box_Dir.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_m_Box_Dir_ActionPerformed(evt);
-                }
-            });
-
-            O_TO_m_Box_DirRep.setName("O_TO_m_Box_DirRep"); // NOI18N
-            O_TO_m_Box_DirRep.getAccessibleContext().setAccessibleDescription("Matures miRNAs file, in FASTA format. Submit it if you are offline (no internet connexion) or if you want to train on your own sequences. Be careful to have the same sequences names than the hairpin precursors file.");
-            O_TO_m_Box_DirRep.setText("Matures miRNAs file, in FASTA format");
-            O_TO_m_Box_DirRep.setPreferredSize(new java.awt.Dimension(220, 27));
-            
-
-            O_TO_h_Box.setText("h");
-            O_TO_h_Box.setName("O_TO_h_Box"); // NOI18N
-            O_TO_h_Box.getAccessibleContext().setAccessibleDescription("Hairpins precursors file, in FASTA format. Submit it if you are offline or if you want to train on your own sequences. Be careful to have the same sequences names than the mature miRNAs file.");
-            O_TO_h_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_h_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_TO_h_Box_Text.setName("O_TO_h_Box_Text"); // NOI18N
-            O_TO_h_Box_Text.getAccessibleContext().setAccessibleDescription("Hairpins precursors file, in FASTA format. Submit it if you are offline or if you want to train on your own sequences. Be careful to have the same sequences names than the mature miRNAs file.");
-            O_TO_h_Box_Text.setText("Hairpins precursors file, in FASTA format");
-            O_TO_h_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_TO_h_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_TO_h_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_TO_o_Box.setText("o");
-            O_TO_o_Box.setName("O_TO_o_Box"); // NOI18N
-            O_TO_o_Box.getAccessibleContext().setAccessibleDescription("Organism list file from miRbase. Submit it if you are offline or if you submit a keyword and train the model with local datasets.");
-            O_TO_o_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_o_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_TO_o_Box_Text.setName("O_TO_o_Box_Text"); // NOI18N
-            O_TO_o_Box_Text.getAccessibleContext().setAccessibleDescription("Organism list file from miRbase. Submit it if you are offline or if you submit a keyword and train the model with local datasets.");
-            O_TO_o_Box_Text.setText("Organism list file from miRbase");
-            O_TO_o_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_TO_o_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_TO_o_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_TO_s_Box.setText("s");
-            O_TO_s_Box.setName("O_TO_s_Box"); // NOI18N
-            O_TO_s_Box.getAccessibleContext().setAccessibleDescription("Secondary structure of precursors pre-calculated, if it's already done. Must be in RNAFold output format.");
-            O_TO_s_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_s_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_TO_s_Box_Text.setName("O_TO_s_Box_Text"); // NOI18N
-            O_TO_s_Box_Text.getAccessibleContext().setAccessibleDescription("Secondary structure of precursors pre-calculated, if it's already done. Must be in RNAFold output format.");
-            O_TO_s_Box_Text.setText("Secondary structure RNAFold output format");
-            O_TO_s_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_TO_s_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_TO_s_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_TO_v_Box.setText("v");
-            O_TO_v_Box.setName("O_TO_v_Box"); // NOI18N
-            O_TO_v_Box.getAccessibleContext().setAccessibleDescription("Dataset to validate, in tabbed format: name1 matureMiRNASequence1 precursorSequence1 SecondaryStructure1 . If secondary structures are not submitted, they will be calculated with RNAfold.");
-            O_TO_v_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_TO_v_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_TO_v_Box_Text.setName("O_TO_v_Box_Text"); // NOI18N
-            O_TO_v_Box_Text.getAccessibleContext().setAccessibleDescription("Dataset to validate, in tabbed format: name1 matureMiRNASequence1 precursorSequence1 SecondaryStructure1 . If secondary structures are not submitted, they will be calculated with RNAfold.");
-            O_TO_v_Box_Text.setText("Dataset to validate");
-            O_TO_v_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_TO_v_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_TO_v_Box_Text_FocusLost(evt);
-                }
-            });
-            
-        O_VO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Validation_Options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        O_VO_panel.setName("O_VO_panel"); // NOI18N
-        
-
-            O_VO_c_Box.setText("c");
-            O_VO_c_Box.setName("O_VO_c_Box"); // NOI18N
-            O_VO_c_Box.getAccessibleContext().setAccessibleDescription("If you already have trained a model with miRdup and want to validate a dataset, submit the model with this option.");
-            O_VO_c_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_VO_c_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_VO_c_Box_Text.setName("O_VO_c_Box_Text"); // NOI18N
-            O_VO_c_Box_Text.getAccessibleContext().setAccessibleDescription("If you already have trained a model with miRdup and want to validate a dataset, submit the model with this option.");
-            O_VO_c_Box_Text.setText("model with miRdup");
-            O_VO_c_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_VO_c_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_VO_c_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_VO_p_Box.setText("p");
-            O_VO_p_Box.setName("O_VO_p_Box"); // NOI18N
-            O_VO_p_Box.getAccessibleContext().setAccessibleDescription("When you validate miRNAs on predicted pre-miRNAs, all unvalidated miRNAs will be recalculated to give you a new potential miRNA compatible with predicted pre-miRNAs.");
-            O_VO_p_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_VO_p_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_VO_p_Box_Text.setName("O_VO_p_Box_Text"); // NOI18N
-            O_VO_p_Box_Text.getAccessibleContext().setAccessibleDescription("When you validate miRNAs on predicted pre-miRNAs, all unvalidated miRNAs will be recalculated to give you a new potential miRNA compatible with predicted pre-miRNAs.");
-            O_VO_p_Box_Text.setText("When you validate miRNAs on predicted pre-miRNAs");
-            O_VO_p_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_VO_p_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_VO_p_Box_Text_FocusLost(evt);
-                }
-            });
-            
-        O_PO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prediction_Options", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        O_PO_panel.setName("O_PO_panel"); // NOI18N
-        
-
-            O_PO_predict_Box.setText("predict");
-            O_PO_predict_Box.setName("O_PO_predict_Box"); // NOI18N
-            O_PO_predict_Box.getAccessibleContext().setAccessibleDescription("Enter in miRNA prediction mode");
-            O_PO_predict_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_PO_predict_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_PO_predict_Box_Text.setName("O_PO_predict_Box_Text"); // NOI18N
-            O_PO_predict_Box_Text.getAccessibleContext().setAccessibleDescription("Enter in miRNA prediction mode");
-            O_PO_predict_Box_Text.setText("Enter in miRNA prediction mode");
-            O_PO_predict_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_PO_predict_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_PO_predict_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_PO_u_Box.setText("u");
-            O_PO_u_Box.setName("O_PO_u_Box"); // NOI18N
-            O_PO_u_Box.getAccessibleContext().setAccessibleDescription("Precursor sequence. Only works with prediction mode.");
-            O_PO_u_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_PO_u_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_PO_u_Box_Text.setName("O_PO_u_Box_Text"); // NOI18N
-            O_PO_u_Box_Text.getAccessibleContext().setAccessibleDescription("Precursor sequence. Only works with prediction mode.");
-            O_PO_u_Box_Text.setText("Precursor sequence");
-            O_PO_u_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_PO_u_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_PO_u_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_PO_d_Box.setText("d");
-            O_PO_d_Box.setName("O_PO_d_Box"); // NOI18N
-            O_PO_d_Box.getAccessibleContext().setAccessibleDescription("Model. Only works with prediction mode.");
-            O_PO_d_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_PO_d_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_PO_d_Box_Text.setName("O_PO_d_Box_Text"); // NOI18N
-            O_PO_d_Box_Text.getAccessibleContext().setAccessibleDescription("Model. Only works with prediction mode.");
-            O_PO_d_Box_Text.setText("Model");
-            O_PO_d_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_PO_d_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_PO_d_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_PO_f_Box.setText("f");
-            O_PO_f_Box.setName("O_PO_f_Box"); // NOI18N
-            O_PO_f_Box.getAccessibleContext().setAccessibleDescription("Outfile. Only works with prediction mode.");
-            O_PO_f_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_PO_f_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_PO_f_Box_Text.setName("O_PO_f_Box_Text"); // NOI18N
-            O_PO_f_Box_Text.getAccessibleContext().setAccessibleDescription("Outfile. Only works with prediction mode.");
-            O_PO_f_Box_Text.setText("Outfile");
-            O_PO_f_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_PO_f_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_PO_f_Box_Text_FocusLost(evt);
-                }
-            });
-            
-
-            O_PO_i_Box.setText("i");
-            O_PO_i_Box.setName("O_PO_i_Box"); // NOI18N
-            O_PO_i_Box.getAccessibleContext().setAccessibleDescription("infile of pre-miRNAs if you have more than one to give to miRdup. Only works with prediction mode.");
-            O_PO_i_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_PO_i_Box_ActionPerformed(evt);
-                }
-            });
-
-            O_PO_i_Box_Text.setName("O_PO_i_Box_Text"); // NOI18N
-            O_PO_i_Box_Text.getAccessibleContext().setAccessibleDescription("infile of pre-miRNAs if you have more than one to give to miRdup. Only works with prediction mode.");
-            O_PO_i_Box_Text.setText("infile of pre-miRNAs");
-            O_PO_i_Box_Text.setPreferredSize(new java.awt.Dimension(220, 27));
-            O_PO_i_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
-                public void focusLost(java.awt.event.FocusEvent evt) {
-                    O_PO_i_Box_Text_FocusLost(evt);
-                }
-            });
-            
-        O_C_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Configuration", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Ubuntu", 1, 15))); // NOI18N
-        O_C_panel.setName("O_C_panel"); // NOI18N
-        
-
-            O_C_r_Box.setText("r");
-            O_C_r_Box.setName("O_C_r_Box"); // NOI18N
-            O_C_r_Box.getAccessibleContext().setAccessibleDescription("Progs folder path of vienna package, usually ../ViennaRNA-2.0.5/Progs/    Must be set in linux and Mac. For windows, put executables in mirdup folder");
-            O_C_r_Box.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_C_r_Box_ActionPerformed(evt);
-                }
-            });
-
-
-            O_C_r_Box_Dir.setText("O_C_r_Box");
-            O_C_r_Box_Dir.setName("O_C_r_Box_Dir"); // NOI18N
-            O_C_r_Box_Dir.getAccessibleContext().setAccessibleDescription("Progs folder path of vienna package, usually ../ViennaRNA-2.0.5/Progs/    Must be set in linux and Mac. For windows, put executables in mirdup folder");
-            O_C_r_Box_Dir.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    O_C_r_Box_Dir_ActionPerformed(evt);
-                }
-            });
-
-
-            O_C_r_Box_Label.setText("path of vienna package");
-            O_C_r_Box_Label.setName("O_C_r_Box_Label"); // NOI18N
-            O_C_r_Box_Label.getAccessibleContext().setAccessibleDescription("path of vienna package");
-            O_C_r_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-            O_C_r_Box_DirFile.setName("O_C_r_Box_DirFile"); // NOI18N
-            O_C_r_Box_DirFile.getAccessibleContext().setAccessibleDescription("Progs folder path of vienna package, usually ../ViennaRNA-2.0.5/Progs/    Must be set in linux and Mac. For windows, put executables in mirdup folder");
-            O_C_r_Box_DirFile.setText("[path of vienna package]");
-            O_C_r_Box_DirFile.setPreferredSize(new java.awt.Dimension(220, 27));
-            
-
-    javax.swing.GroupLayout O_tabpanelLayout = new javax.swing.GroupLayout(O_tabpanel);
-    O_tabpanel.setLayout(O_tabpanelLayout);
-    O_tabpanelLayout.setHorizontalGroup(
-        O_tabpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, O_tabpanelLayout.createSequentialGroup()
-            .addContainerGap() // truc
-        )
-    );
-    O_tabpanelLayout.setVerticalGroup(
-        O_tabpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(O_tabpanelLayout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout O_C_panelLayout = new javax.swing.GroupLayout(O_C_panel);
-    O_C_panel.setLayout(O_C_panelLayout);
-    O_C_panelLayout.setHorizontalGroup(
-        O_C_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, O_C_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(O_C_r_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_C_r_Box_DirFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_C_r_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_C_r_Box_Dir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    O_C_panelLayout.setVerticalGroup(
-        O_C_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(O_C_panelLayout.createSequentialGroup()
-            .addComponent(O_C_r_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_C_r_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_C_r_Box_Dir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_C_r_Box_DirFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout O_panelLayout = new javax.swing.GroupLayout(O_panel);
-    O_panel.setLayout(O_panelLayout);
-    O_panelLayout.setHorizontalGroup(
-        O_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, O_panelLayout.createSequentialGroup()
-            .addContainerGap()
-             .addComponent(O_tabpanel)
-            .addContainerGap() // truc
-        )
-    );
-    O_panelLayout.setVerticalGroup(
-        O_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(O_panelLayout.createSequentialGroup()
-            .addContainerGap()
-             .addComponent(O_tabpanel)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout O_PO_panelLayout = new javax.swing.GroupLayout(O_PO_panel);
-    O_PO_panel.setLayout(O_PO_panelLayout);
-    O_PO_panelLayout.setHorizontalGroup(
-        O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, O_PO_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(O_PO_predict_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_predict_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_PO_u_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_u_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_PO_d_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_d_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_PO_f_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_f_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_PO_i_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_i_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    O_PO_panelLayout.setVerticalGroup(
-        O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(O_PO_panelLayout.createSequentialGroup()
-            .addComponent(O_PO_predict_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_predict_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_u_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_u_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_d_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_d_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_f_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_f_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_i_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_PO_i_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout O_TO_panelLayout = new javax.swing.GroupLayout(O_TO_panel);
-    O_TO_panel.setLayout(O_TO_panelLayout);
-    O_TO_panelLayout.setHorizontalGroup(
-        O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, O_TO_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(O_TO_k_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_k_Box_DirFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_k_Box_Dir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_k_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_TO_m_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_m_Box_DirRep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_m_Box_Dir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_TO_h_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_h_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_TO_o_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_o_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_TO_s_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_s_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_TO_v_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_v_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    O_TO_panelLayout.setVerticalGroup(
-        O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(O_TO_panelLayout.createSequentialGroup()
-            .addComponent(O_TO_k_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_k_Box_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_k_Box_DirFiles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_k_Box_Dir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_m_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_m_Box_Dir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_m_Box_DirRep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_h_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_h_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_o_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_o_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_s_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_s_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_v_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_TO_v_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-
-    javax.swing.GroupLayout O_VO_panelLayout = new javax.swing.GroupLayout(O_VO_panel);
-    O_VO_panel.setLayout(O_VO_panelLayout);
-    O_VO_panelLayout.setHorizontalGroup(
-        O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, O_VO_panelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(O_VO_c_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_VO_c_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap()
-            .addComponent(O_VO_p_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_VO_p_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap() // truc
-        )
-    );
-    O_VO_panelLayout.setVerticalGroup(
-        O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(O_VO_panelLayout.createSequentialGroup()
-            .addComponent(O_VO_c_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_VO_c_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_VO_p_Box, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(O_VO_p_Box_Text, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE) // truc
-        )
-    );
-    
-    
-        miRdupEditors.setPreferredSize(new java.awt.Dimension(459,380));
-        miRdupEditors.addTab("miRdup Editor", general_jPanel1);
-        miRdupEditors.getAccessibleContext().setAccessibleName("miRdup");
         miRdupEditors.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 miRdupEditorsComponentShown(evt);
             }
         });
-    
-    
-        general_jPanel1.setPreferredSize(new java.awt.Dimension(459,380));
-        general_jPanel1.setName("general_jPanel1");
-    
+
+        general_jPanel1.setPreferredSize(new java.awt.Dimension(459, 380));
+
+        name_jLabel.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        name_jLabel.setText("Name");
+        name_jLabel.setName("name_jLabel"); // NOI18N
+
+        name_jTextField.setText("miRdup");
+        name_jTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_jTextField_ActionPerformed(evt);
+            }
+        });
+
+        rename_jButton.setText("Rename");
+        rename_jButton.setName("rename_jButton"); // NOI18N
+        rename_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rename_jButton_ActionPerformed(evt);
+            }
+        });
+
+        SelectOption.add(Default_Options_RButton);
+        Default_Options_RButton.setSelected(true);
+        Default_Options_RButton.setText("Default Options");
+        Default_Options_RButton.setName("Default_Options_RButton"); // NOI18N
+        Default_Options_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Default_Options_RButton_ActionPerformed(evt);
+            }
+        });
+
+        SelectOption.add(Train_Valid_and_Pred_RButton);
+        Train_Valid_and_Pred_RButton.setText("Train Valid and Pred");
+        Train_Valid_and_Pred_RButton.setName("Train_Valid_and_Pred_RButton"); // NOI18N
+        Train_Valid_and_Pred_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Train_Valid_and_Pred_RButton_ActionPerformed(evt);
+            }
+        });
+
+        SelectOption.add(Training_Section_RButton);
+        Training_Section_RButton.setText("Training Section");
+        Training_Section_RButton.setName("Training_Section_RButton"); // NOI18N
+        Training_Section_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Training_Section_RButton_ActionPerformed(evt);
+            }
+        });
+
+        Validation_Section_RButton.setText("Validation Section");
+        Validation_Section_RButton.setName("Validation_Section_RButton"); // NOI18N
+        Validation_Section_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Validation_Section_RButton_ActionPerformed(evt);
+            }
+        });
+
+        Prediction_Section_RButton.setText("Prediction Section");
+        Prediction_Section_RButton.setName("Prediction_Section_RButton"); // NOI18N
+        Prediction_Section_RButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Prediction_Section_RButton_ActionPerformed(evt);
+            }
+        });
+
+        O_C_panel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        O_C_r_Box.setText("r");
+        O_C_r_Box.setName("O_C_r_Box"); // NOI18N
+        O_C_r_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_C_r_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_C_r_Box_DirFile.setText("[path of vienna package]");
+        O_C_r_Box_DirFile.setName("O_C_r_Box_DirFile"); // NOI18N
+        O_C_r_Box_DirFile.setPreferredSize(new java.awt.Dimension(212, 27));
+
+        O_C_r_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        O_C_r_Box_Label.setText("path of vienna package");
+        O_C_r_Box_Label.setName("O_C_r_Box_Label"); // NOI18N
+
+        O_C_r_Box_Dir.setText("change it");
+        O_C_r_Box_Dir.setName("O_C_r_Box_Dir"); // NOI18N
+        O_C_r_Box_Dir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_C_r_Box_Dir_ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout O_C_panelLayout = new javax.swing.GroupLayout(O_C_panel);
+        O_C_panel.setLayout(O_C_panelLayout);
+        O_C_panelLayout.setHorizontalGroup(
+            O_C_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_C_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_C_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(O_C_panelLayout.createSequentialGroup()
+                        .addComponent(O_C_r_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_C_r_Box_DirFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(202, 202, 202)
+                        .addComponent(O_C_r_Box_Dir))
+                    .addComponent(O_C_r_Box_Label))
+                .addContainerGap())
+        );
+        O_C_panelLayout.setVerticalGroup(
+            O_C_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_C_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_C_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_C_r_Box)
+                    .addComponent(O_C_r_Box_DirFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(O_C_r_Box_Dir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(O_C_r_Box_Label)
+                .addContainerGap())
+        );
+
+        O_tabpanel.addTab("Configuration", O_C_panel);
+
+        O_TO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("O_TO_panel"));
+
+        O_TO_k_Box.setText("k");
+        O_TO_k_Box.setName("O_TO_k_Box"); // NOI18N
+        O_TO_k_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_k_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_k_Box_DirFiles.setText("Metazoa, Primates, Nematoda, Viridiplantae, monocotyledons");
+        O_TO_k_Box_DirFiles.setName("O_TO_k_Box_DirFiles"); // NOI18N
+        O_TO_k_Box_DirFiles.setPreferredSize(new java.awt.Dimension(212, 27));
+
+        O_TO_k_Box_Label.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        O_TO_k_Box_Label.setText("Default: all miRbase (option -k all, already set)");
+        O_TO_k_Box_Label.setName("O_TO_k_Box_Label"); // NOI18N
+
+        O_TO_k_Box_Dir.setText("change it");
+        O_TO_k_Box_Dir.setName("O_TO_k_Box_Dir"); // NOI18N
+        O_TO_k_Box_Dir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_k_Box_Dir_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_m_Box.setText("m");
+        O_TO_m_Box.setName("O_TO_m_Box"); // NOI18N
+        O_TO_m_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_m_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_m_Box_DirRep.setText("Matures miRNAs file, in FASTA format");
+        O_TO_m_Box_DirRep.setName("O_TO_m_Box_DirRep"); // NOI18N
+        O_TO_m_Box_DirRep.setPreferredSize(new java.awt.Dimension(212, 27));
+
+        O_TO_m_Box_Dir.setText("change it");
+        O_TO_m_Box_Dir.setName("O_TO_m_Box_Dir"); // NOI18N
+        O_TO_m_Box_Dir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_m_Box_Dir_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_h_Box.setText("h");
+        O_TO_h_Box.setName("O_TO_h_Box"); // NOI18N
+        O_TO_h_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_h_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_h_Box_Text.setText("Hairpins precursors file, in FASTA format");
+        O_TO_h_Box_Text.setName("O_TO_h_Box_Text"); // NOI18N
+        O_TO_h_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_TO_h_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_TO_h_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_TO_o_Box.setText("o");
+        O_TO_o_Box.setName("O_TO_o_Box"); // NOI18N
+        O_TO_o_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_o_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_o_Box_Text.setText("Organism list file from miRbase");
+        O_TO_o_Box_Text.setName("O_TO_o_Box_Text"); // NOI18N
+        O_TO_o_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_TO_o_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_TO_o_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_TO_s_Box.setText("s");
+        O_TO_s_Box.setName("O_TO_s_Box"); // NOI18N
+        O_TO_s_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_s_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_s_Box_Text.setText("Secondary structure RNAFold output format");
+        O_TO_s_Box_Text.setName("O_TO_s_Box_Text"); // NOI18N
+        O_TO_s_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_TO_s_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_TO_s_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_TO_v_Box.setText("v");
+        O_TO_v_Box.setName("O_TO_v_Box"); // NOI18N
+        O_TO_v_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_TO_v_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_TO_v_Box_Text.setText("Dataset to validate");
+        O_TO_v_Box_Text.setName("O_TO_v_Box_Text"); // NOI18N
+        O_TO_v_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_TO_v_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_TO_v_Box_Text_FocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout O_TO_panelLayout = new javax.swing.GroupLayout(O_TO_panel);
+        O_TO_panel.setLayout(O_TO_panelLayout);
+        O_TO_panelLayout.setHorizontalGroup(
+            O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_TO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(O_TO_panelLayout.createSequentialGroup()
+                        .addComponent(O_TO_k_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_k_Box_DirFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(369, 369, 369)
+                        .addComponent(O_TO_k_Box_Dir))
+                    .addGroup(O_TO_panelLayout.createSequentialGroup()
+                        .addComponent(O_TO_m_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_m_Box_DirRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_m_Box_Dir))
+                    .addGroup(O_TO_panelLayout.createSequentialGroup()
+                        .addComponent(O_TO_h_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_h_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_TO_panelLayout.createSequentialGroup()
+                        .addComponent(O_TO_o_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_o_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_TO_panelLayout.createSequentialGroup()
+                        .addComponent(O_TO_s_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_s_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_TO_panelLayout.createSequentialGroup()
+                        .addComponent(O_TO_v_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_TO_v_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(O_TO_k_Box_Label))
+                .addContainerGap())
+        );
+        O_TO_panelLayout.setVerticalGroup(
+            O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_TO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_TO_k_Box)
+                    .addComponent(O_TO_k_Box_DirFiles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(O_TO_k_Box_Dir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(O_TO_k_Box_Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_TO_m_Box)
+                    .addComponent(O_TO_m_Box_DirRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(O_TO_m_Box_Dir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_TO_h_Box)
+                    .addComponent(O_TO_h_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_TO_o_Box)
+                    .addComponent(O_TO_o_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_TO_s_Box)
+                    .addComponent(O_TO_s_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_TO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_TO_v_Box)
+                    .addComponent(O_TO_v_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        O_tabpanel.addTab("Training Options", O_TO_panel);
+
+        O_VO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("O_VO_panel"));
+
+        O_VO_c_Box.setText("c");
+        O_VO_c_Box.setName("O_VO_c_Box"); // NOI18N
+        O_VO_c_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_VO_c_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_VO_c_Box_Text.setText("model with miRdup");
+        O_VO_c_Box_Text.setName("O_VO_c_Box_Text"); // NOI18N
+        O_VO_c_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_VO_c_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_VO_c_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_VO_p_Box.setText("p");
+        O_VO_p_Box.setName("O_VO_p_Box"); // NOI18N
+        O_VO_p_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_VO_p_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_VO_p_Box_Text.setText("When you validate miRNAs on predicted pre-miRNAs");
+        O_VO_p_Box_Text.setName("O_VO_p_Box_Text"); // NOI18N
+        O_VO_p_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_VO_p_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_VO_p_Box_Text_FocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout O_VO_panelLayout = new javax.swing.GroupLayout(O_VO_panel);
+        O_VO_panel.setLayout(O_VO_panelLayout);
+        O_VO_panelLayout.setHorizontalGroup(
+            O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_VO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(O_VO_panelLayout.createSequentialGroup()
+                        .addComponent(O_VO_c_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_VO_c_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_VO_panelLayout.createSequentialGroup()
+                        .addComponent(O_VO_p_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_VO_p_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        O_VO_panelLayout.setVerticalGroup(
+            O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_VO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_VO_c_Box)
+                    .addComponent(O_VO_c_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_VO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_VO_p_Box)
+                    .addComponent(O_VO_p_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        O_tabpanel.addTab("Valid Options", O_VO_panel);
+
+        O_PO_panel.setBorder(javax.swing.BorderFactory.createTitledBorder("O_PO_panel"));
+
+        O_PO_predict_Box.setText("predict");
+        O_PO_predict_Box.setName("O_PO_predict_Box"); // NOI18N
+        O_PO_predict_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_PO_predict_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_PO_predict_Box_Text.setText("Enter in miRNA prediction mode");
+        O_PO_predict_Box_Text.setName("O_PO_predict_Box_Text"); // NOI18N
+        O_PO_predict_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_PO_predict_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_PO_predict_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_PO_u_Box.setText("u");
+        O_PO_u_Box.setName("O_PO_u_Box"); // NOI18N
+        O_PO_u_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_PO_u_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_PO_u_Box_Text.setText("Precursor sequence");
+        O_PO_u_Box_Text.setName("O_PO_u_Box_Text"); // NOI18N
+        O_PO_u_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_PO_u_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_PO_u_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_PO_d_Box.setText("d");
+        O_PO_d_Box.setName("O_PO_d_Box"); // NOI18N
+        O_PO_d_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_PO_d_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_PO_d_Box_Text.setText("Model");
+        O_PO_d_Box_Text.setName("O_PO_d_Box_Text"); // NOI18N
+        O_PO_d_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_PO_d_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_PO_d_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_PO_f_Box.setText("f");
+        O_PO_f_Box.setName("O_PO_f_Box"); // NOI18N
+        O_PO_f_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_PO_f_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_PO_f_Box_Text.setText("Outfile");
+        O_PO_f_Box_Text.setName("O_PO_f_Box_Text"); // NOI18N
+        O_PO_f_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_PO_f_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_PO_f_Box_Text_FocusLost(evt);
+            }
+        });
+
+        O_PO_i_Box.setText("i");
+        O_PO_i_Box.setName("O_PO_i_Box"); // NOI18N
+        O_PO_i_Box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                O_PO_i_Box_ActionPerformed(evt);
+            }
+        });
+
+        O_PO_i_Box_Text.setText("infile of pre-miRNAs");
+        O_PO_i_Box_Text.setName("O_PO_i_Box_Text"); // NOI18N
+        O_PO_i_Box_Text.setPreferredSize(new java.awt.Dimension(212, 27));
+        O_PO_i_Box_Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                O_PO_i_Box_Text_FocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout O_PO_panelLayout = new javax.swing.GroupLayout(O_PO_panel);
+        O_PO_panel.setLayout(O_PO_panelLayout);
+        O_PO_panelLayout.setHorizontalGroup(
+            O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_PO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(O_PO_panelLayout.createSequentialGroup()
+                        .addComponent(O_PO_predict_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_PO_predict_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_PO_panelLayout.createSequentialGroup()
+                        .addComponent(O_PO_u_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_PO_u_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_PO_panelLayout.createSequentialGroup()
+                        .addComponent(O_PO_d_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_PO_d_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_PO_panelLayout.createSequentialGroup()
+                        .addComponent(O_PO_f_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_PO_f_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(O_PO_panelLayout.createSequentialGroup()
+                        .addComponent(O_PO_i_Box)
+                        .addGap(18, 18, 18)
+                        .addComponent(O_PO_i_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        O_PO_panelLayout.setVerticalGroup(
+            O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_PO_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_PO_predict_Box)
+                    .addComponent(O_PO_predict_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_PO_u_Box)
+                    .addComponent(O_PO_u_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_PO_d_Box)
+                    .addComponent(O_PO_d_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_PO_f_Box)
+                    .addComponent(O_PO_f_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(O_PO_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(O_PO_i_Box)
+                    .addComponent(O_PO_i_Box_Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        O_tabpanel.addTab("Prediction Options", O_PO_panel);
+
+        javax.swing.GroupLayout O_panelLayout = new javax.swing.GroupLayout(O_panel);
+        O_panel.setLayout(O_panelLayout);
+        O_panelLayout.setHorizontalGroup(
+            O_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(O_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(O_tabpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        O_panelLayout.setVerticalGroup(
+            O_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(O_tabpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+        );
+
+        reset_jButton.setText("Reset default value");
+        reset_jButton.setName("reset_jButton"); // NOI18N
+        reset_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reset_jButton_ActionPerformed(evt);
+            }
+        });
+
+        stop_jButton.setText("Stop");
+        stop_jButton.setName("stop_jButton"); // NOI18N
+        stop_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stop_jButton_ActionPerformed(evt);
+            }
+        });
+
+        run_jButton.setText("Run");
+        run_jButton.setName("run_jButton"); // NOI18N
+        run_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                run_jButton_ActionPerformed(evt);
+            }
+        });
+
+        close_jButton.setText("Close");
+        close_jButton.setName("close_jButton"); // NOI18N
+        close_jButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                close_jButton_ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout general_jPanel1Layout = new javax.swing.GroupLayout(general_jPanel1);
+        general_jPanel1.setLayout(general_jPanel1Layout);
+        general_jPanel1Layout.setHorizontalGroup(
+            general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addComponent(name_jLabel)
+                .addGap(18, 18, 18)
+                .addComponent(name_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(rename_jButton))
+            .addComponent(O_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(general_jPanel1Layout.createSequentialGroup()
+                        .addComponent(reset_jButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(stop_jButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(run_jButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(close_jButton))
+                    .addGroup(general_jPanel1Layout.createSequentialGroup()
+                        .addComponent(Default_Options_RButton)
+                        .addGap(18, 18, 18)
+                        .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Training_Section_RButton)
+                            .addComponent(Train_Valid_and_Pred_RButton))
+                        .addGap(264, 264, 264)
+                        .addComponent(Validation_Section_RButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(Prediction_Section_RButton))))
+        );
+        general_jPanel1Layout.setVerticalGroup(
+            general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(general_jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(name_jLabel)
+                    .addComponent(name_jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rename_jButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Default_Options_RButton)
+                    .addComponent(Validation_Section_RButton)
+                    .addComponent(Prediction_Section_RButton)
+                    .addComponent(Train_Valid_and_Pred_RButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Training_Section_RButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(O_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(general_jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset_jButton)
+                    .addComponent(stop_jButton)
+                    .addComponent(run_jButton)
+                    .addComponent(close_jButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        miRdupEditors.addTab("miRdupEditors", general_jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(how_jButton))
-                    .addComponent(miRdupEditors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(how_jButton))
+            .addComponent(miRdupEditors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(how_jButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(miRdupEditors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(miRdupEditors, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-    
-       pack();
-    
+
+        how_jButton.getAccessibleContext().setAccessibleDescription("Computational prediction of the localization of microRNAs within their pre-miRNA");
+        miRdupEditors.getAccessibleContext().setAccessibleName("miRdupEditors");
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
     
     private void miRdupEditorsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_miRdupEditorsComponentShown
@@ -823,26 +837,49 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
     private void Default_Options_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Default_Options_RButton_ActionPerformed
         // TODO add your handling code here:
         Util.buttonEventSpinner(properties,Default_Options_RButton,null);
+        if (properties.isSet(Train_Valid_and_Pred_RButton.getName())) {
+            properties.remove(Train_Valid_and_Pred_RButton.getName());
+        }
+        else if (properties.isSet(Training_Section_RButton.getName())) {
+            properties.remove(Training_Section_RButton.getName());
+        }
+        menuFields(properties);
     }//GEN-LAST:event_Default_Options_RButton_ActionPerformed
 
     private void Train_Valid_and_Pred_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Train_Valid_and_Pred_RButton_ActionPerformed
         // TODO add your handling code here:
         Util.buttonEventSpinner(properties,Train_Valid_and_Pred_RButton,null);
+        if (properties.isSet(Default_Options_RButton.getName())) {
+            properties.remove(Default_Options_RButton.getName());
+        }
+        else if (properties.isSet(Training_Section_RButton.getName())) {
+            properties.remove(Training_Section_RButton.getName());
+        }
+        menuFields(properties);
     }//GEN-LAST:event_Train_Valid_and_Pred_RButton_ActionPerformed
 
     private void Training_Section_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Training_Section_RButton_ActionPerformed
         // TODO add your handling code here:
         Util.buttonEventSpinner(properties,Training_Section_RButton,null);
+        if (properties.isSet(Default_Options_RButton.getName())) {
+            properties.remove(Default_Options_RButton.getName());
+        }
+        else if (properties.isSet(Train_Valid_and_Pred_RButton.getName())) {
+            properties.remove(Train_Valid_and_Pred_RButton.getName());
+        }
+        menuFields(properties);
     }//GEN-LAST:event_Training_Section_RButton_ActionPerformed
 
     private void Validation_Section_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Validation_Section_RButton_ActionPerformed
         // TODO add your handling code here:
-        Util.buttonEventSpinner(properties,Validation_Section_RButton,null);
+//        Util.buttonEventSpinner(properties,Validation_Section_RButton,null);
+//        menuFields(properties);
     }//GEN-LAST:event_Validation_Section_RButton_ActionPerformed
 
     private void Prediction_Section_RButton_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Prediction_Section_RButton_ActionPerformed
         // TODO add your handling code here:
-        Util.buttonEventSpinner(properties,Prediction_Section_RButton,null);
+//        Util.buttonEventSpinner(properties,Prediction_Section_RButton,null);
+//        menuFields(properties);
     }//GEN-LAST:event_Prediction_Section_RButton_ActionPerformed
 
     private void O_TO_k_Box_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_O_TO_k_Box_ActionPerformed
@@ -1081,6 +1118,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
             this.O_TO_k_Box_DirFiles.setEnabled(true);
             this.O_TO_k_Box_Dir.setEnabled(true);
         } else {
+            properties.remove(O_TO_k_Box.getName());
             this.O_TO_k_Box_DirFiles.setEnabled(false);
             this.O_TO_k_Box_Dir.setEnabled(false);
         }
@@ -1090,6 +1128,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
             this.O_TO_m_Box_DirRep.setEnabled(true);
             this.O_TO_m_Box_Dir.setEnabled(true);
         } else {
+            properties.remove(O_TO_m_Box.getName());
             this.O_TO_m_Box_DirRep.setEnabled(false);
             this.O_TO_m_Box_Dir.setEnabled(false);
         }
@@ -1098,6 +1137,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_TO_h_Box.getName()) && e==true) {
             this.O_TO_h_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_TO_h_Box.getName());
             this.O_TO_h_Box_Text.setEnabled(false);
         }
 
@@ -1105,6 +1145,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_TO_o_Box.getName()) && e==true) {
             this.O_TO_o_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_TO_o_Box.getName());
             this.O_TO_o_Box_Text.setEnabled(false);
         }
 
@@ -1112,6 +1153,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_TO_s_Box.getName()) && e==true) {
             this.O_TO_s_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_TO_s_Box.getName());
             this.O_TO_s_Box_Text.setEnabled(false);
         }
 
@@ -1119,6 +1161,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_TO_v_Box.getName()) && e==true) {
             this.O_TO_v_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_TO_v_Box.getName());
             this.O_TO_v_Box_Text.setEnabled(false);
         }
 
@@ -1129,6 +1172,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_VO_c_Box.getName()) && e==true) {
             this.O_VO_c_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_VO_c_Box.getName());
             this.O_VO_c_Box_Text.setEnabled(false);
         }
 
@@ -1136,6 +1180,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_VO_p_Box.getName()) && e==true) {
             this.O_VO_p_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_VO_p_Box.getName());
             this.O_VO_p_Box_Text.setEnabled(false);
         }
 
@@ -1146,6 +1191,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_PO_predict_Box.getName()) && e==true) {
             this.O_PO_predict_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_PO_predict_Box.getName());
             this.O_PO_predict_Box_Text.setEnabled(false);
         }
 
@@ -1153,6 +1199,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_PO_u_Box.getName()) && e==true) {
             this.O_PO_u_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_PO_u_Box.getName());
             this.O_PO_u_Box_Text.setEnabled(false);
         }
 
@@ -1160,6 +1207,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_PO_d_Box.getName()) && e==true) {
             this.O_PO_d_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_PO_d_Box.getName());
             this.O_PO_d_Box_Text.setEnabled(false);
         }
 
@@ -1167,6 +1215,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_PO_f_Box.getName()) && e==true) {
             this.O_PO_f_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_PO_f_Box.getName());
             this.O_PO_f_Box_Text.setEnabled(false);
         }
 
@@ -1174,6 +1223,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (properties.isSet(O_PO_i_Box.getName()) && e==true) {
             this.O_PO_i_Box_Text.setEnabled(true);
         } else {
+            properties.remove(O_PO_i_Box.getName());
             this.O_PO_i_Box_Text.setEnabled(false);
         }
 
@@ -1185,6 +1235,7 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
             this.O_C_r_Box_DirFile.setEnabled(true);
             this.O_C_r_Box_Dir.setEnabled(true);
         } else {
+            properties.remove(O_C_r_Box.getName());
             this.O_C_r_Box_DirFile.setEnabled(false);
             this.O_C_r_Box_Dir.setEnabled(false);
         }
@@ -1395,9 +1446,9 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
         if (!(properties.isSet(Default_Options_RButton.getName()))
         && !(properties.isSet(Train_Valid_and_Pred_RButton.getName()))
         && !(properties.isSet(Training_Section_RButton.getName()))
-        && !(properties.isSet(Validation_Section_RButton.getName()))
-        && !(properties.isSet(Prediction_Section_RButton.getName()))
         ) {
+            Util.buttonEventSpinner(properties,Default_Options_RButton,null);
+            Default_Options_RButton.setSelected(true);
             b = false;
         }
         
@@ -1409,28 +1460,24 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
      ******************************************************************/
     
     private void menuFields(workflow_properties properties) {
+        enabledFunctionForConfiguration (true);
         if (properties.isSet(Default_Options_RButton.getName())) {
-            Default_Options_RButton.setEnabled(true);
+            Default_Options_RButton.setSelected(true);
             enabledFunctionForTraining_Options (false);
             enabledFunctionForValidation_Options (false);
             enabledFunctionForPrediction_Options (false);
-            enabledFunctionForConfiguration (false);
         }
-        else if (properties.isSet(Default_Options_RButton.getName())) {
-            Default_Options_RButton.setEnabled(true);
-            enabledFunctionForConfiguration (true);
-        }
-        else if (properties.isSet(Validation_Section_RButton.getName())) {
-            Validation_Section_RButton.setEnabled(true);
+        else if (properties.isSet(Train_Valid_and_Pred_RButton.getName())) {
+            Train_Valid_and_Pred_RButton.setSelected(true);
             enabledFunctionForValidation_Options (true);
+            enabledFunctionForTraining_Options (true);
+            enabledFunctionForPrediction_Options (true);
         }
         else if (properties.isSet(Training_Section_RButton.getName())) {
-            Training_Section_RButton.setEnabled(true);
+            Training_Section_RButton.setSelected(true);
+            enabledFunctionForPrediction_Options (false);
             enabledFunctionForTraining_Options (true);
-        }
-        else if (properties.isSet(Prediction_Section_RButton.getName())) {
-            Prediction_Section_RButton.setEnabled(true);
-            enabledFunctionForPrediction_Options (true);
+            enabledFunctionForValidation_Options (false);
         }
     }
 
@@ -1450,32 +1497,35 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton how_jButton;           //Basic Panel
-    private javax.swing.JTabbedPane miRdupEditors; //Basic Panel
-    private javax.swing.JPanel general_jPanel1;         //Basic Panel
-    private javax.swing.JButton rename_jButton;        //Basic Panel
-    private javax.swing.JTextField name_jTextField;    //Basic Panel
-    private javax.swing.JLabel name_jLabel;            //Basic Panel
-    private javax.swing.JButton reset_jButton;         //Basic Panel
-    private javax.swing.JButton stop_jButton;          //Basic Panel
-    private javax.swing.JButton run_jButton;            //Basic Panel
-    private javax.swing.JButton close_jButton;          //Basic Panel
     private javax.swing.JRadioButton Default_Options_RButton;
-    private javax.swing.JRadioButton Train_Valid_and_Pred_RButton;
-    private javax.swing.JRadioButton Training_Section_RButton;
-    private javax.swing.JRadioButton Validation_Section_RButton;
-    private javax.swing.JRadioButton Prediction_Section_RButton;
-    private javax.swing.JCheckBox O_TO_k_Box;
-    private javax.swing.JLabel O_TO_k_Box_Label;
-    private javax.swing.JTextField O_TO_k_Box_DirFiles;
-    private javax.swing.JButton O_TO_k_Box_Dir;
-    private javax.swing.JCheckBox O_TO_m_Box;
-    private javax.swing.JTextField O_TO_m_Box_DirRep;
-    private javax.swing.JButton O_TO_m_Box_Dir;
+    private javax.swing.JPanel O_C_panel;
+    private javax.swing.JCheckBox O_C_r_Box;
+    private javax.swing.JButton O_C_r_Box_Dir;
+    private javax.swing.JTextField O_C_r_Box_DirFile;
+    private javax.swing.JLabel O_C_r_Box_Label;
+    private javax.swing.JCheckBox O_PO_d_Box;
+    private javax.swing.JTextField O_PO_d_Box_Text;
+    private javax.swing.JCheckBox O_PO_f_Box;
+    private javax.swing.JTextField O_PO_f_Box_Text;
+    private javax.swing.JCheckBox O_PO_i_Box;
+    private javax.swing.JTextField O_PO_i_Box_Text;
+    private javax.swing.JPanel O_PO_panel;
+    private javax.swing.JCheckBox O_PO_predict_Box;
+    private javax.swing.JTextField O_PO_predict_Box_Text;
+    private javax.swing.JCheckBox O_PO_u_Box;
+    private javax.swing.JTextField O_PO_u_Box_Text;
     private javax.swing.JCheckBox O_TO_h_Box;
     private javax.swing.JTextField O_TO_h_Box_Text;
+    private javax.swing.JCheckBox O_TO_k_Box;
+    private javax.swing.JButton O_TO_k_Box_Dir;
+    private javax.swing.JTextField O_TO_k_Box_DirFiles;
+    private javax.swing.JLabel O_TO_k_Box_Label;
+    private javax.swing.JCheckBox O_TO_m_Box;
+    private javax.swing.JButton O_TO_m_Box_Dir;
+    private javax.swing.JTextField O_TO_m_Box_DirRep;
     private javax.swing.JCheckBox O_TO_o_Box;
     private javax.swing.JTextField O_TO_o_Box_Text;
+    private javax.swing.JPanel O_TO_panel;
     private javax.swing.JCheckBox O_TO_s_Box;
     private javax.swing.JTextField O_TO_s_Box_Text;
     private javax.swing.JCheckBox O_TO_v_Box;
@@ -1484,26 +1534,24 @@ public class miRdupEditors extends javax.swing.JDialog implements EditorInterfac
     private javax.swing.JTextField O_VO_c_Box_Text;
     private javax.swing.JCheckBox O_VO_p_Box;
     private javax.swing.JTextField O_VO_p_Box_Text;
-    private javax.swing.JCheckBox O_PO_predict_Box;
-    private javax.swing.JTextField O_PO_predict_Box_Text;
-    private javax.swing.JCheckBox O_PO_u_Box;
-    private javax.swing.JTextField O_PO_u_Box_Text;
-    private javax.swing.JCheckBox O_PO_d_Box;
-    private javax.swing.JTextField O_PO_d_Box_Text;
-    private javax.swing.JCheckBox O_PO_f_Box;
-    private javax.swing.JTextField O_PO_f_Box_Text;
-    private javax.swing.JCheckBox O_PO_i_Box;
-    private javax.swing.JTextField O_PO_i_Box_Text;
-    private javax.swing.JCheckBox O_C_r_Box;
-    private javax.swing.JTextField O_C_r_Box_DirFile;
-    private javax.swing.JLabel O_C_r_Box_Label;
-    private javax.swing.JButton O_C_r_Box_Dir;
-    private javax.swing.JTabbedPane O_tabpanel;
-    private javax.swing.JPanel O_C_panel;
-    private javax.swing.JPanel O_panel;
-    private javax.swing.JPanel O_PO_panel;
-    private javax.swing.JPanel O_TO_panel;
     private javax.swing.JPanel O_VO_panel;
+    private javax.swing.JPanel O_panel;
+    private javax.swing.JTabbedPane O_tabpanel;
+    private javax.swing.JRadioButton Prediction_Section_RButton;
+    private javax.swing.ButtonGroup SelectOption;
+    private javax.swing.JRadioButton Train_Valid_and_Pred_RButton;
+    private javax.swing.JRadioButton Training_Section_RButton;
+    private javax.swing.JRadioButton Validation_Section_RButton;
+    private javax.swing.JButton close_jButton;
+    private javax.swing.JPanel general_jPanel1;
+    private javax.swing.JButton how_jButton;
+    private javax.swing.JTabbedPane miRdupEditors;
+    private javax.swing.JLabel name_jLabel;
+    private javax.swing.JTextField name_jTextField;
+    private javax.swing.JButton rename_jButton;
+    private javax.swing.JButton reset_jButton;
+    private javax.swing.JButton run_jButton;
+    private javax.swing.JButton stop_jButton;
     // End of variables declaration//GEN-END:variables
     }
 

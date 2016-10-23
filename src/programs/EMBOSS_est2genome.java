@@ -170,7 +170,7 @@ public class EMBOSS_est2genome extends RunProgram {
         // TEST Docker initialisation
         doName = Docker.getContainersVal(doName);
         if (!dockerInit(outputPath,doSharedFolder,doName,doImage)) {
-            Docker.cleanContainers(doName);
+            Docker.cleanContainer(doName);
             return false;
         } else {
             properties.put("DOCKERName",doName);
@@ -227,10 +227,8 @@ public class EMBOSS_est2genome extends RunProgram {
 
     @Override
     public void post_parseOutput() {
-        Util.deleteDir(outputPath+File.separator+"INPUTS");
-        ArrayList<String> a = new ArrayList<String>();
-        a.add(doName);
-        Docker.cleanContainers(a);
+        Util.deleteDir(inputPath);
+        Docker.cleanContainer(doName);
         Est2genomeFile.saveFile(properties,output1,"EMBOSS_est2genome","Est2genomeFile");
         Results.saveResultsPgrmOutput(properties,this.getPgrmOutput(),"EMBOSS_est2genome");
     }
